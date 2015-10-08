@@ -1,0 +1,2141 @@
+
+Allocating common symbols
+Common symbol       size              file
+
+Application_Pointer_Mgr
+                    0x4               C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+CAN_InitStructure   0xc               C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+CAN_FilterInitStructure
+                    0x10              C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+dummy_var           0x1               C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+canMessage          0x14              C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+RxMessage           0x14              C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+
+Discarded input sections
+
+ .text          0x00000000       0x14 C:\Program Files (x86)\Raisonance\Ride\Lib\ARM\startup_stm32f10x_md.o
+ .data          0x00000000        0x0 C:\Program Files (x86)\Raisonance\Ride\Lib\ARM\startup_stm32f10x_md.o
+ .bss           0x00000000        0x0 C:\Program Files (x86)\Raisonance\Ride\Lib\ARM\startup_stm32f10x_md.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+ .text.RCC_Config_HSE_PLL_Max
+                0x00000000       0x6c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.NMIException
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.HardFaultException
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.MemManageException
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.BusFaultException
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.UsageFaultException
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.DebugMonitor
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.SVCHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.PendSVC  0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.SysTickHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.USB_HP_CAN_TX_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.USB_LP_CAN_RX0_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.CAN_RX1_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.CAN_SCE_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.TIM8_BRK_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.TIM8_UP_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.TIM8_TRG_COM_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.TIM8_CC_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.ADC3_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.FSMC_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.SDIO_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.TIM5_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.SPI3_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.UART4_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.UART5_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.TIM6_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.TIM7_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.DMA2_Channel1_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.DMA2_Channel2_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.DMA2_Channel3_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text.DMA2_Channel4_5_IRQHandler
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .text.LCD_Handler
+                0x00000000       0x58 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .text.LCD_ReadLCDData
+                0x00000000       0x74 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .text.LCD_SetRect_For_Cmd
+                0x00000000       0x84 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .text.LCD_DisplayChar
+                0x00000000      0x124 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .text.LCD_RectRead
+                0x00000000       0x3c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .text.LCD_GetPixel
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .text.LCD_DrawPixel
+                0x00000000       0x28 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .text.LCD_FillRect
+                0x00000000       0x64 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .text.LCD_DrawRect
+                0x00000000       0x60 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .text.LCD_SetBackLightOff
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .text.LCD_SetBackLightOn
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .text.LCD_GetBackLight
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .text.LCD_SetRotateScreen
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .text.LCD_GetRotateScreen
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .text.LCD_SetScreenOrientation
+                0x00000000       0x4c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .text.LCD_GetScreenOrientation
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .rodata        0x00000000      0x534 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ COMMON         0x00000000        0x5 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_DeInit
+                0x00000000       0x74 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_Init
+                0x00000000       0x50 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_StructInit
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_Cmd  0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_DMACmd
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_ITConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_ResetCalibration
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_GetResetCalibrationStatus
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_StartCalibration
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_GetCalibrationStatus
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_SoftwareStartConvCmd
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_GetSoftwareStartConvStatus
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_DiscModeChannelCountConfig
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_DiscModeCmd
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_RegularChannelConfig
+                0x00000000       0xb4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_ExternalTrigConvCmd
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_GetConversionValue
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_GetDualModeConversionValue
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_AutoInjectedConvCmd
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_InjectedDiscModeCmd
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_ExternalTrigInjectedConvConfig
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_ExternalTrigInjectedConvCmd
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_SoftwareStartInjectedConvCmd
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_GetSoftwareStartInjectedConvCmdStatus
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_InjectedChannelConfig
+                0x00000000       0x70 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_InjectedSequencerLengthConfig
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_SetInjectedOffset
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_GetInjectedConversionValue
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_AnalogWatchdogCmd
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_AnalogWatchdogThresholdsConfig
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_AnalogWatchdogSingleChannelConfig
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_TempSensorVrefintCmd
+                0x00000000       0x28 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_GetFlagStatus
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_ClearFlag
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_GetITStatus
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text.ADC_ClearITPendingBit
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .text.BKP_DeInit
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .text.BKP_TamperPinLevelConfig
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .text.BKP_TamperPinCmd
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .text.BKP_ITConfig
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .text.BKP_RTCOutputConfig
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .text.BKP_SetRTCCalibrationValue
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .text.BKP_WriteBackupRegister
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .text.BKP_ReadBackupRegister
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .text.BKP_GetFlagStatus
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .text.BKP_ClearFlag
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .text.BKP_GetITStatus
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .text.BKP_ClearITPendingBit
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .text.CheckITStatus
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .text.CAN_DeInit
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .text.CAN_StructInit
+                0x00000000       0x28 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .text.CAN_ITConfig
+                0x00000000       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .text.CAN_TransmitStatus
+                0x00000000       0x90 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .text.CAN_CancelTransmit
+                0x00000000       0x44 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .text.CAN_FIFORelease
+                0x00000000       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .text.CAN_MessagePending
+                0x00000000       0x2c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .text.CAN_Receive
+                0x00000000       0xc8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .text.CAN_Sleep
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .text.CAN_WakeUp
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .text.CAN_GetFlagStatus
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .text.CAN_ClearFlag
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .text.CAN_GetITStatus
+                0x00000000      0x148 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .text.CAN_ClearITPendingBit
+                0x00000000      0x110 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+ .text.CRC_ResetDR
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+ .text.CRC_CalcCRC
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+ .text.CRC_CalcBlockCRC
+                0x00000000       0x30 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+ .text.CRC_GetCRC
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+ .text.CRC_SetIDRegister
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+ .text.CRC_GetIDRegister
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .text.DAC_DeInit
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .text.DAC_Init
+                0x00000000       0x38 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .text.DAC_StructInit
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .text.DAC_Cmd  0x00000000       0x34 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .text.DAC_DMACmd
+                0x00000000       0x34 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .text.DAC_SoftwareTriggerCmd
+                0x00000000       0x3c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .text.DAC_DualSoftwareTriggerCmd
+                0x00000000       0x28 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .text.DAC_WaveGenerationCmd
+                0x00000000       0x2c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .text.DAC_SetChannel1Data
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .text.DAC_SetChannel2Data
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .text.DAC_SetDualChannelData
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .text.DAC_GetDataOutputValue
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o
+ .text.DBGMCU_GetREVID
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o
+ .text.DBGMCU_GetDEVID
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o
+ .text.DBGMCU_Config
+                0x00000000       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .text.DMA_DeInit
+                0x00000000      0x1b0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .text.DMA_Init
+                0x00000000       0x40 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .text.DMA_StructInit
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .text.DMA_Cmd  0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .text.DMA_ITConfig
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .text.DMA_GetCurrDataCounter
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .text.DMA_GetFlagStatus
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .text.DMA_ClearFlag
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .text.DMA_GetITStatus
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .text.DMA_ClearITPendingBit
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .text.EXTI_DeInit
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .text.EXTI_Init
+                0x00000000       0x9c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .text.EXTI_StructInit
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .text.EXTI_GenerateSWInterrupt
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .text.EXTI_GetFlagStatus
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .text.EXTI_ClearFlag
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .text.EXTI_GetITStatus
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .text.EXTI_ClearITPendingBit
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_flash.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_flash.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_flash.o
+ .text.FLASH_SetLatency
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_flash.o
+ .text.FLASH_HalfCycleAccessCmd
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_flash.o
+ .text.FLASH_PrefetchBufferCmd
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_flash.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .text.FSMC_NORSRAMDeInit
+                0x00000000       0x3c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .text.FSMC_NANDDeInit
+                0x00000000       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .text.FSMC_PCCARDDeInit
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .text.FSMC_NORSRAMInit
+                0x00000000       0xd8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .text.FSMC_NANDInit
+                0x00000000       0x6c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .text.FSMC_PCCARDInit
+                0x00000000       0x74 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .text.FSMC_NORSRAMStructInit
+                0x00000000       0x70 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .text.FSMC_NANDStructInit
+                0x00000000       0x40 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .text.FSMC_PCCARDStructInit
+                0x00000000       0x44 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .text.FSMC_NORSRAMCmd
+                0x00000000       0x30 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .text.FSMC_NANDCmd
+                0x00000000       0x38 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .text.FSMC_PCCARDCmd
+                0x00000000       0x30 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .text.FSMC_NANDECCCmd
+                0x00000000       0x38 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .text.FSMC_GetECC
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .text.FSMC_ITConfig
+                0x00000000       0x5c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .text.FSMC_GetFlagStatus
+                0x00000000       0x2c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .text.FSMC_ClearFlag
+                0x00000000       0x30 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .text.FSMC_GetITStatus
+                0x00000000       0x38 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .text.FSMC_ClearITPendingBit
+                0x00000000       0x30 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .text.GPIO_DeInit
+                0x00000000      0x11c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .text.GPIO_AFIODeInit
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .text.GPIO_StructInit
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .text.GPIO_ReadInputDataBit
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .text.GPIO_ReadOutputDataBit
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .text.GPIO_ReadOutputData
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .text.GPIO_SetBits
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .text.GPIO_ResetBits
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .text.GPIO_Write
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .text.GPIO_PinLockConfig
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .text.GPIO_EventOutputConfig
+                0x00000000       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .text.GPIO_EventOutputCmd
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .text.GPIO_EXTILineConfig
+                0x00000000       0x44 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_DeInit
+                0x00000000       0x50 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_Init
+                0x00000000      0x104 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_StructInit
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_Cmd  0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_DMACmd
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_DMALastTransferCmd
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_GenerateSTART
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_GenerateSTOP
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_AcknowledgeConfig
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_OwnAddress2Config
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_DualAddressCmd
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_GeneralCallCmd
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_ITConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_SendData
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_ReceiveData
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_Send7bitAddress
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_ReadRegister
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_SoftwareResetCmd
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_SMBusAlertConfig
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_TransmitPEC
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_PECPositionConfig
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_CalculatePEC
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_GetPEC
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_ARPCmd
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_StretchClockCmd
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_FastModeDutyCycleConfig
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_GetLastEvent
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_CheckEvent
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_GetFlagStatus
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_ClearFlag
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_GetITStatus
+                0x00000000       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text.I2C_ClearITPendingBit
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+ .text.IWDG_WriteAccessCmd
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+ .text.IWDG_SetPrescaler
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+ .text.IWDG_SetReload
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+ .text.IWDG_ReloadCounter
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+ .text.IWDG_Enable
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+ .text.IWDG_GetFlagStatus
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_lib.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_lib.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_lib.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_DeInit
+                0x00000000       0x40 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_SCBDeInit
+                0x00000000       0x34 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_PriorityGroupConfig
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_Init
+                0x00000000       0xac C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_StructInit
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_SETPRIMASK
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_RESETPRIMASK
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_SETFAULTMASK
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_RESETFAULTMASK
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_BASEPRICONFIG
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_GetBASEPRI
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_GetCurrentPendingIRQChannel
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_GetIRQChannelPendingBitStatus
+                0x00000000       0x2c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_SetIRQChannelPendingBit
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_ClearIRQChannelPendingBit
+                0x00000000       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_GetCurrentActiveHandler
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_GetIRQChannelActiveBitStatus
+                0x00000000       0x2c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_GetCPUID
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_SetVectorTable
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_GenerateSystemReset
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_GenerateCoreReset
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_SystemLPConfig
+                0x00000000       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_SystemHandlerConfig
+                0x00000000       0x30 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_SystemHandlerPriorityConfig
+                0x00000000       0x64 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_GetSystemHandlerPendingBitStatus
+                0x00000000       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_SetSystemHandlerPendingBit
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_ClearSystemHandlerPendingBit
+                0x00000000       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_GetSystemHandlerActiveBitStatus
+                0x00000000       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_GetFaultHandlerSources
+                0x00000000       0x48 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text.NVIC_GetFaultAddress
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .text.PWR_DeInit
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .text.PWR_BackupAccessCmd
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .text.PWR_PVDCmd
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .text.PWR_PVDLevelConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .text.PWR_WakeUpPinCmd
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .text.PWR_EnterSTOPMode
+                0x00000000       0x38 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .text.PWR_EnterSTANDBYMode
+                0x00000000       0x30 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .text.PWR_GetFlagStatus
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .text.PWR_ClearFlag
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_DeInit
+                0x00000000       0x44 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_HSEConfig
+                0x00000000       0x4c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_AdjustHSICalibrationValue
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_HSICmd
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_PLLConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_PLLCmd
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_SYSCLKConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_GetSYSCLKSource
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_HCLKConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_PCLK1Config
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_PCLK2Config
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_ITConfig
+                0x00000000       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_USBCLKConfig
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_ADCCLKConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_LSEConfig
+                0x00000000       0x3c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_LSICmd
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_RTCCLKConfig
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_RTCCLKCmd
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_GetClocksFreq
+                0x00000000       0xe0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_AHBPeriphClockCmd
+                0x00000000       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_BackupResetCmd
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_ClockSecuritySystemCmd
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_MCOConfig
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_GetFlagStatus
+                0x00000000       0x34 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_WaitForHSEStartUp
+                0x00000000       0x38 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_ClearFlag
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_GetITStatus
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text.RCC_ClearITPendingBit
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .rodata        0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .text.RTC_ITConfig
+                0x00000000       0x28 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .text.RTC_EnterConfigMode
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .text.RTC_ExitConfigMode
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .text.RTC_GetCounter
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .text.RTC_SetCounter
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .text.RTC_SetPrescaler
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .text.RTC_SetAlarm
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .text.RTC_GetDivider
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .text.RTC_WaitForLastTask
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .text.RTC_WaitForSynchro
+                0x00000000       0x2c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .text.RTC_GetFlagStatus
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .text.RTC_ClearFlag
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .text.RTC_GetITStatus
+                0x00000000       0x28 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .text.RTC_ClearITPendingBit
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_DeInit
+                0x00000000       0x28 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_Init
+                0x00000000       0x34 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_StructInit
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_ClockCmd
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_SetPowerState
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_GetPowerState
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_ITConfig
+                0x00000000       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_DMACmd
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_SendCommand
+                0x00000000       0x30 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_CmdStructInit
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_GetCommandResponse
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_GetResponse
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_DataConfig
+                0x00000000       0x30 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_DataStructInit
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_GetDataCounter
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_ReadData
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_WriteData
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_GetFIFOCount
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_StartSDIOReadWait
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_StopSDIOReadWait
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_SetSDIOReadWaitMode
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_SetSDIOOperation
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_SendSDIOSuspendCmd
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_CommandCompletionCmd
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_CEATAITCmd
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_SendCEATACmd
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_GetFlagStatus
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_ClearFlag
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_GetITStatus
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text.SDIO_ClearITPendingBit
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.SPI_I2S_DeInit
+                0x00000000       0x78 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.SPI_Init
+                0x00000000       0x48 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.I2S_Init
+                0x00000000       0xbc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.SPI_StructInit
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.I2S_StructInit
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.SPI_Cmd  0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.I2S_Cmd  0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.SPI_I2S_ITConfig
+                0x00000000       0x28 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.SPI_I2S_DMACmd
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.SPI_I2S_SendData
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.SPI_I2S_ReceiveData
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.SPI_NSSInternalSoftwareConfig
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.SPI_SSOutputCmd
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.SPI_DataSizeConfig
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.SPI_TransmitCRC
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.SPI_CalculateCRC
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.SPI_GetCRC
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.SPI_GetCRCPolynomial
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.SPI_BiDirectionalLineConfig
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.SPI_I2S_GetFlagStatus
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.SPI_I2S_ClearFlag
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.SPI_I2S_GetITStatus
+                0x00000000       0x34 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text.SPI_I2S_ClearITPendingBit
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+ .text.SysTick_CLKSourceConfig
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+ .text.SysTick_SetReload
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+ .text.SysTick_CounterCmd
+                0x00000000       0x34 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+ .text.SysTick_ITConfig
+                0x00000000       0x28 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+ .text.SysTick_GetCounter
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+ .text.SysTick_GetFlagStatus
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TI1_Config
+                0x00000000       0x48 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TI2_Config
+                0x00000000       0x4c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_OC1Init
+                0x00000000       0xa0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_OC3Init
+                0x00000000       0xac C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_OC4Init
+                0x00000000       0x8c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_BDTRConfig
+                0x00000000       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_ICStructInit
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_BDTRStructInit
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_CtrlPWMOutputs
+                0x00000000       0x28 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_GenerateEvent
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_DMAConfig
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_DMACmd
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_InternalClockConfig
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_ETRConfig
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_ETRClockMode2Config
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_ETRClockMode1Config
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_PrescalerConfig
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_CounterModeConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_SelectInputTrigger
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_TIxExternalClockConfig
+                0x00000000       0x34 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_ITRxExternalClockConfig
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_EncoderInterfaceConfig
+                0x00000000       0x50 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_ForcedOC1Config
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_ForcedOC2Config
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_ForcedOC3Config
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_ForcedOC4Config
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_SelectCOM
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_SelectCCDMA
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_CCPreloadControl
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_OC1PreloadConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_OC2PreloadConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_OC3PreloadConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_OC1FastConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_OC2FastConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_OC3FastConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_OC4FastConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_ClearOC1Ref
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_ClearOC2Ref
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_ClearOC3Ref
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_ClearOC4Ref
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_OC1PolarityConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_OC1NPolarityConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_OC2PolarityConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_OC2NPolarityConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_OC3PolarityConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_OC3NPolarityConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_OC4PolarityConfig
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_CCxCmd
+                0x00000000       0x28 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_CCxNCmd
+                0x00000000       0x28 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_SelectOCxM
+                0x00000000       0x70 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_UpdateDisableConfig
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_UpdateRequestConfig
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_SelectHallSensor
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_SelectOnePulseMode
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_SelectOutputTrigger
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_SelectSlaveMode
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_SelectMasterSlaveMode
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_SetCounter
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_SetAutoreload
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_SetCompare1
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_SetCompare2
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_SetCompare3
+                0x00000000        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_SetCompare4
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_SetIC1Prescaler
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_SetIC2Prescaler
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_PWMIConfig
+                0x00000000       0x68 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_SetIC3Prescaler
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_SetIC4Prescaler
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_ICInit
+                0x00000000       0xe0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_SetClockDivision
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_GetCapture1
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_GetCapture2
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_GetCapture3
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_GetCapture4
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_GetCounter
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_GetPrescaler
+                0x00000000        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_GetFlagStatus
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_ClearFlag
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_GetITStatus
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text.TIM_ClearITPendingBit
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_DeInit
+                0x00000000       0xd0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_Init
+                0x00000000       0xb4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_StructInit
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_ClockInit
+                0x00000000       0x2c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_ClockStructInit
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_Cmd
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_ITConfig
+                0x00000000       0x3c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_DMACmd
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_SetAddress
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_WakeUpConfig
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_ReceiverWakeUpCmd
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_LINBreakDetectLengthConfig
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_LINCmd
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_SendData
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_ReceiveData
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_SendBreak
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_SetGuardTime
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_SetPrescaler
+                0x00000000       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_SmartCardCmd
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_SmartCardNACKCmd
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_HalfDuplexCmd
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_IrDAConfig
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_IrDACmd
+                0x00000000       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_GetFlagStatus
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_ClearFlag
+                0x00000000        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_GetITStatus
+                0x00000000       0x54 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text.USART_ClearITPendingBit
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .text          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+ .data          0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+ .bss           0x00000000        0x0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+ .text.WWDG_DeInit
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+ .text.WWDG_SetPrescaler
+                0x00000000       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+ .text.WWDG_SetWindowValue
+                0x00000000       0x1c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+ .text.WWDG_EnableIT
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+ .text.WWDG_SetCounter
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+ .text.WWDG_Enable
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+ .text.WWDG_GetFlagStatus
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+ .text.WWDG_ClearFlag
+                0x00000000       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+RAM              0x20000000         0x00005000         xrw
+FLASH            0x08000000         0x00010000         xr
+STARTFLASH       0x00000000         0x00000000         xr
+CRPPATCH         0x00000000         0x00000000         r
+FLASHPATCH       0x00000000         0x00000000         r
+ENDFLASH         0x00000000         0x00000000         xr
+FLASHB1          0x00000000         0x00000000         xr
+EXTMEMB0         0x00000000         0x00000000         xr
+EXTMEMB1         0x00000000         0x00000000         xr
+EXTMEMB2         0x00000000         0x00000000         xr
+EXTMEMB3         0x00000000         0x00000000         xr
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD C:\Program Files (x86)\Raisonance\Ride\Lib\ARM\startup_stm32f10x_md.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_flash.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_lib.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+LOAD C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+START GROUP
+LOAD C:\Program Files (x86)\Raisonance\Ride\Lib\ARM\std_sbrk_thumb.lib
+LOAD C:\Program Files (x86)\Raisonance\Ride\Lib\ARM\smallprintf_thumb.a
+LOAD c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a
+LOAD c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libm.a
+END GROUP
+                0x00000400                __Stack_Size = 0x400
+                0x00000400                PROVIDE (_Stack_Size, __Stack_Size)
+                0x20004c00                __Stack_Init = (_estack - __Stack_Size)
+                0x20004c00                PROVIDE (_Stack_Init, __Stack_Init)
+                0x00000100                _Minimum_Stack_Size = 0x100
+                0x00000000                PROVIDE (Undefined_Handler, 0x0)
+                0x00000000                PROVIDE (SWI_Handler, 0x0)
+                0x00000000                PROVIDE (IRQ_Handler, 0x0)
+                0x00000000                PROVIDE (Prefetch_Handler, 0x0)
+                0x00000000                PROVIDE (Abort_Handler, 0x0)
+                0x00000000                PROVIDE (FIQ_Handler, 0x0)
+                0x00000000                PROVIDE (NMIException, 0x0)
+                0x00000000                PROVIDE (NMI_Handler, 0x0)
+                0x00000000                PROVIDE (HardFaultException, 0x0)
+                0x00000000                PROVIDE (HardFault_Handler, 0x0)
+                0x00000000                PROVIDE (MemManageException, 0x0)
+                0x00000000                PROVIDE (MemManage_Handler, 0x0)
+                0x00000000                PROVIDE (BusFaultException, 0x0)
+                0x00000000                PROVIDE (BusFault_Handler, 0x0)
+                0x00000000                PROVIDE (UsageFaultException, 0x0)
+                0x00000000                PROVIDE (UsageFault_Handler, 0x0)
+                0x00000000                PROVIDE (SVCHandler, 0x0)
+                0x00000000                PROVIDE (SVC_Handler, 0x0)
+                0x00000000                PROVIDE (DebugMonitor, 0x0)
+                0x00000000                PROVIDE (DebugMon_Handler, 0x0)
+                0x00000000                PROVIDE (PendSVC, 0x0)
+                0x00000000                PROVIDE (PendSV_Handler, 0x0)
+                0x00000000                PROVIDE (SysTickHandler, 0x0)
+                0x00000000                PROVIDE (SysTick_Handler, 0x0)
+                0x00000000                PROVIDE (WWDG_IRQHandler, 0x0)
+                0x00000000                PROVIDE (PVD_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TAMPER_IRQHandler, 0x0)
+                0x00000000                PROVIDE (RTC_IRQHandler, 0x0)
+                0x00000000                PROVIDE (FLASH_IRQHandler, 0x0)
+                0x00000000                PROVIDE (RCC_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI0_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI4_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel4_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel5_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel6_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMAChannel7_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel4_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel5_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel6_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA1_Channel7_IRQHandler, 0x0)
+                0x00000000                PROVIDE (ADC_IRQHandler, 0x0)
+                0x00000000                PROVIDE (ADC1_2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USB_HP_CAN_TX_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USB_HP_CAN1_TX_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USB_LP_CAN_RX0_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USB_LP_CAN1_RX0_IRQHandler, 0x0)
+                0x00000000                PROVIDE (CAN_RX1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (CAN1_RX1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (CAN_SCE_IRQHandler, 0x0)
+                0x00000000                PROVIDE (CAN1_SCE_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI9_5_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM1_BRK_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM1_UP_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM1_TRG_COM_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM1_CC_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM4_IRQHandler, 0x0)
+                0x00000000                PROVIDE (I2C1_EV_IRQHandler, 0x0)
+                0x00000000                PROVIDE (I2C1_ER_IRQHandler, 0x0)
+                0x00000000                PROVIDE (I2C2_EV_IRQHandler, 0x0)
+                0x00000000                PROVIDE (I2C2_ER_IRQHandler, 0x0)
+                0x00000000                PROVIDE (SPI1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (SPI2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USART1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USART2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USART3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (EXTI15_10_IRQHandler, 0x0)
+                0x00000000                PROVIDE (RTCAlarm_IRQHandler, 0x0)
+                0x00000000                PROVIDE (USBWakeUp_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM8_BRK_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM8_UP_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM8_TRG_COM_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM8_CC_IRQHandler, 0x0)
+                0x00000000                PROVIDE (ADC3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (FSMC_IRQHandler, 0x0)
+                0x00000000                PROVIDE (SDIO_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM5_IRQHandler, 0x0)
+                0x00000000                PROVIDE (SPI3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (UART4_IRQHandler, 0x0)
+                0x00000000                PROVIDE (UART5_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM6_IRQHandler, 0x0)
+                0x00000000                PROVIDE (TIM7_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA2_Channel1_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA2_Channel2_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA2_Channel3_IRQHandler, 0x0)
+                0x00000000                PROVIDE (DMA2_Channel4_5_IRQHandler, 0x0)
+                0x42000000                PERIPH_BB_BASE = 0x42000000
+                0x22000000                SRAM_BB_BASE = 0x22000000
+                0x20000000                SRAM_BASE = 0x20000000
+                0x40000000                PERIPH_BASE = 0x40000000
+                0x40022000                PROVIDE (FLASH_BASE, 0x40022000)
+                0x1ffff800                PROVIDE (OB_BASE, 0x1ffff800)
+                0x40000000                APB1PERIPH_BASE = PERIPH_BASE
+                0x40010000                APB2PERIPH_BASE = (PERIPH_BASE + 0x10000)
+                0x40020000                AHBPERIPH_BASE = (PERIPH_BASE + 0x20000)
+                0x40000000                PROVIDE (TIM2, (APB1PERIPH_BASE + 0x0))
+                0x40000400                PROVIDE (TIM3, (APB1PERIPH_BASE + 0x400))
+                0x40000800                PROVIDE (TIM4, (APB1PERIPH_BASE + 0x800))
+                0x40002800                PROVIDE (RTC, (APB1PERIPH_BASE + 0x2800))
+                0x40002c00                PROVIDE (WWDG, (APB1PERIPH_BASE + 0x2c00))
+                0x40003000                PROVIDE (IWDG, (APB1PERIPH_BASE + 0x3000))
+                0x40003800                PROVIDE (SPI2, (APB1PERIPH_BASE + 0x3800))
+                0x40004400                PROVIDE (USART2, (APB1PERIPH_BASE + 0x4400))
+                0x40004800                PROVIDE (USART3, (APB1PERIPH_BASE + 0x4800))
+                0x40005400                PROVIDE (I2C1, (APB1PERIPH_BASE + 0x5400))
+                0x40005800                PROVIDE (I2C2, (APB1PERIPH_BASE + 0x5800))
+                0x40006400                PROVIDE (CAN, (APB1PERIPH_BASE + 0x6400))
+                0x40006c00                PROVIDE (BKP, (APB1PERIPH_BASE + 0x6c00))
+                0x40007000                PROVIDE (PWR, (APB1PERIPH_BASE + 0x7000))
+                0x40010000                PROVIDE (AFIO, (APB2PERIPH_BASE + 0x0))
+                0x40010400                PROVIDE (EXTI, (APB2PERIPH_BASE + 0x400))
+                0x40010800                PROVIDE (GPIOA, (APB2PERIPH_BASE + 0x800))
+                0x40010c00                PROVIDE (GPIOB, (APB2PERIPH_BASE + 0xc00))
+                0x40011000                PROVIDE (GPIOC, (APB2PERIPH_BASE + 0x1000))
+                0x40011400                PROVIDE (GPIOD, (APB2PERIPH_BASE + 0x1400))
+                0x40011800                PROVIDE (GPIOE, (APB2PERIPH_BASE + 0x1800))
+                0x40012400                PROVIDE (ADC1, (APB2PERIPH_BASE + 0x2400))
+                0x40012800                PROVIDE (ADC2, (APB2PERIPH_BASE + 0x2800))
+                0x40012c00                PROVIDE (TIM1, (APB2PERIPH_BASE + 0x2c00))
+                0x40013000                PROVIDE (SPI1, (APB2PERIPH_BASE + 0x3000))
+                0x40013800                PROVIDE (USART1, (APB2PERIPH_BASE + 0x3800))
+                0x40020000                PROVIDE (DMA, (AHBPERIPH_BASE + 0x0))
+                0x40020008                PROVIDE (DMA_Channel1, (AHBPERIPH_BASE + 0x8))
+                0x4002001c                PROVIDE (DMA_Channel2, (AHBPERIPH_BASE + 0x1c))
+                0x40020030                PROVIDE (DMA_Channel3, (AHBPERIPH_BASE + 0x30))
+                0x40020044                PROVIDE (DMA_Channel4, (AHBPERIPH_BASE + 0x44))
+                0x40020058                PROVIDE (DMA_Channel5, (AHBPERIPH_BASE + 0x58))
+                0x4002006c                PROVIDE (DMA_Channel6, (AHBPERIPH_BASE + 0x6c))
+                0x40020080                PROVIDE (DMA_Channel7, (AHBPERIPH_BASE + 0x80))
+                0x40021000                PROVIDE (RCC, (AHBPERIPH_BASE + 0x1000))
+                0xe000e000                SCS_BASE = 0xe000e000
+                0xe000e010                PROVIDE (SysTick, (SCS_BASE + 0x10))
+                0xe000e100                PROVIDE (NVIC, (SCS_BASE + 0x100))
+                0xe000ed00                PROVIDE (SCB, (SCS_BASE + 0xd00))
+                0x20005000                _estack = 0x20005000
+
+.isr_vector     0x08000000      0x10c
+                0x08000000                . = ALIGN (0x4)
+ *(.isr_vector)
+ .isr_vector    0x08000000      0x10c C:\Program Files (x86)\Raisonance\Ride\Lib\ARM\startup_stm32f10x_md.o
+                0x08000000                g_pfnVectors
+                0x0800010c                . = ALIGN (0x4)
+
+.flash_start    0x00000000        0x0
+                0x00000000                . = ALIGN (0x4)
+ *(.flash_start)
+ *(.flash_start.*)
+                0x00000000                . = ALIGN (0x4)
+
+.crp_patch      0x00000000        0x0
+                0x00000000                . = ALIGN (0x4)
+ *(.crp_patch)
+                0x00000000                . = ALIGN (0x4)
+
+.flashtext      0x0800010c        0x0
+                0x0800010c                . = ALIGN (0x4)
+ *(.flashtext)
+                0x0800010c                . = ALIGN (0x4)
+
+.text           0x0800010c     0x1044
+                0x0800010c                . = ALIGN (0x4)
+ *(.text)
+ *(.text.*)
+ .text.Reset_Handler
+                0x0800010c       0x40 C:\Program Files (x86)\Raisonance\Ride\Lib\ARM\startup_stm32f10x_md.o
+                0x0800010c                Reset_Handler
+ .text.Default_Handler
+                0x0800014c        0x2 C:\Program Files (x86)\Raisonance\Ride\Lib\ARM\startup_stm32f10x_md.o
+                0x0800014c                DebugMon_Handler
+                0x0800014c                HardFault_Handler
+                0x0800014c                SysTick_Handler
+                0x0800014c                PendSV_Handler
+                0x0800014c                NMI_Handler
+                0x0800014c                UsageFault_Handler
+                0x0800014c                CAN1_RX1_IRQHandler
+                0x0800014c                Default_Handler
+                0x0800014c                MemManage_Handler
+                0x0800014c                SVC_Handler
+                0x0800014c                USB_LP_CAN1_RX0_IRQHandler
+                0x0800014c                USB_HP_CAN1_TX_IRQHandler
+                0x0800014c                CAN1_SCE_IRQHandler
+                0x0800014c                BusFault_Handler
+ *fill*         0x0800014e        0x2 00
+ .text.delay    0x08000150       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+                0x08000150                delay
+ .text.can_init
+                0x08000174       0xf8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+                0x08000174                can_init
+ .text.main     0x0800026c       0x78 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+                0x0800026c                main
+ .text.WWDG_IRQHandler
+                0x080002e4        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x080002e4                WWDG_IRQHandler
+ .text.PVD_IRQHandler
+                0x080002e8        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x080002e8                PVD_IRQHandler
+ .text.TAMPER_IRQHandler
+                0x080002ec        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x080002ec                TAMPER_IRQHandler
+ .text.RTC_IRQHandler
+                0x080002f0        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x080002f0                RTC_IRQHandler
+ .text.FLASH_IRQHandler
+                0x080002f4        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x080002f4                FLASH_IRQHandler
+ .text.RCC_IRQHandler
+                0x080002f8        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x080002f8                RCC_IRQHandler
+ .text.EXTI0_IRQHandler
+                0x080002fc        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x080002fc                EXTI0_IRQHandler
+ .text.EXTI1_IRQHandler
+                0x08000300        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000300                EXTI1_IRQHandler
+ .text.EXTI2_IRQHandler
+                0x08000304        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000304                EXTI2_IRQHandler
+ .text.EXTI3_IRQHandler
+                0x08000308        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000308                EXTI3_IRQHandler
+ .text.EXTI4_IRQHandler
+                0x0800030c        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x0800030c                EXTI4_IRQHandler
+ .text.DMA1_Channel1_IRQHandler
+                0x08000310        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000310                DMA1_Channel1_IRQHandler
+ .text.DMA1_Channel2_IRQHandler
+                0x08000314        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000314                DMA1_Channel2_IRQHandler
+ .text.DMA1_Channel3_IRQHandler
+                0x08000318        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000318                DMA1_Channel3_IRQHandler
+ .text.DMA1_Channel4_IRQHandler
+                0x0800031c        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x0800031c                DMA1_Channel4_IRQHandler
+ .text.DMA1_Channel5_IRQHandler
+                0x08000320        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000320                DMA1_Channel5_IRQHandler
+ .text.DMA1_Channel6_IRQHandler
+                0x08000324        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000324                DMA1_Channel6_IRQHandler
+ .text.DMA1_Channel7_IRQHandler
+                0x08000328        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000328                DMA1_Channel7_IRQHandler
+ .text.ADC1_2_IRQHandler
+                0x0800032c        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x0800032c                ADC1_2_IRQHandler
+ .text.EXTI9_5_IRQHandler
+                0x08000330        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000330                EXTI9_5_IRQHandler
+ .text.TIM1_BRK_IRQHandler
+                0x08000334        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000334                TIM1_BRK_IRQHandler
+ .text.TIM1_UP_IRQHandler
+                0x08000338        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000338                TIM1_UP_IRQHandler
+ .text.TIM1_TRG_COM_IRQHandler
+                0x0800033c        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x0800033c                TIM1_TRG_COM_IRQHandler
+ .text.TIM1_CC_IRQHandler
+                0x08000340        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000340                TIM1_CC_IRQHandler
+ .text.TIM2_IRQHandler
+                0x08000344        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000344                TIM2_IRQHandler
+ .text.TIM3_IRQHandler
+                0x08000348        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000348                TIM3_IRQHandler
+ .text.TIM4_IRQHandler
+                0x0800034c        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x0800034c                TIM4_IRQHandler
+ .text.I2C1_EV_IRQHandler
+                0x08000350        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000350                I2C1_EV_IRQHandler
+ .text.I2C1_ER_IRQHandler
+                0x08000354        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000354                I2C1_ER_IRQHandler
+ .text.I2C2_EV_IRQHandler
+                0x08000358        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000358                I2C2_EV_IRQHandler
+ .text.I2C2_ER_IRQHandler
+                0x0800035c        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x0800035c                I2C2_ER_IRQHandler
+ .text.SPI1_IRQHandler
+                0x08000360        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000360                SPI1_IRQHandler
+ .text.SPI2_IRQHandler
+                0x08000364        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000364                SPI2_IRQHandler
+ .text.USART1_IRQHandler
+                0x08000368        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000368                USART1_IRQHandler
+ .text.USART2_IRQHandler
+                0x0800036c        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x0800036c                USART2_IRQHandler
+ .text.USART3_IRQHandler
+                0x08000370        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000370                USART3_IRQHandler
+ .text.EXTI15_10_IRQHandler
+                0x08000374        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000374                EXTI15_10_IRQHandler
+ .text.RTCAlarm_IRQHandler
+                0x08000378        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x08000378                RTCAlarm_IRQHandler
+ .text.USBWakeUp_IRQHandler
+                0x0800037c        0x4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                0x0800037c                USBWakeUp_IRQHandler
+ .text.LCD_DataLinesWrite
+                0x08000380       0x10 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .text.LCD_CtrlLinesWrite
+                0x08000390        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .text.LCD_DataLinesConfig
+                0x0800039c       0x3c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .text.starting_delay
+                0x080003d8       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+                0x080003d8                starting_delay
+ .text.LCD_SendLCDCmd
+                0x080003fc       0x64 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+                0x080003fc                LCD_SendLCDCmd
+ .text.LCD_SendLCDData
+                0x08000460       0x64 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+                0x08000460                LCD_SendLCDData
+ .text.LCD_SetBackLight
+                0x080004c4       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+                0x080004c4                LCD_SetBackLight
+ .text.LCD_Init
+                0x080004dc      0x438 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+                0x080004dc                LCD_Init
+ .text.CAN_Init
+                0x08000914      0x110 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+                0x08000914                CAN_Init
+ .text.CAN_FilterInit
+                0x08000a24      0x140 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+                0x08000a24                CAN_FilterInit
+ .text.CAN_Transmit
+                0x08000b64      0x12c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+                0x08000b64                CAN_Transmit
+ .text.GPIO_Init
+                0x08000c90       0xc4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+                0x08000c90                GPIO_Init
+ .text.GPIO_ReadInputData
+                0x08000d54        0x8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+                0x08000d54                GPIO_ReadInputData
+ .text.GPIO_WriteBit
+                0x08000d5c        0xc C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+                0x08000d5c                GPIO_WriteBit
+ .text.GPIO_PinRemapConfig
+                0x08000d68       0x70 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+                0x08000d68                GPIO_PinRemapConfig
+ .text.RCC_APB2PeriphClockCmd
+                0x08000dd8       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+                0x08000dd8                RCC_APB2PeriphClockCmd
+ .text.RCC_APB1PeriphClockCmd
+                0x08000dfc       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+                0x08000dfc                RCC_APB1PeriphClockCmd
+ .text.RCC_APB2PeriphResetCmd
+                0x08000e20       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+                0x08000e20                RCC_APB2PeriphResetCmd
+ .text.RCC_APB1PeriphResetCmd
+                0x08000e44       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+                0x08000e44                RCC_APB1PeriphResetCmd
+ .text.TIM_DeInit
+                0x08000e68      0x14c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+                0x08000e68                TIM_DeInit
+ .text.TIM_TimeBaseInit
+                0x08000fb4       0x50 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+                0x08000fb4                TIM_TimeBaseInit
+ .text.TIM_OC2Init
+                0x08001004       0xb0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+                0x08001004                TIM_OC2Init
+ .text.TIM_TimeBaseStructInit
+                0x080010b4       0x14 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+                0x080010b4                TIM_TimeBaseStructInit
+ .text.TIM_OCStructInit
+                0x080010c8       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+                0x080010c8                TIM_OCStructInit
+ .text.TIM_Cmd  0x080010e0       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+                0x080010e0                TIM_Cmd
+ .text.TIM_ITConfig
+                0x08001100       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+                0x08001100                TIM_ITConfig
+ .text.TIM_ARRPreloadConfig
+                0x08001118       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+                0x08001118                TIM_ARRPreloadConfig
+ .text.TIM_OC4PreloadConfig
+                0x08001138       0x18 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+                0x08001138                TIM_OC4PreloadConfig
+ *(.rodata)
+ *(.rodata*)
+ *(.glue_7)
+ .glue_7        0x00000000        0x0 linker stubs
+ *(.glue_7t)
+ .glue_7t       0x00000000        0x0 linker stubs
+                0x08001150                . = ALIGN (0x4)
+                0x08001150                _etext = .
+                0x08001150                _sidata = _etext
+
+.vfp11_veneer   0x08001150        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x08001150        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.flashpatch     0x00000000        0x0
+                0x00000000                . = ALIGN (0x4)
+ *(.flashpatch)
+                0x00000000                . = ALIGN (0x4)
+
+.endflash       0x00000000        0x0
+                0x00000000                . = ALIGN (0x4)
+ *(.endflash)
+                0x00000000                . = ALIGN (0x4)
+                0x00000000                _e_endflash = .
+
+.data           0x20000000       0x24 load address 0x08001150
+                0x20000000                . = ALIGN (0x4)
+                0x20000000                _sdata = .
+                0x20000000                _data = .
+ *(.data)
+ .data          0x20000000       0x24 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+                0x20000000                Current_CCR_BackLightStart
+                0x20000004                OrientationOffsetX
+                0x20000014                OrientationOffsetY
+ *(.data.*)
+ *(.RAMtext)
+                0x20000024                . = ALIGN (0x4)
+                0x20000024                _edata = .
+                0x08001174                _eidata = ((_sidata + _edata) - _sdata)
+                0x08010000                _lastdataromaddress = 0x8010000
+                0x00000000                toobig = (_eidata > _lastdataromaddress)?!!!!!!!!! FLASH IS FULL !!!!!!!!!:0x0
+
+.bss            0x20000024       0x64 load address 0x08001174
+                0x20000024                . = ALIGN (0x4)
+                0x20000024                _sbss = .
+                0x20000024                _bss = .
+ *(.bss)
+ .bss           0x20000024       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ *(COMMON)
+ COMMON         0x20000044       0x44 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+                0x20000044                CAN_InitStructure
+                0x20000050                CAN_FilterInitStructure
+                0x20000060                canMessage
+                0x20000074                RxMessage
+                0x20000088                . = ALIGN (0x4)
+                0x20000088                _ebss = .
+                0x20000088                PROVIDE (end, _ebss)
+                0x20000088                PROVIDE (_end, _ebss)
+
+._usrstack      0x20000088      0x100 load address 0x080011d8
+                0x20000088                . = ALIGN (0x4)
+                0x20000088                _susrstack = .
+                0x20000188                . = (. + _Minimum_Stack_Size)
+ *fill*         0x20000088      0x100 00
+                0x20000188                . = ALIGN (0x4)
+                0x20000188                _eusrstack = .
+
+.b1text
+ *(.b1text)
+ *(.b1rodata)
+ *(.b1rodata*)
+
+.eb0text
+ *(.eb0text)
+ *(.eb0rodata)
+ *(.eb0rodata*)
+
+.eb1text
+ *(.eb1text)
+ *(.eb1rodata)
+ *(.eb1rodata*)
+
+.eb2text
+ *(.eb2text)
+ *(.eb2rodata)
+ *(.eb2rodata*)
+
+.eb3text
+ *(.eb3text)
+ *(.eb3rodata)
+ *(.eb3rodata*)
+                0x20000188                __exidx_start = .
+                0x20000188                __exidx_end = .
+
+/DISCARD/
+ libc.a(*)
+ libm.a(*)
+ libgcc.a(*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.ARM.attributes
+                0x00000000       0x2d
+ .ARM.attributes
+                0x00000000       0x21 C:\Program Files (x86)\Raisonance\Ride\Lib\ARM\startup_stm32f10x_md.o
+ .ARM.attributes
+                0x00000021       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+ .ARM.attributes
+                0x00000052       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .ARM.attributes
+                0x00000083       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .ARM.attributes
+                0x000000b4       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .ARM.attributes
+                0x000000e5       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .ARM.attributes
+                0x00000116       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .ARM.attributes
+                0x00000147       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+ .ARM.attributes
+                0x00000178       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .ARM.attributes
+                0x000001a9       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o
+ .ARM.attributes
+                0x000001da       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .ARM.attributes
+                0x0000020b       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .ARM.attributes
+                0x0000023c       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_flash.o
+ .ARM.attributes
+                0x0000026d       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .ARM.attributes
+                0x0000029e       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .ARM.attributes
+                0x000002cf       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .ARM.attributes
+                0x00000300       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+ .ARM.attributes
+                0x00000331       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_lib.o
+ .ARM.attributes
+                0x00000362       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .ARM.attributes
+                0x00000393       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .ARM.attributes
+                0x000003c4       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .ARM.attributes
+                0x000003f5       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .ARM.attributes
+                0x00000426       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .ARM.attributes
+                0x00000457       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .ARM.attributes
+                0x00000488       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+ .ARM.attributes
+                0x000004b9       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .ARM.attributes
+                0x000004ea       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .ARM.attributes
+                0x0000051b       0x31 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+
+.comment        0x00000000       0x2a
+ *(.comment)
+ .comment       0x00000000       0x2a C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+                                 0x2b (size before relaxing)
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_flash.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_lib.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .comment       0x00000000       0x2b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000     0x1388
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x38 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+ .debug_aranges
+                0x00000038      0x240 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .debug_aranges
+                0x00000278       0xd8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .debug_aranges
+                0x00000350      0x138 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .debug_aranges
+                0x00000488       0x78 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .debug_aranges
+                0x00000500       0xa8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .debug_aranges
+                0x000005a8       0x48 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+ .debug_aranges
+                0x000005f0       0x78 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .debug_aranges
+                0x00000668       0x30 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o
+ .debug_aranges
+                0x00000698       0x68 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .debug_aranges
+                0x00000700       0x58 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .debug_aranges
+                0x00000758       0x30 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_flash.o
+ .debug_aranges
+                0x00000788       0xb0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .debug_aranges
+                0x00000838       0xa0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .debug_aranges
+                0x000008d8      0x118 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .debug_aranges
+                0x000009f0       0x48 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+ .debug_aranges
+                0x00000a38      0x108 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .debug_aranges
+                0x00000b40       0x60 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .debug_aranges
+                0x00000ba0      0x118 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .debug_aranges
+                0x00000cb8       0x88 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .debug_aranges
+                0x00000d40      0x108 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .debug_aranges
+                0x00000e48       0xd0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .debug_aranges
+                0x00000f18       0x48 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+ .debug_aranges
+                0x00000f60      0x2e0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .debug_aranges
+                0x00001240       0xf0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .debug_aranges
+                0x00001330       0x58 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+
+.debug_pubnames
+                0x00000000     0x31e0
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0x9c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+ .debug_pubnames
+                0x0000009c      0x63c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .debug_pubnames
+                0x000006d8      0x239 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .debug_pubnames
+                0x00000911      0x401 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .debug_pubnames
+                0x00000d12      0x128 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .debug_pubnames
+                0x00000e3a      0x152 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .debug_pubnames
+                0x00000f8c       0x82 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+ .debug_pubnames
+                0x0000100e      0x116 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .debug_pubnames
+                0x00001124       0x4c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o
+ .debug_pubnames
+                0x00001170       0xcf C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .debug_pubnames
+                0x0000123f       0xbb C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .debug_pubnames
+                0x000012fa       0x60 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_flash.o
+ .debug_pubnames
+                0x0000135a      0x1a3 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .debug_pubnames
+                0x000014fd      0x17b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .debug_pubnames
+                0x00001678      0x2b0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .debug_pubnames
+                0x00001928       0x91 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+ .debug_pubnames
+                0x000019b9      0x360 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .debug_pubnames
+                0x00001d19       0xcb C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .debug_pubnames
+                0x00001de4      0x2c4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .debug_pubnames
+                0x000020a8      0x136 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .debug_pubnames
+                0x000021de      0x2ac C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .debug_pubnames
+                0x0000248a      0x1f6 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .debug_pubnames
+                0x00002680       0xa1 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+ .debug_pubnames
+                0x00002721      0x7b0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .debug_pubnames
+                0x00002ed1      0x25f C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .debug_pubnames
+                0x00003130       0xb0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+
+.debug_info     0x00000000     0xb9e7
+ *(.debug_info .gnu.linkonce.wi.*)
+ .debug_info    0x00000000      0x633 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+ .debug_info    0x00000633      0x5f1 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .debug_info    0x00000c24      0xf3e C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .debug_info    0x00001b62      0xb7e C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .debug_info    0x000026e0      0x7ce C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .debug_info    0x00002eae      0x93a C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .debug_info    0x000037e8      0x1c4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+ .debug_info    0x000039ac      0x44c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .debug_info    0x00003df8      0x11b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o
+ .debug_info    0x00003f13      0x418 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .debug_info    0x0000432b      0x31c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .debug_info    0x00004647      0x173 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_flash.o
+ .debug_info    0x000047ba      0x963 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .debug_info    0x0000511d      0x694 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .debug_info    0x000057b1      0xaff C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .debug_info    0x000062b0      0x1c0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+ .debug_info    0x00006470       0x57 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_lib.o
+ .debug_info    0x000064c7      0x968 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .debug_info    0x00006e2f      0x26a C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .debug_info    0x00007099      0x8b0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .debug_info    0x00007949      0x420 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .debug_info    0x00007d69      0x82b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .debug_info    0x00008594      0x90d C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .debug_info    0x00008ea1      0x20d C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+ .debug_info    0x000090ae     0x1d91 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .debug_info    0x0000ae3f      0x9a1 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .debug_info    0x0000b7e0      0x207 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+
+.debug_abbrev   0x00000000     0x2850
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x1a3 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+ .debug_abbrev  0x000001a3       0x4b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .debug_abbrev  0x000001ee      0x3b8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .debug_abbrev  0x000005a6      0x19d C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .debug_abbrev  0x00000743      0x151 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .debug_abbrev  0x00000894      0x1df C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .debug_abbrev  0x00000a73      0x118 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+ .debug_abbrev  0x00000b8b      0x157 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .debug_abbrev  0x00000ce2       0xcd C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o
+ .debug_abbrev  0x00000daf      0x153 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .debug_abbrev  0x00000f02      0x15c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .debug_abbrev  0x0000105e       0xa8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_flash.o
+ .debug_abbrev  0x00001106      0x1c9 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .debug_abbrev  0x000012cf      0x1f7 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .debug_abbrev  0x000014c6      0x18d C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .debug_abbrev  0x00001653       0xfa C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+ .debug_abbrev  0x0000174d       0x1f C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_lib.o
+ .debug_abbrev  0x0000176c      0x231 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .debug_abbrev  0x0000199d      0x137 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .debug_abbrev  0x00001ad4      0x1f8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .debug_abbrev  0x00001ccc      0x1a3 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .debug_abbrev  0x00001e6f      0x1ef C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .debug_abbrev  0x0000205e      0x1b8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .debug_abbrev  0x00002216      0x11f C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+ .debug_abbrev  0x00002335      0x242 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .debug_abbrev  0x00002577      0x1ca C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .debug_abbrev  0x00002741      0x10f C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+
+.debug_line     0x00000000     0x402e
+ *(.debug_line)
+ .debug_line    0x00000000      0x1e6 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+ .debug_line    0x000001e6      0x4e3 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .debug_line    0x000006c9      0x3b6 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .debug_line    0x00000a7f      0x3cb C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .debug_line    0x00000e4a      0x172 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .debug_line    0x00000fbc      0x2ea C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .debug_line    0x000012a6      0x10c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+ .debug_line    0x000013b2      0x191 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .debug_line    0x00001543       0xcb C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o
+ .debug_line    0x0000160e      0x19c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .debug_line    0x000017aa      0x158 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .debug_line    0x00001902       0xce C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_flash.o
+ .debug_line    0x000019d0      0x2d6 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .debug_line    0x00001ca6      0x24b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .debug_line    0x00001ef1      0x368 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .debug_line    0x00002259      0x102 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+ .debug_line    0x0000235b       0x1d C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_lib.o
+ .debug_line    0x00002378      0x32c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .debug_line    0x000026a4      0x145 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .debug_line    0x000027e9      0x352 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .debug_line    0x00002b3b      0x1b5 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .debug_line    0x00002cf0      0x2fd C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .debug_line    0x00002fed      0x2c2 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .debug_line    0x000032af      0x10e C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+ .debug_line    0x000033bd      0x846 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .debug_line    0x00003c03      0x303 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .debug_line    0x00003f06      0x128 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+
+.debug_frame    0x00000000     0x2794
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x7c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+ .debug_frame   0x0000007c      0x460 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .debug_frame   0x000004dc      0x26c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .debug_frame   0x00000748      0x278 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .debug_frame   0x000009c0       0xd8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .debug_frame   0x00000a98      0x160 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .debug_frame   0x00000bf8       0x78 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+ .debug_frame   0x00000c70       0xe0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .debug_frame   0x00000d50       0x40 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o
+ .debug_frame   0x00000d90       0xb8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .debug_frame   0x00000e48       0x98 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .debug_frame   0x00000ee0       0x40 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_flash.o
+ .debug_frame   0x00000f20      0x160 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .debug_frame   0x00001080      0x158 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .debug_frame   0x000011d8      0x22c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .debug_frame   0x00001404       0x70 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+ .debug_frame   0x00001474      0x238 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .debug_frame   0x000016ac       0xb8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .debug_frame   0x00001764      0x224 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .debug_frame   0x00001988      0x108 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .debug_frame   0x00001a90      0x208 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .debug_frame   0x00001c98      0x1ac C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .debug_frame   0x00001e44       0x70 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+ .debug_frame   0x00001eb4      0x658 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .debug_frame   0x0000250c      0x1f0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .debug_frame   0x000026fc       0x98 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+
+.debug_str      0x00000000     0x532f
+ *(.debug_str)
+ .debug_str     0x00000000      0x4a2 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+                                0x4f3 (size before relaxing)
+ .debug_str     0x000004a2      0x54b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+                                0x5e1 (size before relaxing)
+ .debug_str     0x000009ed      0x73c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+                                0x96c (size before relaxing)
+ .debug_str     0x00001129      0x547 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+                                0x635 (size before relaxing)
+ .debug_str     0x00001670      0x328 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+                                0x4f4 (size before relaxing)
+ .debug_str     0x00001998      0x2b2 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+                                0x552 (size before relaxing)
+ .debug_str     0x00001c4a       0xc1 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+                                0x170 (size before relaxing)
+ .debug_str     0x00001d0b      0x211 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+                                0x2e9 (size before relaxing)
+ .debug_str     0x00001f1c       0x8f C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o
+                                0x14d (size before relaxing)
+ .debug_str     0x00001fab      0x1ea C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+                                0x2d3 (size before relaxing)
+ .debug_str     0x00002195      0x1be C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+                                0x2a9 (size before relaxing)
+ .debug_str     0x00002353       0xdb C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_flash.o
+                                0x176 (size before relaxing)
+ .debug_str     0x0000242e      0x5cd C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+                                0x6c2 (size before relaxing)
+ .debug_str     0x000029fb      0x1eb C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+                                0x40d (size before relaxing)
+ .debug_str     0x00002be6      0x3f5 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+                                0x57d (size before relaxing)
+ .debug_str     0x00002fdb       0xd9 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+                                0x191 (size before relaxing)
+ .debug_str     0x000030b4       0x3a C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_lib.o
+                                 0xd0 (size before relaxing)
+ .debug_str     0x000030ee      0x483 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+                                0x61f (size before relaxing)
+ .debug_str     0x00003571      0x10d C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+                                0x1f2 (size before relaxing)
+ .debug_str     0x0000367e      0x3c9 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+                                0x554 (size before relaxing)
+ .debug_str     0x00003a47      0x191 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+                                0x2d7 (size before relaxing)
+ .debug_str     0x00003bd8      0x472 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+                                0x57e (size before relaxing)
+ .debug_str     0x0000404a      0x356 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+                                0x526 (size before relaxing)
+ .debug_str     0x000043a0       0xff C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+                                0x1ee (size before relaxing)
+ .debug_str     0x0000449f      0x9c7 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+                                0xd12 (size before relaxing)
+ .debug_str     0x00004e66      0x3f4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+                                0x59d (size before relaxing)
+ .debug_str     0x0000525a       0xd5 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+                                0x1ab (size before relaxing)
+
+.debug_loc      0x00000000     0x587b
+ *(.debug_loc)
+ .debug_loc     0x00000000       0xf4 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+ .debug_loc     0x000000f4      0x6b9 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .debug_loc     0x000007ad      0x8a2 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .debug_loc     0x0000104f       0xb0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .debug_loc     0x000010ff      0x57d C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .debug_loc     0x0000167c       0x8f C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+ .debug_loc     0x0000170b      0x1fa C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .debug_loc     0x00001905       0x1e C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o
+ .debug_loc     0x00001923      0x142 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .debug_loc     0x00001a65       0xca C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .debug_loc     0x00001b2f      0x38b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .debug_loc     0x00001eba      0x490 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .debug_loc     0x0000234a      0x5ed C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .debug_loc     0x00002937       0x3d C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+ .debug_loc     0x00002974      0x83d C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .debug_loc     0x000031b1      0x13f C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .debug_loc     0x000032f0      0x4d5 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .debug_loc     0x000037c5      0x1c8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .debug_loc     0x0000398d      0x1c3 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .debug_loc     0x00003b50      0x3c1 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .debug_loc     0x00003f11       0x51 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+ .debug_loc     0x00003f62     0x1382 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .debug_loc     0x000052e4      0x4ea C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .debug_loc     0x000057ce       0xad C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+START GROUP
+LOAD c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/thumb2\libgcc.a
+LOAD c:/program files (x86)/raisonance/ride/arm-gcc/bin/../lib/gcc/arm-none-eabi/4.5.1/../../../../arm-none-eabi/lib/thumb2\libc.a
+END GROUP
+OUTPUT(C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\Project.elf elf32-littlearm)
+
+.debug_pubtypes
+                0x00000000      0xf18
+ .debug_pubtypes
+                0x00000000      0x113 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+ .debug_pubtypes
+                0x00000113       0x12 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .debug_pubtypes
+                0x00000125      0x11c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .debug_pubtypes
+                0x00000241       0x86 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .debug_pubtypes
+                0x000002c7       0x7b C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .debug_pubtypes
+                0x00000342      0x106 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .debug_pubtypes
+                0x00000448       0x39 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+ .debug_pubtypes
+                0x00000481       0x63 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .debug_pubtypes
+                0x000004e4       0x41 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o
+ .debug_pubtypes
+                0x00000525       0x8e C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .debug_pubtypes
+                0x000005b3       0xa6 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .debug_pubtypes
+                0x00000659       0x2c C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_flash.o
+ .debug_pubtypes
+                0x00000685      0x15e C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .debug_pubtypes
+                0x000007e3       0xb6 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .debug_pubtypes
+                0x00000899       0xb5 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .debug_pubtypes
+                0x0000094e       0x49 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+ .debug_pubtypes
+                0x00000997       0x12 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_lib.o
+ .debug_pubtypes
+                0x000009a9       0x89 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .debug_pubtypes
+                0x00000a32       0x5d C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .debug_pubtypes
+                0x00000a8f       0xa0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .debug_pubtypes
+                0x00000b2f       0x62 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .debug_pubtypes
+                0x00000b91       0xb1 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .debug_pubtypes
+                0x00000c42       0xa7 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .debug_pubtypes
+                0x00000ce9       0x58 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+ .debug_pubtypes
+                0x00000d41       0xd2 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .debug_pubtypes
+                0x00000e13       0xbb C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .debug_pubtypes
+                0x00000ece       0x4a C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o
+
+.debug_ranges   0x00000000     0x1228
+ .debug_ranges  0x00000000       0x28 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\main.o
+ .debug_ranges  0x00000028      0x230 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_it.o
+ .debug_ranges  0x00000258      0x108 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+ .debug_ranges  0x00000360      0x128 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_adc.o
+ .debug_ranges  0x00000488       0x68 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_bkp.o
+ .debug_ranges  0x000004f0       0x98 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_can.o
+ .debug_ranges  0x00000588       0x38 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_crc.o
+ .debug_ranges  0x000005c0       0x68 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dac.o
+ .debug_ranges  0x00000628       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o
+ .debug_ranges  0x00000648       0x58 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dma.o
+ .debug_ranges  0x000006a0       0x48 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_exti.o
+ .debug_ranges  0x000006e8       0x20 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_flash.o
+ .debug_ranges  0x00000708       0xa0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_fsmc.o
+ .debug_ranges  0x000007a8       0x90 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_gpio.o
+ .debug_ranges  0x00000838      0x108 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_i2c.o
+ .debug_ranges  0x00000940       0x38 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_iwdg.o
+ .debug_ranges  0x00000978       0xf8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_nvic.o
+ .debug_ranges  0x00000a70       0x50 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_pwr.o
+ .debug_ranges  0x00000ac0      0x108 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rcc.o
+ .debug_ranges  0x00000bc8       0x78 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+ .debug_ranges  0x00000c40       0xf8 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_sdio.o
+ .debug_ranges  0x00000d38       0xc0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_spi.o
+ .debug_ranges  0x00000df8       0x38 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_systick.o
+ .debug_ranges  0x00000e30      0x2d0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_tim.o
+ .debug_ranges  0x00001100       0xe0 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_usart.o
+ .debug_ranges  0x000011e0       0x48 C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_wwdg.o

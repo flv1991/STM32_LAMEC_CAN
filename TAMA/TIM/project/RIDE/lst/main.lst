@@ -1,0 +1,536 @@
+
+C:\Users\fv\Desktop\TAMA\TIM\project\RIDE\obj\main.o:     file format elf32-littlearm
+C:\Users\fv\Desktop\TAMA\TIM\project\RIDE\obj\main.o
+
+
+Disassembly of section .text.delay:
+
+00000000 <delay>:
+delay():
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:12
+#include <stdio.h>
+#include "stm32f10x_lib.h"
+#include <stdint.h>
+#include <math.h>
+
+int delay(int32_t var){
+   0:	b082      	sub	sp, #8
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:14
+volatile int32_t i;
+for(i=0;i<var;i++){
+   2:	f04f 0300 	mov.w	r3, #0
+   6:	9301      	str	r3, [sp, #4]
+   8:	9b01      	ldr	r3, [sp, #4]
+   a:	4298      	cmp	r0, r3
+   c:	dd07      	ble.n	1e <delay+0x1e>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:15
+    asm("nop");
+   e:	bf00      	nop
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:14
+#include <stdint.h>
+#include <math.h>
+
+int delay(int32_t var){
+volatile int32_t i;
+for(i=0;i<var;i++){
+  10:	9b01      	ldr	r3, [sp, #4]
+  12:	f103 0301 	add.w	r3, r3, #1
+  16:	9301      	str	r3, [sp, #4]
+  18:	9b01      	ldr	r3, [sp, #4]
+  1a:	4283      	cmp	r3, r0
+  1c:	dbf7      	blt.n	e <delay+0xe>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:17
+    asm("nop");
+    }
+}
+  1e:	b002      	add	sp, #8
+  20:	4770      	bx	lr
+  22:	bf00      	nop
+
+Disassembly of section .text.can_init:
+
+00000000 <can_init>:
+can_init():
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:26
+CAN_FilterInitTypeDef  CAN_FilterInitStructure;
+CanTxMsg canMessage;
+
+CanRxMsg rx_message;
+
+void can_init(void){
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	b088      	sub	sp, #32
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:35
+   CAN_FilterInitTypeDef     CAN_FilterInitStructure;
+   NVIC_InitTypeDef       NVIC_InitStructure;
+
+
+   /* Enable GPIO clock */
+RCC_APB1PeriphClockCmd(RCC_APB1Periph_CAN, ENABLE);
+   4:	f04f 7000 	mov.w	r0, #33554432	; 0x2000000
+   8:	f04f 0101 	mov.w	r1, #1
+   c:	f7ff fffe 	bl	0 <RCC_APB1PeriphClockCmd>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:36
+   RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB , ENABLE);
+  10:	f04f 0008 	mov.w	r0, #8
+  14:	f04f 0101 	mov.w	r1, #1
+  18:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:37
+RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO , ENABLE);
+  1c:	f04f 0001 	mov.w	r0, #1
+  20:	4601      	mov	r1, r0
+  22:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:53
+   //GPIO_Init(GPIOB, &GPIO_InitStructure);
+
+
+/* Configure CAN pin: RX */
+
+GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8;
+  26:	f44f 7380 	mov.w	r3, #256	; 0x100
+  2a:	f8ad 301c 	strh.w	r3, [sp, #28]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:55
+
+GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;
+  2e:	f04f 0348 	mov.w	r3, #72	; 0x48
+  32:	f88d 301f 	strb.w	r3, [sp, #31]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:56
+GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  36:	f04f 0503 	mov.w	r5, #3
+  3a:	f88d 501e 	strb.w	r5, [sp, #30]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:59
+
+
+GPIO_Init(GPIOB, &GPIO_InitStructure);
+  3e:	f44f 6440 	mov.w	r4, #3072	; 0xc00
+  42:	f2c4 0401 	movt	r4, #16385	; 0x4001
+  46:	4620      	mov	r0, r4
+  48:	a907      	add	r1, sp, #28
+  4a:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:64
+
+
+/* Configure CAN pin: TX */
+
+GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;
+  4e:	f44f 7300 	mov.w	r3, #512	; 0x200
+  52:	f8ad 301c 	strh.w	r3, [sp, #28]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:66
+
+GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
+  56:	f04f 0318 	mov.w	r3, #24
+  5a:	f88d 301f 	strb.w	r3, [sp, #31]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:68
+
+GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  5e:	f88d 501e 	strb.w	r5, [sp, #30]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:69
+GPIO_Init(GPIOB, &GPIO_InitStructure);
+  62:	4620      	mov	r0, r4
+  64:	a907      	add	r1, sp, #28
+  66:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:74
+
+
+// Remap2 is for PB8 and PB9
+
+GPIO_PinRemapConfig(GPIO_Remap1_CAN , ENABLE);
+  6a:	f44f 10ea 	mov.w	r0, #1916928	; 0x1d4000
+  6e:	f04f 0101 	mov.w	r1, #1
+  72:	f7ff fffe 	bl	0 <GPIO_PinRemapConfig>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:80
+
+   
+
+
+   /* CAN 1 cell init */
+   CAN_InitStructure.CAN_Prescaler = 18; //64
+  76:	f04f 0312 	mov.w	r3, #18
+  7a:	f8ad 301a 	strh.w	r3, [sp, #26]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:81
+   CAN_InitStructure.CAN_Mode = CAN_Mode_Normal;
+  7e:	f04f 0400 	mov.w	r4, #0
+  82:	f88d 4016 	strb.w	r4, [sp, #22]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:82
+   CAN_InitStructure.CAN_SJW = CAN_SJW_1tq;	//2
+  86:	f88d 4017 	strb.w	r4, [sp, #23]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:83
+   CAN_InitStructure.CAN_BS1 = CAN_BS1_13tq; //11
+  8a:	f04f 030c 	mov.w	r3, #12
+  8e:	f88d 3018 	strb.w	r3, [sp, #24]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:84
+   CAN_InitStructure.CAN_BS2 = CAN_BS2_2tq; //4
+  92:	f04f 0501 	mov.w	r5, #1
+  96:	f88d 5019 	strb.w	r5, [sp, #25]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:85
+   CAN_InitStructure.CAN_TTCM = DISABLE;
+  9a:	f88d 4010 	strb.w	r4, [sp, #16]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:86
+   CAN_InitStructure.CAN_ABOM = DISABLE;
+  9e:	f88d 4011 	strb.w	r4, [sp, #17]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:87
+   CAN_InitStructure.CAN_AWUM = DISABLE;
+  a2:	f88d 4012 	strb.w	r4, [sp, #18]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:88
+   CAN_InitStructure.CAN_NART = ENABLE;
+  a6:	f88d 5013 	strb.w	r5, [sp, #19]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:89
+   CAN_InitStructure.CAN_RFLM = DISABLE;
+  aa:	f88d 4014 	strb.w	r4, [sp, #20]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:90
+   CAN_InitStructure.CAN_TXFP = DISABLE;
+  ae:	f88d 4015 	strb.w	r4, [sp, #21]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:91
+   CAN_Init(&CAN_InitStructure );
+  b2:	a804      	add	r0, sp, #16
+  b4:	f7ff fffe 	bl	0 <CAN_Init>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:94
+
+   /* CAN1 filter init, accept every message */
+   CAN_FilterInitStructure.CAN_FilterNumber = 0;  // 0..13 for CAN1, 14..27 for CAN2
+  b8:	f88d 4000 	strb.w	r4, [sp]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:95
+   CAN_FilterInitStructure.CAN_FilterMode = CAN_FilterMode_IdMask;
+  bc:	f88d 4001 	strb.w	r4, [sp, #1]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:96
+   CAN_FilterInitStructure.CAN_FilterScale = CAN_FilterScale_32bit;
+  c0:	f88d 5002 	strb.w	r5, [sp, #2]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:97
+   CAN_FilterInitStructure.CAN_FilterIdHigh = 0x0000;
+  c4:	4626      	mov	r6, r4
+  c6:	f8ad 4004 	strh.w	r4, [sp, #4]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:98
+   CAN_FilterInitStructure.CAN_FilterIdLow = 0x0000;
+  ca:	f8ad 4006 	strh.w	r4, [sp, #6]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:99
+   CAN_FilterInitStructure.CAN_FilterMaskIdHigh = 0x0000 ;
+  ce:	f8ad 4008 	strh.w	r4, [sp, #8]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:100
+   CAN_FilterInitStructure.CAN_FilterMaskIdLow = 0x0000;
+  d2:	f8ad 400a 	strh.w	r4, [sp, #10]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:101
+   CAN_FilterInitStructure.CAN_FilterFIFOAssignment = 0;
+  d6:	f8ad 400c 	strh.w	r4, [sp, #12]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:102
+   CAN_FilterInitStructure.CAN_FilterActivation = ENABLE;
+  da:	f88d 500e 	strb.w	r5, [sp, #14]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:103
+    CAN_FilterInit(&CAN_FilterInitStructure);
+  de:	4668      	mov	r0, sp
+  e0:	f7ff fffe 	bl	0 <CAN_FilterInit>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:106
+
+   /* Message Init */
+   canMessage.StdId = 454;
+  e4:	f240 0300 	movw	r3, #0
+  e8:	f2c0 0300 	movt	r3, #0
+  ec:	f44f 72e3 	mov.w	r2, #454	; 0x1c6
+  f0:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:107
+   canMessage.ExtId = 0;
+  f2:	605c      	str	r4, [r3, #4]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:108
+   canMessage.RTR = CAN_RTR_DATA;
+  f4:	725c      	strb	r4, [r3, #9]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:109
+   canMessage.IDE = CAN_ID_STD;
+  f6:	721c      	strb	r4, [r3, #8]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:110
+   canMessage.DLC = 1;
+  f8:	729d      	strb	r5, [r3, #10]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:112
+
+   canMessage.Data[0] = 111;
+  fa:	f04f 026f 	mov.w	r2, #111	; 0x6f
+  fe:	72da      	strb	r2, [r3, #11]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:116
+	 //canMessage.Data = 5;
+     
+     
+}
+ 100:	b008      	add	sp, #32
+ 102:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.RCC_Config_HSE_PLL_Max:
+
+00000000 <RCC_Config_HSE_PLL_Max>:
+RCC_Config_HSE_PLL_Max():
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:118
+
+void RCC_Config_HSE_PLL_Max(void){
+   0:	b510      	push	{r4, lr}
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:119
+RCC_DeInit();
+   2:	f7ff fffe 	bl	0 <RCC_DeInit>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:120
+FLASH_SetLatency(FLASH_Latency_2);
+   6:	f04f 0002 	mov.w	r0, #2
+   a:	f7ff fffe 	bl	0 <FLASH_SetLatency>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:124
+/*configurar clock externo a 72Mhz */
+
+//bypass pois está ligado no OSC_IN um circuito oscilatorio externo
+RCC_HSEConfig(RCC_HSE_Bypass);
+   e:	f44f 2080 	mov.w	r0, #262144	; 0x40000
+  12:	f7ff fffe 	bl	0 <RCC_HSEConfig>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:127
+//Após a ativação do HSE deveremos esperar até que o sinal de relógio esteja pronto e estável
+ErrorStatus HSEStartUpStatus;
+HSEStartUpStatus=RCC_WaitForHSEStartUp();
+  16:	f7ff fffe 	bl	0 <RCC_WaitForHSEStartUp>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:129
+
+if(HSEStartUpStatus==SUCCESS) /*retorna SUCCESS ou ERROR*/
+  1a:	2801      	cmp	r0, #1
+  1c:	d125      	bne.n	6a <RCC_Config_HSE_PLL_Max+0x6a>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:133
+{   
+
+	    //divisão do prescaler AHB por 1
+	    RCC_HCLKConfig(RCC_SYSCLK_Div1);
+  1e:	f100 30ff 	add.w	r0, r0, #4294967295
+  22:	f7ff fffe 	bl	0 <RCC_HCLKConfig>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:135
+	    //divisão do prescaler APB1 por 2
+	    RCC_PCLK1Config(RCC_HCLK_Div2);
+  26:	f44f 6080 	mov.w	r0, #1024	; 0x400
+  2a:	f7ff fffe 	bl	0 <RCC_PCLK1Config>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:137
+	    //divisão do prescaler APB2 por 1
+	    RCC_PCLK2Config(RCC_HCLK_Div1);
+  2e:	f04f 0000 	mov.w	r0, #0
+  32:	f7ff fffe 	bl	0 <RCC_PCLK2Config>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:139
+    //configuar a PLL para 72Mhz
+    RCC_PLLConfig(RCC_PLLSource_HSE_Div1,RCC_PLLMul_6);
+  36:	f44f 3080 	mov.w	r0, #65536	; 0x10000
+  3a:	f44f 1180 	mov.w	r1, #1048576	; 0x100000
+  3e:	f7ff fffe 	bl	0 <RCC_PLLConfig>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:141
+    //activar a pll
+    RCC_PLLCmd(ENABLE);
+  42:	f04f 0001 	mov.w	r0, #1
+  46:	f7ff fffe 	bl	0 <RCC_PLLCmd>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:143
+    
+    while(RCC_GetFlagStatus( RCC_FLAG_PLLRDY)==RESET);
+  4a:	f04f 0439 	mov.w	r4, #57	; 0x39
+  4e:	4620      	mov	r0, r4
+  50:	f7ff fffe 	bl	0 <RCC_GetFlagStatus>
+  54:	2800      	cmp	r0, #0
+  56:	d0fa      	beq.n	4e <RCC_Config_HSE_PLL_Max+0x4e>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:146
+    //activa o sysclk pll
+    
+    RCC_SYSCLKConfig(RCC_SYSCLKSource_PLLCLK);
+  58:	f04f 0002 	mov.w	r0, #2
+  5c:	f7ff fffe 	bl	0 <RCC_SYSCLKConfig>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:150
+
+    
+    //confirmar que o clock está correcto logo esperar que a fonte de relógio esteja correta
+    while(RCC_GetSYSCLKSource()!=0x08);
+  60:	f7ff fffe 	bl	0 <RCC_GetSYSCLKSource>
+  64:	2808      	cmp	r0, #8
+  66:	d1fb      	bne.n	60 <RCC_Config_HSE_PLL_Max+0x60>
+  68:	bd10      	pop	{r4, pc}
+  6a:	e7fe      	b.n	6a <RCC_Config_HSE_PLL_Max+0x6a>
+
+Disassembly of section .text.main:
+
+00000000 <main>:
+main():
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:160
+
+
+}
+
+int main(void)
+{
+   0:	b5f0      	push	{r4, r5, r6, r7, lr}
+   2:	b087      	sub	sp, #28
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:162
+
+RCC_Config_HSE_PLL_Max(); //Configura o clk a 72Mhz
+   4:	f7ff fffe 	bl	0 <main>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:164
+    /* Enable GPIO B clock*/
+    RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOA, ENABLE );
+   8:	f04f 0004 	mov.w	r0, #4
+   c:	f04f 0101 	mov.w	r1, #1
+  10:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:165
+    RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOB, ENABLE );
+  14:	f04f 0008 	mov.w	r0, #8
+  18:	f04f 0101 	mov.w	r1, #1
+  1c:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:166
+    RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOC, ENABLE );
+  20:	f04f 0010 	mov.w	r0, #16
+  24:	f04f 0101 	mov.w	r1, #1
+  28:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:167
+LCD_Init();
+  2c:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:168
+DRAW_Init();
+  30:	f7ff fffe 	bl	0 <DRAW_Init>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:169
+can_init();
+  34:	f7ff fffe 	bl	0 <main>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:177
+    /*GPIO configuration*/
+    GPIO_InitTypeDef GPIO_InitStructure;
+
+
+    /*botao como entrada*/
+    GPIO_InitStructure.GPIO_Pin =   GPIO_Pin_0; 
+  38:	f04f 0301 	mov.w	r3, #1
+  3c:	f8ad 3000 	strh.w	r3, [sp]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:178
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  40:	f04f 0304 	mov.w	r3, #4
+  44:	f88d 3003 	strb.w	r3, [sp, #3]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:179
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  48:	f103 33ff 	add.w	r3, r3, #4294967295
+  4c:	f88d 3002 	strb.w	r3, [sp, #2]
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:180
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+  50:	f44f 6000 	mov.w	r0, #2048	; 0x800
+  54:	f2c4 0001 	movt	r0, #16385	; 0x4001
+  58:	4669      	mov	r1, sp
+  5a:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:171
+    RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOC, ENABLE );
+LCD_Init();
+DRAW_Init();
+can_init();
+char buff[20];
+int i=0;
+  5e:	f04f 0600 	mov.w	r6, #0
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:195
+  
+    
+    while (1)
+    {
+    GPIO_WriteBit(GPIOB, GPIO_Pin_0, Bit_SET);
+    butao=GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0);
+  62:	f44f 6400 	mov.w	r4, #2048	; 0x800
+  66:	f2c4 0401 	movt	r4, #16385	; 0x4001
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:199
+    if (butao==1){ //botao press
+    
+    i++;
+        sprintf(buff,"entrou %d vezes     ",i);
+  6a:	f240 0700 	movw	r7, #0
+  6e:	f2c0 0700 	movt	r7, #0
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:202
+        DRAW_DisplayString( 5, 2, buff, strlen(buff));
+        
+        CAN_Receive(CAN_FIFO0, &rx_message);
+  72:	f240 0500 	movw	r5, #0
+  76:	f2c0 0500 	movt	r5, #0
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:194
+
+  
+    
+    while (1)
+    {
+    GPIO_WriteBit(GPIOB, GPIO_Pin_0, Bit_SET);
+  7a:	f44f 6040 	mov.w	r0, #3072	; 0xc00
+  7e:	f2c4 0001 	movt	r0, #16385	; 0x4001
+  82:	f04f 0101 	mov.w	r1, #1
+  86:	460a      	mov	r2, r1
+  88:	f7ff fffe 	bl	0 <GPIO_WriteBit>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:195
+    butao=GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_0);
+  8c:	4620      	mov	r0, r4
+  8e:	f04f 0101 	mov.w	r1, #1
+  92:	f7ff fffe 	bl	0 <GPIO_ReadInputDataBit>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:196
+    if (butao==1){ //botao press
+  96:	2801      	cmp	r0, #1
+  98:	d1ef      	bne.n	7a <main+0x7a>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:198
+    
+    i++;
+  9a:	f106 0601 	add.w	r6, r6, #1
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:199
+        sprintf(buff,"entrou %d vezes     ",i);
+  9e:	a801      	add	r0, sp, #4
+  a0:	4639      	mov	r1, r7
+  a2:	4632      	mov	r2, r6
+  a4:	f7ff fffe 	bl	0 <sprintf>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:200
+        DRAW_DisplayString( 5, 2, buff, strlen(buff));
+  a8:	a801      	add	r0, sp, #4
+  aa:	f7ff fffe 	bl	0 <strlen>
+  ae:	4603      	mov	r3, r0
+  b0:	f04f 0005 	mov.w	r0, #5
+  b4:	f04f 0102 	mov.w	r1, #2
+  b8:	aa01      	add	r2, sp, #4
+  ba:	f7ff fffe 	bl	0 <DRAW_DisplayString>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:202
+        
+        CAN_Receive(CAN_FIFO0, &rx_message);
+  be:	f04f 0000 	mov.w	r0, #0
+  c2:	4629      	mov	r1, r5
+  c4:	f7ff fffe 	bl	0 <CAN_Receive>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:204
+    
+        sprintf(buff,"ID: %d        ",rx_message.StdId);
+  c8:	a801      	add	r0, sp, #4
+  ca:	f240 0100 	movw	r1, #0
+  ce:	f2c0 0100 	movt	r1, #0
+  d2:	682a      	ldr	r2, [r5, #0]
+  d4:	f7ff fffe 	bl	0 <sprintf>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:205
+        DRAW_DisplayString( 7, 60, buff, strlen(buff));
+  d8:	a801      	add	r0, sp, #4
+  da:	f7ff fffe 	bl	0 <strlen>
+  de:	4603      	mov	r3, r0
+  e0:	f04f 0007 	mov.w	r0, #7
+  e4:	f04f 013c 	mov.w	r1, #60	; 0x3c
+  e8:	aa01      	add	r2, sp, #4
+  ea:	f7ff fffe 	bl	0 <DRAW_DisplayString>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:206
+        sprintf(buff,"TAMANHO: %d        ",rx_message.DLC);
+  ee:	a801      	add	r0, sp, #4
+  f0:	f240 0100 	movw	r1, #0
+  f4:	f2c0 0100 	movt	r1, #0
+  f8:	7aaa      	ldrb	r2, [r5, #10]
+  fa:	f7ff fffe 	bl	0 <sprintf>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:207
+        DRAW_DisplayString( 7, 40, buff, strlen(buff));    
+  fe:	a801      	add	r0, sp, #4
+ 100:	f7ff fffe 	bl	0 <strlen>
+ 104:	4603      	mov	r3, r0
+ 106:	f04f 0007 	mov.w	r0, #7
+ 10a:	f04f 0128 	mov.w	r1, #40	; 0x28
+ 10e:	aa01      	add	r2, sp, #4
+ 110:	f7ff fffe 	bl	0 <DRAW_DisplayString>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:209
+    
+        sprintf(buff,"DATA: %d        ",rx_message.Data[0]);
+ 114:	a801      	add	r0, sp, #4
+ 116:	f240 0100 	movw	r1, #0
+ 11a:	f2c0 0100 	movt	r1, #0
+ 11e:	7aea      	ldrb	r2, [r5, #11]
+ 120:	f7ff fffe 	bl	0 <sprintf>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:210
+        DRAW_DisplayString( 7, 20, buff, strlen(buff));
+ 124:	a801      	add	r0, sp, #4
+ 126:	f7ff fffe 	bl	0 <strlen>
+ 12a:	4603      	mov	r3, r0
+ 12c:	f04f 0007 	mov.w	r0, #7
+ 130:	f04f 0114 	mov.w	r1, #20
+ 134:	aa01      	add	r2, sp, #4
+ 136:	f7ff fffe 	bl	0 <DRAW_DisplayString>
+C:\Users\fv\Desktop\TAMA\TIM\project/main.c:212
+        //CAN_Transmit(&canMessage);
+        delay(100000);
+ 13a:	f248 60a0 	movw	r0, #34464	; 0x86a0
+ 13e:	f2c0 0001 	movt	r0, #1
+ 142:	f7ff fffe 	bl	0 <main>
+ 146:	e798      	b.n	7a <main+0x7a>

@@ -1,0 +1,424 @@
+
+C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o:     file format elf32-littlearm
+C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_rtc.o
+
+
+Disassembly of section .text.RTC_ITConfig:
+
+00000000 <RTC_ITConfig>:
+RTC_ITConfig():
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:51
+{
+  /* Check the parameters */
+  assert_param(IS_RTC_IT(RTC_IT));  
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  if (NewState != DISABLE)
+   0:	b141      	cbz	r1, 14 <RTC_ITConfig+0x14>
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:53
+  {
+    RTC->CRH |= RTC_IT;
+   2:	f44f 5320 	mov.w	r3, #10240	; 0x2800
+   6:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   a:	881a      	ldrh	r2, [r3, #0]
+   c:	b292      	uxth	r2, r2
+   e:	4310      	orrs	r0, r2
+  10:	8018      	strh	r0, [r3, #0]
+  12:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:57
+  }
+  else
+  {
+    RTC->CRH &= (u16)~RTC_IT;
+  14:	f44f 5320 	mov.w	r3, #10240	; 0x2800
+  18:	f2c4 0300 	movt	r3, #16384	; 0x4000
+  1c:	881a      	ldrh	r2, [r3, #0]
+  1e:	b292      	uxth	r2, r2
+  20:	ea22 0000 	bic.w	r0, r2, r0
+  24:	8018      	strh	r0, [r3, #0]
+  26:	4770      	bx	lr
+
+Disassembly of section .text.RTC_EnterConfigMode:
+
+00000000 <RTC_EnterConfigMode>:
+RTC_EnterConfigMode():
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:71
+* Return         : None
+*******************************************************************************/
+void RTC_EnterConfigMode(void)
+{
+  /* Set the CNF flag to enter in the Configuration Mode */
+  RTC->CRL |= CRL_CNF_Set;
+   0:	f44f 5320 	mov.w	r3, #10240	; 0x2800
+   4:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   8:	889a      	ldrh	r2, [r3, #4]
+   a:	b292      	uxth	r2, r2
+   c:	f042 0210 	orr.w	r2, r2, #16
+  10:	809a      	strh	r2, [r3, #4]
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:72
+}
+  12:	4770      	bx	lr
+
+Disassembly of section .text.RTC_ExitConfigMode:
+
+00000000 <RTC_ExitConfigMode>:
+RTC_ExitConfigMode():
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:84
+* Return         : None
+*******************************************************************************/
+void RTC_ExitConfigMode(void)
+{
+  /* Reset the CNF flag to exit from the Configuration Mode */
+  RTC->CRL &= CRL_CNF_Reset;
+   0:	f44f 5220 	mov.w	r2, #10240	; 0x2800
+   4:	f2c4 0200 	movt	r2, #16384	; 0x4000
+   8:	8893      	ldrh	r3, [r2, #4]
+   a:	f023 0310 	bic.w	r3, r3, #16
+   e:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  12:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  16:	8093      	strh	r3, [r2, #4]
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:85
+}
+  18:	4770      	bx	lr
+  1a:	bf00      	nop
+
+Disassembly of section .text.RTC_GetCounter:
+
+00000000 <RTC_GetCounter>:
+RTC_GetCounter():
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:97
+* Return         : RTC counter value.
+*******************************************************************************/
+u32 RTC_GetCounter(void)
+{
+  u16 tmp = 0;
+  tmp = RTC->CNTL;
+   0:	f44f 5320 	mov.w	r3, #10240	; 0x2800
+   4:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   8:	8b9a      	ldrh	r2, [r3, #28]
+   a:	b292      	uxth	r2, r2
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:99
+
+  return (((u32)RTC->CNTH << 16 ) | tmp) ;
+   c:	8b18      	ldrh	r0, [r3, #24]
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:100
+}
+   e:	ea42 4000 	orr.w	r0, r2, r0, lsl #16
+  12:	4770      	bx	lr
+
+Disassembly of section .text.RTC_SetCounter:
+
+00000000 <RTC_SetCounter>:
+RTC_SetCounter():
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:110
+* Input          : - CounterValue: RTC counter new value.
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void RTC_SetCounter(u32 CounterValue)
+{ 
+   0:	b510      	push	{r4, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:111
+  RTC_EnterConfigMode();
+   4:	f7ff fffe 	bl	0 <RTC_SetCounter>
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:114
+
+  /* Set RTC COUNTER MSB word */
+  RTC->CNTH = CounterValue >> 16;
+   8:	ea4f 4214 	mov.w	r2, r4, lsr #16
+   c:	f44f 5320 	mov.w	r3, #10240	; 0x2800
+  10:	f2c4 0300 	movt	r3, #16384	; 0x4000
+  14:	831a      	strh	r2, [r3, #24]
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:116
+  /* Set RTC COUNTER LSB word */
+  RTC->CNTL = (CounterValue & RTC_LSB_Mask);
+  16:	b2a4      	uxth	r4, r4
+  18:	839c      	strh	r4, [r3, #28]
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:118
+
+  RTC_ExitConfigMode();
+  1a:	f7ff fffe 	bl	0 <RTC_SetCounter>
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:119
+}
+  1e:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.RTC_SetPrescaler:
+
+00000000 <RTC_SetPrescaler>:
+RTC_SetPrescaler():
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:129
+* Input          : - PrescalerValue: RTC prescaler new value.
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void RTC_SetPrescaler(u32 PrescalerValue)
+{
+   0:	b510      	push	{r4, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:133
+  /* Check the parameters */
+  assert_param(IS_RTC_PRESCALER(PrescalerValue));
+  
+  RTC_EnterConfigMode();
+   4:	f7ff fffe 	bl	0 <RTC_SetPrescaler>
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:136
+
+  /* Set RTC PRESCALER MSB word */
+  RTC->PRLH = (PrescalerValue & PRLH_MSB_Mask) >> 16;
+   8:	f3c4 4203 	ubfx	r2, r4, #16, #4
+   c:	f44f 5320 	mov.w	r3, #10240	; 0x2800
+  10:	f2c4 0300 	movt	r3, #16384	; 0x4000
+  14:	811a      	strh	r2, [r3, #8]
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:138
+  /* Set RTC PRESCALER LSB word */
+  RTC->PRLL = (PrescalerValue & RTC_LSB_Mask);
+  16:	b2a4      	uxth	r4, r4
+  18:	819c      	strh	r4, [r3, #12]
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:140
+
+  RTC_ExitConfigMode();
+  1a:	f7ff fffe 	bl	0 <RTC_SetPrescaler>
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:141
+}
+  1e:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.RTC_SetAlarm:
+
+00000000 <RTC_SetAlarm>:
+RTC_SetAlarm():
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:151
+* Input          : - AlarmValue: RTC alarm new value.
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void RTC_SetAlarm(u32 AlarmValue)
+{  
+   0:	b510      	push	{r4, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:152
+  RTC_EnterConfigMode();
+   4:	f7ff fffe 	bl	0 <RTC_SetAlarm>
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:155
+
+  /* Set the ALARM MSB word */
+  RTC->ALRH = AlarmValue >> 16;
+   8:	ea4f 4214 	mov.w	r2, r4, lsr #16
+   c:	f44f 5320 	mov.w	r3, #10240	; 0x2800
+  10:	f2c4 0300 	movt	r3, #16384	; 0x4000
+  14:	841a      	strh	r2, [r3, #32]
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:157
+  /* Set the ALARM LSB word */
+  RTC->ALRL = (AlarmValue & RTC_LSB_Mask);
+  16:	b2a4      	uxth	r4, r4
+  18:	849c      	strh	r4, [r3, #36]	; 0x24
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:159
+
+  RTC_ExitConfigMode();
+  1a:	f7ff fffe 	bl	0 <RTC_SetAlarm>
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:160
+}
+  1e:	bd10      	pop	{r4, pc}
+
+Disassembly of section .text.RTC_GetDivider:
+
+00000000 <RTC_GetDivider>:
+RTC_GetDivider():
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:173
+*******************************************************************************/
+u32 RTC_GetDivider(void)
+{
+  u32 tmp = 0x00;
+
+  tmp = ((u32)RTC->DIVH & (u32)0x000F) << 16;
+   0:	f44f 5320 	mov.w	r3, #10240	; 0x2800
+   4:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   8:	8a18      	ldrh	r0, [r3, #16]
+   a:	f000 000f 	and.w	r0, r0, #15
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:174
+  tmp |= RTC->DIVL;
+   e:	8a9b      	ldrh	r3, [r3, #20]
+  10:	b29b      	uxth	r3, r3
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:177
+
+  return tmp;
+}
+  12:	ea43 4000 	orr.w	r0, r3, r0, lsl #16
+  16:	4770      	bx	lr
+
+Disassembly of section .text.RTC_WaitForLastTask:
+
+00000000 <RTC_WaitForLastTask>:
+RTC_WaitForLastTask():
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:190
+* Return         : None
+*******************************************************************************/
+void RTC_WaitForLastTask(void)
+{
+  /* Loop until RTOFF flag is set */
+  while ((RTC->CRL & RTC_FLAG_RTOFF) == (u16)RESET)
+   0:	f44f 5220 	mov.w	r2, #10240	; 0x2800
+   4:	f2c4 0200 	movt	r2, #16384	; 0x4000
+   8:	8893      	ldrh	r3, [r2, #4]
+   a:	f013 0f20 	tst.w	r3, #32
+   e:	d0fb      	beq.n	8 <RTC_WaitForLastTask+0x8>
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:193
+  {
+  }
+}
+  10:	4770      	bx	lr
+  12:	bf00      	nop
+
+Disassembly of section .text.RTC_WaitForSynchro:
+
+00000000 <RTC_WaitForSynchro>:
+RTC_WaitForSynchro():
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:208
+* Return         : None
+*******************************************************************************/
+void RTC_WaitForSynchro(void)
+{
+  /* Clear RSF flag */
+  RTC->CRL &= (u16)~RTC_FLAG_RSF;
+   0:	f44f 5220 	mov.w	r2, #10240	; 0x2800
+   4:	f2c4 0200 	movt	r2, #16384	; 0x4000
+   8:	8893      	ldrh	r3, [r2, #4]
+   a:	f023 0308 	bic.w	r3, r3, #8
+   e:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  12:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  16:	8093      	strh	r3, [r2, #4]
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:211
+
+  /* Loop until RSF flag is set */
+  while ((RTC->CRL & RTC_FLAG_RSF) == (u16)RESET)
+  18:	f44f 5220 	mov.w	r2, #10240	; 0x2800
+  1c:	f2c4 0200 	movt	r2, #16384	; 0x4000
+  20:	8893      	ldrh	r3, [r2, #4]
+  22:	f013 0f08 	tst.w	r3, #8
+  26:	d0fb      	beq.n	20 <RTC_WaitForSynchro+0x20>
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:214
+  {
+  }
+}
+  28:	4770      	bx	lr
+  2a:	bf00      	nop
+
+Disassembly of section .text.RTC_GetFlagStatus:
+
+00000000 <RTC_GetFlagStatus>:
+RTC_GetFlagStatus():
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:236
+  FlagStatus bitstatus = RESET;
+  
+  /* Check the parameters */
+  assert_param(IS_RTC_GET_FLAG(RTC_FLAG)); 
+  
+  if ((RTC->CRL & RTC_FLAG) != (u16)RESET)
+   0:	f44f 5320 	mov.w	r3, #10240	; 0x2800
+   4:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   8:	889b      	ldrh	r3, [r3, #4]
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:238
+  {
+    bitstatus = SET;
+   a:	4218      	tst	r0, r3
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:245
+  else
+  {
+    bitstatus = RESET;
+  }
+  return bitstatus;
+}
+   c:	bf0c      	ite	eq
+   e:	2000      	moveq	r0, #0
+  10:	2001      	movne	r0, #1
+  12:	4770      	bx	lr
+
+Disassembly of section .text.RTC_ClearFlag:
+
+00000000 <RTC_ClearFlag>:
+RTC_ClearFlag():
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:266
+{
+  /* Check the parameters */
+  assert_param(IS_RTC_CLEAR_FLAG(RTC_FLAG)); 
+    
+  /* Clear the coressponding RTC flag */
+  RTC->CRL &= (u16)~RTC_FLAG;
+   0:	f44f 5320 	mov.w	r3, #10240	; 0x2800
+   4:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   8:	889a      	ldrh	r2, [r3, #4]
+   a:	b292      	uxth	r2, r2
+   c:	ea22 0200 	bic.w	r2, r2, r0
+  10:	809a      	strh	r2, [r3, #4]
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:267
+}
+  12:	4770      	bx	lr
+
+Disassembly of section .text.RTC_GetITStatus:
+
+00000000 <RTC_GetITStatus>:
+RTC_GetITStatus():
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:287
+  ITStatus bitstatus = RESET;
+
+  /* Check the parameters */
+  assert_param(IS_RTC_GET_IT(RTC_IT)); 
+  
+  bitstatus = (ITStatus)(RTC->CRL & RTC_IT);
+   0:	f44f 5320 	mov.w	r3, #10240	; 0x2800
+   4:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   8:	889a      	ldrh	r2, [r3, #4]
+   a:	b292      	uxth	r2, r2
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:289
+
+  if (((RTC->CRH & RTC_IT) != (u16)RESET) && (bitstatus != (u16)RESET))
+   c:	881b      	ldrh	r3, [r3, #0]
+   e:	4218      	tst	r0, r3
+  10:	d007      	beq.n	22 <RTC_GetITStatus+0x22>
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:280
+*                       - RTC_IT_ALR: Alarm interrupt
+*                       - RTC_IT_SEC: Second interrupt
+* Output         : None
+* Return         : The new state of the RTC_IT (SET or RESET).
+*******************************************************************************/
+ITStatus RTC_GetITStatus(u16 RTC_IT)
+  12:	ea00 0202 	and.w	r2, r0, r2
+  16:	f012 0fff 	tst.w	r2, #255	; 0xff
+  1a:	bf0c      	ite	eq
+  1c:	2000      	moveq	r0, #0
+  1e:	2001      	movne	r0, #1
+  20:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:295
+  {
+    bitstatus = SET;
+  }
+  else
+  {
+    bitstatus = RESET;
+  22:	f04f 0000 	mov.w	r0, #0
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:298
+  }
+  return bitstatus;
+}
+  26:	4770      	bx	lr
+
+Disassembly of section .text.RTC_ClearITPendingBit:
+
+00000000 <RTC_ClearITPendingBit>:
+RTC_ClearITPendingBit():
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:317
+{
+  /* Check the parameters */
+  assert_param(IS_RTC_IT(RTC_IT));  
+  
+  /* Clear the coressponding RTC pending bit */
+  RTC->CRL &= (u16)~RTC_IT;
+   0:	f44f 5320 	mov.w	r3, #10240	; 0x2800
+   4:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   8:	889a      	ldrh	r2, [r3, #4]
+   a:	b292      	uxth	r2, r2
+   c:	ea22 0200 	bic.w	r2, r2, r0
+  10:	809a      	strh	r2, [r3, #4]
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_rtc.c:318
+}
+  12:	4770      	bx	lr

@@ -1,0 +1,417 @@
+<!-- DWF2XML 2.00.01 - Raisonance Dwarf information extractor -->
+<aoffile Header="Project" Path="C:\Users\fv\Desktop\TAMA\TIM\project\RIDE\obj\Project.elf">
+ <Def>
+  <Col Header="DeclFile" Desc="File"/>
+  <Col Header="Type" Desc="Type"/>
+  <Col Header="Header" Desc="Name"/>
+ </Def>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="59" Pointer="No"/>
+ <type Header="ErrorStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="62" Pointer="No"/>
+ <type Header="GPIO_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="343" Pointer="No"/>
+ <type Header="CAN_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_can.h" DeclLine="39" Pointer="No"/>
+ <type Header="CAN_FilterInitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_can.h" DeclLine="53" Pointer="No"/>
+ <type Header="CanTxMsg" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_can.h" DeclLine="64" Pointer="No"/>
+ <type Header="CanRxMsg" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_can.h" DeclLine="76" Pointer="No"/>
+ <type Header="GPIOSpeed_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_gpio.h" DeclLine="39" Pointer="No"/>
+ <type Header="GPIOMode_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_gpio.h" DeclLine="54" Pointer="No"/>
+ <type Header="GPIO_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_gpio.h" DeclLine="67" Pointer="No"/>
+ <type Header="NVIC_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_nvic.h" DeclLine="32" Pointer="No"/>
+ <type Header="uint8_t" Icon="1" Type="type" Desc=": unsigned char" DeclFile="c:\program files (x86)\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="42" Pointer="No"/>
+ <type Header="int32_t" Icon="1" Type="type" Desc=": long" DeclFile="c:\program files (x86)\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="79" Pointer="No"/>
+ <func Header="delay" Icon="3" Type="func" Desc=":   long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\main.c" DeclLine="12"/>
+ <func Header="can_init" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\main.c" DeclLine="26"/>
+ <func Header="RCC_Config_HSE_PLL_Max" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\main.c" DeclLine="118"/>
+ <func Header="main" Icon="3" Type="func" Desc=":   long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\main.c" DeclLine="159"/>
+ <variable Header="CAN_InitStructure" Icon="2" Type="variable" Desc=":   struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\main.c" DeclLine="20" Pointer="No"/>
+ <variable Header="CAN_FilterInitStructure" Icon="2" Type="variable" Desc=":   struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\main.c" DeclLine="21" Pointer="No"/>
+ <variable Header="canMessage" Icon="2" Type="variable" Desc=":   struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\main.c" DeclLine="22" Pointer="No"/>
+ <variable Header="rx_message" Icon="2" Type="variable" Desc=":   struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\main.c" DeclLine="24" Pointer="No"/>
+ <func Header="WWDG_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="150"/>
+ <func Header="PVD_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="161"/>
+ <func Header="TAMPER_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="172"/>
+ <func Header="RTC_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="183"/>
+ <func Header="FLASH_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="194"/>
+ <func Header="RCC_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="205"/>
+ <func Header="EXTI0_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="216"/>
+ <func Header="EXTI1_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="227"/>
+ <func Header="EXTI2_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="238"/>
+ <func Header="EXTI3_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="249"/>
+ <func Header="EXTI4_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="260"/>
+ <func Header="DMA1_Channel1_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="271"/>
+ <func Header="DMA1_Channel2_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="282"/>
+ <func Header="DMA1_Channel3_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="293"/>
+ <func Header="DMA1_Channel4_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="304"/>
+ <func Header="DMA1_Channel5_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="315"/>
+ <func Header="DMA1_Channel6_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="326"/>
+ <func Header="DMA1_Channel7_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="337"/>
+ <func Header="ADC1_2_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="348"/>
+ <func Header="EXTI9_5_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="405"/>
+ <func Header="TIM1_BRK_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="416"/>
+ <func Header="TIM1_UP_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="428"/>
+ <func Header="TIM1_TRG_COM_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="440"/>
+ <func Header="TIM1_CC_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="451"/>
+ <func Header="TIM2_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="462"/>
+ <func Header="TIM3_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="473"/>
+ <func Header="TIM4_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="484"/>
+ <func Header="I2C1_EV_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="495"/>
+ <func Header="I2C1_ER_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="506"/>
+ <func Header="I2C2_EV_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="517"/>
+ <func Header="I2C2_ER_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="528"/>
+ <func Header="SPI1_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="539"/>
+ <func Header="SPI2_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="550"/>
+ <func Header="USART1_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="561"/>
+ <func Header="USART2_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="572"/>
+ <func Header="USART3_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="583"/>
+ <func Header="EXTI15_10_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="594"/>
+ <func Header="RTCAlarm_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="605"/>
+ <func Header="USBWakeUp_IRQHandler" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\stm32f10x_it.c" DeclLine="616"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="vu32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="47" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="ITStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="59" Pointer="No"/>
+ <type Header="ADC_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="58" Pointer="No"/>
+ <type Header="ADC_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_adc.h" DeclLine="34" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="vu32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="47" Pointer="No"/>
+ <type Header="vu16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="48" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="ITStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="59" Pointer="No"/>
+ <type Header="BKP_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="154" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="ITStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="59" Pointer="No"/>
+ <type Header="CAN_TxMailBox_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="163" Pointer="No"/>
+ <type Header="CAN_FIFOMailBox_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="171" Pointer="No"/>
+ <type Header="CAN_FilterRegister_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="177" Pointer="No"/>
+ <type Header="CAN_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="203" Pointer="No"/>
+ <type Header="CAN_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_can.h" DeclLine="39" Pointer="No"/>
+ <type Header="CAN_FilterInitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_can.h" DeclLine="53" Pointer="No"/>
+ <type Header="CanTxMsg" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_can.h" DeclLine="64" Pointer="No"/>
+ <type Header="CanRxMsg" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_can.h" DeclLine="76" Pointer="No"/>
+ <func Header="CAN_Init" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_can.c" DeclLine="106"/>
+ <func Header="CAN_FilterInit" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_can.c" DeclLine="229"/>
+ <func Header="CAN_FIFORelease" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_can.c" DeclLine="566"/>
+ <func Header="CAN_Receive" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_can.c" DeclLine="620"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="CRC_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="213" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="vu32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="47" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="59" Pointer="No"/>
+ <type Header="DAC_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="232" Pointer="No"/>
+ <type Header="DAC_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_dac.h" DeclLine="32" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="59" Pointer="No"/>
+ <type Header="DBGMCU_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="239" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="ITStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="59" Pointer="No"/>
+ <type Header="DMA_Channel_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="248" Pointer="No"/>
+ <type Header="DMA_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="254" Pointer="No"/>
+ <type Header="DMA_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_dma.h" DeclLine="39" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="vu32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="47" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="ITStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="59" Pointer="No"/>
+ <type Header="EXTI_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="265" Pointer="No"/>
+ <type Header="EXTIMode_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_exti.h" DeclLine="30" Pointer="No"/>
+ <type Header="EXTITrigger_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_exti.h" DeclLine="40" Pointer="No"/>
+ <type Header="EXTI_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_exti.h" DeclLine="53" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="FLASH_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="279" Pointer="No"/>
+ <func Header="FLASH_SetLatency" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_flash.c" DeclLine="86"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="ITStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="59" Pointer="No"/>
+ <type Header="FSMC_Bank1_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="297" Pointer="No"/>
+ <type Header="FSMC_Bank1E_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="302" Pointer="No"/>
+ <type Header="FSMC_Bank2_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="312" Pointer="No"/>
+ <type Header="FSMC_Bank3_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="322" Pointer="No"/>
+ <type Header="FSMC_Bank4_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="331" Pointer="No"/>
+ <type Header="FSMC_NORSRAMTimingInitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_fsmc.h" DeclLine="35" Pointer="No"/>
+ <type Header="FSMC_NORSRAMInitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_fsmc.h" DeclLine="56" Pointer="No"/>
+ <type Header="FSMC_NAND_PCCARDTimingInitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_fsmc.h" DeclLine="65" Pointer="No"/>
+ <type Header="FSMC_NANDInitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_fsmc.h" DeclLine="82" Pointer="No"/>
+ <type Header="FSMC_PCCARDInitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_fsmc.h" DeclLine="97" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="vu32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="47" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="59" Pointer="No"/>
+ <type Header="GPIO_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="343" Pointer="No"/>
+ <type Header="AFIO_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="350" Pointer="No"/>
+ <type Header="GPIOSpeed_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_gpio.h" DeclLine="39" Pointer="No"/>
+ <type Header="GPIOMode_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_gpio.h" DeclLine="54" Pointer="No"/>
+ <type Header="GPIO_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_gpio.h" DeclLine="67" Pointer="No"/>
+ <type Header="BitAction" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_gpio.h" DeclLine="73" Pointer="No"/>
+ <func Header="GPIO_Init" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_gpio.c" DeclLine="124"/>
+ <func Header="GPIO_ReadInputDataBit" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_gpio.c" DeclLine="246"/>
+ <func Header="GPIO_ReadInputData" Icon="3" Type="func" Desc=":   unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_gpio.c" DeclLine="272"/>
+ <func Header="GPIO_WriteBit" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_gpio.c" DeclLine="374"/>
+ <func Header="GPIO_PinRemapConfig" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_gpio.c" DeclLine="519"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="vu32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="47" Pointer="No"/>
+ <type Header="vu16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="48" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="ITStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="59" Pointer="No"/>
+ <type Header="ErrorStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="62" Pointer="No"/>
+ <type Header="I2C_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="373" Pointer="No"/>
+ <type Header="I2C_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_i2c.h" DeclLine="34" Pointer="No"/>
+ <type Header="RCC_ClocksTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_rcc.h" DeclLine="32" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="IWDG_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="382" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="vu32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="47" Pointer="No"/>
+ <type Header="ITStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="59" Pointer="No"/>
+ <type Header="NVIC_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="398" Pointer="No"/>
+ <type Header="SCB_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="416" Pointer="No"/>
+ <type Header="NVIC_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_nvic.h" DeclLine="32" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="vu32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="47" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="59" Pointer="No"/>
+ <type Header="PWR_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="423" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="vu32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="47" Pointer="No"/>
+ <type Header="vu8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="49" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="ITStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="59" Pointer="No"/>
+ <type Header="ErrorStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="62" Pointer="No"/>
+ <type Header="RCC_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="438" Pointer="No"/>
+ <type Header="RCC_ClocksTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_rcc.h" DeclLine="32" Pointer="No"/>
+ <func Header="RCC_DeInit" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_rcc.c" DeclLine="124"/>
+ <func Header="RCC_HSEConfig" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_rcc.c" DeclLine="159"/>
+ <func Header="RCC_PLLConfig" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_rcc.c" DeclLine="287"/>
+ <func Header="RCC_PLLCmd" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_rcc.c" DeclLine="316"/>
+ <func Header="RCC_SYSCLKConfig" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_rcc.c" DeclLine="335"/>
+ <func Header="RCC_GetSYSCLKSource" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_rcc.c" DeclLine="365"/>
+ <func Header="RCC_HCLKConfig" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_rcc.c" DeclLine="388"/>
+ <func Header="RCC_PCLK1Config" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_rcc.c" DeclLine="421"/>
+ <func Header="RCC_PCLK2Config" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_rcc.c" DeclLine="454"/>
+ <func Header="RCC_APB2PeriphClockCmd" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_rcc.c" DeclLine="801"/>
+ <func Header="RCC_APB1PeriphClockCmd" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_rcc.c" DeclLine="835"/>
+ <func Header="RCC_APB2PeriphResetCmd" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_rcc.c" DeclLine="867"/>
+ <func Header="RCC_APB1PeriphResetCmd" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_rcc.c" DeclLine="900"/>
+ <func Header="RCC_GetFlagStatus" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_rcc.c" DeclLine="989"/>
+ <func Header="RCC_WaitForHSEStartUp" Icon="3" Type="func" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_rcc.c" DeclLine="198"/>
+ <variable Header="APBAHBPrescTable" Icon="2" Type="variable" Desc=":   unsigned char[16]" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_rcc.c" DeclLine="111" Pointer="No"/>
+ <variable Header="ADCPrescTable" Icon="2" Type="variable" Desc=":   unsigned char[4]" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_rcc.c" DeclLine="112" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="ITStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="59" Pointer="No"/>
+ <type Header="RTC_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="463" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="vu32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="47" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="ITStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="59" Pointer="No"/>
+ <type Header="SDIO_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="488" Pointer="No"/>
+ <type Header="SDIO_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_sdio.h" DeclLine="33" Pointer="No"/>
+ <type Header="SDIO_CmdInitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_sdio.h" DeclLine="42" Pointer="No"/>
+ <type Header="SDIO_DataInitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_sdio.h" DeclLine="52" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="ITStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="59" Pointer="No"/>
+ <type Header="SPI_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="511" Pointer="No"/>
+ <type Header="SPI_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_spi.h" DeclLine="37" Pointer="No"/>
+ <type Header="I2S_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_spi.h" DeclLine="48" Pointer="No"/>
+ <type Header="RCC_ClocksTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_rcc.h" DeclLine="32" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="59" Pointer="No"/>
+ <type Header="SysTick_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="520" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="vu32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="47" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="ITStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="59" Pointer="No"/>
+ <type Header="TIM_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="565" Pointer="No"/>
+ <type Header="TIM_TimeBaseInitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_tim.h" DeclLine="34" Pointer="No"/>
+ <type Header="TIM_OCInitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_tim.h" DeclLine="47" Pointer="No"/>
+ <type Header="TIM_ICInitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_tim.h" DeclLine="57" Pointer="No"/>
+ <type Header="TIM_BDTRInitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_tim.h" DeclLine="69" Pointer="No"/>
+ <func Header="TIM_DeInit" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_tim.c" DeclLine="134"/>
+ <func Header="TIM_TimeBaseInit" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_tim.c" DeclLine="198"/>
+ <func Header="TIM_OC2Init" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_tim.c" DeclLine="328"/>
+ <func Header="TIM_TimeBaseStructInit" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_tim.c" DeclLine="750"/>
+ <func Header="TIM_OCStructInit" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_tim.c" DeclLine="768"/>
+ <func Header="TIM_Cmd" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_tim.c" DeclLine="828"/>
+ <func Header="TIM_ITConfig" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_tim.c" DeclLine="893"/>
+ <func Header="TIM_ARRPreloadConfig" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_tim.c" DeclLine="1538"/>
+ <func Header="TIM_OC4PreloadConfig" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\stm32f10x_tim.c" DeclLine="1751"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="vu32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="47" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="ITStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="FunctionalState" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="59" Pointer="No"/>
+ <type Header="USART_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="584" Pointer="No"/>
+ <type Header="USART_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_usart.h" DeclLine="34" Pointer="No"/>
+ <type Header="USART_ClockInitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_usart.h" DeclLine="43" Pointer="No"/>
+ <type Header="RCC_ClocksTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_rcc.h" DeclLine="32" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="vu32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="47" Pointer="No"/>
+ <type Header="FlagStatus" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="57" Pointer="No"/>
+ <type Header="WWDG_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="592" Pointer="No"/>
+ <type Header="uint8_t" Icon="1" Type="type" Desc=": unsigned char" DeclFile="c:\program files (x86)\raisonance\ride\arm-gcc\arm-none-eabi\include\stdint.h" DeclLine="42" Pointer="No"/>
+ <type Header="s32" Icon="1" Type="type" Desc=": long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="23" Pointer="No"/>
+ <type Header="s16" Icon="1" Type="type" Desc=": int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="24" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="vu16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="48" Pointer="No"/>
+ <type Header="GPIO_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="343" Pointer="No"/>
+ <type Header="GPIOSpeed_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_gpio.h" DeclLine="39" Pointer="No"/>
+ <type Header="GPIOMode_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_gpio.h" DeclLine="54" Pointer="No"/>
+ <type Header="GPIO_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_gpio.h" DeclLine="67" Pointer="No"/>
+ <type Header="RCC_ClocksTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_rcc.h" DeclLine="32" Pointer="No"/>
+ <type Header="tHandler" Icon="1" Type="type" Desc=": void CODE*" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\scheduler.h" DeclLine="75" Pointer="Yes"/>
+ <func Header="UTIL_ReadBackupRegister" Icon="3" Type="func" Desc=":   unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\Util.c" DeclLine="412"/>
+ <variable Header="CurrentSpeed" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\Util.c" DeclLine="28" Pointer="No"/>
+ <variable Header="dummy_var" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\circle.h" DeclLine="77" Pointer="No"/>
+ <variable Header="RCC_ClockFreq" Icon="2" Type="variable" Desc=":   struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\Util.c" DeclLine="31" Pointer="No"/>
+ <variable Header="fTemperatureInFahrenheit" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\Util.c" DeclLine="33" Pointer="No"/>
+ <variable Header="Application_Pointer_Mgr" Icon="2" Type="variable" Desc=":   void CODE*" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\circle.h" DeclLine="429" Pointer="Yes"/>
+ <variable Header="dummycounter" Icon="2" Type="variable" Desc=":   long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\Util.c" DeclLine="32" Pointer="No"/>
+ <variable Header="init_already" Icon="2" Type="variable" Desc=":   long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\Util.c" DeclLine="34" Pointer="No"/>
+ <type Header="s16" Icon="1" Type="type" Desc=": int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="24" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="Rotate_H12_V_Match_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\circle.h" DeclLine="101" Pointer="No"/>
+ <func Header="DRAW_DisplayStringWithMode" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="128"/>
+ <func Header="DRAW_DisplayString" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="372"/>
+ <func Header="DRAW_SetDefaultColor" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="413"/>
+ <func Header="DRAW_Init" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="177"/>
+ <variable Header="CharMagniCoeff" Icon="2" Type="variable" Desc=":   unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="28" Pointer="No"/>
+ <variable Header="BGndColor" Icon="2" Type="variable" Desc=":   unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="29" Pointer="No"/>
+ <variable Header="TextColor" Icon="2" Type="variable" Desc=":   unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="30" Pointer="No"/>
+ <variable Header="dummy_var" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\circle.h" DeclLine="77" Pointer="No"/>
+ <variable Header="fDisplayTime" Icon="2" Type="variable" Desc=":   long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="32" Pointer="No"/>
+ <variable Header="Application_Pointer_Mgr" Icon="2" Type="variable" Desc=":   void CODE*" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\circle.h" DeclLine="429" Pointer="Yes"/>
+ <variable Header="BatState" Icon="2" Type="variable" Desc=":   unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="33" Pointer="No"/>
+ <variable Header="OldBatState" Icon="2" Type="variable" Desc=":   unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="34" Pointer="No"/>
+ <variable Header="OldTHH" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="35" Pointer="No"/>
+ <variable Header="OldTMM" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="36" Pointer="No"/>
+ <variable Header="OldTSS" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="37" Pointer="No"/>
+ <variable Header="OldTemp" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="38" Pointer="No"/>
+ <variable Header="xBat" Icon="2" Type="variable" Desc=":   unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="39" Pointer="No"/>
+ <variable Header="yBat" Icon="2" Type="variable" Desc=":   unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="40" Pointer="No"/>
+ <variable Header="widthBat" Icon="2" Type="variable" Desc=":   unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="41" Pointer="No"/>
+ <variable Header="heightBat" Icon="2" Type="variable" Desc=":   unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="42" Pointer="No"/>
+ <variable Header="UsbState" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="43" Pointer="No"/>
+ <variable Header="OldUsbState" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="43" Pointer="No"/>
+ <variable Header="rotate_counter" Icon="2" Type="variable" Desc=":   long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="47" Pointer="No"/>
+ <variable Header="previous_H12" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="48" Pointer="No"/>
+ <variable Header="previous_previous_H12" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="49" Pointer="No"/>
+ <variable Header="H12" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="50" Pointer="No"/>
+ <variable Header="CurrentScreenOrientation" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="51" Pointer="No"/>
+ <variable Header="CurrentRotateScreen" Icon="2" Type="variable" Desc=":   long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\draw.c" DeclLine="52" Pointer="No"/>
+ <type Header="s16" Icon="1" Type="type" Desc=": int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="24" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="GPIO_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="343" Pointer="No"/>
+ <type Header="TIM_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="565" Pointer="No"/>
+ <type Header="GPIOSpeed_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_gpio.h" DeclLine="39" Pointer="No"/>
+ <type Header="GPIOMode_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_gpio.h" DeclLine="54" Pointer="No"/>
+ <type Header="GPIO_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_gpio.h" DeclLine="67" Pointer="No"/>
+ <type Header="BitAction" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_gpio.h" DeclLine="73" Pointer="No"/>
+ <type Header="TIM_TimeBaseInitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_tim.h" DeclLine="34" Pointer="No"/>
+ <type Header="TIM_OCInitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_tim.h" DeclLine="47" Pointer="No"/>
+ <type Header="DataConfigMode_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.h" DeclLine="26" Pointer="No"/>
+ <type Header="Rotate_H12_V_Match_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\circle.h" DeclLine="101" Pointer="No"/>
+ <func Header="LCD_DataLinesWrite" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.c" DeclLine="214"/>
+ <func Header="LCD_CtrlLinesWrite" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.c" DeclLine="267"/>
+ <func Header="LCD_DataLinesConfig" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.c" DeclLine="179"/>
+ <func Header="starting_delay" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.c" DeclLine="150"/>
+ <func Header="LCD_SendLCDCmd" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.c" DeclLine="691"/>
+ <func Header="LCD_SendLCDData" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.c" DeclLine="719"/>
+ <func Header="LCD_SetRect_For_Cmd" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.c" DeclLine="1040"/>
+ <func Header="LCD_DisplayChar" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.c" DeclLine="1016"/>
+ <func Header="LCD_FillRect" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.c" DeclLine="789"/>
+ <func Header="LCD_SetBackLight" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.c" DeclLine="1065"/>
+ <func Header="LCD_Init" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.c" DeclLine="625"/>
+ <func Header="LCD_SetScreenOrientation" Icon="3" Type="func" Desc=":   void" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.c" DeclLine="1178"/>
+ <variable Header="TIM_TimeBaseStructure" Icon="2" Type="variable" Desc=":   struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.c" DeclLine="29" Pointer="No"/>
+ <variable Header="TIM_OCInitStructure" Icon="2" Type="variable" Desc=":   struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.c" DeclLine="30" Pointer="No"/>
+ <variable Header="HandlerDivider" Icon="2" Type="variable" Desc=":   long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.c" DeclLine="31" Pointer="No"/>
+ <variable Header="AsciiDotsTable" Icon="2" Type="variable" Desc=":   unsigned char[1330]" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.c" DeclLine="43" Pointer="No"/>
+ <variable Header="dummy_var" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\circle.h" DeclLine="77" Pointer="No"/>
+ <variable Header="Application_Pointer_Mgr" Icon="2" Type="variable" Desc=":   void CODE*" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\circle.h" DeclLine="429" Pointer="Yes"/>
+ <variable Header="Current_CCR_BackLightStart" Icon="2" Type="variable" Desc=":   long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.c" DeclLine="33" Pointer="No"/>
+ <variable Header="OrientationOffsetX" Icon="2" Type="variable" Desc=":   long[4]" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.c" DeclLine="140" Pointer="No"/>
+ <variable Header="OrientationOffsetY" Icon="2" Type="variable" Desc=":   long[4]" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.c" DeclLine="141" Pointer="No"/>
+ <type Header="u32" Icon="1" Type="type" Desc=": unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="39" Pointer="No"/>
+ <type Header="u16" Icon="1" Type="type" Desc=": unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="40" Pointer="No"/>
+ <type Header="u8" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_type.h" DeclLine="41" Pointer="No"/>
+ <type Header="GPIO_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="343" Pointer="No"/>
+ <type Header="TIM_TypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_map.h" DeclLine="565" Pointer="No"/>
+ <type Header="GPIOSpeed_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_gpio.h" DeclLine="39" Pointer="No"/>
+ <type Header="GPIOMode_TypeDef" Icon="1" Type="type" Desc=": unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_gpio.h" DeclLine="54" Pointer="No"/>
+ <type Header="GPIO_InitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_gpio.h" DeclLine="67" Pointer="No"/>
+ <type Header="RCC_ClocksTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_rcc.h" DeclLine="32" Pointer="No"/>
+ <type Header="TIM_TimeBaseInitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_tim.h" DeclLine="34" Pointer="No"/>
+ <type Header="TIM_OCInitTypeDef" Icon="1" Type="type" Desc=": struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\inc\stm32f10x_tim.h" DeclLine="47" Pointer="No"/>
+ <variable Header="TIM_TimeBaseStructure" Icon="2" Type="variable" Desc=":   struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\buzzer.c" DeclLine="54" Pointer="No"/>
+ <variable Header="TIM_OCInitStructure" Icon="2" Type="variable" Desc=":   struct " DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\buzzer.c" DeclLine="55" Pointer="No"/>
+ <variable Header="dummy_var" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\circle.h" DeclLine="77" Pointer="No"/>
+ <variable Header="Application_Pointer_Mgr" Icon="2" Type="variable" Desc=":   void CODE*" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\project\circle.h" DeclLine="429" Pointer="Yes"/>
+ <variable Header="octave" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\buzzer.c" DeclLine="26" Pointer="No"/>
+ <variable Header="note" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\buzzer.c" DeclLine="43" Pointer="No"/>
+ <variable Header="buzz_counter" Icon="2" Type="variable" Desc=":   long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\buzzer.c" DeclLine="52" Pointer="No"/>
+ <variable Header="buzz_in_progress" Icon="2" Type="variable" Desc=":   long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\buzzer.c" DeclLine="53" Pointer="No"/>
+ <variable Header="CCR_Val" Icon="2" Type="variable" Desc=":   unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\buzzer.c" DeclLine="56" Pointer="No"/>
+ <variable Header="Buzzer_Mode" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\buzzer.c" DeclLine="57" Pointer="No"/>
+ <variable Header="Buzzer_Counter" Icon="2" Type="variable" Desc=":   unsigned long" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\buzzer.c" DeclLine="58" Pointer="No"/>
+ <variable Header="CurrentMelody" Icon="2" Type="variable" Desc=":   unsigned char CODE*" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\buzzer.c" DeclLine="61" Pointer="Yes"/>
+ <variable Header="CurrentMelodySTART" Icon="2" Type="variable" Desc=":   unsigned char CODE*" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\buzzer.c" DeclLine="62" Pointer="Yes"/>
+ <variable Header="DefaultOctave" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\buzzer.c" DeclLine="63" Pointer="No"/>
+ <variable Header="DefaultDuration" Icon="2" Type="variable" Desc=":   unsigned char" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\buzzer.c" DeclLine="64" Pointer="No"/>
+ <variable Header="DefaultBeats" Icon="2" Type="variable" Desc=":   unsigned int" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\buzzer.c" DeclLine="65" Pointer="No"/>
+ <variable Header="Note_Freq" Icon="2" Type="variable" Desc=":   unsigned int[16]" DeclFile="C:\Users\fv\Desktop\TAMA\TIM\library\src\buzzer.c" DeclLine="67" Pointer="No"/>
+</aoffile>
+

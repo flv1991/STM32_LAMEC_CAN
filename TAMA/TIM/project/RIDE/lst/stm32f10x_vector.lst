@@ -1,0 +1,105 @@
+
+C:\Users\nd\Documents\sistr20142015\GPIO\project\RIDE\obj\stm32f10x_vector.o:     file format elf32-littlearm
+C:\Users\nd\Documents\sistr20142015\GPIO\project\RIDE\obj\stm32f10x_vector.o
+
+
+Disassembly of section .text.Reset_Handler:
+
+00000000 <Reset_Handler>:
+Reset_Handler():
+C:\Users\nd\Documents\sistr20142015\GPIO\project\RIDE/stm32f10x_vector.c:155
+* Input          :
+* Output         :
+* Return         :
+*******************************************************************************/
+void Reset_Handler(void)
+{
+   0:	4668      	mov	r0, sp
+   2:	f020 0107 	bic.w	r1, r0, #7
+   6:	468d      	mov	sp, r1
+   8:	b501      	push	{r0, lr}
+C:\Users\nd\Documents\sistr20142015\GPIO\project\RIDE/stm32f10x_vector.c:198
+#endif /*DATA_IN_ExtSRAM*/
+
+
+/* Copy the data segment initializers from flash to SRAM */
+    pulSrc = &_sidata;
+    for(pulDest = &_sdata; pulDest < &_edata; )
+   a:	f240 0200 	movw	r2, #0
+   e:	f2c0 0200 	movt	r2, #0
+  12:	f240 0300 	movw	r3, #0
+  16:	f2c0 0300 	movt	r3, #0
+  1a:	429a      	cmp	r2, r3
+  1c:	d211      	bcs.n	42 <Reset_Handler+0x42>
+  1e:	f240 0200 	movw	r2, #0
+  22:	f2c0 0200 	movt	r2, #0
+  26:	f240 0300 	movw	r3, #0
+  2a:	f2c0 0300 	movt	r3, #0
+  2e:	f240 0000 	movw	r0, #0
+  32:	f2c0 0000 	movt	r0, #0
+C:\Users\nd\Documents\sistr20142015\GPIO\project\RIDE/stm32f10x_vector.c:200
+    {
+        *(pulDest++) = *(pulSrc++);
+  36:	f852 1b04 	ldr.w	r1, [r2], #4
+  3a:	f843 1b04 	str.w	r1, [r3], #4
+C:\Users\nd\Documents\sistr20142015\GPIO\project\RIDE/stm32f10x_vector.c:198
+#endif /*DATA_IN_ExtSRAM*/
+
+
+/* Copy the data segment initializers from flash to SRAM */
+    pulSrc = &_sidata;
+    for(pulDest = &_sdata; pulDest < &_edata; )
+  3e:	4283      	cmp	r3, r0
+  40:	d3f9      	bcc.n	36 <Reset_Handler+0x36>
+C:\Users\nd\Documents\sistr20142015\GPIO\project\RIDE/stm32f10x_vector.c:203
+    {
+        *(pulDest++) = *(pulSrc++);
+    }
+/* Zero fill the bss segment.  */
+    for(pulDest = &_sbss; pulDest < &_ebss; )
+  42:	f240 0200 	movw	r2, #0
+  46:	f2c0 0200 	movt	r2, #0
+  4a:	f240 0300 	movw	r3, #0
+  4e:	f2c0 0300 	movt	r3, #0
+  52:	429a      	cmp	r2, r3
+  54:	d20a      	bcs.n	6c <Reset_Handler+0x6c>
+  56:	4613      	mov	r3, r2
+C:\Users\nd\Documents\sistr20142015\GPIO\project\RIDE/stm32f10x_vector.c:205
+    {
+        *(pulDest++) = 0;
+  58:	f04f 0100 	mov.w	r1, #0
+C:\Users\nd\Documents\sistr20142015\GPIO\project\RIDE/stm32f10x_vector.c:203
+    for(pulDest = &_sdata; pulDest < &_edata; )
+    {
+        *(pulDest++) = *(pulSrc++);
+    }
+/* Zero fill the bss segment.  */
+    for(pulDest = &_sbss; pulDest < &_ebss; )
+  5c:	f240 0200 	movw	r2, #0
+  60:	f2c0 0200 	movt	r2, #0
+C:\Users\nd\Documents\sistr20142015\GPIO\project\RIDE/stm32f10x_vector.c:205
+    {
+        *(pulDest++) = 0;
+  64:	f843 1b04 	str.w	r1, [r3], #4
+C:\Users\nd\Documents\sistr20142015\GPIO\project\RIDE/stm32f10x_vector.c:203
+    for(pulDest = &_sdata; pulDest < &_edata; )
+    {
+        *(pulDest++) = *(pulSrc++);
+    }
+/* Zero fill the bss segment.  */
+    for(pulDest = &_sbss; pulDest < &_ebss; )
+  68:	4293      	cmp	r3, r2
+  6a:	d3fb      	bcc.n	64 <Reset_Handler+0x64>
+C:\Users\nd\Documents\sistr20142015\GPIO\project\RIDE/stm32f10x_vector.c:209
+    {
+        *(pulDest++) = 0;
+    }
+
+/* Call the application's entry point.*/
+    main();
+  6c:	f7ff fffe 	bl	0 <main>
+C:\Users\nd\Documents\sistr20142015\GPIO\project\RIDE/stm32f10x_vector.c:210
+}
+  70:	e8bd 4001 	ldmia.w	sp!, {r0, lr}
+  74:	4685      	mov	sp, r0
+  76:	4770      	bx	lr

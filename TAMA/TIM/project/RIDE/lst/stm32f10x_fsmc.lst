@@ -1,0 +1,1496 @@
+
+C:\Users\fv\Desktop\TAMA\TIM\project\RIDE\obj\stm32f10x_fsmc.o:     file format elf32-littlearm
+C:\Users\fv\Desktop\TAMA\TIM\project\RIDE\obj\stm32f10x_fsmc.o
+
+
+Disassembly of section .text.FSMC_NORSRAMDeInit:
+
+00000000 <FSMC_NORSRAMDeInit>:
+FSMC_NORSRAMDeInit():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:59
+{
+  /* Check the parameter */
+  assert_param(IS_FSMC_NORSRAM_BANK(FSMC_Bank));
+  
+  /* FSMC_Bank1_NORSRAM1 */
+  if(FSMC_Bank == FSMC_Bank1_NORSRAM1)
+   0:	4603      	mov	r3, r0
+   2:	b928      	cbnz	r0, 10 <FSMC_NORSRAMDeInit+0x10>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:61
+  {
+    FSMC_Bank1->BTCR[FSMC_Bank] = 0x000030DB;    
+   4:	f243 01db 	movw	r1, #12507	; 0x30db
+   8:	f04f 4220 	mov.w	r2, #2684354560	; 0xa0000000
+   c:	6011      	str	r1, [r2, #0]
+   e:	e005      	b.n	1c <FSMC_NORSRAMDeInit+0x1c>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:66
+  }
+  /* FSMC_Bank1_NORSRAM2,  FSMC_Bank1_NORSRAM3 or FSMC_Bank1_NORSRAM4 */
+  else
+  {   
+    FSMC_Bank1->BTCR[FSMC_Bank] = 0x000030D2; 
+  10:	f243 01d2 	movw	r1, #12498	; 0x30d2
+  14:	f04f 4220 	mov.w	r2, #2684354560	; 0xa0000000
+  18:	f842 1020 	str.w	r1, [r2, r0, lsl #2]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:69
+  }
+
+  FSMC_Bank1->BTCR[FSMC_Bank + 1] = 0x0FFFFFFF;
+  1c:	f103 0001 	add.w	r0, r3, #1
+  20:	f06f 4170 	mvn.w	r1, #4026531840	; 0xf0000000
+  24:	f04f 4220 	mov.w	r2, #2684354560	; 0xa0000000
+  28:	f842 1020 	str.w	r1, [r2, r0, lsl #2]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:70
+  FSMC_Bank1E->BWTR[FSMC_Bank] = 0x0FFFFFFF;  
+  2c:	f44f 7282 	mov.w	r2, #260	; 0x104
+  30:	f2ca 0200 	movt	r2, #40960	; 0xa000
+  34:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:71
+}
+  38:	4770      	bx	lr
+  3a:	bf00      	nop
+
+Disassembly of section .text.FSMC_NANDDeInit:
+
+00000000 <FSMC_NANDDeInit>:
+FSMC_NANDDeInit():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:89
+void FSMC_NANDDeInit(u32 FSMC_Bank)
+{
+  /* Check the parameter */
+  assert_param(IS_FSMC_NAND_BANK(FSMC_Bank));
+  
+  if(FSMC_Bank == FSMC_Bank2_NAND)
+   0:	2810      	cmp	r0, #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:92
+  {
+    /* Set the FSMC_Bank2 registers to their reset values */
+    FSMC_Bank2->PCR2 = 0x00000018;
+   2:	bf0c      	ite	eq
+   4:	2360      	moveq	r3, #96	; 0x60
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:101
+  }
+  /* FSMC_Bank3_NAND */  
+  else
+  {
+    /* Set the FSMC_Bank3 registers to their reset values */
+    FSMC_Bank3->PCR3 = 0x00000018;
+   6:	2380      	movne	r3, #128	; 0x80
+   8:	f2ca 0300 	movt	r3, #40960	; 0xa000
+   c:	f04f 0218 	mov.w	r2, #24
+  10:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:102
+    FSMC_Bank3->SR3 = 0x00000040;
+  12:	f04f 0240 	mov.w	r2, #64	; 0x40
+  16:	605a      	str	r2, [r3, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:103
+    FSMC_Bank3->PMEM3 = 0xFCFCFCFC;
+  18:	f04f 32fc 	mov.w	r2, #4244438268	; 0xfcfcfcfc
+  1c:	609a      	str	r2, [r3, #8]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:104
+    FSMC_Bank3->PATT3 = 0xFCFCFCFC; 
+  1e:	60da      	str	r2, [r3, #12]
+  20:	4770      	bx	lr
+  22:	bf00      	nop
+
+Disassembly of section .text.FSMC_PCCARDDeInit:
+
+00000000 <FSMC_PCCARDDeInit>:
+FSMC_PCCARDDeInit():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:119
+* Return         : None
+*******************************************************************************/
+void FSMC_PCCARDDeInit(void)
+{
+  /* Set the FSMC_Bank4 registers to their reset values */
+  FSMC_Bank4->PCR4 = 0x00000018; 
+   0:	f04f 03a0 	mov.w	r3, #160	; 0xa0
+   4:	f2ca 0300 	movt	r3, #40960	; 0xa000
+   8:	f04f 0218 	mov.w	r2, #24
+   c:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:120
+  FSMC_Bank4->SR4 = 0x00000000;	
+   e:	f04f 0200 	mov.w	r2, #0
+  12:	605a      	str	r2, [r3, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:121
+  FSMC_Bank4->PMEM4 = 0xFCFCFCFC;
+  14:	f04f 32fc 	mov.w	r2, #4244438268	; 0xfcfcfcfc
+  18:	609a      	str	r2, [r3, #8]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:122
+  FSMC_Bank4->PATT4 = 0xFCFCFCFC;
+  1a:	60da      	str	r2, [r3, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:123
+  FSMC_Bank4->PIO4 = 0xFCFCFCFC;
+  1c:	611a      	str	r2, [r3, #16]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:124
+}
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.FSMC_NORSRAMInit:
+
+00000000 <FSMC_NORSRAMInit>:
+FSMC_NORSRAMInit():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:137
+*                  the FSMC NOR/SRAM specified Banks.                       
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void FSMC_NORSRAMInit(FSMC_NORSRAMInitTypeDef* FSMC_NORSRAMInitStruct)
+{ 
+   0:	b410      	push	{r4}
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:160
+  assert_param(IS_FSMC_CLK_DIV(FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_CLKDivision));
+  assert_param(IS_FSMC_DATA_LATENCY(FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_DataLatency));
+  assert_param(IS_FSMC_ACCESS_MODE(FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AccessMode)); 
+  
+  /* Bank1 NOR/SRAM control register configuration */ 
+  FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank] = 
+   2:	6802      	ldr	r2, [r0, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:161
+            (u32)FSMC_NORSRAMInitStruct->FSMC_DataAddressMux |
+   4:	6881      	ldr	r1, [r0, #8]
+   6:	6843      	ldr	r3, [r0, #4]
+   8:	4319      	orrs	r1, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:162
+            FSMC_NORSRAMInitStruct->FSMC_MemoryType |
+   a:	68c3      	ldr	r3, [r0, #12]
+   c:	4319      	orrs	r1, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:163
+            FSMC_NORSRAMInitStruct->FSMC_MemoryDataWidth |
+   e:	6903      	ldr	r3, [r0, #16]
+  10:	4319      	orrs	r1, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:164
+            FSMC_NORSRAMInitStruct->FSMC_BurstAccessMode |
+  12:	6943      	ldr	r3, [r0, #20]
+  14:	4319      	orrs	r1, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:165
+            FSMC_NORSRAMInitStruct->FSMC_WaitSignalPolarity |
+  16:	6983      	ldr	r3, [r0, #24]
+  18:	4319      	orrs	r1, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:166
+            FSMC_NORSRAMInitStruct->FSMC_WrapMode |
+  1a:	69c3      	ldr	r3, [r0, #28]
+  1c:	4319      	orrs	r1, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:167
+            FSMC_NORSRAMInitStruct->FSMC_WaitSignalActive |
+  1e:	6a03      	ldr	r3, [r0, #32]
+  20:	4319      	orrs	r1, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:168
+            FSMC_NORSRAMInitStruct->FSMC_WriteOperation |
+  22:	6a43      	ldr	r3, [r0, #36]	; 0x24
+  24:	4319      	orrs	r1, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:169
+            FSMC_NORSRAMInitStruct->FSMC_WaitSignal |
+  26:	6a83      	ldr	r3, [r0, #40]	; 0x28
+  28:	4319      	orrs	r1, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:170
+            FSMC_NORSRAMInitStruct->FSMC_ExtendedMode |
+  2a:	6ac3      	ldr	r3, [r0, #44]	; 0x2c
+  2c:	4319      	orrs	r1, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:160
+  assert_param(IS_FSMC_CLK_DIV(FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_CLKDivision));
+  assert_param(IS_FSMC_DATA_LATENCY(FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_DataLatency));
+  assert_param(IS_FSMC_ACCESS_MODE(FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AccessMode)); 
+  
+  /* Bank1 NOR/SRAM control register configuration */ 
+  FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank] = 
+  2e:	f04f 4320 	mov.w	r3, #2684354560	; 0xa0000000
+  32:	f843 1022 	str.w	r1, [r3, r2, lsl #2]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:173
+            FSMC_NORSRAMInitStruct->FSMC_WriteOperation |
+            FSMC_NORSRAMInitStruct->FSMC_WaitSignal |
+            FSMC_NORSRAMInitStruct->FSMC_ExtendedMode |
+            FSMC_NORSRAMInitStruct->FSMC_WriteBurst;
+
+  if(FSMC_NORSRAMInitStruct->FSMC_MemoryType == FSMC_MemoryType_NOR)
+  36:	6883      	ldr	r3, [r0, #8]
+  38:	2b08      	cmp	r3, #8
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:175
+  {
+    FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank] |= (u32)BCR_FACCEN_Set;
+  3a:	bf01      	itttt	eq
+  3c:	6802      	ldreq	r2, [r0, #0]
+  3e:	f04f 4320 	moveq.w	r3, #2684354560	; 0xa0000000
+  42:	f853 1022 	ldreq.w	r1, [r3, r2, lsl #2]
+  46:	f041 0140 	orreq.w	r1, r1, #64	; 0x40
+  4a:	bf08      	it	eq
+  4c:	f843 1022 	streq.w	r1, [r3, r2, lsl #2]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:179
+  }
+
+  /* Bank1 NOR/SRAM timing register configuration */
+  FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank+1] = 
+  50:	6802      	ldr	r2, [r0, #0]
+  52:	f102 0201 	add.w	r2, r2, #1
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:180
+            (u32)FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AddressSetupTime |
+  56:	6b03      	ldr	r3, [r0, #48]	; 0x30
+  58:	699c      	ldr	r4, [r3, #24]
+  5a:	6819      	ldr	r1, [r3, #0]
+  5c:	ea44 0101 	orr.w	r1, r4, r1
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:181
+            (FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AddressHoldTime << 4) |
+  60:	685c      	ldr	r4, [r3, #4]
+  62:	ea41 1104 	orr.w	r1, r1, r4, lsl #4
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:182
+            (FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_DataSetupTime << 8) |
+  66:	689c      	ldr	r4, [r3, #8]
+  68:	ea41 2104 	orr.w	r1, r1, r4, lsl #8
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:183
+            (FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_BusTurnAroundDuration << 16) |
+  6c:	68dc      	ldr	r4, [r3, #12]
+  6e:	ea41 4104 	orr.w	r1, r1, r4, lsl #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:184
+            (FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_CLKDivision << 20) |
+  72:	691c      	ldr	r4, [r3, #16]
+  74:	ea41 5104 	orr.w	r1, r1, r4, lsl #20
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:185
+            (FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_DataLatency << 24) |
+  78:	695b      	ldr	r3, [r3, #20]
+  7a:	ea41 6103 	orr.w	r1, r1, r3, lsl #24
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:179
+  {
+    FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank] |= (u32)BCR_FACCEN_Set;
+  }
+
+  /* Bank1 NOR/SRAM timing register configuration */
+  FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank+1] = 
+  7e:	f04f 4320 	mov.w	r3, #2684354560	; 0xa0000000
+  82:	f843 1022 	str.w	r1, [r3, r2, lsl #2]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:191
+             FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AccessMode;
+            
+
+    
+  /* Bank1 NOR/SRAM timing register for write configuration, if extended mode is used */
+  if(FSMC_NORSRAMInitStruct->FSMC_ExtendedMode == FSMC_ExtendedMode_Enable)
+  86:	6a83      	ldr	r3, [r0, #40]	; 0x28
+  88:	f5b3 4f80 	cmp.w	r3, #16384	; 0x4000
+  8c:	d118      	bne.n	c0 <FSMC_NORSRAMInit+0xc0>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:200
+    assert_param(IS_FSMC_DATASETUP_TIME(FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_DataSetupTime));
+    assert_param(IS_FSMC_CLK_DIV(FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_CLKDivision));
+    assert_param(IS_FSMC_DATA_LATENCY(FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_DataLatency));
+    assert_param(IS_FSMC_ACCESS_MODE(FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_AccessMode));
+
+    FSMC_Bank1E->BWTR[FSMC_NORSRAMInitStruct->FSMC_Bank] = 
+  8e:	6802      	ldr	r2, [r0, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:201
+              (u32)FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_AddressSetupTime |
+  90:	6b43      	ldr	r3, [r0, #52]	; 0x34
+  92:	6998      	ldr	r0, [r3, #24]
+  94:	6819      	ldr	r1, [r3, #0]
+  96:	ea40 0101 	orr.w	r1, r0, r1
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:202
+              (FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_AddressHoldTime << 4 )|
+  9a:	6858      	ldr	r0, [r3, #4]
+  9c:	ea41 1100 	orr.w	r1, r1, r0, lsl #4
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:203
+              (FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_DataSetupTime << 8) |
+  a0:	6898      	ldr	r0, [r3, #8]
+  a2:	ea41 2100 	orr.w	r1, r1, r0, lsl #8
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:204
+              (FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_CLKDivision << 20) |
+  a6:	6918      	ldr	r0, [r3, #16]
+  a8:	ea41 5100 	orr.w	r1, r1, r0, lsl #20
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:205
+              (FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_DataLatency << 24) |
+  ac:	695b      	ldr	r3, [r3, #20]
+  ae:	ea41 6103 	orr.w	r1, r1, r3, lsl #24
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:200
+    assert_param(IS_FSMC_DATASETUP_TIME(FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_DataSetupTime));
+    assert_param(IS_FSMC_CLK_DIV(FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_CLKDivision));
+    assert_param(IS_FSMC_DATA_LATENCY(FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_DataLatency));
+    assert_param(IS_FSMC_ACCESS_MODE(FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_AccessMode));
+
+    FSMC_Bank1E->BWTR[FSMC_NORSRAMInitStruct->FSMC_Bank] = 
+  b2:	f44f 7382 	mov.w	r3, #260	; 0x104
+  b6:	f2ca 0300 	movt	r3, #40960	; 0xa000
+  ba:	f843 1022 	str.w	r1, [r3, r2, lsl #2]
+  be:	e008      	b.n	d2 <FSMC_NORSRAMInit+0xd2>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:210
+              (FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_DataLatency << 24) |
+               FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_AccessMode;
+  }
+  else
+  {
+    FSMC_Bank1E->BWTR[FSMC_NORSRAMInitStruct->FSMC_Bank] = 0x0FFFFFFF;
+  c0:	6802      	ldr	r2, [r0, #0]
+  c2:	f44f 7382 	mov.w	r3, #260	; 0x104
+  c6:	f2ca 0300 	movt	r3, #40960	; 0xa000
+  ca:	f06f 4170 	mvn.w	r1, #4026531840	; 0xf0000000
+  ce:	f843 1022 	str.w	r1, [r3, r2, lsl #2]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:212
+  }
+}
+  d2:	bc10      	pop	{r4}
+  d4:	4770      	bx	lr
+  d6:	bf00      	nop
+
+Disassembly of section .text.FSMC_NANDInit:
+
+00000000 <FSMC_NANDInit>:
+FSMC_NANDInit():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:225
+*                    the FSMC NAND specified Banks.                       
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void FSMC_NANDInit(FSMC_NANDInitTypeDef* FSMC_NANDInitStruct)
+{
+   0:	b430      	push	{r4, r5}
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:250
+  assert_param(IS_FSMC_HOLD_TIME(FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime));
+  assert_param(IS_FSMC_HIZ_TIME(FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime));
+  
+  /* Set the tmppcr value according to FSMC_NANDInitStruct parameters */
+  tmppcr = (u32)FSMC_NANDInitStruct->FSMC_Waitfeature |
+            PCR_MemoryType_NAND |
+   2:	6844      	ldr	r4, [r0, #4]
+   4:	6883      	ldr	r3, [r0, #8]
+   6:	431c      	orrs	r4, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:251
+            FSMC_NANDInitStruct->FSMC_MemoryDataWidth |
+   8:	f044 0408 	orr.w	r4, r4, #8
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:252
+            FSMC_NANDInitStruct->FSMC_ECC |
+   c:	68c3      	ldr	r3, [r0, #12]
+   e:	431c      	orrs	r4, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:253
+            FSMC_NANDInitStruct->FSMC_ECCPageSize |
+  10:	6903      	ldr	r3, [r0, #16]
+  12:	431c      	orrs	r4, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:254
+            FSMC_NANDInitStruct->FSMC_AddressLowMapping |
+  14:	6943      	ldr	r3, [r0, #20]
+  16:	431c      	orrs	r4, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:255
+            (FSMC_NANDInitStruct->FSMC_TCLRSetupTime << 9 )|
+  18:	6983      	ldr	r3, [r0, #24]
+  1a:	ea44 2443 	orr.w	r4, r4, r3, lsl #9
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:256
+            (FSMC_NANDInitStruct->FSMC_TARSetupTime << 13);
+  1e:	69c3      	ldr	r3, [r0, #28]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:249
+  assert_param(IS_FSMC_WAIT_TIME(FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime));
+  assert_param(IS_FSMC_HOLD_TIME(FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime));
+  assert_param(IS_FSMC_HIZ_TIME(FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime));
+  
+  /* Set the tmppcr value according to FSMC_NANDInitStruct parameters */
+  tmppcr = (u32)FSMC_NANDInitStruct->FSMC_Waitfeature |
+  20:	ea44 3443 	orr.w	r4, r4, r3, lsl #13
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:259
+            FSMC_NANDInitStruct->FSMC_AddressLowMapping |
+            (FSMC_NANDInitStruct->FSMC_TCLRSetupTime << 9 )|
+            (FSMC_NANDInitStruct->FSMC_TARSetupTime << 13);
+            
+  /* Set tmppmem value according to FSMC_CommonSpaceTimingStructure parameters */
+  tmppmem = (u32)FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime |
+  24:	6a03      	ldr	r3, [r0, #32]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:260
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  26:	685a      	ldr	r2, [r3, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:261
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  28:	689d      	ldr	r5, [r3, #8]
+  2a:	ea4f 4505 	mov.w	r5, r5, lsl #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:259
+            FSMC_NANDInitStruct->FSMC_AddressLowMapping |
+            (FSMC_NANDInitStruct->FSMC_TCLRSetupTime << 9 )|
+            (FSMC_NANDInitStruct->FSMC_TARSetupTime << 13);
+            
+  /* Set tmppmem value according to FSMC_CommonSpaceTimingStructure parameters */
+  tmppmem = (u32)FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime |
+  2e:	ea45 2502 	orr.w	r5, r5, r2, lsl #8
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:260
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  32:	681a      	ldr	r2, [r3, #0]
+  34:	4315      	orrs	r5, r2
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:262
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+  36:	68db      	ldr	r3, [r3, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:259
+            FSMC_NANDInitStruct->FSMC_AddressLowMapping |
+            (FSMC_NANDInitStruct->FSMC_TCLRSetupTime << 9 )|
+            (FSMC_NANDInitStruct->FSMC_TARSetupTime << 13);
+            
+  /* Set tmppmem value according to FSMC_CommonSpaceTimingStructure parameters */
+  tmppmem = (u32)FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime |
+  38:	ea45 6503 	orr.w	r5, r5, r3, lsl #24
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:265
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+            
+  /* Set tmppatt value according to FSMC_AttributeSpaceTimingStructure parameters */
+  tmppatt = (u32)FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime |
+  3c:	6a43      	ldr	r3, [r0, #36]	; 0x24
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:266
+            (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  3e:	6859      	ldr	r1, [r3, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:267
+            (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  40:	689a      	ldr	r2, [r3, #8]
+  42:	ea4f 4202 	mov.w	r2, r2, lsl #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:265
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+            
+  /* Set tmppatt value according to FSMC_AttributeSpaceTimingStructure parameters */
+  tmppatt = (u32)FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime |
+  46:	ea42 2201 	orr.w	r2, r2, r1, lsl #8
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:266
+            (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  4a:	6819      	ldr	r1, [r3, #0]
+  4c:	430a      	orrs	r2, r1
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:268
+            (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+            (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime << 24);
+  4e:	68db      	ldr	r3, [r3, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:265
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+            (FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+            
+  /* Set tmppatt value according to FSMC_AttributeSpaceTimingStructure parameters */
+  tmppatt = (u32)FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime |
+  50:	ea42 6203 	orr.w	r2, r2, r3, lsl #24
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:270
+            (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+            (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+            (FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime << 24);
+  
+  if(FSMC_NANDInitStruct->FSMC_Bank == FSMC_Bank2_NAND)
+  54:	6803      	ldr	r3, [r0, #0]
+  56:	2b10      	cmp	r3, #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:273
+  {
+    /* FSMC_Bank2_NAND registers configuration */
+    FSMC_Bank2->PCR2 = tmppcr;
+  58:	bf0c      	ite	eq
+  5a:	2360      	moveq	r3, #96	; 0x60
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:280
+    FSMC_Bank2->PATT2 = tmppatt;
+  }
+  else
+  {
+    /* FSMC_Bank3_NAND registers configuration */
+    FSMC_Bank3->PCR3 = tmppcr;
+  5c:	2380      	movne	r3, #128	; 0x80
+  5e:	f2ca 0300 	movt	r3, #40960	; 0xa000
+  62:	601c      	str	r4, [r3, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:281
+    FSMC_Bank3->PMEM3 = tmppmem;
+  64:	609d      	str	r5, [r3, #8]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:282
+    FSMC_Bank3->PATT3 = tmppatt;
+  66:	60da      	str	r2, [r3, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:284
+  }
+}
+  68:	bc30      	pop	{r4, r5}
+  6a:	4770      	bx	lr
+
+Disassembly of section .text.FSMC_PCCARDInit:
+
+00000000 <FSMC_PCCARDInit>:
+FSMC_PCCARDInit():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:297
+*                    the FSMC PCCARD Bank.                       
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void FSMC_PCCARDInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct)
+{
+   0:	b410      	push	{r4}
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:322
+  assert_param(IS_FSMC_HOLD_TIME(FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HoldSetupTime));
+  assert_param(IS_FSMC_HIZ_TIME(FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HiZSetupTime));
+  
+  /* Set the PCR4 register value according to FSMC_PCCARDInitStruct parameters */
+  FSMC_Bank4->PCR4 = (u32)FSMC_PCCARDInitStruct->FSMC_Waitfeature |
+                     FSMC_MemoryDataWidth_16b |  
+   2:	6802      	ldr	r2, [r0, #0]
+   4:	6843      	ldr	r3, [r0, #4]
+   6:	431a      	orrs	r2, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:323
+                     FSMC_PCCARDInitStruct->FSMC_AddressLowMapping |
+   8:	f042 0210 	orr.w	r2, r2, #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:324
+                     (FSMC_PCCARDInitStruct->FSMC_TCLRSetupTime << 9) |
+   c:	6883      	ldr	r3, [r0, #8]
+   e:	ea42 2243 	orr.w	r2, r2, r3, lsl #9
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:325
+                     (FSMC_PCCARDInitStruct->FSMC_TARSetupTime << 13);
+  12:	68c3      	ldr	r3, [r0, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:324
+  
+  /* Set the PCR4 register value according to FSMC_PCCARDInitStruct parameters */
+  FSMC_Bank4->PCR4 = (u32)FSMC_PCCARDInitStruct->FSMC_Waitfeature |
+                     FSMC_MemoryDataWidth_16b |  
+                     FSMC_PCCARDInitStruct->FSMC_AddressLowMapping |
+                     (FSMC_PCCARDInitStruct->FSMC_TCLRSetupTime << 9) |
+  14:	ea42 3243 	orr.w	r2, r2, r3, lsl #13
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:321
+  assert_param(IS_FSMC_WAIT_TIME(FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_WaitSetupTime));
+  assert_param(IS_FSMC_HOLD_TIME(FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HoldSetupTime));
+  assert_param(IS_FSMC_HIZ_TIME(FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HiZSetupTime));
+  
+  /* Set the PCR4 register value according to FSMC_PCCARDInitStruct parameters */
+  FSMC_Bank4->PCR4 = (u32)FSMC_PCCARDInitStruct->FSMC_Waitfeature |
+  18:	f04f 03a0 	mov.w	r3, #160	; 0xa0
+  1c:	f2ca 0300 	movt	r3, #40960	; 0xa000
+  20:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:328
+                     FSMC_PCCARDInitStruct->FSMC_AddressLowMapping |
+                     (FSMC_PCCARDInitStruct->FSMC_TCLRSetupTime << 9) |
+                     (FSMC_PCCARDInitStruct->FSMC_TARSetupTime << 13);
+            
+  /* Set PMEM4 register value according to FSMC_CommonSpaceTimingStructure parameters */
+  FSMC_Bank4->PMEM4 = (u32)FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime |
+  22:	6902      	ldr	r2, [r0, #16]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:329
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  24:	6854      	ldr	r4, [r2, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:330
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  26:	6891      	ldr	r1, [r2, #8]
+  28:	ea4f 4101 	mov.w	r1, r1, lsl #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:328
+                     FSMC_PCCARDInitStruct->FSMC_AddressLowMapping |
+                     (FSMC_PCCARDInitStruct->FSMC_TCLRSetupTime << 9) |
+                     (FSMC_PCCARDInitStruct->FSMC_TARSetupTime << 13);
+            
+  /* Set PMEM4 register value according to FSMC_CommonSpaceTimingStructure parameters */
+  FSMC_Bank4->PMEM4 = (u32)FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime |
+  2c:	ea41 2104 	orr.w	r1, r1, r4, lsl #8
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:329
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  30:	6814      	ldr	r4, [r2, #0]
+  32:	4321      	orrs	r1, r4
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:331
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+  34:	68d2      	ldr	r2, [r2, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:330
+                     (FSMC_PCCARDInitStruct->FSMC_TARSetupTime << 13);
+            
+  /* Set PMEM4 register value according to FSMC_CommonSpaceTimingStructure parameters */
+  FSMC_Bank4->PMEM4 = (u32)FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime |
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  36:	ea41 6202 	orr.w	r2, r1, r2, lsl #24
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:328
+                     FSMC_PCCARDInitStruct->FSMC_AddressLowMapping |
+                     (FSMC_PCCARDInitStruct->FSMC_TCLRSetupTime << 9) |
+                     (FSMC_PCCARDInitStruct->FSMC_TARSetupTime << 13);
+            
+  /* Set PMEM4 register value according to FSMC_CommonSpaceTimingStructure parameters */
+  FSMC_Bank4->PMEM4 = (u32)FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime |
+  3a:	609a      	str	r2, [r3, #8]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:334
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+            
+  /* Set PATT4 register value according to FSMC_AttributeSpaceTimingStructure parameters */
+  FSMC_Bank4->PATT4 = (u32)FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime |
+  3c:	6942      	ldr	r2, [r0, #20]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:335
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  3e:	6854      	ldr	r4, [r2, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:336
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  40:	6891      	ldr	r1, [r2, #8]
+  42:	ea4f 4101 	mov.w	r1, r1, lsl #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:334
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+            
+  /* Set PATT4 register value according to FSMC_AttributeSpaceTimingStructure parameters */
+  FSMC_Bank4->PATT4 = (u32)FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime |
+  46:	ea41 2104 	orr.w	r1, r1, r4, lsl #8
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:335
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  4a:	6814      	ldr	r4, [r2, #0]
+  4c:	4321      	orrs	r1, r4
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:337
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime << 24);	
+  4e:	68d2      	ldr	r2, [r2, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:336
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+            
+  /* Set PATT4 register value according to FSMC_AttributeSpaceTimingStructure parameters */
+  FSMC_Bank4->PATT4 = (u32)FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime |
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  50:	ea41 6202 	orr.w	r2, r1, r2, lsl #24
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:334
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                      (FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime << 24); 
+            
+  /* Set PATT4 register value according to FSMC_AttributeSpaceTimingStructure parameters */
+  FSMC_Bank4->PATT4 = (u32)FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime |
+  54:	60da      	str	r2, [r3, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:340
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime << 24);	
+            
+  /* Set PIO4 register value according to FSMC_IOSpaceTimingStructure parameters */
+  FSMC_Bank4->PIO4 = (u32)FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_SetupTime |
+  56:	6982      	ldr	r2, [r0, #24]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:341
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  58:	6850      	ldr	r0, [r2, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:342
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  5a:	6891      	ldr	r1, [r2, #8]
+  5c:	ea4f 4101 	mov.w	r1, r1, lsl #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:340
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime << 24);	
+            
+  /* Set PIO4 register value according to FSMC_IOSpaceTimingStructure parameters */
+  FSMC_Bank4->PIO4 = (u32)FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_SetupTime |
+  60:	ea41 2100 	orr.w	r1, r1, r0, lsl #8
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:341
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+  64:	6810      	ldr	r0, [r2, #0]
+  66:	4301      	orrs	r1, r0
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:343
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HiZSetupTime << 24);             
+  68:	68d2      	ldr	r2, [r2, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:342
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime << 24);	
+            
+  /* Set PIO4 register value according to FSMC_IOSpaceTimingStructure parameters */
+  FSMC_Bank4->PIO4 = (u32)FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_SetupTime |
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+  6a:	ea41 6202 	orr.w	r2, r1, r2, lsl #24
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:340
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                      (FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime << 24);	
+            
+  /* Set PIO4 register value according to FSMC_IOSpaceTimingStructure parameters */
+  FSMC_Bank4->PIO4 = (u32)FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_SetupTime |
+  6e:	611a      	str	r2, [r3, #16]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:344
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_WaitSetupTime << 8) |
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HoldSetupTime << 16)|
+                     (FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HiZSetupTime << 24);             
+}
+  70:	bc10      	pop	{r4}
+  72:	4770      	bx	lr
+
+Disassembly of section .text.FSMC_NORSRAMStructInit:
+
+00000000 <FSMC_NORSRAMStructInit>:
+FSMC_NORSRAMStructInit():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:355
+*                    structure which will be initialized.
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void FSMC_NORSRAMStructInit(FSMC_NORSRAMInitTypeDef* FSMC_NORSRAMInitStruct)
+{  
+   0:	b410      	push	{r4}
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:357
+  /* Reset NOR/SRAM Init structure parameters values */
+  FSMC_NORSRAMInitStruct->FSMC_Bank = FSMC_Bank1_NORSRAM1;
+   2:	f04f 0300 	mov.w	r3, #0
+   6:	6003      	str	r3, [r0, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:358
+  FSMC_NORSRAMInitStruct->FSMC_DataAddressMux = FSMC_DataAddressMux_Enable;
+   8:	f04f 0202 	mov.w	r2, #2
+   c:	6042      	str	r2, [r0, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:359
+  FSMC_NORSRAMInitStruct->FSMC_MemoryType = FSMC_MemoryType_SRAM;
+   e:	6083      	str	r3, [r0, #8]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:360
+  FSMC_NORSRAMInitStruct->FSMC_MemoryDataWidth = FSMC_MemoryDataWidth_8b;
+  10:	60c3      	str	r3, [r0, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:361
+  FSMC_NORSRAMInitStruct->FSMC_BurstAccessMode = FSMC_BurstAccessMode_Disable;
+  12:	6103      	str	r3, [r0, #16]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:362
+  FSMC_NORSRAMInitStruct->FSMC_WaitSignalPolarity = FSMC_WaitSignalPolarity_Low;
+  14:	6143      	str	r3, [r0, #20]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:363
+  FSMC_NORSRAMInitStruct->FSMC_WrapMode = FSMC_WrapMode_Disable;
+  16:	6183      	str	r3, [r0, #24]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:364
+  FSMC_NORSRAMInitStruct->FSMC_WaitSignalActive = FSMC_WaitSignalActive_BeforeWaitState;
+  18:	61c3      	str	r3, [r0, #28]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:365
+  FSMC_NORSRAMInitStruct->FSMC_WriteOperation = FSMC_WriteOperation_Enable;
+  1a:	f44f 5280 	mov.w	r2, #4096	; 0x1000
+  1e:	6202      	str	r2, [r0, #32]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:366
+  FSMC_NORSRAMInitStruct->FSMC_WaitSignal = FSMC_WaitSignal_Enable;
+  20:	f44f 5200 	mov.w	r2, #8192	; 0x2000
+  24:	6242      	str	r2, [r0, #36]	; 0x24
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:367
+  FSMC_NORSRAMInitStruct->FSMC_ExtendedMode = FSMC_ExtendedMode_Disable;
+  26:	6283      	str	r3, [r0, #40]	; 0x28
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:368
+  FSMC_NORSRAMInitStruct->FSMC_WriteBurst = FSMC_WriteBurst_Disable;
+  28:	62c3      	str	r3, [r0, #44]	; 0x2c
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:369
+  FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AddressSetupTime = 0xF;
+  2a:	6b01      	ldr	r1, [r0, #48]	; 0x30
+  2c:	f04f 020f 	mov.w	r2, #15
+  30:	600a      	str	r2, [r1, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:370
+  FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AddressHoldTime = 0xF;
+  32:	6b01      	ldr	r1, [r0, #48]	; 0x30
+  34:	604a      	str	r2, [r1, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:371
+  FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_DataSetupTime = 0xFF;
+  36:	6b04      	ldr	r4, [r0, #48]	; 0x30
+  38:	f04f 01ff 	mov.w	r1, #255	; 0xff
+  3c:	60a1      	str	r1, [r4, #8]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:372
+  FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_BusTurnAroundDuration = 0xF;
+  3e:	6b04      	ldr	r4, [r0, #48]	; 0x30
+  40:	60e2      	str	r2, [r4, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:373
+  FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_CLKDivision = 0xF;
+  42:	6b04      	ldr	r4, [r0, #48]	; 0x30
+  44:	6122      	str	r2, [r4, #16]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:374
+  FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_DataLatency = 0xF;
+  46:	6b04      	ldr	r4, [r0, #48]	; 0x30
+  48:	6162      	str	r2, [r4, #20]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:375
+  FSMC_NORSRAMInitStruct->FSMC_ReadWriteTimingStruct->FSMC_AccessMode = FSMC_AccessMode_A; 
+  4a:	6b04      	ldr	r4, [r0, #48]	; 0x30
+  4c:	61a3      	str	r3, [r4, #24]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:376
+  FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_AddressSetupTime = 0xF;
+  4e:	6b44      	ldr	r4, [r0, #52]	; 0x34
+  50:	6022      	str	r2, [r4, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:377
+  FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_AddressHoldTime = 0xF;
+  52:	6b44      	ldr	r4, [r0, #52]	; 0x34
+  54:	6062      	str	r2, [r4, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:378
+  FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_DataSetupTime = 0xFF;
+  56:	6b44      	ldr	r4, [r0, #52]	; 0x34
+  58:	60a1      	str	r1, [r4, #8]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:379
+  FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_BusTurnAroundDuration = 0xF;
+  5a:	6b41      	ldr	r1, [r0, #52]	; 0x34
+  5c:	60ca      	str	r2, [r1, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:380
+  FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_CLKDivision = 0xF;
+  5e:	6b41      	ldr	r1, [r0, #52]	; 0x34
+  60:	610a      	str	r2, [r1, #16]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:381
+  FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_DataLatency = 0xF;
+  62:	6b41      	ldr	r1, [r0, #52]	; 0x34
+  64:	614a      	str	r2, [r1, #20]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:382
+  FSMC_NORSRAMInitStruct->FSMC_WriteTimingStruct->FSMC_AccessMode = FSMC_AccessMode_A;
+  66:	6b42      	ldr	r2, [r0, #52]	; 0x34
+  68:	6193      	str	r3, [r2, #24]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:383
+}
+  6a:	bc10      	pop	{r4}
+  6c:	4770      	bx	lr
+  6e:	bf00      	nop
+
+Disassembly of section .text.FSMC_NANDStructInit:
+
+00000000 <FSMC_NANDStructInit>:
+FSMC_NANDStructInit():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:396
+* Return         : None
+*******************************************************************************/
+void FSMC_NANDStructInit(FSMC_NANDInitTypeDef* FSMC_NANDInitStruct)
+{ 
+  /* Reset NAND Init structure parameters values */
+  FSMC_NANDInitStruct->FSMC_Bank = FSMC_Bank2_NAND;
+   0:	f04f 0310 	mov.w	r3, #16
+   4:	6003      	str	r3, [r0, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:397
+  FSMC_NANDInitStruct->FSMC_Waitfeature = FSMC_Waitfeature_Disable;
+   6:	f04f 0300 	mov.w	r3, #0
+   a:	6043      	str	r3, [r0, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:398
+  FSMC_NANDInitStruct->FSMC_MemoryDataWidth = FSMC_MemoryDataWidth_8b;
+   c:	6083      	str	r3, [r0, #8]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:399
+  FSMC_NANDInitStruct->FSMC_ECC = FSMC_ECC_Disable;
+   e:	60c3      	str	r3, [r0, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:400
+  FSMC_NANDInitStruct->FSMC_ECCPageSize = FSMC_ECCPageSize_256Bytes;
+  10:	6103      	str	r3, [r0, #16]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:401
+  FSMC_NANDInitStruct->FSMC_AddressLowMapping = FSMC_AddressLowMapping_Direct;
+  12:	6143      	str	r3, [r0, #20]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:402
+  FSMC_NANDInitStruct->FSMC_TCLRSetupTime = 0x0;
+  14:	6183      	str	r3, [r0, #24]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:403
+  FSMC_NANDInitStruct->FSMC_TARSetupTime = 0x0;
+  16:	61c3      	str	r3, [r0, #28]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:404
+  FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime = 0xFC;
+  18:	6a02      	ldr	r2, [r0, #32]
+  1a:	f04f 03fc 	mov.w	r3, #252	; 0xfc
+  1e:	6013      	str	r3, [r2, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:405
+  FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime = 0xFC;
+  20:	6a02      	ldr	r2, [r0, #32]
+  22:	6053      	str	r3, [r2, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:406
+  FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime = 0xFC;
+  24:	6a02      	ldr	r2, [r0, #32]
+  26:	6093      	str	r3, [r2, #8]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:407
+  FSMC_NANDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime = 0xFC;
+  28:	6a02      	ldr	r2, [r0, #32]
+  2a:	60d3      	str	r3, [r2, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:408
+  FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime = 0xFC;
+  2c:	6a42      	ldr	r2, [r0, #36]	; 0x24
+  2e:	6013      	str	r3, [r2, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:409
+  FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime = 0xFC;
+  30:	6a42      	ldr	r2, [r0, #36]	; 0x24
+  32:	6053      	str	r3, [r2, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:410
+  FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime = 0xFC;
+  34:	6a42      	ldr	r2, [r0, #36]	; 0x24
+  36:	6093      	str	r3, [r2, #8]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:411
+  FSMC_NANDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime = 0xFC;	  
+  38:	6a42      	ldr	r2, [r0, #36]	; 0x24
+  3a:	60d3      	str	r3, [r2, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:412
+}
+  3c:	4770      	bx	lr
+  3e:	bf00      	nop
+
+Disassembly of section .text.FSMC_PCCARDStructInit:
+
+00000000 <FSMC_PCCARDStructInit>:
+FSMC_PCCARDStructInit():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:425
+* Return         : None
+*******************************************************************************/
+void FSMC_PCCARDStructInit(FSMC_PCCARDInitTypeDef* FSMC_PCCARDInitStruct)
+{
+  /* Reset PCCARD Init structure parameters values */
+  FSMC_PCCARDInitStruct->FSMC_Waitfeature = FSMC_Waitfeature_Disable;
+   0:	f04f 0300 	mov.w	r3, #0
+   4:	6003      	str	r3, [r0, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:426
+  FSMC_PCCARDInitStruct->FSMC_AddressLowMapping = FSMC_AddressLowMapping_Direct;
+   6:	6043      	str	r3, [r0, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:427
+  FSMC_PCCARDInitStruct->FSMC_TCLRSetupTime = 0x0;
+   8:	6083      	str	r3, [r0, #8]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:428
+  FSMC_PCCARDInitStruct->FSMC_TARSetupTime = 0x0;
+   a:	60c3      	str	r3, [r0, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:429
+  FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_SetupTime = 0xFC;
+   c:	6902      	ldr	r2, [r0, #16]
+   e:	f04f 03fc 	mov.w	r3, #252	; 0xfc
+  12:	6013      	str	r3, [r2, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:430
+  FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_WaitSetupTime = 0xFC;
+  14:	6902      	ldr	r2, [r0, #16]
+  16:	6053      	str	r3, [r2, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:431
+  FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HoldSetupTime = 0xFC;
+  18:	6902      	ldr	r2, [r0, #16]
+  1a:	6093      	str	r3, [r2, #8]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:432
+  FSMC_PCCARDInitStruct->FSMC_CommonSpaceTimingStruct->FSMC_HiZSetupTime = 0xFC;
+  1c:	6902      	ldr	r2, [r0, #16]
+  1e:	60d3      	str	r3, [r2, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:433
+  FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_SetupTime = 0xFC;
+  20:	6942      	ldr	r2, [r0, #20]
+  22:	6013      	str	r3, [r2, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:434
+  FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_WaitSetupTime = 0xFC;
+  24:	6942      	ldr	r2, [r0, #20]
+  26:	6053      	str	r3, [r2, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:435
+  FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HoldSetupTime = 0xFC;
+  28:	6942      	ldr	r2, [r0, #20]
+  2a:	6093      	str	r3, [r2, #8]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:436
+  FSMC_PCCARDInitStruct->FSMC_AttributeSpaceTimingStruct->FSMC_HiZSetupTime = 0xFC;	
+  2c:	6942      	ldr	r2, [r0, #20]
+  2e:	60d3      	str	r3, [r2, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:437
+  FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_SetupTime = 0xFC;
+  30:	6982      	ldr	r2, [r0, #24]
+  32:	6013      	str	r3, [r2, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:438
+  FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_WaitSetupTime = 0xFC;
+  34:	6982      	ldr	r2, [r0, #24]
+  36:	6053      	str	r3, [r2, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:439
+  FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HoldSetupTime = 0xFC;
+  38:	6982      	ldr	r2, [r0, #24]
+  3a:	6093      	str	r3, [r2, #8]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:440
+  FSMC_PCCARDInitStruct->FSMC_IOSpaceTimingStruct->FSMC_HiZSetupTime = 0xFC;
+  3c:	6982      	ldr	r2, [r0, #24]
+  3e:	60d3      	str	r3, [r2, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:441
+}
+  40:	4770      	bx	lr
+  42:	bf00      	nop
+
+Disassembly of section .text.FSMC_NORSRAMCmd:
+
+00000000 <FSMC_NORSRAMCmd>:
+FSMC_NORSRAMCmd():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:462
+void FSMC_NORSRAMCmd(u32 FSMC_Bank, FunctionalState NewState)
+{
+  assert_param(IS_FSMC_NORSRAM_BANK(FSMC_Bank));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  if (NewState != DISABLE)
+   0:	b141      	cbz	r1, 14 <FSMC_NORSRAMCmd+0x14>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:465
+  {
+    /* Enable the selected NOR/SRAM Bank by setting the PBKEN bit in the BCRx register */
+    FSMC_Bank1->BTCR[FSMC_Bank] |= BCR_MBKEN_Set;
+   2:	f04f 4320 	mov.w	r3, #2684354560	; 0xa0000000
+   6:	f853 2020 	ldr.w	r2, [r3, r0, lsl #2]
+   a:	f042 0201 	orr.w	r2, r2, #1
+   e:	f843 2020 	str.w	r2, [r3, r0, lsl #2]
+  12:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:470
+  }
+  else
+  {
+    /* Disable the selected NOR/SRAM Bank by clearing the PBKEN bit in the BCRx register */
+    FSMC_Bank1->BTCR[FSMC_Bank] &= BCR_MBKEN_Reset;
+  14:	f04f 4220 	mov.w	r2, #2684354560	; 0xa0000000
+  18:	f852 1020 	ldr.w	r1, [r2, r0, lsl #2]
+  1c:	f64f 73fe 	movw	r3, #65534	; 0xfffe
+  20:	f2c0 030f 	movt	r3, #15
+  24:	ea01 0303 	and.w	r3, r1, r3
+  28:	f842 3020 	str.w	r3, [r2, r0, lsl #2]
+  2c:	4770      	bx	lr
+  2e:	bf00      	nop
+
+Disassembly of section .text.FSMC_NANDCmd:
+
+00000000 <FSMC_NANDCmd>:
+FSMC_NANDCmd():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:491
+void FSMC_NANDCmd(u32 FSMC_Bank, FunctionalState NewState)
+{
+  assert_param(IS_FSMC_NAND_BANK(FSMC_Bank));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  if (NewState != DISABLE)
+   0:	b151      	cbz	r1, 18 <FSMC_NANDCmd+0x18>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:494
+  {
+    /* Enable the selected NAND Bank by setting the PBKEN bit in the PCRx register */
+    if(FSMC_Bank == FSMC_Bank2_NAND)
+   2:	2810      	cmp	r0, #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:496
+    {
+      FSMC_Bank2->PCR2 |= PCR_PBKEN_Set;
+   4:	bf0c      	ite	eq
+   6:	2360      	moveq	r3, #96	; 0x60
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:500
+    }
+    else
+    {
+      FSMC_Bank3->PCR3 |= PCR_PBKEN_Set;
+   8:	2380      	movne	r3, #128	; 0x80
+   a:	f2ca 0300 	movt	r3, #40960	; 0xa000
+   e:	681a      	ldr	r2, [r3, #0]
+  10:	f042 0204 	orr.w	r2, r2, #4
+  14:	601a      	str	r2, [r3, #0]
+  16:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:506
+    }
+  }
+  else
+  {
+    /* Disable the selected NAND Bank by clearing the PBKEN bit in the PCRx register */
+    if(FSMC_Bank == FSMC_Bank2_NAND)
+  18:	2810      	cmp	r0, #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:508
+    {
+      FSMC_Bank2->PCR2 &= PCR_PBKEN_Reset;
+  1a:	bf0c      	ite	eq
+  1c:	2260      	moveq	r2, #96	; 0x60
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:512
+    }
+    else
+    {
+      FSMC_Bank3->PCR3 &= PCR_PBKEN_Reset;
+  1e:	2280      	movne	r2, #128	; 0x80
+  20:	f2ca 0200 	movt	r2, #40960	; 0xa000
+  24:	6811      	ldr	r1, [r2, #0]
+  26:	f64f 73fb 	movw	r3, #65531	; 0xfffb
+  2a:	f2c0 030f 	movt	r3, #15
+  2e:	ea01 0303 	and.w	r3, r1, r3
+  32:	6013      	str	r3, [r2, #0]
+  34:	4770      	bx	lr
+  36:	bf00      	nop
+
+Disassembly of section .text.FSMC_PCCARDCmd:
+
+00000000 <FSMC_PCCARDCmd>:
+FSMC_PCCARDCmd():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:529
+*******************************************************************************/
+void FSMC_PCCARDCmd(FunctionalState NewState)
+{
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  if (NewState != DISABLE)
+   0:	b140      	cbz	r0, 14 <FSMC_PCCARDCmd+0x14>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:532
+  {
+    /* Enable the PCCARD Bank by setting the PBKEN bit in the PCR4 register */
+    FSMC_Bank4->PCR4 |= PCR_PBKEN_Set;
+   2:	f04f 03a0 	mov.w	r3, #160	; 0xa0
+   6:	f2ca 0300 	movt	r3, #40960	; 0xa000
+   a:	681a      	ldr	r2, [r3, #0]
+   c:	f042 0204 	orr.w	r2, r2, #4
+  10:	601a      	str	r2, [r3, #0]
+  12:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:537
+  }
+  else
+  {
+    /* Disable the PCCARD Bank by clearing the PBKEN bit in the PCR4 register */
+    FSMC_Bank4->PCR4 &= PCR_PBKEN_Reset;
+  14:	f04f 02a0 	mov.w	r2, #160	; 0xa0
+  18:	f2ca 0200 	movt	r2, #40960	; 0xa000
+  1c:	6811      	ldr	r1, [r2, #0]
+  1e:	f64f 73fb 	movw	r3, #65531	; 0xfffb
+  22:	f2c0 030f 	movt	r3, #15
+  26:	ea01 0303 	and.w	r3, r1, r3
+  2a:	6013      	str	r3, [r2, #0]
+  2c:	4770      	bx	lr
+  2e:	bf00      	nop
+
+Disassembly of section .text.FSMC_NANDECCCmd:
+
+00000000 <FSMC_NANDECCCmd>:
+FSMC_NANDECCCmd():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:558
+void FSMC_NANDECCCmd(u32 FSMC_Bank, FunctionalState NewState)
+{
+  assert_param(IS_FSMC_NAND_BANK(FSMC_Bank));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  if (NewState != DISABLE)
+   0:	b151      	cbz	r1, 18 <FSMC_NANDECCCmd+0x18>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:561
+  {
+    /* Enable the selected NAND Bank ECC function by setting the ECCEN bit in the PCRx register */
+    if(FSMC_Bank == FSMC_Bank2_NAND)
+   2:	2810      	cmp	r0, #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:563
+    {
+      FSMC_Bank2->PCR2 |= PCR_ECCEN_Set;
+   4:	bf0c      	ite	eq
+   6:	2360      	moveq	r3, #96	; 0x60
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:567
+    }
+    else
+    {
+      FSMC_Bank3->PCR3 |= PCR_ECCEN_Set;
+   8:	2380      	movne	r3, #128	; 0x80
+   a:	f2ca 0300 	movt	r3, #40960	; 0xa000
+   e:	681a      	ldr	r2, [r3, #0]
+  10:	f042 0240 	orr.w	r2, r2, #64	; 0x40
+  14:	601a      	str	r2, [r3, #0]
+  16:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:573
+    }
+  }
+  else
+  {
+    /* Disable the selected NAND Bank ECC function by clearing the ECCEN bit in the PCRx register */
+    if(FSMC_Bank == FSMC_Bank2_NAND)
+  18:	2810      	cmp	r0, #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:575
+    {
+      FSMC_Bank2->PCR2 &= PCR_ECCEN_Reset;
+  1a:	bf0c      	ite	eq
+  1c:	2260      	moveq	r2, #96	; 0x60
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:579
+    }
+    else
+    {
+      FSMC_Bank3->PCR3 &= PCR_ECCEN_Reset;
+  1e:	2280      	movne	r2, #128	; 0x80
+  20:	f2ca 0200 	movt	r2, #40960	; 0xa000
+  24:	6811      	ldr	r1, [r2, #0]
+  26:	f64f 73bf 	movw	r3, #65471	; 0xffbf
+  2a:	f2c0 030f 	movt	r3, #15
+  2e:	ea01 0303 	and.w	r3, r1, r3
+  32:	6013      	str	r3, [r2, #0]
+  34:	4770      	bx	lr
+  36:	bf00      	nop
+
+Disassembly of section .text.FSMC_GetECC:
+
+00000000 <FSMC_GetECC>:
+FSMC_GetECC():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:598
+*******************************************************************************/
+u32 FSMC_GetECC(u32 FSMC_Bank)
+{
+  u32 eccval = 0x00000000;
+  
+  if(FSMC_Bank == FSMC_Bank2_NAND)
+   0:	2810      	cmp	r0, #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:601
+  {
+    /* Get the ECCR2 register value */
+    eccval = FSMC_Bank2->ECCR2;
+   2:	bf03      	ittte	eq
+   4:	2360      	moveq	r3, #96	; 0x60
+   6:	f2ca 0300 	movteq	r3, #40960	; 0xa000
+   a:	6958      	ldreq	r0, [r3, #20]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:606
+  }
+  else
+  {
+    /* Get the ECCR3 register value */
+    eccval = FSMC_Bank3->ECCR3;
+   c:	2380      	movne	r3, #128	; 0x80
+   e:	bf1c      	itt	ne
+  10:	f2ca 0300 	movtne	r3, #40960	; 0xa000
+  14:	6958      	ldrne	r0, [r3, #20]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:610
+  }
+  /* Return the error correction code value */
+  return(eccval);
+}
+  16:	4770      	bx	lr
+
+Disassembly of section .text.FSMC_ITConfig:
+
+00000000 <FSMC_ITConfig>:
+FSMC_ITConfig():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:637
+{
+  assert_param(IS_FSMC_IT_BANK(FSMC_Bank));
+  assert_param(IS_FSMC_IT(FSMC_IT));	
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  if (NewState != DISABLE)
+   0:	b1a2      	cbz	r2, 2c <FSMC_ITConfig+0x2c>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:640
+  {
+    /* Enable the selected FSMC_Bank2 interrupts */
+    if(FSMC_Bank == FSMC_Bank2_NAND)
+   2:	2810      	cmp	r0, #16
+   4:	d107      	bne.n	16 <FSMC_ITConfig+0x16>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:642
+    {
+      FSMC_Bank2->SR2 |= FSMC_IT;
+   6:	f04f 0360 	mov.w	r3, #96	; 0x60
+   a:	f2ca 0300 	movt	r3, #40960	; 0xa000
+   e:	685a      	ldr	r2, [r3, #4]
+  10:	4311      	orrs	r1, r2
+  12:	6059      	str	r1, [r3, #4]
+  14:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:645
+    }
+    /* Enable the selected FSMC_Bank3 interrupts */
+    else if (FSMC_Bank == FSMC_Bank3_NAND)
+  16:	f5b0 7f80 	cmp.w	r0, #256	; 0x100
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:647
+    {
+      FSMC_Bank3->SR3 |= FSMC_IT;
+  1a:	bf0c      	ite	eq
+  1c:	2380      	moveq	r3, #128	; 0x80
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:652
+    }
+    /* Enable the selected FSMC_Bank4 interrupts */
+    else
+    {
+      FSMC_Bank4->SR4 |= FSMC_IT;    
+  1e:	23a0      	movne	r3, #160	; 0xa0
+  20:	f2ca 0300 	movt	r3, #40960	; 0xa000
+  24:	685a      	ldr	r2, [r3, #4]
+  26:	4311      	orrs	r1, r2
+  28:	6059      	str	r1, [r3, #4]
+  2a:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:658
+    }
+  }
+  else
+  {
+    /* Disable the selected FSMC_Bank2 interrupts */
+    if(FSMC_Bank == FSMC_Bank2_NAND)
+  2c:	2810      	cmp	r0, #16
+  2e:	d108      	bne.n	42 <FSMC_ITConfig+0x42>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:661
+    {
+      
+      FSMC_Bank2->SR2 &= (u32)~FSMC_IT;
+  30:	f04f 0360 	mov.w	r3, #96	; 0x60
+  34:	f2ca 0300 	movt	r3, #40960	; 0xa000
+  38:	685a      	ldr	r2, [r3, #4]
+  3a:	ea22 0101 	bic.w	r1, r2, r1
+  3e:	6059      	str	r1, [r3, #4]
+  40:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:664
+    }
+    /* Disable the selected FSMC_Bank3 interrupts */
+    else if (FSMC_Bank == FSMC_Bank3_NAND)
+  42:	f5b0 7f80 	cmp.w	r0, #256	; 0x100
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:666
+    {
+      FSMC_Bank3->SR3 &= (u32)~FSMC_IT;
+  46:	bf0c      	ite	eq
+  48:	2380      	moveq	r3, #128	; 0x80
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:671
+    }
+    /* Disable the selected FSMC_Bank4 interrupts */
+    else
+    {
+      FSMC_Bank4->SR4 &= (u32)~FSMC_IT;    
+  4a:	23a0      	movne	r3, #160	; 0xa0
+  4c:	f2ca 0300 	movt	r3, #40960	; 0xa000
+  50:	685a      	ldr	r2, [r3, #4]
+  52:	ea22 0101 	bic.w	r1, r2, r1
+  56:	6059      	str	r1, [r3, #4]
+  58:	4770      	bx	lr
+  5a:	bf00      	nop
+
+Disassembly of section .text.FSMC_GetFlagStatus:
+
+00000000 <FSMC_GetFlagStatus>:
+FSMC_GetFlagStatus():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:702
+  
+  /* Check the parameters */
+  assert_param(IS_FSMC_GETFLAG_BANK(FSMC_Bank));
+  assert_param(IS_FSMC_GET_FLAG(FSMC_FLAG));
+  
+  if(FSMC_Bank == FSMC_Bank2_NAND)
+   0:	2810      	cmp	r0, #16
+   2:	d105      	bne.n	10 <FSMC_GetFlagStatus+0x10>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:704
+  {
+    tmpsr = FSMC_Bank2->SR2;
+   4:	f04f 0360 	mov.w	r3, #96	; 0x60
+   8:	f2ca 0300 	movt	r3, #40960	; 0xa000
+   c:	685b      	ldr	r3, [r3, #4]
+   e:	e007      	b.n	20 <FSMC_GetFlagStatus+0x20>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:706
+  }  
+  else if(FSMC_Bank == FSMC_Bank3_NAND)
+  10:	f5b0 7f80 	cmp.w	r0, #256	; 0x100
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:708
+  {
+    tmpsr = FSMC_Bank3->SR3;
+  14:	bf0c      	ite	eq
+  16:	2380      	moveq	r3, #128	; 0x80
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:713
+  }
+  /* FSMC_Bank4_PCCARD*/
+  else
+  {
+    tmpsr = FSMC_Bank4->SR4;
+  18:	23a0      	movne	r3, #160	; 0xa0
+  1a:	f2ca 0300 	movt	r3, #40960	; 0xa000
+  1e:	685b      	ldr	r3, [r3, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:719
+  } 
+  
+  /* Get the flag status */
+  if ((tmpsr & FSMC_FLAG) != (u16)RESET )
+  {
+    bitstatus = SET;
+  20:	420b      	tst	r3, r1
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:727
+  {
+    bitstatus = RESET;
+  }
+  /* Return the flag status */
+  return bitstatus;
+}
+  22:	bf0c      	ite	eq
+  24:	2000      	moveq	r0, #0
+  26:	2001      	movne	r0, #1
+  28:	4770      	bx	lr
+  2a:	bf00      	nop
+
+Disassembly of section .text.FSMC_ClearFlag:
+
+00000000 <FSMC_ClearFlag>:
+FSMC_ClearFlag():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:751
+{
+ /* Check the parameters */
+  assert_param(IS_FSMC_GETFLAG_BANK(FSMC_Bank));
+  assert_param(IS_FSMC_CLEAR_FLAG(FSMC_FLAG)) ;
+    
+  if(FSMC_Bank == FSMC_Bank2_NAND)
+   0:	2810      	cmp	r0, #16
+   2:	d108      	bne.n	16 <FSMC_ClearFlag+0x16>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:753
+  {
+    FSMC_Bank2->SR2 &= ~FSMC_FLAG; 
+   4:	f04f 0360 	mov.w	r3, #96	; 0x60
+   8:	f2ca 0300 	movt	r3, #40960	; 0xa000
+   c:	685a      	ldr	r2, [r3, #4]
+   e:	ea22 0101 	bic.w	r1, r2, r1
+  12:	6059      	str	r1, [r3, #4]
+  14:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:755
+  }  
+  else if(FSMC_Bank == FSMC_Bank3_NAND)
+  16:	f5b0 7f80 	cmp.w	r0, #256	; 0x100
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:757
+  {
+    FSMC_Bank3->SR3 &= ~FSMC_FLAG;
+  1a:	bf0c      	ite	eq
+  1c:	2380      	moveq	r3, #128	; 0x80
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:762
+  }
+  /* FSMC_Bank4_PCCARD*/
+  else
+  {
+    FSMC_Bank4->SR4 &= ~FSMC_FLAG;
+  1e:	23a0      	movne	r3, #160	; 0xa0
+  20:	f2ca 0300 	movt	r3, #40960	; 0xa000
+  24:	685a      	ldr	r2, [r3, #4]
+  26:	ea22 0101 	bic.w	r1, r2, r1
+  2a:	6059      	str	r1, [r3, #4]
+  2c:	4770      	bx	lr
+  2e:	bf00      	nop
+
+Disassembly of section .text.FSMC_GetITStatus:
+
+00000000 <FSMC_GetITStatus>:
+FSMC_GetITStatus():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:791
+  
+  /* Check the parameters */
+  assert_param(IS_FSMC_IT_BANK(FSMC_Bank));
+  assert_param(IS_FSMC_GET_IT(FSMC_IT));
+  
+  if(FSMC_Bank == FSMC_Bank2_NAND)
+   0:	2810      	cmp	r0, #16
+   2:	d105      	bne.n	10 <FSMC_GetITStatus+0x10>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:793
+  {
+    tmpsr = FSMC_Bank2->SR2;
+   4:	f04f 0360 	mov.w	r3, #96	; 0x60
+   8:	f2ca 0300 	movt	r3, #40960	; 0xa000
+   c:	685b      	ldr	r3, [r3, #4]
+   e:	e007      	b.n	20 <FSMC_GetITStatus+0x20>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:795
+  }  
+  else if(FSMC_Bank == FSMC_Bank3_NAND)
+  10:	f5b0 7f80 	cmp.w	r0, #256	; 0x100
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:797
+  {
+    tmpsr = FSMC_Bank3->SR3;
+  14:	bf0c      	ite	eq
+  16:	2380      	moveq	r3, #128	; 0x80
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:802
+  }
+  /* FSMC_Bank4_PCCARD*/
+  else
+  {
+    tmpsr = FSMC_Bank4->SR4;
+  18:	23a0      	movne	r3, #160	; 0xa0
+  1a:	f2ca 0300 	movt	r3, #40960	; 0xa000
+  1e:	685b      	ldr	r3, [r3, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:809
+  
+  itstatus = tmpsr & FSMC_IT;
+  
+  itenable = tmpsr & (FSMC_IT >> 3);
+
+  if ((itstatus != (u32)RESET)  && (itenable != (u32)RESET))
+  20:	420b      	tst	r3, r1
+  22:	bf0c      	ite	eq
+  24:	2000      	moveq	r0, #0
+  26:	2001      	movne	r0, #1
+  28:	ea13 01d1 	ands.w	r1, r3, r1, lsr #3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:818
+  else
+  {
+    bitstatus = RESET;
+  }
+  return bitstatus; 
+}
+  2c:	bf0c      	ite	eq
+  2e:	2000      	moveq	r0, #0
+  30:	f000 0001 	andne.w	r0, r0, #1
+  34:	4770      	bx	lr
+  36:	bf00      	nop
+
+Disassembly of section .text.FSMC_ClearITPendingBit:
+
+00000000 <FSMC_ClearITPendingBit>:
+FSMC_ClearITPendingBit():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:842
+{
+  /* Check the parameters */
+  assert_param(IS_FSMC_IT_BANK(FSMC_Bank));
+  assert_param(IS_FSMC_IT(FSMC_IT));
+    
+  if(FSMC_Bank == FSMC_Bank2_NAND)
+   0:	2810      	cmp	r0, #16
+   2:	d108      	bne.n	16 <FSMC_ClearITPendingBit+0x16>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:844
+  {
+    FSMC_Bank2->SR2 &= ~(FSMC_IT >> 3); 
+   4:	f04f 0360 	mov.w	r3, #96	; 0x60
+   8:	f2ca 0300 	movt	r3, #40960	; 0xa000
+   c:	685a      	ldr	r2, [r3, #4]
+   e:	ea22 01d1 	bic.w	r1, r2, r1, lsr #3
+  12:	6059      	str	r1, [r3, #4]
+  14:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:846
+  }  
+  else if(FSMC_Bank == FSMC_Bank3_NAND)
+  16:	f5b0 7f80 	cmp.w	r0, #256	; 0x100
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:848
+  {
+    FSMC_Bank3->SR3 &= ~(FSMC_IT >> 3);
+  1a:	bf0c      	ite	eq
+  1c:	2380      	moveq	r3, #128	; 0x80
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_fsmc.c:853
+  }
+  /* FSMC_Bank4_PCCARD*/
+  else
+  {
+    FSMC_Bank4->SR4 &= ~(FSMC_IT >> 3);
+  1e:	23a0      	movne	r3, #160	; 0xa0
+  20:	f2ca 0300 	movt	r3, #40960	; 0xa000
+  24:	685a      	ldr	r2, [r3, #4]
+  26:	ea22 01d1 	bic.w	r1, r2, r1, lsr #3
+  2a:	6059      	str	r1, [r3, #4]
+  2c:	4770      	bx	lr
+  2e:	bf00      	nop

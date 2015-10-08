@@ -1,0 +1,1921 @@
+
+C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o:     file format elf32-littlearm
+C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\lcd.o
+
+
+Disassembly of section .text.LCD_DataLinesWrite:
+
+00000000 <LCD_DataLinesWrite>:
+LCD_DataLinesWrite():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:217
+**/
+/******************************************************************************/
+static void LCD_DataLinesWrite( GPIO_TypeDef* GPIOx, u32 PortVal )
+   {
+   // Write only the lowest 8 bits!
+   GPIOx->ODR = ( (GPIOx->ODR) & 0xFF00 ) | (u8)PortVal;
+   0:	68c3      	ldr	r3, [r0, #12]
+   2:	b2c9      	uxtb	r1, r1
+   4:	f403 437f 	and.w	r3, r3, #65280	; 0xff00
+   8:	ea41 0303 	orr.w	r3, r1, r3
+   c:	60c3      	str	r3, [r0, #12]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:218
+   }
+   e:	4770      	bx	lr
+
+Disassembly of section .text.LCD_CtrlLinesWrite:
+
+00000000 <LCD_CtrlLinesWrite>:
+LCD_CtrlLinesWrite():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:268
+*  @param[in]  BitVal
+*
+**/
+/******************************************************************************/
+static void LCD_CtrlLinesWrite( GPIO_TypeDef* GPIOx, u32 CtrlPins, BitAction BitVal )
+   {
+   0:	b508      	push	{r3, lr}
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:270
+   /* Set or Reset the control line */
+   GPIO_WriteBit( GPIOx, CtrlPins, BitVal );
+   2:	b289      	uxth	r1, r1
+   4:	f7ff fffe 	bl	0 <GPIO_WriteBit>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:271
+   }
+   8:	bd08      	pop	{r3, pc}
+   a:	bf00      	nop
+
+Disassembly of section .text.LCD_DataLinesConfig:
+
+00000000 <LCD_DataLinesConfig>:
+LCD_DataLinesConfig():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:180
+*                @n @c Output: configure in Output Push-Pul mode
+*
+**/
+/******************************************************************************/
+static void LCD_DataLinesConfig( DataConfigMode_TypeDef Mode )
+   {
+   0:	b500      	push	{lr}
+   2:	b083      	sub	sp, #12
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:183
+   GPIO_InitTypeDef             GPIO_InitStructure;
+	   
+   GPIO_InitStructure.GPIO_Pin   =  LCD_DATA_PINS;
+   4:	f04f 03ff 	mov.w	r3, #255	; 0xff
+   8:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:184
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+   c:	f04f 0303 	mov.w	r3, #3
+  10:	f88d 3006 	strb.w	r3, [sp, #6]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:186
+
+   if( Mode == Input )
+  14:	b920      	cbnz	r0, 20 <LCD_DataLinesConfig+0x20>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:189
+      {
+      /* Configure D0~D7 lines as Input */
+      GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  16:	f04f 0304 	mov.w	r3, #4
+  1a:	f88d 3007 	strb.w	r3, [sp, #7]
+  1e:	e003      	b.n	28 <LCD_DataLinesConfig+0x28>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:194
+      }
+   else
+      {
+      /* Configure D0~D7 lines in Output Push-Pull mode */
+      GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+  20:	f04f 0310 	mov.w	r3, #16
+  24:	f88d 3007 	strb.w	r3, [sp, #7]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:197
+      }
+
+   GPIO_Init( GPIOx_D_LCD, &GPIO_InitStructure );
+  28:	f44f 5080 	mov.w	r0, #4096	; 0x1000
+  2c:	f2c4 0001 	movt	r0, #16385	; 0x4001
+  30:	a901      	add	r1, sp, #4
+  32:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:198
+   }
+  36:	b003      	add	sp, #12
+  38:	bd00      	pop	{pc}
+  3a:	bf00      	nop
+
+Disassembly of section .text.starting_delay:
+
+00000000 <starting_delay>:
+starting_delay():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:151
+static void LCD_BackLightChange( void );
+static void LCD_BackLightConfig( void );
+static void LCD_CtrlLinesWrite( GPIO_TypeDef* GPIOx, u32 CtrlPins, BitAction BitVal );
+
+void starting_delay(long unsigned time)
+{
+   0:	b082      	sub	sp, #8
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:156
+volatile long unsigned time2;
+
+
+
+    for ( time2=time*100; time2 > 0; time2--)
+   2:	f04f 0364 	mov.w	r3, #100	; 0x64
+   6:	fb03 f300 	mul.w	r3, r3, r0
+   a:	9301      	str	r3, [sp, #4]
+   c:	9b01      	ldr	r3, [sp, #4]
+   e:	b133      	cbz	r3, 1e <starting_delay+0x1e>
+  10:	9b01      	ldr	r3, [sp, #4]
+  12:	f103 33ff 	add.w	r3, r3, #4294967295
+  16:	9301      	str	r3, [sp, #4]
+  18:	9b01      	ldr	r3, [sp, #4]
+  1a:	2b00      	cmp	r3, #0
+  1c:	d1f8      	bne.n	10 <starting_delay+0x10>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:159
+    {
+    }
+}
+  1e:	b002      	add	sp, #8
+  20:	4770      	bx	lr
+  22:	bf00      	nop
+
+Disassembly of section .text.LCD_Handler:
+
+00000000 <LCD_Handler>:
+LCD_Handler():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:664
+*  @attention  This function must <b>NOT</b> be called by the user.
+*
+**/
+/******************************************************************************/
+void LCD_Handler( void )
+   {
+   0:	b508      	push	{r3, lr}
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:665
+   if( ++HandlerDivider % BACKLIGHT_DIVIDER )
+   2:	f240 0200 	movw	r2, #0
+   6:	f2c0 0200 	movt	r2, #0
+   a:	6813      	ldr	r3, [r2, #0]
+   c:	f103 0301 	add.w	r3, r3, #1
+  10:	6013      	str	r3, [r2, #0]
+  12:	f644 52d3 	movw	r2, #19923	; 0x4dd3
+  16:	f2c1 0262 	movt	r2, #4194	; 0x1062
+  1a:	fb82 1203 	smull	r1, r2, r2, r3
+  1e:	ea4f 71e3 	mov.w	r1, r3, asr #31
+  22:	ebc1 1262 	rsb	r2, r1, r2, asr #5
+  26:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
+  2a:	fb01 3312 	mls	r3, r1, r2, r3
+  2e:	b98b      	cbnz	r3, 26 <LCD_Handler+0x26>
+LCD_BackLightChange():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:605
+**/
+/******************************************************************************/
+static void LCD_BackLightChange( void )
+   {
+   /* Output Compare Toggle Mode configuration: Channel2 */
+   TIM_OCInitStructure.TIM_Pulse = Current_CCR_BackLightStart;
+  30:	f240 0100 	movw	r1, #0
+  34:	f2c0 0100 	movt	r1, #0
+  38:	f240 0300 	movw	r3, #0
+  3c:	f2c0 0300 	movt	r3, #0
+  40:	881b      	ldrh	r3, [r3, #0]
+  42:	814b      	strh	r3, [r1, #10]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:607
+
+   TIM_OCInit( TIM4, &TIM_OCInitStructure );
+  44:	f44f 6000 	mov.w	r0, #2048	; 0x800
+  48:	f2c4 0000 	movt	r0, #16384	; 0x4000
+  4c:	f101 0104 	add.w	r1, r1, #4
+  50:	f7ff fffe 	bl	0 <TIM_OCInit>
+  54:	bd08      	pop	{r3, pc}
+LCD_Handler():
+  56:	bf00      	nop
+
+Disassembly of section .text.LCD_SendLCDCmd:
+
+00000000 <LCD_SendLCDCmd>:
+LCD_SendLCDCmd():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:692
+*  @param[in]  Cmd   An unsigned char containing the user command to send to the LCD.
+*
+**/
+/******************************************************************************/
+void LCD_SendLCDCmd( u8 Cmd )
+   {
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4605      	mov	r5, r0
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:694
+   /* Start the LCD send data sequence */
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RS, Bit_RESET );     /* RS = 0 */
+   4:	f44f 5480 	mov.w	r4, #4096	; 0x1000
+   8:	f2c4 0401 	movt	r4, #16385	; 0x4001
+   c:	4620      	mov	r0, r4
+   e:	f44f 7180 	mov.w	r1, #256	; 0x100
+  12:	f04f 0200 	mov.w	r2, #0
+  16:	f7ff fffe 	bl	0 <LCD_SendLCDCmd>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:695
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RD, Bit_SET );       /* RD = 1 */
+  1a:	4620      	mov	r0, r4
+  1c:	f44f 7100 	mov.w	r1, #512	; 0x200
+  20:	f04f 0201 	mov.w	r2, #1
+  24:	f7ff fffe 	bl	0 <LCD_SendLCDCmd>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:696
+   LCD_CtrlLinesWrite( GPIOx_CS_LCD,   CtrlPin_CS, Bit_RESET );     /* CS = 0 */
+  28:	f44f 50a0 	mov.w	r0, #5120	; 0x1400
+  2c:	f2c4 0001 	movt	r0, #16385	; 0x4001
+  30:	f04f 0104 	mov.w	r1, #4
+  34:	f04f 0200 	mov.w	r2, #0
+  38:	f7ff fffe 	bl	0 <LCD_SendLCDCmd>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:697
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_WR, Bit_RESET );     /* WR = 0 */
+  3c:	4620      	mov	r0, r4
+  3e:	f44f 6180 	mov.w	r1, #1024	; 0x400
+  42:	f04f 0200 	mov.w	r2, #0
+  46:	f7ff fffe 	bl	0 <LCD_SendLCDCmd>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:700
+
+   /* Write data to the LCD */
+   LCD_DataLinesWrite( GPIOx_D_LCD, (u32)Cmd );
+  4a:	4620      	mov	r0, r4
+  4c:	4629      	mov	r1, r5
+  4e:	f7ff fffe 	bl	0 <LCD_SendLCDCmd>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:701
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_WR, Bit_SET );       /* WR = 1 */
+  52:	4620      	mov	r0, r4
+  54:	f44f 6180 	mov.w	r1, #1024	; 0x400
+  58:	f04f 0201 	mov.w	r2, #1
+  5c:	f7ff fffe 	bl	0 <LCD_SendLCDCmd>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:702
+   }
+  60:	bd38      	pop	{r3, r4, r5, pc}
+  62:	bf00      	nop
+
+Disassembly of section .text.LCD_SendLCDData:
+
+00000000 <LCD_SendLCDData>:
+LCD_SendLCDData():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:720
+*
+*
+**/
+/******************************************************************************/
+void LCD_SendLCDData( u8 Data )
+   {
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4605      	mov	r5, r0
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:722
+   /* Configure Data lines as Output */
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RS, Bit_SET );
+   4:	f44f 5480 	mov.w	r4, #4096	; 0x1000
+   8:	f2c4 0401 	movt	r4, #16385	; 0x4001
+   c:	4620      	mov	r0, r4
+   e:	f44f 7180 	mov.w	r1, #256	; 0x100
+  12:	f04f 0201 	mov.w	r2, #1
+  16:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:723
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RD, Bit_SET );
+  1a:	4620      	mov	r0, r4
+  1c:	f44f 7100 	mov.w	r1, #512	; 0x200
+  20:	f04f 0201 	mov.w	r2, #1
+  24:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:724
+   LCD_CtrlLinesWrite( GPIOx_CS_LCD,   CtrlPin_CS, Bit_RESET );
+  28:	f44f 50a0 	mov.w	r0, #5120	; 0x1400
+  2c:	f2c4 0001 	movt	r0, #16385	; 0x4001
+  30:	f04f 0104 	mov.w	r1, #4
+  34:	f04f 0200 	mov.w	r2, #0
+  38:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:725
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_WR, Bit_RESET );
+  3c:	4620      	mov	r0, r4
+  3e:	f44f 6180 	mov.w	r1, #1024	; 0x400
+  42:	f04f 0200 	mov.w	r2, #0
+  46:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:728
+
+   /* Write data to the LCD */
+   LCD_DataLinesWrite( GPIOx_D_LCD,(u32)Data );
+  4a:	4620      	mov	r0, r4
+  4c:	4629      	mov	r1, r5
+  4e:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:729
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_WR, Bit_SET );
+  52:	4620      	mov	r0, r4
+  54:	f44f 6180 	mov.w	r1, #1024	; 0x400
+  58:	f04f 0201 	mov.w	r2, #1
+  5c:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:730
+   }
+  60:	bd38      	pop	{r3, r4, r5, pc}
+  62:	bf00      	nop
+
+Disassembly of section .text.LCD_ReadLCDData:
+
+00000000 <LCD_ReadLCDData>:
+LCD_ReadLCDData():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:747
+*  @pre        An LCD_SendLCDCmd was done with a command returning data.
+*
+**/
+/********************************************************************************/
+u32 LCD_ReadLCDData( void )
+   {
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:751
+   u32 LCDData = 0;
+
+   /* Configure Data lines as Input */
+   LCD_DataLinesConfig(Input);
+   2:	f04f 0000 	mov.w	r0, #0
+   6:	f7ff fffe 	bl	0 <LCD_ReadLCDData>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:754
+
+   /* Start the LCD send data sequence */
+   LCD_CtrlLinesWrite( GPIOx_D_LCD,  CtrlPin_RS, Bit_SET );         /* RS = 1 */
+   a:	f44f 5480 	mov.w	r4, #4096	; 0x1000
+   e:	f2c4 0401 	movt	r4, #16385	; 0x4001
+  12:	4620      	mov	r0, r4
+  14:	f44f 7180 	mov.w	r1, #256	; 0x100
+  18:	f04f 0201 	mov.w	r2, #1
+  1c:	f7ff fffe 	bl	0 <LCD_ReadLCDData>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:755
+   LCD_CtrlLinesWrite( GPIOx_D_LCD,  CtrlPin_WR, Bit_SET );         /* WR = 1 */
+  20:	4620      	mov	r0, r4
+  22:	f44f 6180 	mov.w	r1, #1024	; 0x400
+  26:	f04f 0201 	mov.w	r2, #1
+  2a:	f7ff fffe 	bl	0 <LCD_ReadLCDData>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:756
+   LCD_CtrlLinesWrite( GPIOx_CS_LCD, CtrlPin_CS, Bit_RESET );       /* CS = 0 */
+  2e:	f44f 50a0 	mov.w	r0, #5120	; 0x1400
+  32:	f2c4 0001 	movt	r0, #16385	; 0x4001
+  36:	f04f 0104 	mov.w	r1, #4
+  3a:	f04f 0200 	mov.w	r2, #0
+  3e:	f7ff fffe 	bl	0 <LCD_ReadLCDData>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:757
+   LCD_CtrlLinesWrite( GPIOx_D_LCD,  CtrlPin_RD, Bit_RESET );       /* RD = 0 */
+  42:	4620      	mov	r0, r4
+  44:	f44f 7100 	mov.w	r1, #512	; 0x200
+  48:	f04f 0200 	mov.w	r2, #0
+  4c:	f7ff fffe 	bl	0 <LCD_ReadLCDData>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:760
+
+   /* Read data from the LCD */
+   LCDData = (GPIO_ReadInputData( GPIOx_D_LCD ) & LCD_DATA_PINS );
+  50:	4620      	mov	r0, r4
+  52:	f7ff fffe 	bl	0 <GPIO_ReadInputData>
+  56:	4605      	mov	r5, r0
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:762
+
+   LCD_CtrlLinesWrite( GPIOx_D_LCD, CtrlPin_RD, Bit_SET );          /* RD = 1 */
+  58:	4620      	mov	r0, r4
+  5a:	f44f 7100 	mov.w	r1, #512	; 0x200
+  5e:	f04f 0201 	mov.w	r2, #1
+  62:	f7ff fffe 	bl	0 <LCD_ReadLCDData>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:765
+
+   /* Read the LCD returned data */
+   LCD_DataLinesConfig( Output );
+  66:	f04f 0001 	mov.w	r0, #1
+  6a:	f7ff fffe 	bl	0 <LCD_ReadLCDData>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:768
+
+   return LCDData;
+   }
+  6e:	b2e8      	uxtb	r0, r5
+  70:	bd38      	pop	{r3, r4, r5, pc}
+  72:	bf00      	nop
+
+Disassembly of section .text.LCD_SetRect_For_Cmd:
+
+00000000 <LCD_SetRect_For_Cmd>:
+LCD_SetRect_For_Cmd():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1041
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_SetRect_For_Cmd( s16 x, s16 y, s16 width, s16 height )
+   {
+   0:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+   4:	4680      	mov	r8, r0
+   6:	460e      	mov	r6, r1
+   8:	4691      	mov	r9, r2
+   a:	461f      	mov	r7, r3
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1042
+   LCD_SendLCDCmd( ST7637_CASET );
+   c:	f04f 002a 	mov.w	r0, #42	; 0x2a
+  10:	f7ff fffe 	bl	0 <LCD_SetRect_For_Cmd>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1043
+   LCD_SendLCDData( y + OrientationOffsetX[ CurrentScreenOrientation ] );
+  14:	b2f6      	uxtb	r6, r6
+  16:	f240 0400 	movw	r4, #0
+  1a:	f2c0 0400 	movt	r4, #0
+  1e:	f240 0500 	movw	r5, #0
+  22:	f2c0 0500 	movt	r5, #0
+  26:	782b      	ldrb	r3, [r5, #0]
+  28:	eb04 0383 	add.w	r3, r4, r3, lsl #2
+  2c:	6858      	ldr	r0, [r3, #4]
+  2e:	1830      	adds	r0, r6, r0
+  30:	b2c0      	uxtb	r0, r0
+  32:	f7ff fffe 	bl	0 <LCD_SetRect_For_Cmd>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1044
+   LCD_SendLCDData( y + OrientationOffsetX[ CurrentScreenOrientation ] + height - 1 );
+  36:	782b      	ldrb	r3, [r5, #0]
+  38:	eb04 0383 	add.w	r3, r4, r3, lsl #2
+  3c:	685b      	ldr	r3, [r3, #4]
+  3e:	f103 33ff 	add.w	r3, r3, #4294967295
+  42:	18f6      	adds	r6, r6, r3
+  44:	19f7      	adds	r7, r6, r7
+  46:	b2f8      	uxtb	r0, r7
+  48:	f7ff fffe 	bl	0 <LCD_SetRect_For_Cmd>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1046
+
+   LCD_SendLCDCmd( ST7637_RASET );
+  4c:	f04f 002b 	mov.w	r0, #43	; 0x2b
+  50:	f7ff fffe 	bl	0 <LCD_SetRect_For_Cmd>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1047
+   LCD_SendLCDData( x + OrientationOffsetY[ CurrentScreenOrientation ] );
+  54:	fa5f f688 	uxtb.w	r6, r8
+  58:	782b      	ldrb	r3, [r5, #0]
+  5a:	eb04 0383 	add.w	r3, r4, r3, lsl #2
+  5e:	6958      	ldr	r0, [r3, #20]
+  60:	1830      	adds	r0, r6, r0
+  62:	b2c0      	uxtb	r0, r0
+  64:	f7ff fffe 	bl	0 <LCD_SetRect_For_Cmd>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1048
+   LCD_SendLCDData( x + OrientationOffsetY[ CurrentScreenOrientation ] + width - 1 );
+  68:	782b      	ldrb	r3, [r5, #0]
+  6a:	eb04 0483 	add.w	r4, r4, r3, lsl #2
+  6e:	6963      	ldr	r3, [r4, #20]
+  70:	18f6      	adds	r6, r6, r3
+  72:	f106 36ff 	add.w	r6, r6, #4294967295
+  76:	44b1      	add	r9, r6
+  78:	fa5f f089 	uxtb.w	r0, r9
+  7c:	f7ff fffe 	bl	0 <LCD_SetRect_For_Cmd>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1049
+   }
+  80:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+
+Disassembly of section .text.LCD_DisplayChar:
+
+00000000 <LCD_DisplayChar>:
+LCD_DisplayChar():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1017
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DisplayChar( u8 x, u8 y, u8 Ascii, u16 TextColor, u16 BGndColor, u16 CharMagniCoeff)
+   {
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	b087      	sub	sp, #28
+   6:	4616      	mov	r6, r2
+   8:	461d      	mov	r5, r3
+   a:	f8bd b040 	ldrh.w	fp, [sp, #64]	; 0x40
+   e:	f8bd 3044 	ldrh.w	r3, [sp, #68]	; 0x44
+  12:	9304      	str	r3, [sp, #16]
+LCD_DrawChar():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:348
+   int j;
+   int k1;
+   int k2;
+
+   // Select the area for LCD output.
+   LCD_SetRect_For_Cmd( x, y, 7 * charMagniCoeff, 14 * charMagniCoeff );
+  14:	f04f 0207 	mov.w	r2, #7
+  18:	fb02 f203 	mul.w	r2, r2, r3
+  1c:	f04f 040e 	mov.w	r4, #14
+  20:	fb04 f303 	mul.w	r3, r4, r3
+  24:	b212      	sxth	r2, r2
+  26:	b21b      	sxth	r3, r3
+  28:	f7ff fffe 	bl	0 <LCD_DisplayChar>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:351
+
+   // Select LCD output mode.
+   LCD_SendLCDCmd( ST7637_RAMWR );
+  2c:	f04f 002c 	mov.w	r0, #44	; 0x2c
+  30:	f7ff fffe 	bl	0 <LCD_DisplayChar>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:371
+         for( j = 0x80; j > 2; j >>= 1 )  // 8
+            {
+            for( k2 = 0; k2 < charMagniCoeff; k2++ )
+               {
+               LCD_SendLCDData( ( bmp[2*i+1] & j ) ? ( textColor & 255 ) : ( bGndColor & 255 ) );
+               LCD_SendLCDData( ( bmp[2*i+1] & j ) ? ( textColor >> 8  ) : ( bGndColor >> 8 ) );
+  34:	ea4f 2815 	mov.w	r8, r5, lsr #8
+  38:	ea4f 291b 	mov.w	r9, fp, lsr #8
+LCD_DisplayChar():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1019
+**/
+/******************************************************************************/
+void LCD_DisplayChar( u8 x, u8 y, u8 Ascii, u16 TextColor, u16 BGndColor, u16 CharMagniCoeff)
+   {
+   // Display the selected bitmap according to the provided ASCII character.
+   LCD_DrawChar( x, y, 7, (u8*)&AsciiDotsTable[ (Ascii-32) * 14 ], TextColor, BGndColor, CharMagniCoeff );
+  3c:	4b38      	ldr	r3, [pc, #224]	; (120 <LCD_DisplayChar+0x120>)
+  3e:	fb04 3606 	mla	r6, r4, r6, r3
+LCD_DrawChar():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:353
+   LCD_SetRect_For_Cmd( x, y, 7 * charMagniCoeff, 14 * charMagniCoeff );
+
+   // Select LCD output mode.
+   LCD_SendLCDCmd( ST7637_RAMWR );
+
+   for( i = 0; i < 7; i++ )
+  42:	f04f 0700 	mov.w	r7, #0
+  46:	9705      	str	r7, [sp, #20]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:361
+         {
+         for( j = 0x80; j; j >>= 1 ) // 8
+            {
+            for( k2 = 0; k2 < charMagniCoeff; k2++ )
+               {
+               LCD_SendLCDData( ( bmp[2*i] & j ) ? ( textColor & 255 ) : ( bGndColor &  255 ) );
+  48:	fa5f fb8b 	uxtb.w	fp, fp
+  4c:	b2ed      	uxtb	r5, r5
+  4e:	9501      	str	r5, [sp, #4]
+  50:	e05f      	b.n	112 <LCD_DisplayChar+0x112>
+  52:	7833      	ldrb	r3, [r6, #0]
+  54:	421d      	tst	r5, r3
+  56:	bf14      	ite	ne
+  58:	9801      	ldrne	r0, [sp, #4]
+  5a:	4658      	moveq	r0, fp
+  5c:	f7ff fffe 	bl	0 <LCD_DisplayChar>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:362
+               LCD_SendLCDData( ( bmp[2*i] & j ) ? ( textColor >> 8  ) : ( bGndColor >> 8 ) );
+  60:	7838      	ldrb	r0, [r7, #0]
+  62:	ea05 0000 	and.w	r0, r5, r0
+  66:	2800      	cmp	r0, #0
+  68:	bf14      	ite	ne
+  6a:	4650      	movne	r0, sl
+  6c:	4648      	moveq	r0, r9
+  6e:	f7ff fffe 	bl	0 <LCD_DisplayChar>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:359
+      {
+      for( k1 = 0; k1 < charMagniCoeff; k1++ )
+         {
+         for( j = 0x80; j; j >>= 1 ) // 8
+            {
+            for( k2 = 0; k2 < charMagniCoeff; k2++ )
+  72:	f104 0401 	add.w	r4, r4, #1
+  76:	4544      	cmp	r4, r8
+  78:	dbeb      	blt.n	52 <LCD_DisplayChar+0x52>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:357
+
+   for( i = 0; i < 7; i++ )
+      {
+      for( k1 = 0; k1 < charMagniCoeff; k1++ )
+         {
+         for( j = 0x80; j; j >>= 1 ) // 8
+  7a:	ea4f 0565 	mov.w	r5, r5, asr #1
+  7e:	9b02      	ldr	r3, [sp, #8]
+  80:	3b01      	subs	r3, #1
+  82:	9302      	str	r3, [sp, #8]
+  84:	d01e      	beq.n	c4 <LCD_DisplayChar+0xc4>
+LCD_DisplayChar():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1017
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DisplayChar( u8 x, u8 y, u8 Ascii, u16 TextColor, u16 BGndColor, u16 CharMagniCoeff)
+   {
+  86:	f04f 0400 	mov.w	r4, #0
+LCD_DrawChar():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1016
+*
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DisplayChar( u8 x, u8 y, u8 Ascii, u16 TextColor, u16 BGndColor, u16 CharMagniCoeff)
+  8a:	4637      	mov	r7, r6
+  8c:	e7e1      	b.n	52 <LCD_DisplayChar+0x52>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:370
+
+         for( j = 0x80; j > 2; j >>= 1 )  // 8
+            {
+            for( k2 = 0; k2 < charMagniCoeff; k2++ )
+               {
+               LCD_SendLCDData( ( bmp[2*i+1] & j ) ? ( textColor & 255 ) : ( bGndColor & 255 ) );
+  8e:	7873      	ldrb	r3, [r6, #1]
+  90:	421d      	tst	r5, r3
+  92:	bf14      	ite	ne
+  94:	9801      	ldrne	r0, [sp, #4]
+  96:	4658      	moveq	r0, fp
+  98:	f7ff fffe 	bl	0 <LCD_DisplayChar>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:371
+               LCD_SendLCDData( ( bmp[2*i+1] & j ) ? ( textColor >> 8  ) : ( bGndColor >> 8 ) );
+  9c:	7878      	ldrb	r0, [r7, #1]
+  9e:	ea05 0000 	and.w	r0, r5, r0
+  a2:	2800      	cmp	r0, #0
+  a4:	bf14      	ite	ne
+  a6:	4650      	movne	r0, sl
+  a8:	4648      	moveq	r0, r9
+  aa:	f7ff fffe 	bl	0 <LCD_DisplayChar>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:368
+               }
+            }
+
+         for( j = 0x80; j > 2; j >>= 1 )  // 8
+            {
+            for( k2 = 0; k2 < charMagniCoeff; k2++ )
+  ae:	f104 0401 	add.w	r4, r4, #1
+  b2:	4544      	cmp	r4, r8
+  b4:	dbeb      	blt.n	8e <LCD_DisplayChar+0x8e>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:366
+               LCD_SendLCDData( ( bmp[2*i] & j ) ? ( textColor & 255 ) : ( bGndColor &  255 ) );
+               LCD_SendLCDData( ( bmp[2*i] & j ) ? ( textColor >> 8  ) : ( bGndColor >> 8 ) );
+               }
+            }
+
+         for( j = 0x80; j > 2; j >>= 1 )  // 8
+  b6:	ea4f 0565 	mov.w	r5, r5, asr #1
+  ba:	9f02      	ldr	r7, [sp, #8]
+  bc:	3f01      	subs	r7, #1
+  be:	9702      	str	r7, [sp, #8]
+  c0:	d107      	bne.n	d2 <LCD_DisplayChar+0xd2>
+  c2:	e00a      	b.n	da <LCD_DisplayChar+0xda>
+  c4:	4647      	mov	r7, r8
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:357
+
+   for( i = 0; i < 7; i++ )
+      {
+      for( k1 = 0; k1 < charMagniCoeff; k1++ )
+         {
+         for( j = 0x80; j; j >>= 1 ) // 8
+  c6:	f04f 0306 	mov.w	r3, #6
+  ca:	9302      	str	r3, [sp, #8]
+  cc:	f04f 0580 	mov.w	r5, #128	; 0x80
+  d0:	46b8      	mov	r8, r7
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:362
+            {
+            for( k2 = 0; k2 < charMagniCoeff; k2++ )
+               {
+               LCD_SendLCDData( ( bmp[2*i] & j ) ? ( textColor & 255 ) : ( bGndColor &  255 ) );
+               LCD_SendLCDData( ( bmp[2*i] & j ) ? ( textColor >> 8  ) : ( bGndColor >> 8 ) );
+  d2:	f04f 0400 	mov.w	r4, #0
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1016
+*
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DisplayChar( u8 x, u8 y, u8 Ascii, u16 TextColor, u16 BGndColor, u16 CharMagniCoeff)
+  d6:	4637      	mov	r7, r6
+  d8:	e7d9      	b.n	8e <LCD_DisplayChar+0x8e>
+  da:	4647      	mov	r7, r8
+  dc:	46d0      	mov	r8, sl
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:355
+   // Select LCD output mode.
+   LCD_SendLCDCmd( ST7637_RAMWR );
+
+   for( i = 0; i < 7; i++ )
+      {
+      for( k1 = 0; k1 < charMagniCoeff; k1++ )
+  de:	9b03      	ldr	r3, [sp, #12]
+  e0:	f103 0301 	add.w	r3, r3, #1
+  e4:	9303      	str	r3, [sp, #12]
+  e6:	42bb      	cmp	r3, r7
+  e8:	db03      	blt.n	f2 <LCD_DisplayChar+0xf2>
+  ea:	e00a      	b.n	102 <LCD_DisplayChar+0x102>
+  ec:	f04f 0300 	mov.w	r3, #0
+  f0:	9303      	str	r3, [sp, #12]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:362
+         for( j = 0x80; j; j >>= 1 ) // 8
+            {
+            for( k2 = 0; k2 < charMagniCoeff; k2++ )
+               {
+               LCD_SendLCDData( ( bmp[2*i] & j ) ? ( textColor & 255 ) : ( bGndColor &  255 ) );
+               LCD_SendLCDData( ( bmp[2*i] & j ) ? ( textColor >> 8  ) : ( bGndColor >> 8 ) );
+  f2:	f04f 0308 	mov.w	r3, #8
+  f6:	9302      	str	r3, [sp, #8]
+  f8:	f04f 0580 	mov.w	r5, #128	; 0x80
+  fc:	46c2      	mov	sl, r8
+  fe:	46b8      	mov	r8, r7
+ 100:	e7c1      	b.n	86 <LCD_DisplayChar+0x86>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:353
+   LCD_SetRect_For_Cmd( x, y, 7 * charMagniCoeff, 14 * charMagniCoeff );
+
+   // Select LCD output mode.
+   LCD_SendLCDCmd( ST7637_RAMWR );
+
+   for( i = 0; i < 7; i++ )
+ 102:	9f05      	ldr	r7, [sp, #20]
+ 104:	f107 0701 	add.w	r7, r7, #1
+ 108:	9705      	str	r7, [sp, #20]
+ 10a:	f106 0602 	add.w	r6, r6, #2
+ 10e:	2f07      	cmp	r7, #7
+ 110:	d003      	beq.n	11a <LCD_DisplayChar+0x11a>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:355
+      {
+      for( k1 = 0; k1 < charMagniCoeff; k1++ )
+ 112:	9f04      	ldr	r7, [sp, #16]
+ 114:	2f00      	cmp	r7, #0
+ 116:	d1e9      	bne.n	ec <LCD_DisplayChar+0xec>
+ 118:	e7f3      	b.n	102 <LCD_DisplayChar+0x102>
+LCD_DisplayChar():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1020
+/******************************************************************************/
+void LCD_DisplayChar( u8 x, u8 y, u8 Ascii, u16 TextColor, u16 BGndColor, u16 CharMagniCoeff)
+   {
+   // Display the selected bitmap according to the provided ASCII character.
+   LCD_DrawChar( x, y, 7, (u8*)&AsciiDotsTable[ (Ascii-32) * 14 ], TextColor, BGndColor, CharMagniCoeff );
+   }
+ 11a:	b007      	add	sp, #28
+ 11c:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 120:	fffffe40 	.word	0xfffffe40
+
+Disassembly of section .text.LCD_RectRead:
+
+00000000 <LCD_RectRead>:
+LCD_RectRead():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:947
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_RectRead( u16 x, u16 y, u16 width, u16 height, u8* bmp )
+   {
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	9e04      	ldr	r6, [sp, #16]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:949
+   int i;
+   int bytesize = (width * height) *2; // 2 bytes per pixel.
+   4:	ea4f 0542 	mov.w	r5, r2, lsl #1
+   8:	fb03 f505 	mul.w	r5, r3, r5
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:952
+
+   /* Select LCD screen area. */
+   LCD_SetRect_For_Cmd( x, y, width, height );
+   c:	b200      	sxth	r0, r0
+   e:	b209      	sxth	r1, r1
+  10:	b212      	sxth	r2, r2
+  12:	b21b      	sxth	r3, r3
+  14:	f7ff fffe 	bl	0 <LCD_RectRead>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:955
+
+   /* Send LCD RAM write command. */
+   LCD_SendLCDCmd(ST7637_RAMRD);
+  18:	f04f 002e 	mov.w	r0, #46	; 0x2e
+  1c:	f7ff fffe 	bl	0 <LCD_RectRead>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:958
+
+   // First read byte is dummy!
+   LCD_ReadLCDData();
+  20:	f7ff fffe 	bl	0 <LCD_RectRead>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:961
+
+   // Read pixels from LCD screen.
+   for( i = 0; i < bytesize; i++ )
+  24:	2d00      	cmp	r5, #0
+  26:	dd08      	ble.n	3a <LCD_RectRead+0x3a>
+  28:	f04f 0400 	mov.w	r4, #0
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:963
+      {
+      *bmp++ = LCD_ReadLCDData();
+  2c:	f7ff fffe 	bl	0 <LCD_RectRead>
+  30:	5530      	strb	r0, [r6, r4]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:961
+
+   // First read byte is dummy!
+   LCD_ReadLCDData();
+
+   // Read pixels from LCD screen.
+   for( i = 0; i < bytesize; i++ )
+  32:	f104 0401 	add.w	r4, r4, #1
+  36:	42a5      	cmp	r5, r4
+  38:	dcf8      	bgt.n	2c <LCD_RectRead+0x2c>
+  3a:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.LCD_GetPixel:
+
+00000000 <LCD_GetPixel>:
+LCD_GetPixel():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:986
+*  @see        LCD_RectRead
+*
+**/
+/******************************************************************************/
+u16 LCD_GetPixel( u8 x, u8 y )
+   {
+   0:	b500      	push	{lr}
+   2:	b085      	sub	sp, #20
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:989
+   u16 val;
+
+   LCD_RectRead( x, y, 1, 1, (u8*)&val );
+   4:	f10d 030e 	add.w	r3, sp, #14
+   8:	9300      	str	r3, [sp, #0]
+   a:	f04f 0201 	mov.w	r2, #1
+   e:	4613      	mov	r3, r2
+  10:	f7ff fffe 	bl	0 <LCD_GetPixel>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:992
+
+   return val;
+   }
+  14:	f8bd 000e 	ldrh.w	r0, [sp, #14]
+  18:	b005      	add	sp, #20
+  1a:	bd00      	pop	{pc}
+
+Disassembly of section .text.LCD_DrawPixel:
+
+00000000 <LCD_DrawPixel>:
+LCD_DrawPixel():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:914
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DrawPixel( u8 XPos, u8 YPos, u16 Color )
+   {
+   0:	b510      	push	{r4, lr}
+   2:	4614      	mov	r4, r2
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:916
+   /* Select LCD screen area. */
+   LCD_SetRect_For_Cmd( XPos, YPos, 1, 1 );
+   4:	f04f 0201 	mov.w	r2, #1
+   8:	4613      	mov	r3, r2
+   a:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:919
+
+   /* Send LCD RAM write command. */
+   LCD_SendLCDCmd( ST7637_RAMWR );
+   e:	f04f 002c 	mov.w	r0, #44	; 0x2c
+  12:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:922
+
+   // Draw pixel.
+   LCD_SendLCDData( Color );
+  16:	b2e0      	uxtb	r0, r4
+  18:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:923
+   LCD_SendLCDData( Color >> 8 );
+  1c:	ea4f 2014 	mov.w	r0, r4, lsr #8
+  20:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:924
+   }
+  24:	bd10      	pop	{r4, pc}
+  26:	bf00      	nop
+
+Disassembly of section .text.LCD_FillRect:
+
+00000000 <LCD_FillRect>:
+LCD_FillRect():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:790
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_FillRect( u16 x, u16 y, u16 width, u16 height, u16 color )
+   {
+   0:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+   4:	4691      	mov	r9, r2
+   6:	461d      	mov	r5, r3
+   8:	f8bd 7020 	ldrh.w	r7, [sp, #32]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:795
+   u8 Line;
+   u8 Column;
+
+   /* Select LCD screen area. */
+   LCD_SetRect_For_Cmd( x, y, width, height );
+   c:	b200      	sxth	r0, r0
+   e:	b209      	sxth	r1, r1
+  10:	b212      	sxth	r2, r2
+  12:	b21b      	sxth	r3, r3
+  14:	f7ff fffe 	bl	0 <LCD_FillRect>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:798
+
+   /* Send LCD RAM write command. */
+   LCD_SendLCDCmd( ST7637_RAMWR );
+  18:	f04f 002c 	mov.w	r0, #44	; 0x2c
+  1c:	f7ff fffe 	bl	0 <LCD_FillRect>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:801
+
+   /* Fill selected LCD screen area with provided color. */
+   for( Line = 0; Line < width; Line++ )
+  20:	f1b9 0f00 	cmp.w	r9, #0
+  24:	d01b      	beq.n	5e <LCD_FillRect+0x5e>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:806
+      {
+      for( Column = 0; Column < height; Column++ )
+         {
+         LCD_SendLCDData( color & 0xff );
+         LCD_SendLCDData( ( color >> 8 ) & 0xff );
+  26:	ea4f 2617 	mov.w	r6, r7, lsr #8
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:801
+
+   /* Send LCD RAM write command. */
+   LCD_SendLCDCmd( ST7637_RAMWR );
+
+   /* Fill selected LCD screen area with provided color. */
+   for( Line = 0; Line < width; Line++ )
+  2a:	f04f 0800 	mov.w	r8, #0
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:803
+      {
+      for( Column = 0; Column < height; Column++ )
+  2e:	46c2      	mov	sl, r8
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:805
+         {
+         LCD_SendLCDData( color & 0xff );
+  30:	b2ff      	uxtb	r7, r7
+  32:	e011      	b.n	58 <LCD_FillRect+0x58>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:803
+   LCD_SendLCDCmd( ST7637_RAMWR );
+
+   /* Fill selected LCD screen area with provided color. */
+   for( Line = 0; Line < width; Line++ )
+      {
+      for( Column = 0; Column < height; Column++ )
+  34:	4654      	mov	r4, sl
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:805
+         {
+         LCD_SendLCDData( color & 0xff );
+  36:	4638      	mov	r0, r7
+  38:	f7ff fffe 	bl	0 <LCD_FillRect>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:806
+         LCD_SendLCDData( ( color >> 8 ) & 0xff );
+  3c:	4630      	mov	r0, r6
+  3e:	f7ff fffe 	bl	0 <LCD_FillRect>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:803
+   LCD_SendLCDCmd( ST7637_RAMWR );
+
+   /* Fill selected LCD screen area with provided color. */
+   for( Line = 0; Line < width; Line++ )
+      {
+      for( Column = 0; Column < height; Column++ )
+  42:	f104 0401 	add.w	r4, r4, #1
+  46:	b2e4      	uxtb	r4, r4
+  48:	42a5      	cmp	r5, r4
+  4a:	d8f4      	bhi.n	36 <LCD_FillRect+0x36>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:801
+
+   /* Send LCD RAM write command. */
+   LCD_SendLCDCmd( ST7637_RAMWR );
+
+   /* Fill selected LCD screen area with provided color. */
+   for( Line = 0; Line < width; Line++ )
+  4c:	f108 0801 	add.w	r8, r8, #1
+  50:	fa5f f888 	uxtb.w	r8, r8
+  54:	45c1      	cmp	r9, r8
+  56:	d902      	bls.n	5e <LCD_FillRect+0x5e>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:803
+      {
+      for( Column = 0; Column < height; Column++ )
+  58:	2d00      	cmp	r5, #0
+  5a:	d1eb      	bne.n	34 <LCD_FillRect+0x34>
+  5c:	e7f6      	b.n	4c <LCD_FillRect+0x4c>
+  5e:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+  62:	bf00      	nop
+
+Disassembly of section .text.LCD_DrawRect:
+
+00000000 <LCD_DrawRect>:
+LCD_DrawRect():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:886
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DrawRect( u16 x, u16 y, u16 width, u16 height, u16 color )
+   {
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	b082      	sub	sp, #8
+   6:	4605      	mov	r5, r0
+   8:	460e      	mov	r6, r1
+   a:	4690      	mov	r8, r2
+   c:	461f      	mov	r7, r3
+   e:	f8bd 4020 	ldrh.w	r4, [sp, #32]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:888
+   // Draw horizontal sides.
+   LCD_FillRect( x, y,              width, 1, color );
+  12:	9400      	str	r4, [sp, #0]
+  14:	f04f 0301 	mov.w	r3, #1
+  18:	f7ff fffe 	bl	0 <LCD_DrawRect>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:889
+   LCD_FillRect( x, y + height - 1, width, 1, color );
+  1c:	f106 31ff 	add.w	r1, r6, #4294967295
+  20:	1879      	adds	r1, r7, r1
+  22:	9400      	str	r4, [sp, #0]
+  24:	4628      	mov	r0, r5
+  26:	b289      	uxth	r1, r1
+  28:	4642      	mov	r2, r8
+  2a:	f04f 0301 	mov.w	r3, #1
+  2e:	f7ff fffe 	bl	0 <LCD_DrawRect>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:892
+
+   // Draw vertical sides.
+   LCD_FillRect( x,              y, 1, height, color );
+  32:	9400      	str	r4, [sp, #0]
+  34:	4628      	mov	r0, r5
+  36:	4631      	mov	r1, r6
+  38:	f04f 0201 	mov.w	r2, #1
+  3c:	463b      	mov	r3, r7
+  3e:	f7ff fffe 	bl	0 <LCD_DrawRect>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:893
+   LCD_FillRect( x + width - 1,  y, 1, height, color );
+  42:	f105 35ff 	add.w	r5, r5, #4294967295
+  46:	44a8      	add	r8, r5
+  48:	9400      	str	r4, [sp, #0]
+  4a:	fa1f f088 	uxth.w	r0, r8
+  4e:	4631      	mov	r1, r6
+  50:	f04f 0201 	mov.w	r2, #1
+  54:	463b      	mov	r3, r7
+  56:	f7ff fffe 	bl	0 <LCD_DrawRect>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:894
+   }
+  5a:	b002      	add	sp, #8
+  5c:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+Disassembly of section .text.LCD_SetBackLight:
+
+00000000 <LCD_SetBackLight>:
+LCD_SetBackLight():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1067
+*
+**/
+/******************************************************************************/
+void LCD_SetBackLight( u32 newBacklightStart )
+   {
+   if( newBacklightStart >= BACKLIGHTMIN )
+   0:	f5b0 5f80 	cmp.w	r0, #4096	; 0x1000
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1069
+      {
+      Current_CCR_BackLightStart = newBacklightStart;
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	bf2e      	itee	cs
+   e:	6018      	strcs	r0, [r3, #0]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1073
+      }
+   else
+      {
+      Current_CCR_BackLightStart = DEFAULT_CCR_BACKLIGHTSTART;
+  10:	f44f 4200 	movcc.w	r2, #32768	; 0x8000
+  14:	601a      	strcc	r2, [r3, #0]
+  16:	4770      	bx	lr
+
+Disassembly of section .text.LCD_Init:
+
+00000000 <LCD_Init>:
+LCD_Init():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:626
+*  @attention  This function must <b>NOT</b> be called by the user.
+*
+**/
+/******************************************************************************/
+void LCD_Init( void )
+   {
+   0:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+   4:	b082      	sub	sp, #8
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:627
+   LCD_SetBackLight( UTIL_ReadBackupRegister( BKP_BKLIGHT ) );
+   6:	f04f 0003 	mov.w	r0, #3
+   a:	f7ff fffe 	bl	0 <UTIL_ReadBackupRegister>
+   e:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:633
+
+   /* Do some gpio configs*/
+   GPIO_InitTypeDef GPIO_InitStructure;
+
+   /* Enable GPIO clock for LCD */
+   RCC_APB2PeriphClockCmd( GPIO_LCD_CTRL_PERIPH, ENABLE );
+  12:	f04f 0010 	mov.w	r0, #16
+  16:	f04f 0101 	mov.w	r1, #1
+  1a:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:634
+   RCC_APB2PeriphClockCmd( GPIO_LCD_D_PERIPH, ENABLE );
+  1e:	f04f 0010 	mov.w	r0, #16
+  22:	f04f 0101 	mov.w	r1, #1
+  26:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:635
+   RCC_APB2PeriphClockCmd( GPIO_LCD_CS_PERIPH, ENABLE );
+  2a:	f04f 0020 	mov.w	r0, #32
+  2e:	f04f 0101 	mov.w	r1, #1
+  32:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:638
+
+   /* Enable GPIOC clock */
+   RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOC, ENABLE );
+  36:	f04f 0010 	mov.w	r0, #16
+  3a:	f04f 0101 	mov.w	r1, #1
+  3e:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+LCD_BackLightConfig():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:548
+static void LCD_BackLightConfig( void )
+   {
+   GPIO_InitTypeDef GPIO_InitStructure;
+
+   /* Enable GPIOB clock  */
+   RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOB, ENABLE );
+  42:	f04f 0008 	mov.w	r0, #8
+  46:	f04f 0101 	mov.w	r1, #1
+  4a:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:551
+
+   /* GPIOB Configuration:TIM4 2 in Output */
+   GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_7;
+  4e:	f04f 0380 	mov.w	r3, #128	; 0x80
+  52:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:552
+   GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF_PP;
+  56:	f04f 0a18 	mov.w	sl, #24
+  5a:	f88d a007 	strb.w	sl, [sp, #7]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:553
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  5e:	f04f 0903 	mov.w	r9, #3
+  62:	f88d 9006 	strb.w	r9, [sp, #6]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:555
+
+   GPIO_Init( GPIOB, &GPIO_InitStructure );
+  66:	f44f 6040 	mov.w	r0, #3072	; 0xc00
+  6a:	f2c4 0001 	movt	r0, #16385	; 0x4001
+  6e:	a901      	add	r1, sp, #4
+  70:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:561
+
+   /* TIM4 Configuration -----------------------------------------------------*/
+   /* TIM4CLK = 12 MHz, Prescaler = 0x0 */
+
+   /* Enable TIM4 clock */
+   RCC_APB1PeriphClockCmd( RCC_APB1Periph_TIM4, ENABLE );
+  74:	f04f 0004 	mov.w	r0, #4
+  78:	f04f 0101 	mov.w	r1, #1
+  7c:	f7ff fffe 	bl	0 <RCC_APB1PeriphClockCmd>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:563
+
+   TIM_DeInit( TIM4 );
+  80:	f44f 6500 	mov.w	r5, #2048	; 0x800
+  84:	f2c4 0500 	movt	r5, #16384	; 0x4000
+  88:	4628      	mov	r0, r5
+  8a:	f7ff fffe 	bl	0 <TIM_DeInit>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:564
+   TIM_TimeBaseStructInit( &TIM_TimeBaseStructure );
+  8e:	f240 0400 	movw	r4, #0
+  92:	f2c0 0400 	movt	r4, #0
+  96:	f104 0714 	add.w	r7, r4, #20
+  9a:	4638      	mov	r0, r7
+  9c:	f7ff fffe 	bl	0 <TIM_TimeBaseStructInit>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:565
+   TIM_OCStructInit( &TIM_OCInitStructure );
+  a0:	f104 0804 	add.w	r8, r4, #4
+  a4:	4640      	mov	r0, r8
+  a6:	f7ff fffe 	bl	0 <TIM_OCStructInit>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:568
+
+   /* Time base configuration */
+   TIM_TimeBaseStructure.TIM_Period          = 0xFFFF;
+  aa:	f04f 33ff 	mov.w	r3, #4294967295
+  ae:	8323      	strh	r3, [r4, #24]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:569
+   TIM_TimeBaseStructure.TIM_Prescaler       = 0x0;
+  b0:	f04f 0600 	mov.w	r6, #0
+  b4:	82a6      	strh	r6, [r4, #20]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:570
+   TIM_TimeBaseStructure.TIM_ClockDivision   = 0x0;
+  b6:	8366      	strh	r6, [r4, #26]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:571
+   TIM_TimeBaseStructure.TIM_CounterMode     = TIM_CounterMode_Up;
+  b8:	82e6      	strh	r6, [r4, #22]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:573
+
+   TIM_TimeBaseInit( TIM4, &TIM_TimeBaseStructure );
+  ba:	4628      	mov	r0, r5
+  bc:	4639      	mov	r1, r7
+  be:	f7ff fffe 	bl	0 <TIM_TimeBaseInit>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:576
+
+   /* Output Compare Toggle Mode configuration: Channel2 */
+   TIM_OCInitStructure.TIM_OCMode   = TIM_OCMode_PWM1;
+  c2:	f04f 0360 	mov.w	r3, #96	; 0x60
+  c6:	80a3      	strh	r3, [r4, #4]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:577
+   TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
+  c8:	f04f 0701 	mov.w	r7, #1
+  cc:	80e7      	strh	r7, [r4, #6]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:578
+   TIM_OCInitStructure.TIM_Pulse    = Current_CCR_BackLightStart;
+  ce:	f240 0300 	movw	r3, #0
+  d2:	f2c0 0300 	movt	r3, #0
+  d6:	881b      	ldrh	r3, [r3, #0]
+  d8:	8163      	strh	r3, [r4, #10]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:580
+
+   TIM_OC2Init( TIM4, &TIM_OCInitStructure );
+  da:	4628      	mov	r0, r5
+  dc:	4641      	mov	r1, r8
+  de:	f7ff fffe 	bl	0 <TIM_OC2Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:581
+   TIM_OC4PreloadConfig( TIM4, TIM_OCPreload_Disable );
+  e2:	4628      	mov	r0, r5
+  e4:	4631      	mov	r1, r6
+  e6:	f7ff fffe 	bl	0 <TIM_OC4PreloadConfig>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:583
+
+   TIM_ARRPreloadConfig( TIM4, ENABLE );
+  ea:	4628      	mov	r0, r5
+  ec:	4639      	mov	r1, r7
+  ee:	f7ff fffe 	bl	0 <TIM_ARRPreloadConfig>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:586
+
+   /* Enable TIM4 IT */
+   TIM_ITConfig( TIM4, TIM_IT_CC2, ENABLE );
+  f2:	4628      	mov	r0, r5
+  f4:	f04f 0104 	mov.w	r1, #4
+  f8:	463a      	mov	r2, r7
+  fa:	f7ff fffe 	bl	0 <TIM_ITConfig>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:589
+
+   // Go !!!
+   TIM_Cmd( TIM4, ENABLE );
+  fe:	4628      	mov	r0, r5
+ 100:	4639      	mov	r1, r7
+ 102:	f7ff fffe 	bl	0 <TIM_Cmd>
+LCD_CtrlLinesConfig():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:234
+/******************************************************************************/
+static void LCD_CtrlLinesConfig( void )
+   {
+   GPIO_InitTypeDef             GPIO_InitStructure;
+	   
+   GPIO_InitStructure.GPIO_Pin   =  LCD_CTRL_PINS;
+ 106:	f44f 53b8 	mov.w	r3, #5888	; 0x1700
+ 10a:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:235
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 10e:	f88d 9006 	strb.w	r9, [sp, #6]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:236
+   GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_Out_PP;
+ 112:	f04f 0510 	mov.w	r5, #16
+ 116:	f88d 5007 	strb.w	r5, [sp, #7]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:238
+
+   GPIO_Init( GPIOx_CTRL_LCD, &GPIO_InitStructure );
+ 11a:	f44f 5480 	mov.w	r4, #4096	; 0x1000
+ 11e:	f2c4 0401 	movt	r4, #16385	; 0x4001
+ 122:	4620      	mov	r0, r4
+ 124:	a901      	add	r1, sp, #4
+ 126:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:240
+
+   GPIO_InitStructure.GPIO_Pin   =  CtrlPin_CS;
+ 12a:	f04f 0804 	mov.w	r8, #4
+ 12e:	f8ad 8004 	strh.w	r8, [sp, #4]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:241
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 132:	f88d 9006 	strb.w	r9, [sp, #6]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:242
+   GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_Out_PP;
+ 136:	f88d 5007 	strb.w	r5, [sp, #7]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:244
+
+   GPIO_Init( GPIOx_CS_LCD, &GPIO_InitStructure );
+ 13a:	f44f 55a0 	mov.w	r5, #5120	; 0x1400
+ 13e:	f2c4 0501 	movt	r5, #16385	; 0x4001
+ 142:	4628      	mov	r0, r5
+ 144:	eb0d 0108 	add.w	r1, sp, r8
+ 148:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:246
+
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RS,  Bit_SET );    /* RS = 1   */
+ 14c:	4620      	mov	r0, r4
+ 14e:	f44f 7180 	mov.w	r1, #256	; 0x100
+ 152:	463a      	mov	r2, r7
+ 154:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:247
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RD,  Bit_SET );    /* RD = 1   */
+ 158:	4620      	mov	r0, r4
+ 15a:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 15e:	463a      	mov	r2, r7
+ 160:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:248
+   LCD_CtrlLinesWrite( GPIOx_CS_LCD,   CtrlPin_CS,  Bit_SET );    /* CS = 1   */
+ 164:	4628      	mov	r0, r5
+ 166:	4641      	mov	r1, r8
+ 168:	463a      	mov	r2, r7
+ 16a:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:249
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_WR,  Bit_SET );    /* WR = 1   */
+ 16e:	4620      	mov	r0, r4
+ 170:	f44f 6180 	mov.w	r1, #1024	; 0x400
+ 174:	463a      	mov	r2, r7
+ 176:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:250
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RST, Bit_RESET );  /* RST = 0  */
+ 17a:	4620      	mov	r0, r4
+ 17c:	f44f 5180 	mov.w	r1, #4096	; 0x1000
+ 180:	4632      	mov	r2, r6
+ 182:	f7ff fffe 	bl	0 <LCD_Init>
+LCD_7637_Controller():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:433
+static void LCD_7637_Controller( void )
+   {
+   extern void starting_delay ( long unsigned  );
+
+   /** Apply hardware reset **/
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RST, Bit_SET );    /* RST = 1  */
+ 186:	4620      	mov	r0, r4
+ 188:	f44f 5180 	mov.w	r1, #4096	; 0x1000
+ 18c:	463a      	mov	r2, r7
+ 18e:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:434
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RST, Bit_RESET );  /* RST = 0  */
+ 192:	4620      	mov	r0, r4
+ 194:	f44f 5180 	mov.w	r1, #4096	; 0x1000
+ 198:	4632      	mov	r2, r6
+ 19a:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:435
+   starting_delay( 0x500 );
+ 19e:	f44f 60a0 	mov.w	r0, #1280	; 0x500
+ 1a2:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:437
+
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RST, Bit_SET );    /* RST = 1  */
+ 1a6:	4620      	mov	r0, r4
+ 1a8:	f44f 5180 	mov.w	r1, #4096	; 0x1000
+ 1ac:	463a      	mov	r2, r7
+ 1ae:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:438
+   starting_delay( 0x500 );
+ 1b2:	f44f 60a0 	mov.w	r0, #1280	; 0x500
+ 1b6:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:441
+
+   //default mode is output
+   LCD_DataLinesConfig( Output );
+ 1ba:	4638      	mov	r0, r7
+ 1bc:	f7ff fffe 	bl	0 <LCD_Init>
+LCD_CheckLCDStatus():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:289
+   {
+   unsigned char ID1;
+   unsigned char ID2;
+   unsigned char ID3;
+
+   LCD_SendLCDCmd( ST7637_RDDID );
+ 1c0:	4640      	mov	r0, r8
+ 1c2:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:292
+
+   /* Configure Data lines as Input */
+   LCD_DataLinesConfig (Input );
+ 1c6:	4630      	mov	r0, r6
+ 1c8:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:295
+
+   /* Start the LCD send data sequence */
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RS, Bit_RESET );     /* RS = 0 */
+ 1cc:	4620      	mov	r0, r4
+ 1ce:	f44f 7180 	mov.w	r1, #256	; 0x100
+ 1d2:	4632      	mov	r2, r6
+ 1d4:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:296
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RD, Bit_RESET );     /* RD = 0 */
+ 1d8:	4620      	mov	r0, r4
+ 1da:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 1de:	4632      	mov	r2, r6
+ 1e0:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:297
+   LCD_CtrlLinesWrite( GPIOx_CS_LCD,   CtrlPin_CS, Bit_RESET );     /* CS = 0 */
+ 1e4:	4628      	mov	r0, r5
+ 1e6:	4641      	mov	r1, r8
+ 1e8:	4632      	mov	r2, r6
+ 1ea:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:298
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_WR, Bit_SET );       /* WR = 1 */
+ 1ee:	4620      	mov	r0, r4
+ 1f0:	f44f 6180 	mov.w	r1, #1024	; 0x400
+ 1f4:	463a      	mov	r2, r7
+ 1f6:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:301
+
+   /* Read data to the LCD */
+   GPIO_ReadInputData( GPIOx_D_LCD );
+ 1fa:	4620      	mov	r0, r4
+ 1fc:	f7ff fffe 	bl	0 <GPIO_ReadInputData>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:302
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RD, Bit_SET );       /* RD = 1 */
+ 200:	4620      	mov	r0, r4
+ 202:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 206:	463a      	mov	r2, r7
+ 208:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:303
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RD, Bit_RESET );     /* RD = 0 */
+ 20c:	4620      	mov	r0, r4
+ 20e:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 212:	4632      	mov	r2, r6
+ 214:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:305
+
+   ID1 = GPIO_ReadInputData( GPIOx_D_LCD );
+ 218:	4620      	mov	r0, r4
+ 21a:	f7ff fffe 	bl	0 <GPIO_ReadInputData>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:307
+
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RD, Bit_SET );       /* RD = 1 */
+ 21e:	4620      	mov	r0, r4
+ 220:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 224:	463a      	mov	r2, r7
+ 226:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:308
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RD, Bit_RESET );     /* RD = 0 */
+ 22a:	4620      	mov	r0, r4
+ 22c:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 230:	4632      	mov	r2, r6
+ 232:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:310
+
+   ID2 = GPIO_ReadInputData( GPIOx_D_LCD );
+ 236:	4620      	mov	r0, r4
+ 238:	f7ff fffe 	bl	0 <GPIO_ReadInputData>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:312
+
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RD, Bit_SET );       /* RD = 1 */
+ 23c:	4620      	mov	r0, r4
+ 23e:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 242:	463a      	mov	r2, r7
+ 244:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:313
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RD, Bit_RESET );     /* RD = 0 */
+ 248:	4620      	mov	r0, r4
+ 24a:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 24e:	4632      	mov	r2, r6
+ 250:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:315
+
+   ID3 = GPIO_ReadInputData( GPIOx_D_LCD );
+ 254:	4620      	mov	r0, r4
+ 256:	f7ff fffe 	bl	0 <GPIO_ReadInputData>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:317
+
+   LCD_DataLinesConfig( Output );
+ 25a:	4638      	mov	r0, r7
+ 25c:	f7ff fffe 	bl	0 <LCD_Init>
+LCD_7637_Controller():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:445
+   //default mode is output
+   LCD_DataLinesConfig( Output );
+
+   LCD_CheckLCDStatus();
+
+   LCD_SendLCDCmd( ST7637_SWRESET );
+ 260:	4638      	mov	r0, r7
+ 262:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:448
+
+   //-----------disable autoread + Manual read once ----------------------------
+   LCD_SendLCDCmd( ST7637_AUTOLOADSET );  // Auto Load Set 0xD7
+ 266:	f04f 00d7 	mov.w	r0, #215	; 0xd7
+ 26a:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:449
+   LCD_SendLCDData( 0xBF );               // Auto Load Disable
+ 26e:	f04f 00bf 	mov.w	r0, #191	; 0xbf
+ 272:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:451
+
+   LCD_SendLCDCmd( ST7637_EPCTIN );       // EE Read/write mode 0xE0
+ 276:	f04f 00e0 	mov.w	r0, #224	; 0xe0
+ 27a:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:452
+   LCD_SendLCDData( 0x00 );               // Set read mode
+ 27e:	4630      	mov	r0, r6
+ 280:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:454
+
+   LCD_SendLCDCmd( ST7637_EPMRD );        // Read active 0xE3
+ 284:	f04f 00e3 	mov.w	r0, #227	; 0xe3
+ 288:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:455
+   LCD_SendLCDCmd( ST7637_EPCTOUT );      // Cancel control 0xE1
+ 28c:	f04f 00e1 	mov.w	r0, #225	; 0xe1
+ 290:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:458
+
+   //---------------------------------- Sleep OUT ------------------------------
+   LCD_SendLCDCmd( ST7637_DISPOFF );      // display off 0x28
+ 294:	f04f 0028 	mov.w	r0, #40	; 0x28
+ 298:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:459
+   LCD_SendLCDCmd( ST7637_SLPOUT );       // Sleep Out 0x11
+ 29c:	f04f 0011 	mov.w	r0, #17
+ 2a0:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:462
+
+   //--------------------------------Vop setting--------------------------------
+   LCD_SendLCDCmd( ST7637_VOPSET );       // Set Vop by initial Module 0xC0
+ 2a4:	f04f 00c0 	mov.w	r0, #192	; 0xc0
+ 2a8:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:463
+   LCD_SendLCDData( 0xFB );               // Vop = 13.64
+ 2ac:	f04f 00fb 	mov.w	r0, #251	; 0xfb
+ 2b0:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:464
+   LCD_SendLCDData( 0x00 );               // base on Module
+ 2b4:	4630      	mov	r0, r6
+ 2b6:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:467
+
+   //----------------------------Set Register-----------------------------------
+   LCD_SendLCDCmd( ST7637_BIASSEL );      // Bias select 0xC3
+ 2ba:	f04f 00c3 	mov.w	r0, #195	; 0xc3
+ 2be:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:468
+   LCD_SendLCDData( 0x00 );               // 1/12 Bias, base on Module
+ 2c2:	4630      	mov	r0, r6
+ 2c4:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:470
+
+   LCD_SendLCDCmd( ST7637_BSTBMPXSEL );   // Setting Booster times 0xC4
+ 2c8:	f04f 00c4 	mov.w	r0, #196	; 0xc4
+ 2cc:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:471
+   LCD_SendLCDData( 0x05 );               // Booster X 8
+ 2d0:	f04f 0005 	mov.w	r0, #5
+ 2d4:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:473
+
+   LCD_SendLCDCmd( ST7637_BSTEFFSEL );    // Booster eff 0xC5
+ 2d8:	f04f 00c5 	mov.w	r0, #197	; 0xc5
+ 2dc:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:474
+   LCD_SendLCDData( 0x11 );               // BE = 0x01 (Level 2)
+ 2e0:	f04f 0011 	mov.w	r0, #17
+ 2e4:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:476
+
+   LCD_SendLCDCmd( ST7637_VGSORCSEL );    // Vg with booster x2 control 0xcb
+ 2e8:	f04f 00cb 	mov.w	r0, #203	; 0xcb
+ 2ec:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:477
+   LCD_SendLCDData( 0x01 );               // Vg from Vdd2
+ 2f0:	4638      	mov	r0, r7
+ 2f2:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:479
+
+   LCD_SendLCDCmd( ST7637_ID1SET );       // ID1 = 00 0xcc
+ 2f6:	f04f 00cc 	mov.w	r0, #204	; 0xcc
+ 2fa:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:480
+   LCD_SendLCDData( 0x00 );               //
+ 2fe:	4630      	mov	r0, r6
+ 300:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:482
+
+   LCD_SendLCDCmd( ST7637_ID3SET );       // ID3 = 00 0xce
+ 304:	f04f 00ce 	mov.w	r0, #206	; 0xce
+ 308:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:483
+   LCD_SendLCDData( 0x00 );               //
+ 30c:	4630      	mov	r0, r6
+ 30e:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:485
+
+   LCD_SendLCDCmd( 0xB7 );                // Glass direction
+ 312:	f04f 00b7 	mov.w	r0, #183	; 0xb7
+ 316:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:486
+   LCD_SendLCDData( 0xC0 );               //
+ 31a:	f04f 00c0 	mov.w	r0, #192	; 0xc0
+ 31e:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:488
+
+   LCD_SendLCDCmd( ST7637_ANASET );       // Analog circuit setting 0xd0
+ 322:	f04f 00d0 	mov.w	r0, #208	; 0xd0
+ 326:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:489
+   LCD_SendLCDData( 0x1D );               //
+ 32a:	f04f 001d 	mov.w	r0, #29
+ 32e:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:491
+
+   LCD_SendLCDCmd( 0xB4 );                // PTL mode set
+ 332:	f04f 00b4 	mov.w	r0, #180	; 0xb4
+ 336:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:492
+   LCD_SendLCDData( 0x18 );               // power normal mode
+ 33a:	4650      	mov	r0, sl
+ 33c:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:493
+   LCD_SendLCDCmd( ST7637_INVOFF );       // Display Inversion OFF 0x20
+ 340:	f04f 0020 	mov.w	r0, #32
+ 344:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:495
+
+   LCD_SendLCDCmd( 0x2A );                // column range
+ 348:	f04f 002a 	mov.w	r0, #42	; 0x2a
+ 34c:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:496
+   LCD_SendLCDData( 0x04 );               //
+ 350:	4640      	mov	r0, r8
+ 352:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:497
+   LCD_SendLCDData( 0x83 );               //
+ 356:	f04f 0083 	mov.w	r0, #131	; 0x83
+ 35a:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:499
+
+   LCD_SendLCDCmd( 0x2B );                // raw range
+ 35e:	f04f 002b 	mov.w	r0, #43	; 0x2b
+ 362:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:500
+   LCD_SendLCDData( 0x04 );               //
+ 366:	4640      	mov	r0, r8
+ 368:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:501
+   LCD_SendLCDData( 0x83 );               //
+ 36c:	f04f 0083 	mov.w	r0, #131	; 0x83
+ 370:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:504
+
+
+   LCD_SendLCDCmd( ST7637_COLMOD );       // Color mode = 65k 0x3A
+ 374:	f04f 003a 	mov.w	r0, #58	; 0x3a
+ 378:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:505
+   LCD_SendLCDData( 0x05 );               //
+ 37c:	f04f 0005 	mov.w	r0, #5
+ 380:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:507
+
+   LCD_SendLCDCmd( ST7637_MADCTR );       // Memory Access Control 0x36
+ 384:	f04f 0036 	mov.w	r0, #54	; 0x36
+ 388:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:508
+   LCD_SendLCDData( V9_MADCTRVAL );
+ 38c:	f04f 0090 	mov.w	r0, #144	; 0x90
+ 390:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:510
+
+   LCD_SendLCDCmd( ST7637_DUTYSET );      // Duty = 132 duty 0xb0
+ 394:	f04f 00b0 	mov.w	r0, #176	; 0xb0
+ 398:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:511
+   LCD_SendLCDData( 0x7F );
+ 39c:	f04f 007f 	mov.w	r0, #127	; 0x7f
+ 3a0:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:513
+
+   LCD_SendLCDCmd( 0x29 );                // Display ON
+ 3a4:	f04f 0029 	mov.w	r0, #41	; 0x29
+ 3a8:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:514
+   LCD_SendLCDCmd( 0xF9 );                // Gamma
+ 3ac:	f04f 00f9 	mov.w	r0, #249	; 0xf9
+ 3b0:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:515
+   LCD_SendLCDData( 0x00 );               //
+ 3b4:	4630      	mov	r0, r6
+ 3b6:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:516
+   LCD_SendLCDData( 0x03 );               //
+ 3ba:	4648      	mov	r0, r9
+ 3bc:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:517
+   LCD_SendLCDData( 0x05 );               //
+ 3c0:	f04f 0005 	mov.w	r0, #5
+ 3c4:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:518
+   LCD_SendLCDData( 0x07 );               //
+ 3c8:	f04f 0007 	mov.w	r0, #7
+ 3cc:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:519
+   LCD_SendLCDData( 0x09 );               //
+ 3d0:	f04f 0009 	mov.w	r0, #9
+ 3d4:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:520
+   LCD_SendLCDData( 0x0B );               //
+ 3d8:	f04f 000b 	mov.w	r0, #11
+ 3dc:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:521
+   LCD_SendLCDData( 0x0D );               //
+ 3e0:	f04f 000d 	mov.w	r0, #13
+ 3e4:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:522
+   LCD_SendLCDData( 0x0F );               //
+ 3e8:	f04f 000f 	mov.w	r0, #15
+ 3ec:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:523
+   LCD_SendLCDData( 0x11 );               //
+ 3f0:	f04f 0011 	mov.w	r0, #17
+ 3f4:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:524
+   LCD_SendLCDData( 0x13 );               //
+ 3f8:	f04f 0013 	mov.w	r0, #19
+ 3fc:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:525
+   LCD_SendLCDData( 0x15 );               //
+ 400:	f04f 0015 	mov.w	r0, #21
+ 404:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:526
+   LCD_SendLCDData( 0x17 );               //
+ 408:	f04f 0017 	mov.w	r0, #23
+ 40c:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:527
+   LCD_SendLCDData( 0x19 );               //
+ 410:	f04f 0019 	mov.w	r0, #25
+ 414:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:528
+   LCD_SendLCDData( 0x1B );               //
+ 418:	f04f 001b 	mov.w	r0, #27
+ 41c:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:529
+   LCD_SendLCDData( 0x1D );               //
+ 420:	f04f 001d 	mov.w	r0, #29
+ 424:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:530
+   LCD_SendLCDData( 0x1F );               //
+ 428:	f04f 001f 	mov.w	r0, #31
+ 42c:	f7ff fffe 	bl	0 <LCD_Init>
+LCD_Init():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:648
+   /* Configure control lines signals as output mode */
+   LCD_CtrlLinesConfig();
+
+   /* LCD LCD Init */
+   LCD_7637_Controller();
+   }
+ 430:	b002      	add	sp, #8
+ 432:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+ 436:	bf00      	nop
+
+Disassembly of section .text.LCD_SetBackLightOff:
+
+00000000 <LCD_SetBackLightOff>:
+LCD_SetBackLightOff():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1090
+*
+**/
+/******************************************************************************/
+void LCD_SetBackLightOff( void )
+   {
+   Current_CCR_BackLightStart = 0;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	f04f 0200 	mov.w	r2, #0
+   c:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1091
+   }
+   e:	4770      	bx	lr
+
+Disassembly of section .text.LCD_SetBackLightOn:
+
+00000000 <LCD_SetBackLightOn>:
+LCD_SetBackLightOn():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1106
+*
+**/
+/******************************************************************************/
+void LCD_SetBackLightOn( void )
+   {
+   Current_CCR_BackLightStart = DEFAULT_CCR_BACKLIGHTSTART;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	f44f 4200 	mov.w	r2, #32768	; 0x8000
+   c:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1107
+   }
+   e:	4770      	bx	lr
+
+Disassembly of section .text.LCD_GetBackLight:
+
+00000000 <LCD_GetBackLight>:
+LCD_GetBackLight():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1124
+*
+**/
+/******************************************************************************/
+u32 LCD_GetBackLight( void )
+   {
+   return Current_CCR_BackLightStart;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1125
+   }
+   8:	6818      	ldr	r0, [r3, #0]
+   a:	4770      	bx	lr
+
+Disassembly of section .text.LCD_SetRotateScreen:
+
+00000000 <LCD_SetRotateScreen>:
+LCD_SetRotateScreen():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1143
+*
+**/
+/******************************************************************************/
+void LCD_SetRotateScreen( u8 RotateScreen)
+   {
+   CurrentRotateScreen = RotateScreen;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1144
+   }
+   a:	4770      	bx	lr
+
+Disassembly of section .text.LCD_GetRotateScreen:
+
+00000000 <LCD_GetRotateScreen>:
+LCD_GetRotateScreen():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1162
+*
+**/
+/******************************************************************************/
+u8 LCD_GetRotateScreen( void )
+   {
+   return CurrentRotateScreen;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1163
+   }
+   8:	7818      	ldrb	r0, [r3, #0]
+   a:	4770      	bx	lr
+
+Disassembly of section .text.LCD_SetScreenOrientation:
+
+00000000 <LCD_SetScreenOrientation>:
+LCD_SetScreenOrientation():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1179
+*  @param[in]  ScreenOrientation The new screen orientation.
+*
+**/
+/******************************************************************************/
+void LCD_SetScreenOrientation( Rotate_H12_V_Match_TypeDef ScreenOrientation )
+   {
+   0:	b510      	push	{r4, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1180
+   CurrentScreenOrientation = ScreenOrientation;
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	7018      	strb	r0, [r3, #0]
+LCD_DisplayRotate():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:393
+**/
+/******************************************************************************/
+static void LCD_DisplayRotate( Rotate_H12_V_Match_TypeDef H12 )
+   {
+   // Memory Access Control 0x36
+   LCD_SendLCDCmd( ST7637_MADCTR );
+   e:	f04f 0036 	mov.w	r0, #54	; 0x36
+  12:	f7ff fffe 	bl	0 <LCD_SetScreenOrientation>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:395
+
+   switch( H12 )
+  16:	2c02      	cmp	r4, #2
+  18:	d008      	beq.n	2c <LCD_SetScreenOrientation+0x2c>
+  1a:	2c03      	cmp	r4, #3
+  1c:	d00b      	beq.n	36 <LCD_SetScreenOrientation+0x36>
+  1e:	2c01      	cmp	r4, #1
+  20:	d10e      	bne.n	40 <LCD_SetScreenOrientation+0x40>
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:398
+      {
+      case V3  :
+         LCD_SendLCDData( V3_MADCTRVAL );
+  22:	f04f 0050 	mov.w	r0, #80	; 0x50
+  26:	f7ff fffe 	bl	0 <LCD_SetScreenOrientation>
+  2a:	bd10      	pop	{r4, pc}
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:402
+         break;
+
+      case V6  :
+         LCD_SendLCDData( V6_MADCTRVAL );
+  2c:	f04f 00f0 	mov.w	r0, #240	; 0xf0
+  30:	f7ff fffe 	bl	0 <LCD_SetScreenOrientation>
+  34:	bd10      	pop	{r4, pc}
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:406
+         break;
+
+      case V9  :
+         LCD_SendLCDData( V9_MADCTRVAL );
+  36:	f04f 0090 	mov.w	r0, #144	; 0x90
+  3a:	f7ff fffe 	bl	0 <LCD_SetScreenOrientation>
+  3e:	bd10      	pop	{r4, pc}
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:411
+         break;
+
+      case V12 :
+      default  :
+         LCD_SendLCDData( V12_MADCTRVAL );
+  40:	f04f 0030 	mov.w	r0, #48	; 0x30
+  44:	f7ff fffe 	bl	0 <LCD_SetScreenOrientation>
+  48:	bd10      	pop	{r4, pc}
+LCD_SetScreenOrientation():
+  4a:	bf00      	nop
+
+Disassembly of section .text.LCD_GetScreenOrientation:
+
+00000000 <LCD_GetScreenOrientation>:
+LCD_GetScreenOrientation():
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1199
+*  @return   A Rotate_H12_V_Match_TypeDef telling the current screen orientation.
+*
+**/
+/******************************************************************************/
+Rotate_H12_V_Match_TypeDef LCD_GetScreenOrientation( void )
+   {
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+C:\Users\fv\Desktop\TAMA\GPIO\project/lcd.c:1201
+   return CurrentScreenOrientation;
+   }
+   8:	7818      	ldrb	r0, [r3, #0]
+   a:	4770      	bx	lr

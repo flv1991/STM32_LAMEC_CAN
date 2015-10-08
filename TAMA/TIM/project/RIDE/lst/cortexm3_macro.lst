@@ -1,0 +1,122 @@
+
+C:\Users\nd\Documents\sistr20142015\GPIO\project\RIDE\obj\cortexm3_macro.o:     file format elf32-littlearm
+C:\Users\nd\Documents\sistr20142015\GPIO\project\RIDE\obj\cortexm3_macro.o
+
+
+Disassembly of section .text:
+
+00000000 <__WFI>:
+__WFI():
+   0:	bf30      	wfi
+   2:	4770      	bx	lr
+
+00000004 <__WFE>:
+__WFE():
+   4:	bf20      	wfe
+   6:	4770      	bx	lr
+
+00000008 <__SEV>:
+__SEV():
+   8:	bf40      	sev
+   a:	4770      	bx	lr
+
+0000000c <__ISB>:
+__ISB():
+   c:	f3bf 8f6f 	isb	sy
+  10:	4770      	bx	lr
+
+00000012 <__DSB>:
+__DSB():
+  12:	f3bf 8f4f 	dsb	sy
+  16:	4770      	bx	lr
+
+00000018 <__DMB>:
+__DMB():
+  18:	f3bf 8f5f 	dmb	sy
+  1c:	4770      	bx	lr
+
+0000001e <__SVC>:
+__SVC():
+  1e:	df01      	svc	1
+  20:	4770      	bx	lr
+
+00000022 <__MRS_CONTROL>:
+__MRS_CONTROL():
+  22:	f3ef 8014 	mrs	r0, CONTROL
+  26:	4770      	bx	lr
+
+00000028 <__MSR_CONTROL>:
+__MSR_CONTROL():
+  28:	f380 8814 	msr	CONTROL, r0
+  2c:	f3bf 8f6f 	isb	sy
+  30:	4770      	bx	lr
+
+00000032 <__MRS_PSP>:
+__MRS_PSP():
+  32:	f3ef 8009 	mrs	r0, PSP
+  36:	4770      	bx	lr
+
+00000038 <__MSR_PSP>:
+__MSR_PSP():
+  38:	f380 8809 	msr	PSP, r0
+  3c:	4770      	bx	lr
+
+0000003e <__MRS_MSP>:
+__MRS_MSP():
+  3e:	f3ef 8008 	mrs	r0, MSP
+  42:	4770      	bx	lr
+
+00000044 <__MSR_MSP>:
+__MSR_MSP():
+  44:	f380 8808 	msr	MSP, r0
+  48:	4770      	bx	lr
+
+0000004a <__RESETPRIMASK>:
+__RESETPRIMASK():
+  4a:	b662      	cpsie	i
+  4c:	4770      	bx	lr
+
+0000004e <__SETPRIMASK>:
+__SETPRIMASK():
+  4e:	b672      	cpsid	i
+  50:	4770      	bx	lr
+
+00000052 <__READ_PRIMASK>:
+__READ_PRIMASK():
+  52:	f3ef 8010 	mrs	r0, PRIMASK
+  56:	4770      	bx	lr
+
+00000058 <__RESETFAULTMASK>:
+__RESETFAULTMASK():
+  58:	b661      	cpsie	f
+  5a:	4770      	bx	lr
+
+0000005c <__SETFAULTMASK>:
+__SETFAULTMASK():
+  5c:	b671      	cpsid	f
+  5e:	4770      	bx	lr
+
+00000060 <__READ_FAULTMASK>:
+__READ_FAULTMASK():
+  60:	f3ef 8013 	mrs	r0, FAULTMASK
+  64:	4770      	bx	lr
+
+00000066 <__BASEPRICONFIG>:
+__BASEPRICONFIG():
+  66:	f380 8811 	msr	BASEPRI, r0
+  6a:	4770      	bx	lr
+
+0000006c <__GetBASEPRI>:
+__GetBASEPRI():
+  6c:	f3ef 8012 	mrs	r0, BASEPRI_MASK
+  70:	4770      	bx	lr
+
+00000072 <__REV_HalfWord>:
+__REV_HalfWord():
+  72:	ba40      	rev16	r0, r0
+  74:	4770      	bx	lr
+
+00000076 <__REV_Word>:
+__REV_Word():
+  76:	ba00      	rev	r0, r0
+  78:	4770      	bx	lr

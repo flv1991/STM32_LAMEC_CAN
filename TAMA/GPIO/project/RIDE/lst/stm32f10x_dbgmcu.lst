@@ -1,0 +1,76 @@
+
+C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o:     file format elf32-littlearm
+C:\Users\fv\Desktop\TAMA\GPIO\project\RIDE\obj\stm32f10x_dbgmcu.o
+
+
+Disassembly of section .text.DBGMCU_GetREVID:
+
+00000000 <DBGMCU_GetREVID>:
+DBGMCU_GetREVID():
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_dbgmcu.c:37
+* Output         : None
+* Return         : Device revision identifier
+*******************************************************************************/
+u32 DBGMCU_GetREVID(void)
+{
+   return(DBGMCU->IDCODE >> 16);
+   0:	f44f 5300 	mov.w	r3, #8192	; 0x2000
+   4:	f2ce 0304 	movt	r3, #57348	; 0xe004
+   8:	6818      	ldr	r0, [r3, #0]
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_dbgmcu.c:38
+}
+   a:	ea4f 4010 	mov.w	r0, r0, lsr #16
+   e:	4770      	bx	lr
+
+Disassembly of section .text.DBGMCU_GetDEVID:
+
+00000000 <DBGMCU_GetDEVID>:
+DBGMCU_GetDEVID():
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_dbgmcu.c:49
+* Output         : None
+* Return         : Device identifier
+*******************************************************************************/
+u32 DBGMCU_GetDEVID(void)
+{
+   return(DBGMCU->IDCODE & IDCODE_DEVID_Mask);
+   0:	f44f 5300 	mov.w	r3, #8192	; 0x2000
+   4:	f2ce 0304 	movt	r3, #57348	; 0xe004
+   8:	6818      	ldr	r0, [r3, #0]
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_dbgmcu.c:50
+}
+   a:	ea4f 5000 	mov.w	r0, r0, lsl #20
+   e:	ea4f 5010 	mov.w	r0, r0, lsr #20
+  12:	4770      	bx	lr
+
+Disassembly of section .text.DBGMCU_Config:
+
+00000000 <DBGMCU_Config>:
+DBGMCU_Config():
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_dbgmcu.c:87
+{
+  /* Check the parameters */
+  assert_param(IS_DBGMCU_PERIPH(DBGMCU_Periph));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  if (NewState != DISABLE)
+   0:	b139      	cbz	r1, 12 <DBGMCU_Config+0x12>
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_dbgmcu.c:89
+  {
+    DBGMCU->CR |= DBGMCU_Periph;
+   2:	f44f 5300 	mov.w	r3, #8192	; 0x2000
+   6:	f2ce 0304 	movt	r3, #57348	; 0xe004
+   a:	685a      	ldr	r2, [r3, #4]
+   c:	4310      	orrs	r0, r2
+   e:	6058      	str	r0, [r3, #4]
+  10:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\GPIO\library\src/stm32f10x_dbgmcu.c:93
+  }
+  else
+  {
+    DBGMCU->CR &= ~DBGMCU_Periph;
+  12:	f44f 5300 	mov.w	r3, #8192	; 0x2000
+  16:	f2ce 0304 	movt	r3, #57348	; 0xe004
+  1a:	685a      	ldr	r2, [r3, #4]
+  1c:	ea22 0000 	bic.w	r0, r2, r0
+  20:	6058      	str	r0, [r3, #4]
+  22:	4770      	bx	lr

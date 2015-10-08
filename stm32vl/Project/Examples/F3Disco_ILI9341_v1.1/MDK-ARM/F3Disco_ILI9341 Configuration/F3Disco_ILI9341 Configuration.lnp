@@ -1,0 +1,25 @@
+--cpu Cortex-M4.fp
+"f3disco_ili9341 configuration\stm32f3xx_hal_rcc.o"
+"f3disco_ili9341 configuration\stm32f3xx_hal_gpio.o"
+"f3disco_ili9341 configuration\stm32f3xx_hal_spi.o"
+"f3disco_ili9341 configuration\stm32f3xx_hal_flash.o"
+"f3disco_ili9341 configuration\stm32f3xx_hal.o"
+"f3disco_ili9341 configuration\stm32f3xx_hal_dma.o"
+"f3disco_ili9341 configuration\stm32f3xx_hal_cortex.o"
+"f3disco_ili9341 configuration\stm32f3xx_hal_rcc_ex.o"
+"f3disco_ili9341 configuration\stm32f3xx_hal_pwr_ex.o"
+"f3disco_ili9341 configuration\stm32f3xx_hal_flash_ex.o"
+"f3disco_ili9341 configuration\stm32f3xx_hal_pwr.o"
+"f3disco_ili9341 configuration\startup_stm32f303xc.o"
+"f3disco_ili9341 configuration\system_stm32f3xx.o"
+"f3disco_ili9341 configuration\main.o"
+"f3disco_ili9341 configuration\stm32f3xx_it.o"
+"f3disco_ili9341 configuration\stm32f3xx_hal_msp.o"
+"f3disco_ili9341 configuration\delay.o"
+"f3disco_ili9341 configuration\tm_stm32f3_ili9341.o"
+"f3disco_ili9341 configuration\tm_stm32f3_fonts.o"
+--library_type=microlib --strict --scatter "F3Disco_ILI9341 Configuration\F3Disco_ILI9341 Configuration.sct"
+
+--diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "F3Disco_ILI9341 Configuration.map" -o "F3Disco_ILI9341 Configuration\F3Disco_ILI9341 Configuration.axf"

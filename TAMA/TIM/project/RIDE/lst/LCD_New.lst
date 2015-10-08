@@ -1,0 +1,2535 @@
+
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project\RIDE\obj\LCD_New.o:     file format elf32-littlearm
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project\RIDE\obj\LCD_New.o
+
+
+Disassembly of section .text.LCD_DataLinesWrite:
+
+00000000 <LCD_DataLinesWrite>:
+LCD_DataLinesWrite():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:231
+**/
+/******************************************************************************/
+static void LCD_DataLinesWrite( GPIO_TypeDef* GPIOx, u32 PortVal )
+   {
+   // Write only the lowest 8 bits!
+   GPIOx->ODR = ( (GPIOx->ODR) & 0xFF00 ) | (u8)PortVal;
+   0:	68c3      	ldr	r3, [r0, #12]
+   2:	b2c9      	uxtb	r1, r1
+   4:	f403 437f 	and.w	r3, r3, #65280	; 0xff00
+   8:	ea41 0303 	orr.w	r3, r1, r3
+   c:	60c3      	str	r3, [r0, #12]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:232
+   }
+   e:	4770      	bx	lr
+
+Disassembly of section .text.LCD_CtrlLinesWrite:
+
+00000000 <LCD_CtrlLinesWrite>:
+LCD_CtrlLinesWrite():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:280
+*  @param[in]  BitVal
+*
+**/
+/******************************************************************************/
+static void LCD_CtrlLinesWrite( GPIO_TypeDef* GPIOx, u32 CtrlPins, BitAction BitVal )
+   {
+   0:	b508      	push	{r3, lr}
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:282
+   /* Set or Reset the control line */
+   GPIO_WriteBit( GPIOx, CtrlPins, BitVal );
+   2:	b289      	uxth	r1, r1
+   4:	f7ff fffe 	bl	0 <GPIO_WriteBit>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:283
+   }
+   8:	bd08      	pop	{r3, pc}
+   a:	bf00      	nop
+
+Disassembly of section .text.LCD_DataLinesConfig:
+
+00000000 <LCD_DataLinesConfig>:
+LCD_DataLinesConfig():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:196
+*                @n @c Output: configure in Output Push-Pul mode
+*
+**/
+/******************************************************************************/
+static void LCD_DataLinesConfig( DataConfigMode_TypeDef Mode )
+   {
+   0:	b508      	push	{r3, lr}
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:197
+   GPIO_InitStructure.GPIO_Pin   =  LCD_DATA_PINS;
+   2:	f240 0300 	movw	r3, #0
+   6:	f2c0 0300 	movt	r3, #0
+   a:	f04f 02ff 	mov.w	r2, #255	; 0xff
+   e:	801a      	strh	r2, [r3, #0]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:198
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  10:	f04f 0203 	mov.w	r2, #3
+  14:	709a      	strb	r2, [r3, #2]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:200
+
+   if( Mode == Input )
+  16:	b938      	cbnz	r0, 28 <LCD_DataLinesConfig+0x28>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:203
+      {
+      /* Configure D0~D7 lines as Input */
+      GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  18:	f240 0300 	movw	r3, #0
+  1c:	f2c0 0300 	movt	r3, #0
+  20:	f04f 0204 	mov.w	r2, #4
+  24:	70da      	strb	r2, [r3, #3]
+  26:	e006      	b.n	36 <LCD_DataLinesConfig+0x36>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:208
+      }
+   else
+      {
+      /* Configure D0~D7 lines in Output Push-Pull mode */
+      GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+  28:	f240 0300 	movw	r3, #0
+  2c:	f2c0 0300 	movt	r3, #0
+  30:	f04f 0210 	mov.w	r2, #16
+  34:	70da      	strb	r2, [r3, #3]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:211
+      }
+
+   GPIO_Init( GPIOx_D_LCD, &GPIO_InitStructure );
+  36:	f44f 5080 	mov.w	r0, #4096	; 0x1000
+  3a:	f2c4 0001 	movt	r0, #16385	; 0x4001
+  3e:	f240 0100 	movw	r1, #0
+  42:	f2c0 0100 	movt	r1, #0
+  46:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:212
+   }
+  4a:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.LCD_Handler:
+
+00000000 <LCD_Handler>:
+LCD_Handler():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:677
+*  @attention  This function must <b>NOT</b> be called by the user.
+*
+**/
+/******************************************************************************/
+void LCD_Handler( void )
+   {
+   0:	b508      	push	{r3, lr}
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:678
+   if( ++HandlerDivider % BACKLIGHT_DIVIDER )
+   2:	f240 0200 	movw	r2, #0
+   6:	f2c0 0200 	movt	r2, #0
+   a:	6813      	ldr	r3, [r2, #0]
+   c:	f103 0301 	add.w	r3, r3, #1
+  10:	6013      	str	r3, [r2, #0]
+  12:	f644 52d3 	movw	r2, #19923	; 0x4dd3
+  16:	f2c1 0262 	movt	r2, #4194	; 0x1062
+  1a:	fb82 1203 	smull	r1, r2, r2, r3
+  1e:	ea4f 71e3 	mov.w	r1, r3, asr #31
+  22:	ebc1 1262 	rsb	r2, r1, r2, asr #5
+  26:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
+  2a:	fb01 3312 	mls	r3, r1, r2, r3
+  2e:	b98b      	cbnz	r3, 26 <LCD_Handler+0x26>
+LCD_BackLightChange():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:618
+**/
+/******************************************************************************/
+static void LCD_BackLightChange( void )
+   {
+   /* Output Compare Toggle Mode configuration: Channel2 */
+   TIM_OCInitStructure.TIM_Pulse = Current_CCR_BackLightStart;
+  30:	f240 0100 	movw	r1, #0
+  34:	f2c0 0100 	movt	r1, #0
+  38:	f240 0300 	movw	r3, #0
+  3c:	f2c0 0300 	movt	r3, #0
+  40:	881b      	ldrh	r3, [r3, #0]
+  42:	814b      	strh	r3, [r1, #10]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:620
+
+   TIM_OC2Init( TIM4, &TIM_OCInitStructure );
+  44:	f44f 6000 	mov.w	r0, #2048	; 0x800
+  48:	f2c4 0000 	movt	r0, #16384	; 0x4000
+  4c:	f101 0104 	add.w	r1, r1, #4
+  50:	f7ff fffe 	bl	0 <TIM_OC2Init>
+  54:	bd08      	pop	{r3, pc}
+LCD_Handler():
+  56:	bf00      	nop
+
+Disassembly of section .text.LCD_SendLCDCmd:
+
+00000000 <LCD_SendLCDCmd>:
+LCD_SendLCDCmd():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:705
+*  @param[in]  Cmd   An unsigned char containing the user command to send to the LCD.
+*
+**/
+/******************************************************************************/
+void LCD_SendLCDCmd( u8 Cmd )
+   {
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4605      	mov	r5, r0
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:707
+   /* Start the LCD send data sequence */
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RS, Bit_RESET );     /* RS = 0 */
+   4:	f44f 5480 	mov.w	r4, #4096	; 0x1000
+   8:	f2c4 0401 	movt	r4, #16385	; 0x4001
+   c:	4620      	mov	r0, r4
+   e:	f44f 7180 	mov.w	r1, #256	; 0x100
+  12:	f04f 0200 	mov.w	r2, #0
+  16:	f7ff fffe 	bl	0 <LCD_SendLCDCmd>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:708
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RD, Bit_SET );       /* RD = 1 */
+  1a:	4620      	mov	r0, r4
+  1c:	f44f 7100 	mov.w	r1, #512	; 0x200
+  20:	f04f 0201 	mov.w	r2, #1
+  24:	f7ff fffe 	bl	0 <LCD_SendLCDCmd>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:709
+   LCD_CtrlLinesWrite( GPIOx_CS_LCD,   CtrlPin_CS, Bit_RESET );     /* CS = 0 */
+  28:	f44f 50a0 	mov.w	r0, #5120	; 0x1400
+  2c:	f2c4 0001 	movt	r0, #16385	; 0x4001
+  30:	f04f 0104 	mov.w	r1, #4
+  34:	f04f 0200 	mov.w	r2, #0
+  38:	f7ff fffe 	bl	0 <LCD_SendLCDCmd>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:710
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_WR, Bit_RESET );     /* WR = 0 */
+  3c:	4620      	mov	r0, r4
+  3e:	f44f 6180 	mov.w	r1, #1024	; 0x400
+  42:	f04f 0200 	mov.w	r2, #0
+  46:	f7ff fffe 	bl	0 <LCD_SendLCDCmd>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:713
+
+   /* Write data to the LCD */
+   LCD_DataLinesWrite( GPIOx_D_LCD, (u32)Cmd );
+  4a:	4620      	mov	r0, r4
+  4c:	4629      	mov	r1, r5
+  4e:	f7ff fffe 	bl	0 <LCD_SendLCDCmd>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:714
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_WR, Bit_SET );       /* WR = 1 */
+  52:	4620      	mov	r0, r4
+  54:	f44f 6180 	mov.w	r1, #1024	; 0x400
+  58:	f04f 0201 	mov.w	r2, #1
+  5c:	f7ff fffe 	bl	0 <LCD_SendLCDCmd>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:715
+   }
+  60:	bd38      	pop	{r3, r4, r5, pc}
+  62:	bf00      	nop
+
+Disassembly of section .text.LCD_SendLCDData:
+
+00000000 <LCD_SendLCDData>:
+LCD_SendLCDData():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:733
+*
+*
+**/
+/******************************************************************************/
+void LCD_SendLCDData( u8 Data )
+   {
+   0:	b538      	push	{r3, r4, r5, lr}
+   2:	4605      	mov	r5, r0
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:735
+   /* Configure Data lines as Output */
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RS, Bit_SET );
+   4:	f44f 5480 	mov.w	r4, #4096	; 0x1000
+   8:	f2c4 0401 	movt	r4, #16385	; 0x4001
+   c:	4620      	mov	r0, r4
+   e:	f44f 7180 	mov.w	r1, #256	; 0x100
+  12:	f04f 0201 	mov.w	r2, #1
+  16:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:736
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RD, Bit_SET );
+  1a:	4620      	mov	r0, r4
+  1c:	f44f 7100 	mov.w	r1, #512	; 0x200
+  20:	f04f 0201 	mov.w	r2, #1
+  24:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:737
+   LCD_CtrlLinesWrite( GPIOx_CS_LCD,   CtrlPin_CS, Bit_RESET );
+  28:	f44f 50a0 	mov.w	r0, #5120	; 0x1400
+  2c:	f2c4 0001 	movt	r0, #16385	; 0x4001
+  30:	f04f 0104 	mov.w	r1, #4
+  34:	f04f 0200 	mov.w	r2, #0
+  38:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:738
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_WR, Bit_RESET );
+  3c:	4620      	mov	r0, r4
+  3e:	f44f 6180 	mov.w	r1, #1024	; 0x400
+  42:	f04f 0200 	mov.w	r2, #0
+  46:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:741
+
+   /* Write data to the LCD */
+   LCD_DataLinesWrite( GPIOx_D_LCD,(u32)Data );
+  4a:	4620      	mov	r0, r4
+  4c:	4629      	mov	r1, r5
+  4e:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:742
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_WR, Bit_SET );
+  52:	4620      	mov	r0, r4
+  54:	f44f 6180 	mov.w	r1, #1024	; 0x400
+  58:	f04f 0201 	mov.w	r2, #1
+  5c:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:743
+   }
+  60:	bd38      	pop	{r3, r4, r5, pc}
+  62:	bf00      	nop
+
+Disassembly of section .text.LCD_ReadLCDData:
+
+00000000 <LCD_ReadLCDData>:
+LCD_ReadLCDData():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:760
+*  @pre        An LCD_SendLCDCmd was done with a command returning data.
+*
+**/
+/********************************************************************************/
+u32 LCD_ReadLCDData( void )
+   {
+   0:	b538      	push	{r3, r4, r5, lr}
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:764
+   u32 LCDData = 0;
+
+   /* Configure Data lines as Input */
+   LCD_DataLinesConfig(Input);
+   2:	f04f 0000 	mov.w	r0, #0
+   6:	f7ff fffe 	bl	0 <LCD_ReadLCDData>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:767
+
+   /* Start the LCD send data sequence */
+   LCD_CtrlLinesWrite( GPIOx_D_LCD,  CtrlPin_RS, Bit_SET );         /* RS = 1 */
+   a:	f44f 5480 	mov.w	r4, #4096	; 0x1000
+   e:	f2c4 0401 	movt	r4, #16385	; 0x4001
+  12:	4620      	mov	r0, r4
+  14:	f44f 7180 	mov.w	r1, #256	; 0x100
+  18:	f04f 0201 	mov.w	r2, #1
+  1c:	f7ff fffe 	bl	0 <LCD_ReadLCDData>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:768
+   LCD_CtrlLinesWrite( GPIOx_D_LCD,  CtrlPin_WR, Bit_SET );         /* WR = 1 */
+  20:	4620      	mov	r0, r4
+  22:	f44f 6180 	mov.w	r1, #1024	; 0x400
+  26:	f04f 0201 	mov.w	r2, #1
+  2a:	f7ff fffe 	bl	0 <LCD_ReadLCDData>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:769
+   LCD_CtrlLinesWrite( GPIOx_CS_LCD, CtrlPin_CS, Bit_RESET );       /* CS = 0 */
+  2e:	f44f 50a0 	mov.w	r0, #5120	; 0x1400
+  32:	f2c4 0001 	movt	r0, #16385	; 0x4001
+  36:	f04f 0104 	mov.w	r1, #4
+  3a:	f04f 0200 	mov.w	r2, #0
+  3e:	f7ff fffe 	bl	0 <LCD_ReadLCDData>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:770
+   LCD_CtrlLinesWrite( GPIOx_D_LCD,  CtrlPin_RD, Bit_RESET );       /* RD = 0 */
+  42:	4620      	mov	r0, r4
+  44:	f44f 7100 	mov.w	r1, #512	; 0x200
+  48:	f04f 0200 	mov.w	r2, #0
+  4c:	f7ff fffe 	bl	0 <LCD_ReadLCDData>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:773
+
+   /* Read data from the LCD */
+   LCDData = (GPIO_ReadInputData( GPIOx_D_LCD ) & LCD_DATA_PINS );
+  50:	4620      	mov	r0, r4
+  52:	f7ff fffe 	bl	0 <GPIO_ReadInputData>
+  56:	4605      	mov	r5, r0
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:775
+
+   LCD_CtrlLinesWrite( GPIOx_D_LCD, CtrlPin_RD, Bit_SET );          /* RD = 1 */
+  58:	4620      	mov	r0, r4
+  5a:	f44f 7100 	mov.w	r1, #512	; 0x200
+  5e:	f04f 0201 	mov.w	r2, #1
+  62:	f7ff fffe 	bl	0 <LCD_ReadLCDData>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:778
+
+   /* Read the LCD returned data */
+   LCD_DataLinesConfig( Output );
+  66:	f04f 0001 	mov.w	r0, #1
+  6a:	f7ff fffe 	bl	0 <LCD_ReadLCDData>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:781
+
+   return LCDData;
+   }
+  6e:	b2e8      	uxtb	r0, r5
+  70:	bd38      	pop	{r3, r4, r5, pc}
+  72:	bf00      	nop
+
+Disassembly of section .text.LCD_SetRect_For_Cmd:
+
+00000000 <LCD_SetRect_For_Cmd>:
+LCD_SetRect_For_Cmd():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1055
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_SetRect_For_Cmd( s16 x, s16 y, s16 width, s16 height )
+   {
+   0:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+   4:	4680      	mov	r8, r0
+   6:	460e      	mov	r6, r1
+   8:	4691      	mov	r9, r2
+   a:	461f      	mov	r7, r3
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1056
+   LCD_SendLCDCmd( ST7637_CASET );
+   c:	f04f 002a 	mov.w	r0, #42	; 0x2a
+  10:	f7ff fffe 	bl	0 <LCD_SetRect_For_Cmd>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1057
+   LCD_SendLCDData( y + OrientationOffsetX[ CurrentScreenOrientation ] );
+  14:	b2f6      	uxtb	r6, r6
+  16:	f240 0400 	movw	r4, #0
+  1a:	f2c0 0400 	movt	r4, #0
+  1e:	f240 0500 	movw	r5, #0
+  22:	f2c0 0500 	movt	r5, #0
+  26:	782b      	ldrb	r3, [r5, #0]
+  28:	eb04 0383 	add.w	r3, r4, r3, lsl #2
+  2c:	6858      	ldr	r0, [r3, #4]
+  2e:	1830      	adds	r0, r6, r0
+  30:	b2c0      	uxtb	r0, r0
+  32:	f7ff fffe 	bl	0 <LCD_SetRect_For_Cmd>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1058
+   LCD_SendLCDData( y + OrientationOffsetX[ CurrentScreenOrientation ] + height - 1 );
+  36:	782b      	ldrb	r3, [r5, #0]
+  38:	eb04 0383 	add.w	r3, r4, r3, lsl #2
+  3c:	685b      	ldr	r3, [r3, #4]
+  3e:	f103 33ff 	add.w	r3, r3, #4294967295
+  42:	18f6      	adds	r6, r6, r3
+  44:	19f7      	adds	r7, r6, r7
+  46:	b2f8      	uxtb	r0, r7
+  48:	f7ff fffe 	bl	0 <LCD_SetRect_For_Cmd>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1060
+
+   LCD_SendLCDCmd( ST7637_RASET );
+  4c:	f04f 002b 	mov.w	r0, #43	; 0x2b
+  50:	f7ff fffe 	bl	0 <LCD_SetRect_For_Cmd>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1061
+   LCD_SendLCDData( x + OrientationOffsetY[ CurrentScreenOrientation ] );
+  54:	fa5f f688 	uxtb.w	r6, r8
+  58:	782b      	ldrb	r3, [r5, #0]
+  5a:	eb04 0383 	add.w	r3, r4, r3, lsl #2
+  5e:	6958      	ldr	r0, [r3, #20]
+  60:	1830      	adds	r0, r6, r0
+  62:	b2c0      	uxtb	r0, r0
+  64:	f7ff fffe 	bl	0 <LCD_SetRect_For_Cmd>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1062
+   LCD_SendLCDData( x + OrientationOffsetY[ CurrentScreenOrientation ] + width - 1 );
+  68:	782b      	ldrb	r3, [r5, #0]
+  6a:	eb04 0483 	add.w	r4, r4, r3, lsl #2
+  6e:	6963      	ldr	r3, [r4, #20]
+  70:	18f6      	adds	r6, r6, r3
+  72:	f106 36ff 	add.w	r6, r6, #4294967295
+  76:	44b1      	add	r9, r6
+  78:	fa5f f089 	uxtb.w	r0, r9
+  7c:	f7ff fffe 	bl	0 <LCD_SetRect_For_Cmd>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1063
+   }
+  80:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+
+Disassembly of section .text.LCD_DisplayChar:
+
+00000000 <LCD_DisplayChar>:
+LCD_DisplayChar():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1031
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DisplayChar( u8 x, u8 y, u8 Ascii, u16 TextColor, u16 BGndColor, u16 CharMagniCoeff)
+   {
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	b087      	sub	sp, #28
+   6:	4616      	mov	r6, r2
+   8:	461d      	mov	r5, r3
+   a:	f8bd b040 	ldrh.w	fp, [sp, #64]	; 0x40
+   e:	f8bd 3044 	ldrh.w	r3, [sp, #68]	; 0x44
+  12:	9304      	str	r3, [sp, #16]
+LCD_DrawChar():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:360
+   int j;
+   int k1;
+   int k2;
+
+   // Select the area for LCD output.
+   LCD_SetRect_For_Cmd( x, y, 7 * charMagniCoeff, 14 * charMagniCoeff );
+  14:	f04f 0207 	mov.w	r2, #7
+  18:	fb02 f203 	mul.w	r2, r2, r3
+  1c:	f04f 040e 	mov.w	r4, #14
+  20:	fb04 f303 	mul.w	r3, r4, r3
+  24:	b212      	sxth	r2, r2
+  26:	b21b      	sxth	r3, r3
+  28:	f7ff fffe 	bl	0 <LCD_DisplayChar>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:363
+
+   // Select LCD output mode.
+   LCD_SendLCDCmd( ST7637_RAMWR );
+  2c:	f04f 002c 	mov.w	r0, #44	; 0x2c
+  30:	f7ff fffe 	bl	0 <LCD_DisplayChar>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:383
+         for( j = 0x80; j > 2; j >>= 1 )  // 8
+            {
+            for( k2 = 0; k2 < charMagniCoeff; k2++ )
+               {
+               LCD_SendLCDData( ( bmp[2*i+1] & j ) ? ( textColor & 255 ) : ( bGndColor & 255 ) );
+               LCD_SendLCDData( ( bmp[2*i+1] & j ) ? ( textColor >> 8  ) : ( bGndColor >> 8 ) );
+  34:	ea4f 2815 	mov.w	r8, r5, lsr #8
+  38:	ea4f 291b 	mov.w	r9, fp, lsr #8
+LCD_DisplayChar():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1033
+**/
+/******************************************************************************/
+void LCD_DisplayChar( u8 x, u8 y, u8 Ascii, u16 TextColor, u16 BGndColor, u16 CharMagniCoeff)
+   {
+   // Display the selected bitmap according to the provided ASCII character.
+   LCD_DrawChar( x, y, 7, (u8*)&AsciiDotsTable[ (Ascii-32) * 14 ], TextColor, BGndColor, CharMagniCoeff );
+  3c:	4b38      	ldr	r3, [pc, #224]	; (120 <LCD_DisplayChar+0x120>)
+  3e:	fb04 3606 	mla	r6, r4, r6, r3
+LCD_DrawChar():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:365
+   LCD_SetRect_For_Cmd( x, y, 7 * charMagniCoeff, 14 * charMagniCoeff );
+
+   // Select LCD output mode.
+   LCD_SendLCDCmd( ST7637_RAMWR );
+
+   for( i = 0; i < 7; i++ )
+  42:	f04f 0700 	mov.w	r7, #0
+  46:	9705      	str	r7, [sp, #20]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:373
+         {
+         for( j = 0x80; j; j >>= 1 ) // 8
+            {
+            for( k2 = 0; k2 < charMagniCoeff; k2++ )
+               {
+               LCD_SendLCDData( ( bmp[2*i] & j ) ? ( textColor & 255 ) : ( bGndColor &  255 ) );
+  48:	fa5f fb8b 	uxtb.w	fp, fp
+  4c:	b2ed      	uxtb	r5, r5
+  4e:	9501      	str	r5, [sp, #4]
+  50:	e05f      	b.n	112 <LCD_DisplayChar+0x112>
+  52:	7833      	ldrb	r3, [r6, #0]
+  54:	421d      	tst	r5, r3
+  56:	bf14      	ite	ne
+  58:	9801      	ldrne	r0, [sp, #4]
+  5a:	4658      	moveq	r0, fp
+  5c:	f7ff fffe 	bl	0 <LCD_DisplayChar>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:374
+               LCD_SendLCDData( ( bmp[2*i] & j ) ? ( textColor >> 8  ) : ( bGndColor >> 8 ) );
+  60:	7838      	ldrb	r0, [r7, #0]
+  62:	ea05 0000 	and.w	r0, r5, r0
+  66:	2800      	cmp	r0, #0
+  68:	bf14      	ite	ne
+  6a:	4650      	movne	r0, sl
+  6c:	4648      	moveq	r0, r9
+  6e:	f7ff fffe 	bl	0 <LCD_DisplayChar>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:371
+      {
+      for( k1 = 0; k1 < charMagniCoeff; k1++ )
+         {
+         for( j = 0x80; j; j >>= 1 ) // 8
+            {
+            for( k2 = 0; k2 < charMagniCoeff; k2++ )
+  72:	f104 0401 	add.w	r4, r4, #1
+  76:	4544      	cmp	r4, r8
+  78:	dbeb      	blt.n	52 <LCD_DisplayChar+0x52>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:369
+
+   for( i = 0; i < 7; i++ )
+      {
+      for( k1 = 0; k1 < charMagniCoeff; k1++ )
+         {
+         for( j = 0x80; j; j >>= 1 ) // 8
+  7a:	ea4f 0565 	mov.w	r5, r5, asr #1
+  7e:	9b02      	ldr	r3, [sp, #8]
+  80:	3b01      	subs	r3, #1
+  82:	9302      	str	r3, [sp, #8]
+  84:	d01e      	beq.n	c4 <LCD_DisplayChar+0xc4>
+LCD_DisplayChar():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1031
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DisplayChar( u8 x, u8 y, u8 Ascii, u16 TextColor, u16 BGndColor, u16 CharMagniCoeff)
+   {
+  86:	f04f 0400 	mov.w	r4, #0
+LCD_DrawChar():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1030
+*
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DisplayChar( u8 x, u8 y, u8 Ascii, u16 TextColor, u16 BGndColor, u16 CharMagniCoeff)
+  8a:	4637      	mov	r7, r6
+  8c:	e7e1      	b.n	52 <LCD_DisplayChar+0x52>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:382
+
+         for( j = 0x80; j > 2; j >>= 1 )  // 8
+            {
+            for( k2 = 0; k2 < charMagniCoeff; k2++ )
+               {
+               LCD_SendLCDData( ( bmp[2*i+1] & j ) ? ( textColor & 255 ) : ( bGndColor & 255 ) );
+  8e:	7873      	ldrb	r3, [r6, #1]
+  90:	421d      	tst	r5, r3
+  92:	bf14      	ite	ne
+  94:	9801      	ldrne	r0, [sp, #4]
+  96:	4658      	moveq	r0, fp
+  98:	f7ff fffe 	bl	0 <LCD_DisplayChar>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:383
+               LCD_SendLCDData( ( bmp[2*i+1] & j ) ? ( textColor >> 8  ) : ( bGndColor >> 8 ) );
+  9c:	7878      	ldrb	r0, [r7, #1]
+  9e:	ea05 0000 	and.w	r0, r5, r0
+  a2:	2800      	cmp	r0, #0
+  a4:	bf14      	ite	ne
+  a6:	4650      	movne	r0, sl
+  a8:	4648      	moveq	r0, r9
+  aa:	f7ff fffe 	bl	0 <LCD_DisplayChar>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:380
+               }
+            }
+
+         for( j = 0x80; j > 2; j >>= 1 )  // 8
+            {
+            for( k2 = 0; k2 < charMagniCoeff; k2++ )
+  ae:	f104 0401 	add.w	r4, r4, #1
+  b2:	4544      	cmp	r4, r8
+  b4:	dbeb      	blt.n	8e <LCD_DisplayChar+0x8e>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:378
+               LCD_SendLCDData( ( bmp[2*i] & j ) ? ( textColor & 255 ) : ( bGndColor &  255 ) );
+               LCD_SendLCDData( ( bmp[2*i] & j ) ? ( textColor >> 8  ) : ( bGndColor >> 8 ) );
+               }
+            }
+
+         for( j = 0x80; j > 2; j >>= 1 )  // 8
+  b6:	ea4f 0565 	mov.w	r5, r5, asr #1
+  ba:	9f02      	ldr	r7, [sp, #8]
+  bc:	3f01      	subs	r7, #1
+  be:	9702      	str	r7, [sp, #8]
+  c0:	d107      	bne.n	d2 <LCD_DisplayChar+0xd2>
+  c2:	e00a      	b.n	da <LCD_DisplayChar+0xda>
+  c4:	4647      	mov	r7, r8
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:369
+
+   for( i = 0; i < 7; i++ )
+      {
+      for( k1 = 0; k1 < charMagniCoeff; k1++ )
+         {
+         for( j = 0x80; j; j >>= 1 ) // 8
+  c6:	f04f 0306 	mov.w	r3, #6
+  ca:	9302      	str	r3, [sp, #8]
+  cc:	f04f 0580 	mov.w	r5, #128	; 0x80
+  d0:	46b8      	mov	r8, r7
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:374
+            {
+            for( k2 = 0; k2 < charMagniCoeff; k2++ )
+               {
+               LCD_SendLCDData( ( bmp[2*i] & j ) ? ( textColor & 255 ) : ( bGndColor &  255 ) );
+               LCD_SendLCDData( ( bmp[2*i] & j ) ? ( textColor >> 8  ) : ( bGndColor >> 8 ) );
+  d2:	f04f 0400 	mov.w	r4, #0
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1030
+*
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DisplayChar( u8 x, u8 y, u8 Ascii, u16 TextColor, u16 BGndColor, u16 CharMagniCoeff)
+  d6:	4637      	mov	r7, r6
+  d8:	e7d9      	b.n	8e <LCD_DisplayChar+0x8e>
+  da:	4647      	mov	r7, r8
+  dc:	46d0      	mov	r8, sl
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:367
+   // Select LCD output mode.
+   LCD_SendLCDCmd( ST7637_RAMWR );
+
+   for( i = 0; i < 7; i++ )
+      {
+      for( k1 = 0; k1 < charMagniCoeff; k1++ )
+  de:	9b03      	ldr	r3, [sp, #12]
+  e0:	f103 0301 	add.w	r3, r3, #1
+  e4:	9303      	str	r3, [sp, #12]
+  e6:	42bb      	cmp	r3, r7
+  e8:	db03      	blt.n	f2 <LCD_DisplayChar+0xf2>
+  ea:	e00a      	b.n	102 <LCD_DisplayChar+0x102>
+  ec:	f04f 0300 	mov.w	r3, #0
+  f0:	9303      	str	r3, [sp, #12]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:374
+         for( j = 0x80; j; j >>= 1 ) // 8
+            {
+            for( k2 = 0; k2 < charMagniCoeff; k2++ )
+               {
+               LCD_SendLCDData( ( bmp[2*i] & j ) ? ( textColor & 255 ) : ( bGndColor &  255 ) );
+               LCD_SendLCDData( ( bmp[2*i] & j ) ? ( textColor >> 8  ) : ( bGndColor >> 8 ) );
+  f2:	f04f 0308 	mov.w	r3, #8
+  f6:	9302      	str	r3, [sp, #8]
+  f8:	f04f 0580 	mov.w	r5, #128	; 0x80
+  fc:	46c2      	mov	sl, r8
+  fe:	46b8      	mov	r8, r7
+ 100:	e7c1      	b.n	86 <LCD_DisplayChar+0x86>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:365
+   LCD_SetRect_For_Cmd( x, y, 7 * charMagniCoeff, 14 * charMagniCoeff );
+
+   // Select LCD output mode.
+   LCD_SendLCDCmd( ST7637_RAMWR );
+
+   for( i = 0; i < 7; i++ )
+ 102:	9f05      	ldr	r7, [sp, #20]
+ 104:	f107 0701 	add.w	r7, r7, #1
+ 108:	9705      	str	r7, [sp, #20]
+ 10a:	f106 0602 	add.w	r6, r6, #2
+ 10e:	2f07      	cmp	r7, #7
+ 110:	d003      	beq.n	11a <LCD_DisplayChar+0x11a>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:367
+      {
+      for( k1 = 0; k1 < charMagniCoeff; k1++ )
+ 112:	9f04      	ldr	r7, [sp, #16]
+ 114:	2f00      	cmp	r7, #0
+ 116:	d1e9      	bne.n	ec <LCD_DisplayChar+0xec>
+ 118:	e7f3      	b.n	102 <LCD_DisplayChar+0x102>
+LCD_DisplayChar():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1034
+/******************************************************************************/
+void LCD_DisplayChar( u8 x, u8 y, u8 Ascii, u16 TextColor, u16 BGndColor, u16 CharMagniCoeff)
+   {
+   // Display the selected bitmap according to the provided ASCII character.
+   LCD_DrawChar( x, y, 7, (u8*)&AsciiDotsTable[ (Ascii-32) * 14 ], TextColor, BGndColor, CharMagniCoeff );
+   }
+ 11a:	b007      	add	sp, #28
+ 11c:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 120:	fffffe40 	.word	0xfffffe40
+
+Disassembly of section .text.DRAW_DisplayStringWithMode:
+
+00000000 <DRAW_DisplayStringWithMode>:
+DRAW_DisplayStringWithMode():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1245
+*  @see           DRAW_DisplayStringInverted
+*
+**/
+/******************************************************************************/
+static void DRAW_DisplayStringWithMode( u8 x, u8 y, const u8* ptr, u8 len, int mode )
+   {
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	b083      	sub	sp, #12
+   6:	468a      	mov	sl, r1
+   8:	4690      	mov	r8, r2
+   a:	4699      	mov	r9, r3
+   c:	f8dd b030 	ldr.w	fp, [sp, #48]	; 0x30
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1249
+   u8 ref_x = x, i = 0, c;
+
+   //up to 18 characters
+   if ( len >= 18 )
+  10:	2b11      	cmp	r3, #17
+  12:	d90d      	bls.n	30 <DRAW_DisplayStringWithMode+0x30>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1251
+      {
+      len = 18;
+  14:	f04f 0912 	mov.w	r9, #18
+  18:	4605      	mov	r5, r0
+  1a:	f04f 0400 	mov.w	r4, #0
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1267
+      else
+         {
+         c = ' ';    /* fill with space when len exceeds strlen(ptr) */
+         }
+      /* Display one character on LCD */
+      LCD_DisplayChar( ref_x, y, c, mode ? BGndColor : TextColor,  mode ? TextColor : BGndColor, CharMagniCoeff );
+  1e:	f240 0600 	movw	r6, #0
+  22:	f2c0 0600 	movt	r6, #0
+  26:	f240 0700 	movw	r7, #0
+  2a:	f2c0 0700 	movt	r7, #0
+  2e:	e002      	b.n	36 <DRAW_DisplayStringWithMode+0x36>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1255
+      {
+      len = 18;
+      }
+   
+   /* Display each character on LCD */
+   for ( i = 0 ; i < len ; i++ )
+  30:	2b00      	cmp	r3, #0
+  32:	d1f1      	bne.n	18 <DRAW_DisplayStringWithMode+0x18>
+  34:	e021      	b.n	7a <DRAW_DisplayStringWithMode+0x7a>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1257
+      {
+      c = *ptr; 
+  36:	f898 2000 	ldrb.w	r2, [r8]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1258
+      if ( c )
+  3a:	b112      	cbz	r2, 42 <DRAW_DisplayStringWithMode+0x42>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1260
+         {
+         ptr++;      /* Point to the next character */
+  3c:	f108 0801 	add.w	r8, r8, #1
+  40:	e001      	b.n	46 <DRAW_DisplayStringWithMode+0x46>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1264
+         }
+      else
+         {
+         c = ' ';    /* fill with space when len exceeds strlen(ptr) */
+  42:	f04f 0220 	mov.w	r2, #32
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1267
+         }
+      /* Display one character on LCD */
+      LCD_DisplayChar( ref_x, y, c, mode ? BGndColor : TextColor,  mode ? TextColor : BGndColor, CharMagniCoeff );
+  46:	f1bb 0f00 	cmp.w	fp, #0
+  4a:	d002      	beq.n	52 <DRAW_DisplayStringWithMode+0x52>
+  4c:	8ab3      	ldrh	r3, [r6, #20]
+  4e:	8af1      	ldrh	r1, [r6, #22]
+  50:	e001      	b.n	56 <DRAW_DisplayStringWithMode+0x56>
+  52:	8af3      	ldrh	r3, [r6, #22]
+  54:	8ab1      	ldrh	r1, [r6, #20]
+  56:	9100      	str	r1, [sp, #0]
+  58:	8cb9      	ldrh	r1, [r7, #36]	; 0x24
+  5a:	9101      	str	r1, [sp, #4]
+  5c:	4628      	mov	r0, r5
+  5e:	4651      	mov	r1, sl
+  60:	f7ff fffe 	bl	0 <DRAW_DisplayStringWithMode>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1270
+
+      /* Increment the column position by 7 */
+      ref_x+= (7*CharMagniCoeff);
+  64:	8cbb      	ldrh	r3, [r7, #36]	; 0x24
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1255
+      {
+      len = 18;
+      }
+   
+   /* Display each character on LCD */
+   for ( i = 0 ; i < len ; i++ )
+  66:	f104 0401 	add.w	r4, r4, #1
+  6a:	b2e4      	uxtb	r4, r4
+  6c:	454c      	cmp	r4, r9
+  6e:	d204      	bcs.n	7a <DRAW_DisplayStringWithMode+0x7a>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1270
+         }
+      /* Display one character on LCD */
+      LCD_DisplayChar( ref_x, y, c, mode ? BGndColor : TextColor,  mode ? TextColor : BGndColor, CharMagniCoeff );
+
+      /* Increment the column position by 7 */
+      ref_x+= (7*CharMagniCoeff);
+  70:	ebc3 03c3 	rsb	r3, r3, r3, lsl #3
+  74:	18ed      	adds	r5, r5, r3
+  76:	b2ed      	uxtb	r5, r5
+  78:	e7dd      	b.n	36 <DRAW_DisplayStringWithMode+0x36>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1272
+      }
+   }
+  7a:	b003      	add	sp, #12
+  7c:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+Disassembly of section .text.LCD_RectRead:
+
+00000000 <LCD_RectRead>:
+LCD_RectRead():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:961
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_RectRead( u16 x, u16 y, u16 width, u16 height, u8* bmp )
+   {
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	9e04      	ldr	r6, [sp, #16]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:963
+   int i;
+   int bytesize = (width * height) *2; // 2 bytes per pixel.
+   4:	ea4f 0542 	mov.w	r5, r2, lsl #1
+   8:	fb03 f505 	mul.w	r5, r3, r5
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:966
+
+   /* Select LCD screen area. */
+   LCD_SetRect_For_Cmd( x, y, width, height );
+   c:	b200      	sxth	r0, r0
+   e:	b209      	sxth	r1, r1
+  10:	b212      	sxth	r2, r2
+  12:	b21b      	sxth	r3, r3
+  14:	f7ff fffe 	bl	0 <LCD_RectRead>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:969
+
+   /* Send LCD RAM write command. */
+   LCD_SendLCDCmd(ST7637_RAMRD);
+  18:	f04f 002e 	mov.w	r0, #46	; 0x2e
+  1c:	f7ff fffe 	bl	0 <LCD_RectRead>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:972
+
+   // First read byte is dummy!
+   LCD_ReadLCDData();
+  20:	f7ff fffe 	bl	0 <LCD_RectRead>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:975
+
+   // Read pixels from LCD screen.
+   for( i = 0; i < bytesize; i++ )
+  24:	2d00      	cmp	r5, #0
+  26:	dd08      	ble.n	3a <LCD_RectRead+0x3a>
+  28:	f04f 0400 	mov.w	r4, #0
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:977
+      {
+      *bmp++ = LCD_ReadLCDData();
+  2c:	f7ff fffe 	bl	0 <LCD_RectRead>
+  30:	5530      	strb	r0, [r6, r4]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:975
+
+   // First read byte is dummy!
+   LCD_ReadLCDData();
+
+   // Read pixels from LCD screen.
+   for( i = 0; i < bytesize; i++ )
+  32:	f104 0401 	add.w	r4, r4, #1
+  36:	42a5      	cmp	r5, r4
+  38:	dcf8      	bgt.n	2c <LCD_RectRead+0x2c>
+  3a:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.LCD_GetPixel:
+
+00000000 <LCD_GetPixel>:
+LCD_GetPixel():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1000
+*  @see        LCD_RectRead
+*
+**/
+/******************************************************************************/
+u16 LCD_GetPixel( u8 x, u8 y )
+   {
+   0:	b500      	push	{lr}
+   2:	b085      	sub	sp, #20
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1003
+   u16 val;
+
+   LCD_RectRead( x, y, 1, 1, (u8*)&val );
+   4:	f10d 030e 	add.w	r3, sp, #14
+   8:	9300      	str	r3, [sp, #0]
+   a:	f04f 0201 	mov.w	r2, #1
+   e:	4613      	mov	r3, r2
+  10:	f7ff fffe 	bl	0 <LCD_GetPixel>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1006
+
+   return val;
+   }
+  14:	f8bd 000e 	ldrh.w	r0, [sp, #14]
+  18:	b005      	add	sp, #20
+  1a:	bd00      	pop	{pc}
+
+Disassembly of section .text.LCD_DrawPixel:
+
+00000000 <LCD_DrawPixel>:
+LCD_DrawPixel():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:928
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DrawPixel( u8 XPos, u8 YPos, u16 Color )
+   {
+   0:	b510      	push	{r4, lr}
+   2:	4614      	mov	r4, r2
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:930
+   /* Select LCD screen area. */
+   LCD_SetRect_For_Cmd( XPos, YPos, 1, 1 );
+   4:	f04f 0201 	mov.w	r2, #1
+   8:	4613      	mov	r3, r2
+   a:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:933
+
+   /* Send LCD RAM write command. */
+   LCD_SendLCDCmd( ST7637_RAMWR );
+   e:	f04f 002c 	mov.w	r0, #44	; 0x2c
+  12:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:936
+
+   // Draw pixel.
+   LCD_SendLCDData( Color );
+  16:	b2e0      	uxtb	r0, r4
+  18:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:937
+   LCD_SendLCDData( Color >> 8 );
+  1c:	ea4f 2014 	mov.w	r0, r4, lsr #8
+  20:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:938
+   }
+  24:	bd10      	pop	{r4, pc}
+  26:	bf00      	nop
+
+Disassembly of section .text.LCD_FillRect:
+
+00000000 <LCD_FillRect>:
+LCD_FillRect():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:803
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_FillRect( u16 x, u16 y, u16 width, u16 height, u16 color )
+   {
+   0:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+   4:	4691      	mov	r9, r2
+   6:	461d      	mov	r5, r3
+   8:	f8bd 7020 	ldrh.w	r7, [sp, #32]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:808
+   u8 Line;
+   u8 Column;
+
+   /* Select LCD screen area. */
+   LCD_SetRect_For_Cmd( x, y, width, height );
+   c:	b200      	sxth	r0, r0
+   e:	b209      	sxth	r1, r1
+  10:	b212      	sxth	r2, r2
+  12:	b21b      	sxth	r3, r3
+  14:	f7ff fffe 	bl	0 <LCD_FillRect>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:811
+
+   /* Send LCD RAM write command. */
+   LCD_SendLCDCmd( ST7637_RAMWR );
+  18:	f04f 002c 	mov.w	r0, #44	; 0x2c
+  1c:	f7ff fffe 	bl	0 <LCD_FillRect>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:814
+
+   /* Fill selected LCD screen area with provided color. */
+   for( Line = 0; Line < width; Line++ )
+  20:	f1b9 0f00 	cmp.w	r9, #0
+  24:	d01b      	beq.n	5e <LCD_FillRect+0x5e>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:819
+      {
+      for( Column = 0; Column < height; Column++ )
+         {
+         LCD_SendLCDData( color & 0xff );
+         LCD_SendLCDData( ( color >> 8 ) & 0xff );
+  26:	ea4f 2617 	mov.w	r6, r7, lsr #8
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:814
+
+   /* Send LCD RAM write command. */
+   LCD_SendLCDCmd( ST7637_RAMWR );
+
+   /* Fill selected LCD screen area with provided color. */
+   for( Line = 0; Line < width; Line++ )
+  2a:	f04f 0800 	mov.w	r8, #0
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:816
+      {
+      for( Column = 0; Column < height; Column++ )
+  2e:	46c2      	mov	sl, r8
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:818
+         {
+         LCD_SendLCDData( color & 0xff );
+  30:	b2ff      	uxtb	r7, r7
+  32:	e011      	b.n	58 <LCD_FillRect+0x58>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:816
+   LCD_SendLCDCmd( ST7637_RAMWR );
+
+   /* Fill selected LCD screen area with provided color. */
+   for( Line = 0; Line < width; Line++ )
+      {
+      for( Column = 0; Column < height; Column++ )
+  34:	4654      	mov	r4, sl
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:818
+         {
+         LCD_SendLCDData( color & 0xff );
+  36:	4638      	mov	r0, r7
+  38:	f7ff fffe 	bl	0 <LCD_FillRect>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:819
+         LCD_SendLCDData( ( color >> 8 ) & 0xff );
+  3c:	4630      	mov	r0, r6
+  3e:	f7ff fffe 	bl	0 <LCD_FillRect>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:816
+   LCD_SendLCDCmd( ST7637_RAMWR );
+
+   /* Fill selected LCD screen area with provided color. */
+   for( Line = 0; Line < width; Line++ )
+      {
+      for( Column = 0; Column < height; Column++ )
+  42:	f104 0401 	add.w	r4, r4, #1
+  46:	b2e4      	uxtb	r4, r4
+  48:	42a5      	cmp	r5, r4
+  4a:	d8f4      	bhi.n	36 <LCD_FillRect+0x36>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:814
+
+   /* Send LCD RAM write command. */
+   LCD_SendLCDCmd( ST7637_RAMWR );
+
+   /* Fill selected LCD screen area with provided color. */
+   for( Line = 0; Line < width; Line++ )
+  4c:	f108 0801 	add.w	r8, r8, #1
+  50:	fa5f f888 	uxtb.w	r8, r8
+  54:	45c1      	cmp	r9, r8
+  56:	d902      	bls.n	5e <LCD_FillRect+0x5e>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:816
+      {
+      for( Column = 0; Column < height; Column++ )
+  58:	2d00      	cmp	r5, #0
+  5a:	d1eb      	bne.n	34 <LCD_FillRect+0x34>
+  5c:	e7f6      	b.n	4c <LCD_FillRect+0x4c>
+  5e:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+  62:	bf00      	nop
+
+Disassembly of section .text.LCD_DrawRect:
+
+00000000 <LCD_DrawRect>:
+LCD_DrawRect():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:900
+*  @warning    The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void LCD_DrawRect( u16 x, u16 y, u16 width, u16 height, u16 color )
+   {
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	b082      	sub	sp, #8
+   6:	4605      	mov	r5, r0
+   8:	460e      	mov	r6, r1
+   a:	4690      	mov	r8, r2
+   c:	461f      	mov	r7, r3
+   e:	f8bd 4020 	ldrh.w	r4, [sp, #32]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:902
+   // Draw horizontal sides.
+   LCD_FillRect( x, y,              width, 1, color );
+  12:	9400      	str	r4, [sp, #0]
+  14:	f04f 0301 	mov.w	r3, #1
+  18:	f7ff fffe 	bl	0 <LCD_DrawRect>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:903
+   LCD_FillRect( x, y + height - 1, width, 1, color );
+  1c:	f106 31ff 	add.w	r1, r6, #4294967295
+  20:	1879      	adds	r1, r7, r1
+  22:	9400      	str	r4, [sp, #0]
+  24:	4628      	mov	r0, r5
+  26:	b289      	uxth	r1, r1
+  28:	4642      	mov	r2, r8
+  2a:	f04f 0301 	mov.w	r3, #1
+  2e:	f7ff fffe 	bl	0 <LCD_DrawRect>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:906
+
+   // Draw vertical sides.
+   LCD_FillRect( x,              y, 1, height, color );
+  32:	9400      	str	r4, [sp, #0]
+  34:	4628      	mov	r0, r5
+  36:	4631      	mov	r1, r6
+  38:	f04f 0201 	mov.w	r2, #1
+  3c:	463b      	mov	r3, r7
+  3e:	f7ff fffe 	bl	0 <LCD_DrawRect>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:907
+   LCD_FillRect( x + width - 1,  y, 1, height, color );
+  42:	f105 35ff 	add.w	r5, r5, #4294967295
+  46:	44a8      	add	r8, r5
+  48:	9400      	str	r4, [sp, #0]
+  4a:	fa1f f088 	uxth.w	r0, r8
+  4e:	4631      	mov	r1, r6
+  50:	f04f 0201 	mov.w	r2, #1
+  54:	463b      	mov	r3, r7
+  56:	f7ff fffe 	bl	0 <LCD_DrawRect>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:908
+   }
+  5a:	b002      	add	sp, #8
+  5c:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+
+Disassembly of section .text.LCD_SetBackLight:
+
+00000000 <LCD_SetBackLight>:
+LCD_SetBackLight():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1081
+*
+**/
+/******************************************************************************/
+void LCD_SetBackLight( u32 newBacklightStart )
+   {
+   if( newBacklightStart >= BACKLIGHTMIN )
+   0:	f5b0 5f80 	cmp.w	r0, #4096	; 0x1000
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1083
+      {
+      Current_CCR_BackLightStart = newBacklightStart;
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	bf2e      	itee	cs
+   e:	6018      	strcs	r0, [r3, #0]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1087
+      }
+   else
+      {
+      Current_CCR_BackLightStart = DEFAULT_CCR_BACKLIGHTSTART;
+  10:	f44f 4200 	movcc.w	r2, #32768	; 0x8000
+  14:	601a      	strcc	r2, [r3, #0]
+  16:	4770      	bx	lr
+
+Disassembly of section .text.LCD_Init:
+
+00000000 <LCD_Init>:
+LCD_Init():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:639
+*  @attention  This function must <b>NOT</b> be called by the user.
+*
+**/
+/******************************************************************************/
+void LCD_Init( void )
+   {
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	b083      	sub	sp, #12
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:640
+   LCD_SetBackLight( UTIL_ReadBackupRegister( BKP_BKLIGHT ) );
+   6:	f04f 0003 	mov.w	r0, #3
+   a:	f7ff fffe 	bl	0 <UTIL_ReadBackupRegister>
+   e:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:646
+
+   /* Do some gpio configs*/
+   GPIO_InitTypeDef GPIO_InitStructure;
+
+   /* Enable GPIO clock for LCD */
+   RCC_APB2PeriphClockCmd( GPIO_LCD_CTRL_PERIPH, ENABLE );
+  12:	f04f 0010 	mov.w	r0, #16
+  16:	f04f 0101 	mov.w	r1, #1
+  1a:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:647
+   RCC_APB2PeriphClockCmd( GPIO_LCD_D_PERIPH, ENABLE );
+  1e:	f04f 0010 	mov.w	r0, #16
+  22:	f04f 0101 	mov.w	r1, #1
+  26:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:648
+   RCC_APB2PeriphClockCmd( GPIO_LCD_CS_PERIPH, ENABLE );
+  2a:	f04f 0020 	mov.w	r0, #32
+  2e:	f04f 0101 	mov.w	r1, #1
+  32:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:651
+
+   /* Enable GPIOC clock */
+   RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOC, ENABLE );
+  36:	f04f 0010 	mov.w	r0, #16
+  3a:	f04f 0101 	mov.w	r1, #1
+  3e:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+LCD_BackLightConfig():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:560
+static void LCD_BackLightConfig( void )
+   {
+   GPIO_InitTypeDef GPIO_InitStructure;
+
+   /* Enable GPIOB clock  */
+   RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOB, ENABLE );
+  42:	f04f 0008 	mov.w	r0, #8
+  46:	f04f 0101 	mov.w	r1, #1
+  4a:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:563
+
+   /* GPIOB Configuration:TIM4 2 in Output */
+   GPIO_InitStructure.GPIO_Pin   = GPIO_Pin_7;
+  4e:	f04f 0380 	mov.w	r3, #128	; 0x80
+  52:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:564
+   GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_AF_PP;
+  56:	f04f 0b18 	mov.w	fp, #24
+  5a:	f88d b007 	strb.w	fp, [sp, #7]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:565
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  5e:	f04f 0a03 	mov.w	sl, #3
+  62:	f88d a006 	strb.w	sl, [sp, #6]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:567
+
+   GPIO_Init( GPIOB, &GPIO_InitStructure );
+  66:	f44f 6040 	mov.w	r0, #3072	; 0xc00
+  6a:	f2c4 0001 	movt	r0, #16385	; 0x4001
+  6e:	a901      	add	r1, sp, #4
+  70:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:573
+
+   /* TIM4 Configuration -----------------------------------------------------*/
+   /* TIM4CLK = 12 MHz, Prescaler = 0x0 */
+
+   /* Enable TIM4 clock */
+   RCC_APB1PeriphClockCmd( RCC_APB1Periph_TIM4, ENABLE );
+  74:	f04f 0004 	mov.w	r0, #4
+  78:	f04f 0101 	mov.w	r1, #1
+  7c:	f7ff fffe 	bl	0 <RCC_APB1PeriphClockCmd>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:575
+
+   TIM_DeInit( TIM4 );
+  80:	f44f 6500 	mov.w	r5, #2048	; 0x800
+  84:	f2c4 0500 	movt	r5, #16384	; 0x4000
+  88:	4628      	mov	r0, r5
+  8a:	f7ff fffe 	bl	0 <TIM_DeInit>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:576
+   TIM_TimeBaseStructInit( &TIM_TimeBaseStructure );
+  8e:	f240 0400 	movw	r4, #0
+  92:	f2c0 0400 	movt	r4, #0
+  96:	eb04 070b 	add.w	r7, r4, fp
+  9a:	4638      	mov	r0, r7
+  9c:	f7ff fffe 	bl	0 <TIM_TimeBaseStructInit>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:577
+   TIM_OCStructInit( &TIM_OCInitStructure );
+  a0:	f104 0804 	add.w	r8, r4, #4
+  a4:	4640      	mov	r0, r8
+  a6:	f7ff fffe 	bl	0 <TIM_OCStructInit>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:580
+
+   /* Time base configuration */
+   TIM_TimeBaseStructure.TIM_Period          = 0xFFFF;
+  aa:	f04f 33ff 	mov.w	r3, #4294967295
+  ae:	83a3      	strh	r3, [r4, #28]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:581
+   TIM_TimeBaseStructure.TIM_Prescaler       = 0x0;
+  b0:	f04f 0600 	mov.w	r6, #0
+  b4:	8326      	strh	r6, [r4, #24]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:582
+   TIM_TimeBaseStructure.TIM_ClockDivision   = 0x0;
+  b6:	83e6      	strh	r6, [r4, #30]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:583
+   TIM_TimeBaseStructure.TIM_CounterMode     = TIM_CounterMode_Up;
+  b8:	8366      	strh	r6, [r4, #26]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:585
+
+   TIM_TimeBaseInit( TIM4, &TIM_TimeBaseStructure );
+  ba:	4628      	mov	r0, r5
+  bc:	4639      	mov	r1, r7
+  be:	f7ff fffe 	bl	0 <TIM_TimeBaseInit>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:588
+
+   /* Output Compare Toggle Mode configuration: Channel2 */
+   TIM_OCInitStructure.TIM_OCMode   = TIM_OCMode_PWM1;
+  c2:	f04f 0360 	mov.w	r3, #96	; 0x60
+  c6:	80a3      	strh	r3, [r4, #4]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:590
+   //TIM_OCInitStructure.TIM_Channel  = TIM_Channel_2;
+   TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; // FWLib v2.0
+  c8:	f04f 0701 	mov.w	r7, #1
+  cc:	80e7      	strh	r7, [r4, #6]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:591
+   TIM_OCInitStructure.TIM_Pulse    = Current_CCR_BackLightStart;
+  ce:	f240 0300 	movw	r3, #0
+  d2:	f2c0 0300 	movt	r3, #0
+  d6:	881b      	ldrh	r3, [r3, #0]
+  d8:	8163      	strh	r3, [r4, #10]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:593
+
+   TIM_OC2Init( TIM4, &TIM_OCInitStructure );
+  da:	4628      	mov	r0, r5
+  dc:	4641      	mov	r1, r8
+  de:	f7ff fffe 	bl	0 <TIM_OC2Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:594
+   TIM_OC4PreloadConfig( TIM4, TIM_OCPreload_Disable );
+  e2:	4628      	mov	r0, r5
+  e4:	4631      	mov	r1, r6
+  e6:	f7ff fffe 	bl	0 <TIM_OC4PreloadConfig>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:596
+
+   TIM_ARRPreloadConfig( TIM4, ENABLE );
+  ea:	4628      	mov	r0, r5
+  ec:	4639      	mov	r1, r7
+  ee:	f7ff fffe 	bl	0 <TIM_ARRPreloadConfig>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:599
+
+   /* Enable TIM4 IT */
+   TIM_ITConfig( TIM4, TIM_IT_CC2, ENABLE );
+  f2:	4628      	mov	r0, r5
+  f4:	f04f 0104 	mov.w	r1, #4
+  f8:	463a      	mov	r2, r7
+  fa:	f7ff fffe 	bl	0 <TIM_ITConfig>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:602
+
+   // Go !!!
+   TIM_Cmd( TIM4, ENABLE );
+  fe:	4628      	mov	r0, r5
+ 100:	4639      	mov	r1, r7
+ 102:	f7ff fffe 	bl	0 <TIM_Cmd>
+LCD_CtrlLinesConfig():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:246
+*
+**/
+/******************************************************************************/
+static void LCD_CtrlLinesConfig( void )
+   {
+   GPIO_InitStructure.GPIO_Pin   =  LCD_CTRL_PINS;
+ 106:	f240 0800 	movw	r8, #0
+ 10a:	f2c0 0800 	movt	r8, #0
+ 10e:	f44f 53b8 	mov.w	r3, #5888	; 0x1700
+ 112:	f8a8 3000 	strh.w	r3, [r8]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:247
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 116:	f888 a002 	strb.w	sl, [r8, #2]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:248
+   GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_Out_PP;
+ 11a:	f04f 0510 	mov.w	r5, #16
+ 11e:	f888 5003 	strb.w	r5, [r8, #3]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:250
+
+   GPIO_Init( GPIOx_CTRL_LCD, &GPIO_InitStructure );
+ 122:	f44f 5480 	mov.w	r4, #4096	; 0x1000
+ 126:	f2c4 0401 	movt	r4, #16385	; 0x4001
+ 12a:	4620      	mov	r0, r4
+ 12c:	4641      	mov	r1, r8
+ 12e:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:252
+
+   GPIO_InitStructure.GPIO_Pin   =  CtrlPin_CS;
+ 132:	f04f 0904 	mov.w	r9, #4
+ 136:	f8a8 9000 	strh.w	r9, [r8]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:253
+   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+ 13a:	f888 a002 	strb.w	sl, [r8, #2]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:254
+   GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_Out_PP;
+ 13e:	f888 5003 	strb.w	r5, [r8, #3]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:256
+
+   GPIO_Init( GPIOx_CS_LCD, &GPIO_InitStructure );
+ 142:	f44f 55a0 	mov.w	r5, #5120	; 0x1400
+ 146:	f2c4 0501 	movt	r5, #16385	; 0x4001
+ 14a:	4628      	mov	r0, r5
+ 14c:	4641      	mov	r1, r8
+ 14e:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:258
+
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RS,  Bit_SET );    /* RS = 1   */
+ 152:	4620      	mov	r0, r4
+ 154:	f44f 7180 	mov.w	r1, #256	; 0x100
+ 158:	463a      	mov	r2, r7
+ 15a:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:259
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RD,  Bit_SET );    /* RD = 1   */
+ 15e:	4620      	mov	r0, r4
+ 160:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 164:	463a      	mov	r2, r7
+ 166:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:260
+   LCD_CtrlLinesWrite( GPIOx_CS_LCD,   CtrlPin_CS,  Bit_SET );    /* CS = 1   */
+ 16a:	4628      	mov	r0, r5
+ 16c:	4649      	mov	r1, r9
+ 16e:	463a      	mov	r2, r7
+ 170:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:261
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_WR,  Bit_SET );    /* WR = 1   */
+ 174:	4620      	mov	r0, r4
+ 176:	f44f 6180 	mov.w	r1, #1024	; 0x400
+ 17a:	463a      	mov	r2, r7
+ 17c:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:262
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RST, Bit_RESET );  /* RST = 0  */
+ 180:	4620      	mov	r0, r4
+ 182:	f44f 5180 	mov.w	r1, #4096	; 0x1000
+ 186:	4632      	mov	r2, r6
+ 188:	f7ff fffe 	bl	0 <LCD_Init>
+LCD_7637_Controller():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:445
+static void LCD_7637_Controller( void )
+   {
+   extern void starting_delay ( long unsigned  );
+
+   /** Apply hardware reset **/
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RST, Bit_SET );    /* RST = 1  */
+ 18c:	4620      	mov	r0, r4
+ 18e:	f44f 5180 	mov.w	r1, #4096	; 0x1000
+ 192:	463a      	mov	r2, r7
+ 194:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:446
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RST, Bit_RESET );  /* RST = 0  */
+ 198:	4620      	mov	r0, r4
+ 19a:	f44f 5180 	mov.w	r1, #4096	; 0x1000
+ 19e:	4632      	mov	r2, r6
+ 1a0:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:449
+//   starting_delay( 0x500 );
+
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RST, Bit_SET );    /* RST = 1  */
+ 1a4:	4620      	mov	r0, r4
+ 1a6:	f44f 5180 	mov.w	r1, #4096	; 0x1000
+ 1aa:	463a      	mov	r2, r7
+ 1ac:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:453
+//   starting_delay( 0x500 );
+
+   //default mode is output
+   LCD_DataLinesConfig( Output );
+ 1b0:	4638      	mov	r0, r7
+ 1b2:	f7ff fffe 	bl	0 <LCD_Init>
+LCD_CheckLCDStatus():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:301
+   {
+   unsigned char ID1;
+   unsigned char ID2;
+   unsigned char ID3;
+
+   LCD_SendLCDCmd( ST7637_RDDID );
+ 1b6:	4648      	mov	r0, r9
+ 1b8:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:304
+
+   /* Configure Data lines as Input */
+   LCD_DataLinesConfig (Input );
+ 1bc:	4630      	mov	r0, r6
+ 1be:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:307
+
+   /* Start the LCD send data sequence */
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RS, Bit_RESET );     /* RS = 0 */
+ 1c2:	4620      	mov	r0, r4
+ 1c4:	f44f 7180 	mov.w	r1, #256	; 0x100
+ 1c8:	4632      	mov	r2, r6
+ 1ca:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:308
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RD, Bit_RESET );     /* RD = 0 */
+ 1ce:	4620      	mov	r0, r4
+ 1d0:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 1d4:	4632      	mov	r2, r6
+ 1d6:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:309
+   LCD_CtrlLinesWrite( GPIOx_CS_LCD,   CtrlPin_CS, Bit_RESET );     /* CS = 0 */
+ 1da:	4628      	mov	r0, r5
+ 1dc:	4649      	mov	r1, r9
+ 1de:	4632      	mov	r2, r6
+ 1e0:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:310
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_WR, Bit_SET );       /* WR = 1 */
+ 1e4:	4620      	mov	r0, r4
+ 1e6:	f44f 6180 	mov.w	r1, #1024	; 0x400
+ 1ea:	463a      	mov	r2, r7
+ 1ec:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:313
+
+   /* Read data to the LCD */
+   GPIO_ReadInputData( GPIOx_D_LCD );
+ 1f0:	4620      	mov	r0, r4
+ 1f2:	f7ff fffe 	bl	0 <GPIO_ReadInputData>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:314
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RD, Bit_SET );       /* RD = 1 */
+ 1f6:	4620      	mov	r0, r4
+ 1f8:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 1fc:	463a      	mov	r2, r7
+ 1fe:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:315
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RD, Bit_RESET );     /* RD = 0 */
+ 202:	4620      	mov	r0, r4
+ 204:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 208:	4632      	mov	r2, r6
+ 20a:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:317
+
+   ID1 = GPIO_ReadInputData( GPIOx_D_LCD );
+ 20e:	4620      	mov	r0, r4
+ 210:	f7ff fffe 	bl	0 <GPIO_ReadInputData>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:319
+
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RD, Bit_SET );       /* RD = 1 */
+ 214:	4620      	mov	r0, r4
+ 216:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 21a:	463a      	mov	r2, r7
+ 21c:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:320
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RD, Bit_RESET );     /* RD = 0 */
+ 220:	4620      	mov	r0, r4
+ 222:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 226:	4632      	mov	r2, r6
+ 228:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:322
+
+   ID2 = GPIO_ReadInputData( GPIOx_D_LCD );
+ 22c:	4620      	mov	r0, r4
+ 22e:	f7ff fffe 	bl	0 <GPIO_ReadInputData>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:324
+
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RD, Bit_SET );       /* RD = 1 */
+ 232:	4620      	mov	r0, r4
+ 234:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 238:	463a      	mov	r2, r7
+ 23a:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:325
+   LCD_CtrlLinesWrite( GPIOx_CTRL_LCD, CtrlPin_RD, Bit_RESET );     /* RD = 0 */
+ 23e:	4620      	mov	r0, r4
+ 240:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 244:	4632      	mov	r2, r6
+ 246:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:327
+
+   ID3 = GPIO_ReadInputData( GPIOx_D_LCD );
+ 24a:	4620      	mov	r0, r4
+ 24c:	f7ff fffe 	bl	0 <GPIO_ReadInputData>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:329
+
+   LCD_DataLinesConfig( Output );
+ 250:	4638      	mov	r0, r7
+ 252:	f7ff fffe 	bl	0 <LCD_Init>
+LCD_7637_Controller():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:457
+   //default mode is output
+   LCD_DataLinesConfig( Output );
+
+   LCD_CheckLCDStatus();
+
+   LCD_SendLCDCmd( ST7637_SWRESET );
+ 256:	4638      	mov	r0, r7
+ 258:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:460
+
+   //-----------disable autoread + Manual read once ----------------------------
+   LCD_SendLCDCmd( ST7637_AUTOLOADSET );  // Auto Load Set 0xD7
+ 25c:	f04f 00d7 	mov.w	r0, #215	; 0xd7
+ 260:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:461
+   LCD_SendLCDData( 0xBF );               // Auto Load Disable
+ 264:	f04f 00bf 	mov.w	r0, #191	; 0xbf
+ 268:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:463
+
+   LCD_SendLCDCmd( ST7637_EPCTIN );       // EE Read/write mode 0xE0
+ 26c:	f04f 00e0 	mov.w	r0, #224	; 0xe0
+ 270:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:464
+   LCD_SendLCDData( 0x00 );               // Set read mode
+ 274:	4630      	mov	r0, r6
+ 276:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:466
+
+   LCD_SendLCDCmd( ST7637_EPMRD );        // Read active 0xE3
+ 27a:	f04f 00e3 	mov.w	r0, #227	; 0xe3
+ 27e:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:467
+   LCD_SendLCDCmd( ST7637_EPCTOUT );      // Cancel control 0xE1
+ 282:	f04f 00e1 	mov.w	r0, #225	; 0xe1
+ 286:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:470
+
+   //---------------------------------- Sleep OUT ------------------------------
+   LCD_SendLCDCmd( ST7637_DISPOFF );      // display off 0x28
+ 28a:	f04f 0028 	mov.w	r0, #40	; 0x28
+ 28e:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:471
+   LCD_SendLCDCmd( ST7637_SLPOUT );       // Sleep Out 0x11
+ 292:	f04f 0011 	mov.w	r0, #17
+ 296:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:474
+
+   //--------------------------------Vop setting--------------------------------
+   LCD_SendLCDCmd( ST7637_VOPSET );       // Set Vop by initial Module 0xC0
+ 29a:	f04f 00c0 	mov.w	r0, #192	; 0xc0
+ 29e:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:475
+   LCD_SendLCDData( 0xFB );               // Vop = 13.64
+ 2a2:	f04f 00fb 	mov.w	r0, #251	; 0xfb
+ 2a6:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:476
+   LCD_SendLCDData( 0x00 );               // base on Module
+ 2aa:	4630      	mov	r0, r6
+ 2ac:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:479
+
+   //----------------------------Set Register-----------------------------------
+   LCD_SendLCDCmd( ST7637_BIASSEL );      // Bias select 0xC3
+ 2b0:	f04f 00c3 	mov.w	r0, #195	; 0xc3
+ 2b4:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:480
+   LCD_SendLCDData( 0x00 );               // 1/12 Bias, base on Module
+ 2b8:	4630      	mov	r0, r6
+ 2ba:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:482
+
+   LCD_SendLCDCmd( ST7637_BSTBMPXSEL );   // Setting Booster times 0xC4
+ 2be:	f04f 00c4 	mov.w	r0, #196	; 0xc4
+ 2c2:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:483
+   LCD_SendLCDData( 0x05 );               // Booster X 8
+ 2c6:	f04f 0005 	mov.w	r0, #5
+ 2ca:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:485
+
+   LCD_SendLCDCmd( ST7637_BSTEFFSEL );    // Booster eff 0xC5
+ 2ce:	f04f 00c5 	mov.w	r0, #197	; 0xc5
+ 2d2:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:486
+   LCD_SendLCDData( 0x11 );               // BE = 0x01 (Level 2)
+ 2d6:	f04f 0011 	mov.w	r0, #17
+ 2da:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:488
+
+   LCD_SendLCDCmd( ST7637_VGSORCSEL );    // Vg with booster x2 control 0xcb
+ 2de:	f04f 00cb 	mov.w	r0, #203	; 0xcb
+ 2e2:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:489
+   LCD_SendLCDData( 0x01 );               // Vg from Vdd2
+ 2e6:	4638      	mov	r0, r7
+ 2e8:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:491
+
+   LCD_SendLCDCmd( ST7637_ID1SET );       // ID1 = 00 0xcc
+ 2ec:	f04f 00cc 	mov.w	r0, #204	; 0xcc
+ 2f0:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:492
+   LCD_SendLCDData( 0x00 );               //
+ 2f4:	4630      	mov	r0, r6
+ 2f6:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:494
+
+   LCD_SendLCDCmd( ST7637_ID3SET );       // ID3 = 00 0xce
+ 2fa:	f04f 00ce 	mov.w	r0, #206	; 0xce
+ 2fe:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:495
+   LCD_SendLCDData( 0x00 );               //
+ 302:	4630      	mov	r0, r6
+ 304:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:497
+
+   LCD_SendLCDCmd( 0xB7 );                // Glass direction
+ 308:	f04f 00b7 	mov.w	r0, #183	; 0xb7
+ 30c:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:498
+   LCD_SendLCDData( 0xC0 );               //
+ 310:	f04f 00c0 	mov.w	r0, #192	; 0xc0
+ 314:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:500
+
+   LCD_SendLCDCmd( ST7637_ANASET );       // Analog circuit setting 0xd0
+ 318:	f04f 00d0 	mov.w	r0, #208	; 0xd0
+ 31c:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:501
+   LCD_SendLCDData( 0x1D );               //
+ 320:	f04f 001d 	mov.w	r0, #29
+ 324:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:503
+
+   LCD_SendLCDCmd( 0xB4 );                // PTL mode set
+ 328:	f04f 00b4 	mov.w	r0, #180	; 0xb4
+ 32c:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:504
+   LCD_SendLCDData( 0x18 );               // power normal mode
+ 330:	4658      	mov	r0, fp
+ 332:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:505
+   LCD_SendLCDCmd( ST7637_INVOFF );       // Display Inversion OFF 0x20
+ 336:	f04f 0020 	mov.w	r0, #32
+ 33a:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:507
+
+   LCD_SendLCDCmd( 0x2A );                // column range
+ 33e:	f04f 002a 	mov.w	r0, #42	; 0x2a
+ 342:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:508
+   LCD_SendLCDData( 0x04 );               //
+ 346:	4648      	mov	r0, r9
+ 348:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:509
+   LCD_SendLCDData( 0x83 );               //
+ 34c:	f04f 0083 	mov.w	r0, #131	; 0x83
+ 350:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:511
+
+   LCD_SendLCDCmd( 0x2B );                // raw range
+ 354:	f04f 002b 	mov.w	r0, #43	; 0x2b
+ 358:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:512
+   LCD_SendLCDData( 0x04 );               //
+ 35c:	4648      	mov	r0, r9
+ 35e:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:513
+   LCD_SendLCDData( 0x83 );               //
+ 362:	f04f 0083 	mov.w	r0, #131	; 0x83
+ 366:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:516
+
+
+   LCD_SendLCDCmd( ST7637_COLMOD );       // Color mode = 65k 0x3A
+ 36a:	f04f 003a 	mov.w	r0, #58	; 0x3a
+ 36e:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:517
+   LCD_SendLCDData( 0x05 );               //
+ 372:	f04f 0005 	mov.w	r0, #5
+ 376:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:519
+
+   LCD_SendLCDCmd( ST7637_MADCTR );       // Memory Access Control 0x36
+ 37a:	f04f 0036 	mov.w	r0, #54	; 0x36
+ 37e:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:520
+   LCD_SendLCDData( V9_MADCTRVAL );
+ 382:	f04f 0090 	mov.w	r0, #144	; 0x90
+ 386:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:522
+
+   LCD_SendLCDCmd( ST7637_DUTYSET );      // Duty = 132 duty 0xb0
+ 38a:	f04f 00b0 	mov.w	r0, #176	; 0xb0
+ 38e:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:523
+   LCD_SendLCDData( 0x7F );
+ 392:	f04f 007f 	mov.w	r0, #127	; 0x7f
+ 396:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:525
+
+   LCD_SendLCDCmd( 0x29 );                // Display ON
+ 39a:	f04f 0029 	mov.w	r0, #41	; 0x29
+ 39e:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:526
+   LCD_SendLCDCmd( 0xF9 );                // Gamma
+ 3a2:	f04f 00f9 	mov.w	r0, #249	; 0xf9
+ 3a6:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:527
+   LCD_SendLCDData( 0x00 );               //
+ 3aa:	4630      	mov	r0, r6
+ 3ac:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:528
+   LCD_SendLCDData( 0x03 );               //
+ 3b0:	4650      	mov	r0, sl
+ 3b2:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:529
+   LCD_SendLCDData( 0x05 );               //
+ 3b6:	f04f 0005 	mov.w	r0, #5
+ 3ba:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:530
+   LCD_SendLCDData( 0x07 );               //
+ 3be:	f04f 0007 	mov.w	r0, #7
+ 3c2:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:531
+   LCD_SendLCDData( 0x09 );               //
+ 3c6:	f04f 0009 	mov.w	r0, #9
+ 3ca:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:532
+   LCD_SendLCDData( 0x0B );               //
+ 3ce:	f04f 000b 	mov.w	r0, #11
+ 3d2:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:533
+   LCD_SendLCDData( 0x0D );               //
+ 3d6:	f04f 000d 	mov.w	r0, #13
+ 3da:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:534
+   LCD_SendLCDData( 0x0F );               //
+ 3de:	f04f 000f 	mov.w	r0, #15
+ 3e2:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:535
+   LCD_SendLCDData( 0x11 );               //
+ 3e6:	f04f 0011 	mov.w	r0, #17
+ 3ea:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:536
+   LCD_SendLCDData( 0x13 );               //
+ 3ee:	f04f 0013 	mov.w	r0, #19
+ 3f2:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:537
+   LCD_SendLCDData( 0x15 );               //
+ 3f6:	f04f 0015 	mov.w	r0, #21
+ 3fa:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:538
+   LCD_SendLCDData( 0x17 );               //
+ 3fe:	f04f 0017 	mov.w	r0, #23
+ 402:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:539
+   LCD_SendLCDData( 0x19 );               //
+ 406:	f04f 0019 	mov.w	r0, #25
+ 40a:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:540
+   LCD_SendLCDData( 0x1B );               //
+ 40e:	f04f 001b 	mov.w	r0, #27
+ 412:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:541
+   LCD_SendLCDData( 0x1D );               //
+ 416:	f04f 001d 	mov.w	r0, #29
+ 41a:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:542
+   LCD_SendLCDData( 0x1F );               //
+ 41e:	f04f 001f 	mov.w	r0, #31
+ 422:	f7ff fffe 	bl	0 <LCD_Init>
+LCD_Init():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:661
+   /* Configure control lines signals as output mode */
+   LCD_CtrlLinesConfig();
+
+   /* LCD LCD Init */
+   LCD_7637_Controller();
+   }
+ 426:	b003      	add	sp, #12
+ 428:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+
+Disassembly of section .text.LCD_SetBackLightOff:
+
+00000000 <LCD_SetBackLightOff>:
+LCD_SetBackLightOff():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1104
+*
+**/
+/******************************************************************************/
+void LCD_SetBackLightOff( void )
+   {
+   Current_CCR_BackLightStart = 0;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	f04f 0200 	mov.w	r2, #0
+   c:	601a      	str	r2, [r3, #0]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1105
+   }
+   e:	4770      	bx	lr
+
+Disassembly of section .text.LCD_SetBackLightOn:
+
+00000000 <LCD_SetBackLightOn>:
+LCD_SetBackLightOn():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1120
+*
+**/
+/******************************************************************************/
+void LCD_SetBackLightOn( void )
+   {
+   Current_CCR_BackLightStart = DEFAULT_CCR_BACKLIGHTSTART;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	f44f 4200 	mov.w	r2, #32768	; 0x8000
+   c:	601a      	str	r2, [r3, #0]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1121
+   }
+   e:	4770      	bx	lr
+
+Disassembly of section .text.LCD_GetBackLight:
+
+00000000 <LCD_GetBackLight>:
+LCD_GetBackLight():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1138
+*
+**/
+/******************************************************************************/
+u32 LCD_GetBackLight( void )
+   {
+   return Current_CCR_BackLightStart;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1139
+   }
+   8:	6818      	ldr	r0, [r3, #0]
+   a:	4770      	bx	lr
+
+Disassembly of section .text.LCD_SetRotateScreen:
+
+00000000 <LCD_SetRotateScreen>:
+LCD_SetRotateScreen():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1157
+*
+**/
+/******************************************************************************/
+void LCD_SetRotateScreen( u8 RotateScreen)
+   {
+   CurrentRotateScreen = RotateScreen;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	6298      	str	r0, [r3, #40]	; 0x28
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1158
+   }
+   a:	4770      	bx	lr
+
+Disassembly of section .text.LCD_GetRotateScreen:
+
+00000000 <LCD_GetRotateScreen>:
+LCD_GetRotateScreen():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1176
+*
+**/
+/******************************************************************************/
+u8 LCD_GetRotateScreen( void )
+   {
+   return CurrentRotateScreen;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1177
+   }
+   8:	f893 0028 	ldrb.w	r0, [r3, #40]	; 0x28
+   c:	4770      	bx	lr
+   e:	bf00      	nop
+
+Disassembly of section .text.LCD_SetScreenOrientation:
+
+00000000 <LCD_SetScreenOrientation>:
+LCD_SetScreenOrientation():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1193
+*  @param[in]  ScreenOrientation The new screen orientation.
+*
+**/
+/******************************************************************************/
+void LCD_SetScreenOrientation( Rotate_H12_V_Match_TypeDef ScreenOrientation )
+   {
+   0:	b510      	push	{r4, lr}
+   2:	4604      	mov	r4, r0
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1194
+   CurrentScreenOrientation = ScreenOrientation;
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	7018      	strb	r0, [r3, #0]
+LCD_DisplayRotate():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:405
+**/
+/******************************************************************************/
+static void LCD_DisplayRotate( Rotate_H12_V_Match_TypeDef H12 )
+   {
+   // Memory Access Control 0x36
+   LCD_SendLCDCmd( ST7637_MADCTR );
+   e:	f04f 0036 	mov.w	r0, #54	; 0x36
+  12:	f7ff fffe 	bl	0 <LCD_SetScreenOrientation>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:407
+
+   switch( H12 )
+  16:	2c02      	cmp	r4, #2
+  18:	d008      	beq.n	2c <LCD_SetScreenOrientation+0x2c>
+  1a:	2c03      	cmp	r4, #3
+  1c:	d00b      	beq.n	36 <LCD_SetScreenOrientation+0x36>
+  1e:	2c01      	cmp	r4, #1
+  20:	d10e      	bne.n	40 <LCD_SetScreenOrientation+0x40>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:410
+      {
+      case V3  :
+         LCD_SendLCDData( V3_MADCTRVAL );
+  22:	f04f 0050 	mov.w	r0, #80	; 0x50
+  26:	f7ff fffe 	bl	0 <LCD_SetScreenOrientation>
+  2a:	bd10      	pop	{r4, pc}
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:414
+         break;
+
+      case V6  :
+         LCD_SendLCDData( V6_MADCTRVAL );
+  2c:	f04f 00f0 	mov.w	r0, #240	; 0xf0
+  30:	f7ff fffe 	bl	0 <LCD_SetScreenOrientation>
+  34:	bd10      	pop	{r4, pc}
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:418
+         break;
+
+      case V9  :
+         LCD_SendLCDData( V9_MADCTRVAL );
+  36:	f04f 0090 	mov.w	r0, #144	; 0x90
+  3a:	f7ff fffe 	bl	0 <LCD_SetScreenOrientation>
+  3e:	bd10      	pop	{r4, pc}
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:423
+         break;
+
+      case V12 :
+      default  :
+         LCD_SendLCDData( V12_MADCTRVAL );
+  40:	f04f 0030 	mov.w	r0, #48	; 0x30
+  44:	f7ff fffe 	bl	0 <LCD_SetScreenOrientation>
+  48:	bd10      	pop	{r4, pc}
+LCD_SetScreenOrientation():
+  4a:	bf00      	nop
+
+Disassembly of section .text.LCD_GetScreenOrientation:
+
+00000000 <LCD_GetScreenOrientation>:
+LCD_GetScreenOrientation():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1213
+*  @return   A Rotate_H12_V_Match_TypeDef telling the current screen orientation.
+*
+**/
+/******************************************************************************/
+Rotate_H12_V_Match_TypeDef LCD_GetScreenOrientation( void )
+{
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1215
+   return CurrentScreenOrientation;
+}
+   8:	7818      	ldrb	r0, [r3, #0]
+   a:	4770      	bx	lr
+
+Disassembly of section .text.DRAW_SetCharMagniCoeff:
+
+00000000 <DRAW_SetCharMagniCoeff>:
+DRAW_SetCharMagniCoeff():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1324
+*
+**/
+/******************************************************************************/
+void DRAW_SetCharMagniCoeff( u16 Coeff )
+   {
+   CharMagniCoeff = Coeff;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	8498      	strh	r0, [r3, #36]	; 0x24
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1325
+   }
+   a:	4770      	bx	lr
+
+Disassembly of section .text.DRAW_GetCharMagniCoeff:
+
+00000000 <DRAW_GetCharMagniCoeff>:
+DRAW_GetCharMagniCoeff():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1341
+*  @return  Current magnifying value.
+*
+**/
+/******************************************************************************/
+u16 DRAW_GetCharMagniCoeff( void )
+   {
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1343
+   return CharMagniCoeff;
+   }
+   8:	8c98      	ldrh	r0, [r3, #36]	; 0x24
+   a:	4770      	bx	lr
+
+Disassembly of section .text.DRAW_GetTextColor:
+
+00000000 <DRAW_GetTextColor>:
+DRAW_GetTextColor():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1359
+*  @return  The current RGB color used to draw text.
+*
+**/
+/******************************************************************************/
+u16 DRAW_GetTextColor( void )
+   {
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1361
+   return TextColor;
+   }
+   8:	8ad8      	ldrh	r0, [r3, #22]
+   a:	4770      	bx	lr
+
+Disassembly of section .text.DRAW_SetTextColor:
+
+00000000 <DRAW_SetTextColor>:
+DRAW_SetTextColor():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1378
+*
+**/
+/******************************************************************************/
+void DRAW_SetTextColor( u16 Color )
+   {
+   TextColor = Color ;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	82d8      	strh	r0, [r3, #22]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1379
+   }
+   a:	4770      	bx	lr
+
+Disassembly of section .text.DRAW_GetBGndColor:
+
+00000000 <DRAW_GetBGndColor>:
+DRAW_GetBGndColor():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1395
+*  @return  The current RGB color used for the background.
+*
+**/
+/******************************************************************************/
+u16 DRAW_GetBGndColor( void )
+   {
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1397
+   return BGndColor;
+   }
+   8:	8a98      	ldrh	r0, [r3, #20]
+   a:	4770      	bx	lr
+
+Disassembly of section .text.DRAW_SetBGndColor:
+
+00000000 <DRAW_SetBGndColor>:
+DRAW_SetBGndColor():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1414
+*
+**/
+/******************************************************************************/
+void DRAW_SetBGndColor(u16 Color)
+   {
+   BGndColor = Color;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	8298      	strh	r0, [r3, #20]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1415
+   }
+   a:	4770      	bx	lr
+
+Disassembly of section .text.DRAW_Clear:
+
+00000000 <DRAW_Clear>:
+DRAW_Clear():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1429
+*  Clear the LCD display. Draw Batterie and butterfly if main display.
+*
+**/
+/******************************************************************************/
+void DRAW_Clear( void )
+{
+   0:	b500      	push	{lr}
+   2:	b083      	sub	sp, #12
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1430
+   LCD_FillRect( 0, 0, CHIP_SCREEN_WIDTH, CHIP_SCREEN_HEIGHT, BGndColor );
+   4:	f240 0300 	movw	r3, #0
+   8:	f2c0 0300 	movt	r3, #0
+   c:	8a9b      	ldrh	r3, [r3, #20]
+   e:	9300      	str	r3, [sp, #0]
+  10:	f04f 0000 	mov.w	r0, #0
+  14:	4601      	mov	r1, r0
+  16:	f04f 0284 	mov.w	r2, #132	; 0x84
+  1a:	4613      	mov	r3, r2
+  1c:	f7ff fffe 	bl	0 <DRAW_Clear>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1431
+}
+  20:	b003      	add	sp, #12
+  22:	bd00      	pop	{pc}
+
+Disassembly of section .text.DRAW_DisplayString:
+
+00000000 <DRAW_DisplayString>:
+DRAW_DisplayString():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1453
+*  @warning       The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void DRAW_DisplayString( u8 x, u8 y, const u8* ptr, u8 len )
+   {
+   0:	b510      	push	{r4, lr}
+   2:	b082      	sub	sp, #8
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1454
+   DRAW_DisplayStringWithMode( x, y, ptr, len, 0 );
+   4:	f04f 0400 	mov.w	r4, #0
+   8:	9400      	str	r4, [sp, #0]
+   a:	f7ff fffe 	bl	0 <DRAW_DisplayString>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1455
+   }
+   e:	b002      	add	sp, #8
+  10:	bd10      	pop	{r4, pc}
+  12:	bf00      	nop
+
+Disassembly of section .text.DRAW_DisplayStringInverted:
+
+00000000 <DRAW_DisplayStringInverted>:
+DRAW_DisplayStringInverted():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1477
+*  @warning       The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void DRAW_DisplayStringInverted( u8 x, u8 y, const u8* ptr, u8 len )
+   {
+   0:	b510      	push	{r4, lr}
+   2:	b082      	sub	sp, #8
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1479
+   //BackGround and Text Colors are inverted
+   DRAW_DisplayStringWithMode( x, y, ptr, len, 1 );
+   4:	f04f 0401 	mov.w	r4, #1
+   8:	9400      	str	r4, [sp, #0]
+   a:	f7ff fffe 	bl	0 <DRAW_DisplayStringInverted>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1480
+   }
+   e:	b002      	add	sp, #8
+  10:	bd10      	pop	{r4, pc}
+  12:	bf00      	nop
+
+Disassembly of section .text.DRAW_SetDefaultColor:
+
+00000000 <DRAW_SetDefaultColor>:
+DRAW_SetDefaultColor():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1495
+*
+**/
+/******************************************************************************/
+void DRAW_SetDefaultColor (void)
+   {
+   BGndColor = RGB_WHITE;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	f04f 32ff 	mov.w	r2, #4294967295
+   c:	829a      	strh	r2, [r3, #20]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1496
+   TextColor = RGB_BLACK;
+   e:	f04f 0200 	mov.w	r2, #0
+  12:	82da      	strh	r2, [r3, #22]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1497
+   }
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text.DRAW_Init:
+
+00000000 <DRAW_Init>:
+DRAW_Init():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1290
+*  @attention  This function must <b>NOT</b> be called by the user.
+*
+**/
+/******************************************************************************/
+void DRAW_Init( void )
+   {
+   0:	b508      	push	{r3, lr}
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1291
+   LCD_Init();
+   2:	f7ff fffe 	bl	0 <DRAW_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1304
+   OldTMM      = 100;
+   OldTHH      = 100;
+   OldTemp     = -1; */
+
+   // Clear LCD and draw black and white logo
+   DRAW_SetDefaultColor();
+   6:	f7ff fffe 	bl	0 <DRAW_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1305
+   DRAW_Clear();
+   a:	f7ff fffe 	bl	0 <DRAW_Init>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1307
+//   POINTER_Init();
+   }
+   e:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.DRAW_Line:
+
+00000000 <DRAW_Line>:
+DRAW_Line():
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1516
+*  @param[in]  y2          The y-coordinate of the second line endpoint.
+*  @param[in]  color       The line color.
+*
+**/
+void DRAW_Line (s16 x1, s16 y1, s16 x2, s16 y2, u16 color )
+   {
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	b087      	sub	sp, #28
+   6:	f8bd b040 	ldrh.w	fp, [sp, #64]	; 0x40
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1522
+   int i,dx,dy,sdx,sdy,dxabs,dyabs,x,y,px,py;
+
+   #define abs(X) ( ( (X) < 0 ) ? -(X) : (X) )
+   #define sgn(X) ( ( (X) < 0 ) ? -1 : 1 )
+
+   if ( x1==x2 )  //Vertical Line
+   a:	4290      	cmp	r0, r2
+   c:	d111      	bne.n	32 <DRAW_Line+0x32>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1524
+      {
+      if ( y1 > y2 ) //We assume y2>y1 and invert if not
+   e:	4299      	cmp	r1, r3
+  10:	bfc2      	ittt	gt
+  12:	460a      	movgt	r2, r1
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1528
+         {
+         i = y2;
+         y2 = y1;
+         y1 = i;
+  14:	4619      	movgt	r1, r3
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1527
+   if ( x1==x2 )  //Vertical Line
+      {
+      if ( y1 > y2 ) //We assume y2>y1 and invert if not
+         {
+         i = y2;
+         y2 = y1;
+  16:	4613      	movgt	r3, r2
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1530
+         y1 = i;
+         }
+      LCD_FillRect( x1, y1, 1, y2-y1+1, color );
+  18:	b289      	uxth	r1, r1
+  1a:	f103 0301 	add.w	r3, r3, #1
+  1e:	1a5b      	subs	r3, r3, r1
+  20:	f8cd b000 	str.w	fp, [sp]
+  24:	b280      	uxth	r0, r0
+  26:	f04f 0201 	mov.w	r2, #1
+  2a:	b29b      	uxth	r3, r3
+  2c:	f7ff fffe 	bl	0 <DRAW_Line>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1531
+      return;
+  30:	e068      	b.n	104 <DRAW_Line+0x104>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1533
+      }
+   else if ( y1==y2 )  //Horizontal Line
+  32:	4299      	cmp	r1, r3
+  34:	d111      	bne.n	5a <DRAW_Line+0x5a>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1535
+      {
+      if ( x1 > x2 ) //We assume x2>x1 and we swap them if not
+  36:	4290      	cmp	r0, r2
+  38:	bfc2      	ittt	gt
+  3a:	4603      	movgt	r3, r0
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1539
+         {
+         i = x2;
+         x2 = x1;
+         x1 = i;
+  3c:	4610      	movgt	r0, r2
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1538
+   else if ( y1==y2 )  //Horizontal Line
+      {
+      if ( x1 > x2 ) //We assume x2>x1 and we swap them if not
+         {
+         i = x2;
+         x2 = x1;
+  3e:	461a      	movgt	r2, r3
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1541
+         x1 = i;
+         }
+      LCD_FillRect( x1, y1, x2-x1+1, 1, color );
+  40:	b280      	uxth	r0, r0
+  42:	f102 0201 	add.w	r2, r2, #1
+  46:	1a12      	subs	r2, r2, r0
+  48:	f8cd b000 	str.w	fp, [sp]
+  4c:	b289      	uxth	r1, r1
+  4e:	b292      	uxth	r2, r2
+  50:	f04f 0301 	mov.w	r3, #1
+  54:	f7ff fffe 	bl	0 <DRAW_Line>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1542
+      return;
+  58:	e054      	b.n	104 <DRAW_Line+0x104>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1545
+      }
+   
+   dx=x2-x1;      /* the horizontal distance of the line */
+  5a:	4681      	mov	r9, r0
+  5c:	1a10      	subs	r0, r2, r0
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1546
+   dy=y2-y1;      /* the vertical distance of the line */
+  5e:	468a      	mov	sl, r1
+  60:	1a5b      	subs	r3, r3, r1
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1547
+   dxabs=abs(dx);
+  62:	ea80 76e0 	eor.w	r6, r0, r0, asr #31
+  66:	eba6 76e0 	sub.w	r6, r6, r0, asr #31
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1548
+   dyabs=abs(dy);
+  6a:	ea83 77e3 	eor.w	r7, r3, r3, asr #31
+  6e:	eba7 77e3 	sub.w	r7, r7, r3, asr #31
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1549
+   sdx=sgn(dx);
+  72:	2800      	cmp	r0, #0
+  74:	bfac      	ite	ge
+  76:	2001      	movge	r0, #1
+  78:	f04f 30ff 	movlt.w	r0, #4294967295
+  7c:	9004      	str	r0, [sp, #16]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1550
+   sdy=sgn(dy);
+  7e:	2b00      	cmp	r3, #0
+  80:	bfac      	ite	ge
+  82:	2301      	movge	r3, #1
+  84:	f04f 33ff 	movlt.w	r3, #4294967295
+  88:	9305      	str	r3, [sp, #20]
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1556
+   x=dyabs>>1;
+   y=dxabs>>1;
+   px=x1;
+   py=y1;
+
+   if (dxabs>=dyabs) /* the line is more horizontal than vertical */
+  8a:	42be      	cmp	r6, r7
+  8c:	da02      	bge.n	94 <DRAW_Line+0x94>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1572
+         LCD_DrawPixel(px,py,color);
+         }
+      }
+   else /* the line is more vertical than horizontal */
+      {
+      for(i=0;i<dyabs;i++)
+  8e:	2f00      	cmp	r7, #0
+  90:	dc1e      	bgt.n	d0 <DRAW_Line+0xd0>
+  92:	e037      	b.n	104 <DRAW_Line+0x104>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1558
+   px=x1;
+   py=y1;
+
+   if (dxabs>=dyabs) /* the line is more horizontal than vertical */
+      {
+      for(i=0;i<dxabs;i++)
+  94:	2e00      	cmp	r6, #0
+  96:	dd35      	ble.n	104 <DRAW_Line+0x104>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1552
+   dxabs=abs(dx);
+   dyabs=abs(dy);
+   sdx=sgn(dx);
+   sdy=sgn(dy);
+   x=dyabs>>1;
+   y=dxabs>>1;
+  98:	ea4f 0466 	mov.w	r4, r6, asr #1
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1515
+*  @param[in]  y1          The y-coordinate of the first line endpoint.
+*  @param[in]  y2          The y-coordinate of the second line endpoint.
+*  @param[in]  color       The line color.
+*
+**/
+void DRAW_Line (s16 x1, s16 y1, s16 x2, s16 y2, u16 color )
+  9c:	9b04      	ldr	r3, [sp, #16]
+  9e:	9303      	str	r3, [sp, #12]
+  a0:	eb03 0509 	add.w	r5, r3, r9
+  a4:	f04f 0800 	mov.w	r8, #0
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1560
+
+   if (dxabs>=dyabs) /* the line is more horizontal than vertical */
+      {
+      for(i=0;i<dxabs;i++)
+         {
+         y+=dyabs;
+  a8:	19e4      	adds	r4, r4, r7
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1561
+         if (y>=dxabs)
+  aa:	42a6      	cmp	r6, r4
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1563
+            {
+            y-=dxabs;
+  ac:	bfde      	ittt	le
+  ae:	ebc6 0404 	rsble	r4, r6, r4
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1564
+            py+=sdy;
+  b2:	9b05      	ldrle	r3, [sp, #20]
+  b4:	449a      	addle	sl, r3
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1567
+            }
+         px+=sdx;
+         LCD_DrawPixel(px,py,color);
+  b6:	b2e8      	uxtb	r0, r5
+  b8:	fa5f f18a 	uxtb.w	r1, sl
+  bc:	465a      	mov	r2, fp
+  be:	f7ff fffe 	bl	0 <DRAW_Line>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1558
+   px=x1;
+   py=y1;
+
+   if (dxabs>=dyabs) /* the line is more horizontal than vertical */
+      {
+      for(i=0;i<dxabs;i++)
+  c2:	f108 0801 	add.w	r8, r8, #1
+  c6:	9b03      	ldr	r3, [sp, #12]
+  c8:	18ed      	adds	r5, r5, r3
+  ca:	4546      	cmp	r6, r8
+  cc:	dcec      	bgt.n	a8 <DRAW_Line+0xa8>
+  ce:	e019      	b.n	104 <DRAW_Line+0x104>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1551
+   dy=y2-y1;      /* the vertical distance of the line */
+   dxabs=abs(dx);
+   dyabs=abs(dy);
+   sdx=sgn(dx);
+   sdy=sgn(dy);
+   x=dyabs>>1;
+  d0:	ea4f 0467 	mov.w	r4, r7, asr #1
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1515
+*  @param[in]  y1          The y-coordinate of the first line endpoint.
+*  @param[in]  y2          The y-coordinate of the second line endpoint.
+*  @param[in]  color       The line color.
+*
+**/
+void DRAW_Line (s16 x1, s16 y1, s16 x2, s16 y2, u16 color )
+  d4:	9b05      	ldr	r3, [sp, #20]
+  d6:	9303      	str	r3, [sp, #12]
+  d8:	185d      	adds	r5, r3, r1
+  da:	f04f 0800 	mov.w	r8, #0
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1574
+      }
+   else /* the line is more vertical than horizontal */
+      {
+      for(i=0;i<dyabs;i++)
+         {
+         x+=dxabs;
+  de:	19a4      	adds	r4, r4, r6
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1575
+         if (x>=dyabs)
+  e0:	42a7      	cmp	r7, r4
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1577
+            {
+            x-=dyabs;
+  e2:	bfde      	ittt	le
+  e4:	ebc7 0404 	rsble	r4, r7, r4
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1578
+            px+=sdx;
+  e8:	9b04      	ldrle	r3, [sp, #16]
+  ea:	4499      	addle	r9, r3
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1581
+            }
+         py+=sdy;
+         LCD_DrawPixel(px,py,color);
+  ec:	fa5f f089 	uxtb.w	r0, r9
+  f0:	b2e9      	uxtb	r1, r5
+  f2:	465a      	mov	r2, fp
+  f4:	f7ff fffe 	bl	0 <DRAW_Line>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1572
+         LCD_DrawPixel(px,py,color);
+         }
+      }
+   else /* the line is more vertical than horizontal */
+      {
+      for(i=0;i<dyabs;i++)
+  f8:	f108 0801 	add.w	r8, r8, #1
+  fc:	9b03      	ldr	r3, [sp, #12]
+  fe:	18ed      	adds	r5, r5, r3
+ 100:	4547      	cmp	r7, r8
+ 102:	dcec      	bgt.n	de <DRAW_Line+0xde>
+C:\Users\nd\Documents\sistr20142015\RCC_resolucao\project/LCD_New.c:1584
+            }
+         py+=sdy;
+         LCD_DrawPixel(px,py,color);
+         }
+      }
+   }
+ 104:	b007      	add	sp, #28
+ 106:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 10a:	bf00      	nop
