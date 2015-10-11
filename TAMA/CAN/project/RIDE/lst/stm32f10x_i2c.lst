@@ -1,0 +1,1296 @@
+
+C:\Users\fv\Desktop\TAMA\TIM\project\RIDE\obj\stm32f10x_i2c.o:     file format elf32-littlearm
+C:\Users\fv\Desktop\TAMA\TIM\project\RIDE\obj\stm32f10x_i2c.o
+
+
+Disassembly of section .text.I2C_DeInit:
+
+00000000 <I2C_DeInit>:
+I2C_DeInit():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:113
+* Input          : - I2Cx: where x can be 1 or 2 to select the I2C peripheral.
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void I2C_DeInit(I2C_TypeDef* I2Cx)
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:117
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+
+  switch (*(u32*)&I2Cx)
+   2:	f44f 43a8 	mov.w	r3, #21504	; 0x5400
+   6:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   a:	4298      	cmp	r0, r3
+   c:	d006      	beq.n	1c <I2C_DeInit+0x1c>
+   e:	f44f 43b0 	mov.w	r3, #22528	; 0x5800
+  12:	f2c4 0300 	movt	r3, #16384	; 0x4000
+  16:	4298      	cmp	r0, r3
+  18:	d119      	bne.n	4e <I2C_DeInit+0x4e>
+  1a:	e00c      	b.n	36 <I2C_DeInit+0x36>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:121
+  {
+    case I2C1_BASE:
+      /* Enable I2C1 reset state */
+      RCC_APB1PeriphResetCmd(RCC_APB1Periph_I2C1, ENABLE);
+  1c:	f44f 1000 	mov.w	r0, #2097152	; 0x200000
+  20:	f04f 0101 	mov.w	r1, #1
+  24:	f7ff fffe 	bl	0 <RCC_APB1PeriphResetCmd>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:123
+      /* Release I2C1 from reset state */
+      RCC_APB1PeriphResetCmd(RCC_APB1Periph_I2C1, DISABLE);
+  28:	f44f 1000 	mov.w	r0, #2097152	; 0x200000
+  2c:	f04f 0100 	mov.w	r1, #0
+  30:	f7ff fffe 	bl	0 <RCC_APB1PeriphResetCmd>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:124
+      break;
+  34:	bd08      	pop	{r3, pc}
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:128
+
+    case I2C2_BASE:
+      /* Enable I2C2 reset state */
+      RCC_APB1PeriphResetCmd(RCC_APB1Periph_I2C2, ENABLE);
+  36:	f44f 0080 	mov.w	r0, #4194304	; 0x400000
+  3a:	f04f 0101 	mov.w	r1, #1
+  3e:	f7ff fffe 	bl	0 <RCC_APB1PeriphResetCmd>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:130
+      /* Release I2C2 from reset state */
+      RCC_APB1PeriphResetCmd(RCC_APB1Periph_I2C2, DISABLE);
+  42:	f44f 0080 	mov.w	r0, #4194304	; 0x400000
+  46:	f04f 0100 	mov.w	r1, #0
+  4a:	f7ff fffe 	bl	0 <RCC_APB1PeriphResetCmd>
+  4e:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.I2C_Init:
+
+00000000 <I2C_Init>:
+I2C_Init():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:150
+*                    I2C peripheral.
+* Output         : None
+* Return         : None
+******************************************************************************/
+void I2C_Init(I2C_TypeDef* I2Cx, I2C_InitTypeDef* I2C_InitStruct)
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	b086      	sub	sp, #24
+   4:	4604      	mov	r4, r0
+   6:	460d      	mov	r5, r1
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:167
+  assert_param(IS_I2C_ACKNOWLEDGE_ADDRESS(I2C_InitStruct->I2C_AcknowledgedAddress));
+  assert_param(IS_I2C_CLOCK_SPEED(I2C_InitStruct->I2C_ClockSpeed));
+
+/*---------------------------- I2Cx CR2 Configuration ------------------------*/
+  /* Get the I2Cx CR2 value */
+  tmpreg = I2Cx->CR2;
+   8:	8886      	ldrh	r6, [r0, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:169
+  /* Clear frequency FREQ[5:0] bits */
+  tmpreg &= CR2_FREQ_Reset;
+   a:	f026 063f 	bic.w	r6, r6, #63	; 0x3f
+   e:	ea4f 4606 	mov.w	r6, r6, lsl #16
+  12:	ea4f 4616 	mov.w	r6, r6, lsr #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:171
+  /* Get pclk1 frequency value */
+  RCC_GetClocksFreq(&rcc_clocks);
+  16:	a801      	add	r0, sp, #4
+  18:	f7ff fffe 	bl	0 <RCC_GetClocksFreq>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:172
+  pclk1 = rcc_clocks.PCLK1_Frequency;
+  1c:	9903      	ldr	r1, [sp, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:174
+  /* Set frequency bits depending on pclk1 value */
+  freqrange = (u16)(pclk1 / 1000000);
+  1e:	f64d 6283 	movw	r2, #56963	; 0xde83
+  22:	f2c4 321b 	movt	r2, #17179	; 0x431b
+  26:	fba2 0201 	umull	r0, r2, r2, r1
+  2a:	ea4f 4292 	mov.w	r2, r2, lsr #18
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:175
+  tmpreg |= freqrange;
+  2e:	ea42 0606 	orr.w	r6, r2, r6
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:177
+  /* Write to I2Cx CR2 */
+  I2Cx->CR2 = tmpreg;
+  32:	80a6      	strh	r6, [r4, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:181
+
+/*---------------------------- I2Cx CCR Configuration ------------------------*/
+  /* Disable the selected I2C peripheral to configure TRISE */
+  I2Cx->CR1 &= CR1_PE_Reset;
+  34:	8823      	ldrh	r3, [r4, #0]
+  36:	f023 0301 	bic.w	r3, r3, #1
+  3a:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  3e:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  42:	8023      	strh	r3, [r4, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:188
+  /* Reset tmpreg value */
+  /* Clear F/S, DUTY and CCR[11:0] bits */
+  tmpreg = 0;
+
+  /* Configure speed in standard mode */
+  if (I2C_InitStruct->I2C_ClockSpeed <= 100000)
+  44:	68eb      	ldr	r3, [r5, #12]
+  46:	f248 60a0 	movw	r0, #34464	; 0x86a0
+  4a:	f2c0 0001 	movt	r0, #1
+  4e:	4283      	cmp	r3, r0
+  50:	d80b      	bhi.n	6a <I2C_Init+0x6a>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:191
+  {
+    /* Standard mode speed calculate */
+    result = (u16)(pclk1 / (I2C_InitStruct->I2C_ClockSpeed << 1));
+  52:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  56:	fbb1 f1f3 	udiv	r1, r1, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:193
+    /* Test if CCR value is under 0x4*/
+    if (result < 0x04)
+  5a:	b289      	uxth	r1, r1
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:201
+      result = 0x04;  
+    }
+    /* Set speed value for standard mode */
+    tmpreg |= result;	  
+    /* Set Maximum Rise Time for standard mode */
+    I2Cx->TRISE = freqrange + 1; 
+  5c:	f102 0201 	add.w	r2, r2, #1
+  60:	8422      	strh	r2, [r4, #32]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:199
+    {
+      /* Set minimum allowed value */
+      result = 0x04;  
+    }
+    /* Set speed value for standard mode */
+    tmpreg |= result;	  
+  62:	2903      	cmp	r1, #3
+  64:	bf98      	it	ls
+  66:	2104      	movls	r1, #4
+  68:	e02e      	b.n	c8 <I2C_Init+0xc8>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:206
+    I2Cx->TRISE = freqrange + 1; 
+  }
+  /* Configure speed in fast mode */
+  else /*(I2C_InitStruct->I2C_ClockSpeed <= 400000)*/
+  {
+    if (I2C_InitStruct->I2C_DutyCycle == I2C_DutyCycle_2)
+  6a:	886e      	ldrh	r6, [r5, #2]
+  6c:	f64b 70ff 	movw	r0, #49151	; 0xbfff
+  70:	4286      	cmp	r6, r0
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:209
+    {
+      /* Fast mode speed calculate: Tlow/Thigh = 2 */
+      result = (u16)(pclk1 / (I2C_InitStruct->I2C_ClockSpeed * 3));
+  72:	bf03      	ittte	eq
+  74:	eb03 0343 	addeq.w	r3, r3, r3, lsl #1
+  78:	fbb1 f1f3 	udiveq	r1, r1, r3
+  7c:	b289      	uxtheq	r1, r1
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:214
+    }
+    else /*I2C_InitStruct->I2C_DutyCycle == I2C_DutyCycle_16_9*/
+    {
+      /* Fast mode speed calculate: Tlow/Thigh = 16/9 */
+      result = (u16)(pclk1 / (I2C_InitStruct->I2C_ClockSpeed * 25));
+  7e:	eb03 0383 	addne.w	r3, r3, r3, lsl #2
+  82:	bf1f      	itttt	ne
+  84:	eb03 0383 	addne.w	r3, r3, r3, lsl #2
+  88:	fbb1 f1f3 	udivne	r1, r1, r3
+  8c:	b289      	uxthne	r1, r1
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:216
+      /* Set DUTY bit */
+      result |= I2C_DutyCycle_16_9;
+  8e:	f441 4180 	orrne.w	r1, r1, #16384	; 0x4000
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:219
+    }
+    /* Test if CCR value is under 0x1*/
+    if ((result & CCR_CCR_Set) == 0)
+  92:	ea4f 5301 	mov.w	r3, r1, lsl #20
+  96:	ea4f 5313 	mov.w	r3, r3, lsr #20
+  9a:	b90b      	cbnz	r3, a0 <I2C_Init+0xa0>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:222
+    {
+      /* Set minimum allowed value */
+      result |= (u16)0x0001;  
+  9c:	f041 0101 	orr.w	r1, r1, #1
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:225
+    }
+    /* Set speed value and set F/S bit for fast mode */
+    tmpreg |= result | CCR_FS_Set;
+  a0:	ea6f 4141 	mvn.w	r1, r1, lsl #17
+  a4:	ea6f 4151 	mvn.w	r1, r1, lsr #17
+  a8:	b289      	uxth	r1, r1
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:227
+    /* Set Maximum Rise Time for fast mode */
+    I2Cx->TRISE = (u16)(((freqrange * 300) / 1000) + 1);  
+  aa:	f44f 7396 	mov.w	r3, #300	; 0x12c
+  ae:	fb03 f202 	mul.w	r2, r3, r2
+  b2:	f644 53d3 	movw	r3, #19923	; 0x4dd3
+  b6:	f2c1 0362 	movt	r3, #4194	; 0x1062
+  ba:	fb83 0302 	smull	r0, r3, r3, r2
+  be:	ea4f 13a3 	mov.w	r3, r3, asr #6
+  c2:	f103 0301 	add.w	r3, r3, #1
+  c6:	8423      	strh	r3, [r4, #32]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:230
+  }
+  /* Write to I2Cx CCR */
+  I2Cx->CCR = tmpreg;
+  c8:	83a1      	strh	r1, [r4, #28]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:233
+
+  /* Enable the selected I2C peripheral */
+  I2Cx->CR1 |= CR1_PE_Set;
+  ca:	8823      	ldrh	r3, [r4, #0]
+  cc:	b29b      	uxth	r3, r3
+  ce:	f043 0301 	orr.w	r3, r3, #1
+  d2:	8023      	strh	r3, [r4, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:237
+
+/*---------------------------- I2Cx CR1 Configuration ------------------------*/
+  /* Get the I2Cx CR1 value */
+  tmpreg = I2Cx->CR1;
+  d4:	8823      	ldrh	r3, [r4, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:239
+  /* Clear ACK, SMBTYPE and  SMBUS bits */
+  tmpreg &= CR1_CLEAR_Mask;
+  d6:	f423 6380 	bic.w	r3, r3, #1024	; 0x400
+  da:	f023 030a 	bic.w	r3, r3, #10
+  de:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  e2:	ea4f 4313 	mov.w	r3, r3, lsr #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:243
+  /* Configure I2Cx: mode and acknowledgement */
+  /* Set SMBTYPE and SMBUS bits according to I2C_Mode value */
+  /* Set ACK bit according to I2C_Ack value */
+  tmpreg |= (u16)((u32)I2C_InitStruct->I2C_Mode | I2C_InitStruct->I2C_Ack);
+  e6:	88e9      	ldrh	r1, [r5, #6]
+  e8:	882a      	ldrh	r2, [r5, #0]
+  ea:	ea41 0202 	orr.w	r2, r1, r2
+  ee:	4313      	orrs	r3, r2
+  f0:	b29b      	uxth	r3, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:245
+  /* Write to I2Cx CR1 */
+  I2Cx->CR1 = tmpreg;
+  f2:	8023      	strh	r3, [r4, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:249
+
+/*---------------------------- I2Cx OAR1 Configuration -----------------------*/
+  /* Set I2Cx Own Address1 and acknowledged address */
+  I2Cx->OAR1 = (I2C_InitStruct->I2C_AcknowledgedAddress | I2C_InitStruct->I2C_OwnAddress1);
+  f4:	88aa      	ldrh	r2, [r5, #4]
+  f6:	892b      	ldrh	r3, [r5, #8]
+  f8:	ea42 0303 	orr.w	r3, r2, r3
+  fc:	b29b      	uxth	r3, r3
+  fe:	8123      	strh	r3, [r4, #8]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:250
+}
+ 100:	b006      	add	sp, #24
+ 102:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.I2C_StructInit:
+
+00000000 <I2C_StructInit>:
+I2C_StructInit():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:264
+*******************************************************************************/
+void I2C_StructInit(I2C_InitTypeDef* I2C_InitStruct)
+{
+/*---------------- Reset I2C init structure parameters values ----------------*/
+  /* Initialize the I2C_Mode member */
+  I2C_InitStruct->I2C_Mode = I2C_Mode_I2C;
+   0:	f04f 0300 	mov.w	r3, #0
+   4:	8003      	strh	r3, [r0, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:267
+
+  /* Initialize the I2C_DutyCycle member */
+  I2C_InitStruct->I2C_DutyCycle = I2C_DutyCycle_2;
+   6:	f64b 72ff 	movw	r2, #49151	; 0xbfff
+   a:	8042      	strh	r2, [r0, #2]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:270
+
+  /* Initialize the I2C_OwnAddress1 member */
+  I2C_InitStruct->I2C_OwnAddress1 = 0;
+   c:	8083      	strh	r3, [r0, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:273
+
+  /* Initialize the I2C_Ack member */
+  I2C_InitStruct->I2C_Ack = I2C_Ack_Disable;
+   e:	80c3      	strh	r3, [r0, #6]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:276
+
+  /* Initialize the I2C_AcknowledgedAddress member */
+  I2C_InitStruct->I2C_AcknowledgedAddress = I2C_AcknowledgedAddress_7bit;
+  10:	f44f 4380 	mov.w	r3, #16384	; 0x4000
+  14:	8103      	strh	r3, [r0, #8]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:279
+
+  /* initialize the I2C_ClockSpeed member */
+  I2C_InitStruct->I2C_ClockSpeed = 5000;
+  16:	f241 3388 	movw	r3, #5000	; 0x1388
+  1a:	60c3      	str	r3, [r0, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:280
+}
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+
+Disassembly of section .text.I2C_Cmd:
+
+00000000 <I2C_Cmd>:
+I2C_Cmd():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:297
+{
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  if (NewState != DISABLE)
+   0:	b129      	cbz	r1, e <I2C_Cmd+0xe>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:300
+  {
+    /* Enable the selected I2C peripheral */
+    I2Cx->CR1 |= CR1_PE_Set;
+   2:	8803      	ldrh	r3, [r0, #0]
+   4:	b29b      	uxth	r3, r3
+   6:	f043 0301 	orr.w	r3, r3, #1
+   a:	8003      	strh	r3, [r0, #0]
+   c:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:305
+  }
+  else
+  {
+    /* Disable the selected I2C peripheral */
+    I2Cx->CR1 &= CR1_PE_Reset;
+   e:	8803      	ldrh	r3, [r0, #0]
+  10:	f023 0301 	bic.w	r3, r3, #1
+  14:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  18:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  1c:	8003      	strh	r3, [r0, #0]
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.I2C_DMACmd:
+
+00000000 <I2C_DMACmd>:
+I2C_DMACmd():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:324
+{
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  if (NewState != DISABLE)
+   0:	b129      	cbz	r1, e <I2C_DMACmd+0xe>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:327
+  {
+    /* Enable the selected I2C DMA requests */
+    I2Cx->CR2 |= CR2_DMAEN_Set;
+   2:	8883      	ldrh	r3, [r0, #4]
+   4:	b29b      	uxth	r3, r3
+   6:	f443 6300 	orr.w	r3, r3, #2048	; 0x800
+   a:	8083      	strh	r3, [r0, #4]
+   c:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:332
+  }
+  else
+  {
+    /* Disable the selected I2C DMA requests */
+    I2Cx->CR2 &= CR2_DMAEN_Reset;
+   e:	8883      	ldrh	r3, [r0, #4]
+  10:	f423 6300 	bic.w	r3, r3, #2048	; 0x800
+  14:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  18:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  1c:	8083      	strh	r3, [r0, #4]
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.I2C_DMALastTransferCmd:
+
+00000000 <I2C_DMALastTransferCmd>:
+I2C_DMALastTransferCmd():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:351
+{
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  if (NewState != DISABLE)
+   0:	b129      	cbz	r1, e <I2C_DMALastTransferCmd+0xe>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:354
+  {
+    /* Next DMA transfer is the last transfer */
+    I2Cx->CR2 |= CR2_LAST_Set;
+   2:	8883      	ldrh	r3, [r0, #4]
+   4:	b29b      	uxth	r3, r3
+   6:	f443 5380 	orr.w	r3, r3, #4096	; 0x1000
+   a:	8083      	strh	r3, [r0, #4]
+   c:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:359
+  }
+  else
+  {
+    /* Next DMA transfer is not the last transfer */
+    I2Cx->CR2 &= CR2_LAST_Reset;
+   e:	8883      	ldrh	r3, [r0, #4]
+  10:	f423 5380 	bic.w	r3, r3, #4096	; 0x1000
+  14:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  18:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  1c:	8083      	strh	r3, [r0, #4]
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.I2C_GenerateSTART:
+
+00000000 <I2C_GenerateSTART>:
+I2C_GenerateSTART():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:378
+{
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  if (NewState != DISABLE)
+   0:	b129      	cbz	r1, e <I2C_GenerateSTART+0xe>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:381
+  {
+    /* Generate a START condition */
+    I2Cx->CR1 |= CR1_START_Set;
+   2:	8803      	ldrh	r3, [r0, #0]
+   4:	b29b      	uxth	r3, r3
+   6:	f443 7380 	orr.w	r3, r3, #256	; 0x100
+   a:	8003      	strh	r3, [r0, #0]
+   c:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:386
+  }
+  else
+  {
+    /* Disable the START condition generation */
+    I2Cx->CR1 &= CR1_START_Reset;
+   e:	8803      	ldrh	r3, [r0, #0]
+  10:	f423 7380 	bic.w	r3, r3, #256	; 0x100
+  14:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  18:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  1c:	8003      	strh	r3, [r0, #0]
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.I2C_GenerateSTOP:
+
+00000000 <I2C_GenerateSTOP>:
+I2C_GenerateSTOP():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:405
+{
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  if (NewState != DISABLE)
+   0:	b129      	cbz	r1, e <I2C_GenerateSTOP+0xe>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:408
+  {
+    /* Generate a STOP condition */
+    I2Cx->CR1 |= CR1_STOP_Set;
+   2:	8803      	ldrh	r3, [r0, #0]
+   4:	b29b      	uxth	r3, r3
+   6:	f443 7300 	orr.w	r3, r3, #512	; 0x200
+   a:	8003      	strh	r3, [r0, #0]
+   c:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:413
+  }
+  else
+  {
+    /* Disable the STOP condition generation */
+    I2Cx->CR1 &= CR1_STOP_Reset;
+   e:	8803      	ldrh	r3, [r0, #0]
+  10:	f423 7300 	bic.w	r3, r3, #512	; 0x200
+  14:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  18:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  1c:	8003      	strh	r3, [r0, #0]
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.I2C_AcknowledgeConfig:
+
+00000000 <I2C_AcknowledgeConfig>:
+I2C_AcknowledgeConfig():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:432
+{
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  if (NewState != DISABLE)
+   0:	b129      	cbz	r1, e <I2C_AcknowledgeConfig+0xe>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:435
+  {
+    /* Enable the acknowledgement */
+    I2Cx->CR1 |= CR1_ACK_Set;
+   2:	8803      	ldrh	r3, [r0, #0]
+   4:	b29b      	uxth	r3, r3
+   6:	f443 6380 	orr.w	r3, r3, #1024	; 0x400
+   a:	8003      	strh	r3, [r0, #0]
+   c:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:440
+  }
+  else
+  {
+    /* Disable the acknowledgement */
+    I2Cx->CR1 &= CR1_ACK_Reset;
+   e:	8803      	ldrh	r3, [r0, #0]
+  10:	f423 6380 	bic.w	r3, r3, #1024	; 0x400
+  14:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  18:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  1c:	8003      	strh	r3, [r0, #0]
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.I2C_OwnAddress2Config:
+
+00000000 <I2C_OwnAddress2Config>:
+I2C_OwnAddress2Config():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:460
+
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+
+  /* Get the old register value */
+  tmpreg = I2Cx->OAR2;
+   0:	8983      	ldrh	r3, [r0, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:464
+  /* Reset I2Cx Own address2 bit [7:1] */
+  tmpreg &= OAR2_ADD2_Reset;
+  /* Set I2Cx Own address2 */
+  tmpreg |= (u16)(Address & (u16)0x00FE);
+   2:	f001 01fe 	and.w	r1, r1, #254	; 0xfe
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:462
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+
+  /* Get the old register value */
+  tmpreg = I2Cx->OAR2;
+  /* Reset I2Cx Own address2 bit [7:1] */
+  tmpreg &= OAR2_ADD2_Reset;
+   6:	f023 03fe 	bic.w	r3, r3, #254	; 0xfe
+   a:	ea4f 4303 	mov.w	r3, r3, lsl #16
+   e:	ea4f 4313 	mov.w	r3, r3, lsr #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:464
+  /* Set I2Cx Own address2 */
+  tmpreg |= (u16)(Address & (u16)0x00FE);
+  12:	ea41 0303 	orr.w	r3, r1, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:466
+  /* Store the new register value */
+  I2Cx->OAR2 = tmpreg;
+  16:	8183      	strh	r3, [r0, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:467
+}
+  18:	4770      	bx	lr
+  1a:	bf00      	nop
+
+Disassembly of section .text.I2C_DualAddressCmd:
+
+00000000 <I2C_DualAddressCmd>:
+I2C_DualAddressCmd():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:484
+{
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  if (NewState != DISABLE)
+   0:	b129      	cbz	r1, e <I2C_DualAddressCmd+0xe>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:487
+  {
+    /* Enable dual addressing mode */
+    I2Cx->OAR2 |= OAR2_ENDUAL_Set;
+   2:	8983      	ldrh	r3, [r0, #12]
+   4:	b29b      	uxth	r3, r3
+   6:	f043 0301 	orr.w	r3, r3, #1
+   a:	8183      	strh	r3, [r0, #12]
+   c:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:492
+  }
+  else
+  {
+    /* Disable dual addressing mode */
+    I2Cx->OAR2 &= OAR2_ENDUAL_Reset;
+   e:	8983      	ldrh	r3, [r0, #12]
+  10:	f023 0301 	bic.w	r3, r3, #1
+  14:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  18:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  1c:	8183      	strh	r3, [r0, #12]
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.I2C_GeneralCallCmd:
+
+00000000 <I2C_GeneralCallCmd>:
+I2C_GeneralCallCmd():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:511
+{
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  if (NewState != DISABLE)
+   0:	b129      	cbz	r1, e <I2C_GeneralCallCmd+0xe>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:514
+  {
+    /* Enable generall call */
+    I2Cx->CR1 |= CR1_ENGC_Set;
+   2:	8803      	ldrh	r3, [r0, #0]
+   4:	b29b      	uxth	r3, r3
+   6:	f043 0340 	orr.w	r3, r3, #64	; 0x40
+   a:	8003      	strh	r3, [r0, #0]
+   c:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:519
+  }
+  else
+  {
+    /* Disable generall call */
+    I2Cx->CR1 &= CR1_ENGC_Reset;
+   e:	8803      	ldrh	r3, [r0, #0]
+  10:	f023 0340 	bic.w	r3, r3, #64	; 0x40
+  14:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  18:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  1c:	8003      	strh	r3, [r0, #0]
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.I2C_ITConfig:
+
+00000000 <I2C_ITConfig>:
+I2C_ITConfig():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:545
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  assert_param(IS_I2C_CONFIG_IT(I2C_IT));
+  
+  if (NewState != DISABLE)
+   0:	b122      	cbz	r2, c <I2C_ITConfig+0xc>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:548
+  {
+    /* Enable the selected I2C interrupts */
+    I2Cx->CR2 |= I2C_IT;
+   2:	8883      	ldrh	r3, [r0, #4]
+   4:	b29b      	uxth	r3, r3
+   6:	4319      	orrs	r1, r3
+   8:	8081      	strh	r1, [r0, #4]
+   a:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:553
+  }
+  else
+  {
+    /* Disable the selected I2C interrupts */
+    I2Cx->CR2 &= (u16)~I2C_IT;
+   c:	8883      	ldrh	r3, [r0, #4]
+   e:	b29b      	uxth	r3, r3
+  10:	ea23 0101 	bic.w	r1, r3, r1
+  14:	8081      	strh	r1, [r0, #4]
+  16:	4770      	bx	lr
+
+Disassembly of section .text.I2C_SendData:
+
+00000000 <I2C_SendData>:
+I2C_SendData():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:571
+{
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+
+  /* Write in the DR register the data to be sent */
+  I2Cx->DR = Data;
+   0:	8201      	strh	r1, [r0, #16]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:572
+}
+   2:	4770      	bx	lr
+
+Disassembly of section .text.I2C_ReceiveData:
+
+00000000 <I2C_ReceiveData>:
+I2C_ReceiveData():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:587
+{
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+
+  /* Return the data in the DR register */
+  return (u8)I2Cx->DR;
+   0:	8a00      	ldrh	r0, [r0, #16]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:588
+}
+   2:	b2c0      	uxtb	r0, r0
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+
+Disassembly of section .text.I2C_Send7bitAddress:
+
+00000000 <I2C_Send7bitAddress>:
+I2C_Send7bitAddress():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:610
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_I2C_DIRECTION(I2C_Direction));
+
+  /* Test on the direction to set/reset the read/write bit */
+  if (I2C_Direction != I2C_Direction_Transmitter)
+   0:	b112      	cbz	r2, 8 <I2C_Send7bitAddress+0x8>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:613
+  {
+    /* Set the address bit0 for read */
+    Address |= OAR1_ADD0_Set;
+   2:	f041 0101 	orr.w	r1, r1, #1
+   6:	e001      	b.n	c <I2C_Send7bitAddress+0xc>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:618
+  }
+  else
+  {
+    /* Reset the address bit0 for write */
+    Address &= OAR1_ADD0_Reset;
+   8:	f001 01fe 	and.w	r1, r1, #254	; 0xfe
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:621
+  }
+  /* Send the address */
+  I2Cx->DR = Address;
+   c:	8201      	strh	r1, [r0, #16]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:622
+}
+   e:	4770      	bx	lr
+
+Disassembly of section .text.I2C_ReadRegister:
+
+00000000 <I2C_ReadRegister>:
+I2C_ReadRegister():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:642
+*                       - I2C_Register_TRISE: TRISE register.
+* Output         : None
+* Return         : The value of the read register.
+*******************************************************************************/
+u16 I2C_ReadRegister(I2C_TypeDef* I2Cx, u8 I2C_Register)
+{
+   0:	b082      	sub	sp, #8
+   2:	9001      	str	r0, [sp, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:648
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_I2C_REGISTER(I2C_Register));
+
+  /* Return the selected register value */
+  return (*(vu16 *)(*((vu32 *)&I2Cx) + I2C_Register));
+   4:	9b01      	ldr	r3, [sp, #4]
+   6:	5ac8      	ldrh	r0, [r1, r3]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:649
+}
+   8:	b280      	uxth	r0, r0
+   a:	b002      	add	sp, #8
+   c:	4770      	bx	lr
+   e:	bf00      	nop
+
+Disassembly of section .text.I2C_SoftwareResetCmd:
+
+00000000 <I2C_SoftwareResetCmd>:
+I2C_SoftwareResetCmd():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:666
+{
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  if (NewState != DISABLE)
+   0:	b139      	cbz	r1, 12 <I2C_SoftwareResetCmd+0x12>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:669
+  {
+    /* Peripheral under reset */
+    I2Cx->CR1 |= CR1_SWRST_Set;
+   2:	8803      	ldrh	r3, [r0, #0]
+   4:	ea6f 4343 	mvn.w	r3, r3, lsl #17
+   8:	ea6f 4353 	mvn.w	r3, r3, lsr #17
+   c:	b29b      	uxth	r3, r3
+   e:	8003      	strh	r3, [r0, #0]
+  10:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:674
+  }
+  else
+  {
+    /* Peripheral not under reset */
+    I2Cx->CR1 &= CR1_SWRST_Reset;
+  12:	8803      	ldrh	r3, [r0, #0]
+  14:	ea4f 4343 	mov.w	r3, r3, lsl #17
+  18:	ea4f 4353 	mov.w	r3, r3, lsr #17
+  1c:	8003      	strh	r3, [r0, #0]
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.I2C_SMBusAlertConfig:
+
+00000000 <I2C_SMBusAlertConfig>:
+I2C_SMBusAlertConfig():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:695
+{
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_I2C_SMBUS_ALERT(I2C_SMBusAlert));
+
+  if (I2C_SMBusAlert == I2C_SMBusAlert_Low)
+   0:	f5b1 5f00 	cmp.w	r1, #8192	; 0x2000
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:698
+  {
+    /* Drive the SMBusAlert pin Low */
+    I2Cx->CR1 |= I2C_SMBusAlert_Low;
+   4:	8803      	ldrh	r3, [r0, #0]
+   6:	bf07      	ittee	eq
+   8:	b29b      	uxtheq	r3, r3
+   a:	f443 5300 	orreq.w	r3, r3, #8192	; 0x2000
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:703
+  }
+  else
+  {
+    /* Drive the SMBusAlert pin High  */
+    I2Cx->CR1 &= I2C_SMBusAlert_High;
+   e:	f423 5300 	bicne.w	r3, r3, #8192	; 0x2000
+  12:	041b      	lslne	r3, r3, #16
+  14:	bf18      	it	ne
+  16:	0c1b      	lsrne	r3, r3, #16
+  18:	8003      	strh	r3, [r0, #0]
+  1a:	4770      	bx	lr
+
+Disassembly of section .text.I2C_TransmitPEC:
+
+00000000 <I2C_TransmitPEC>:
+I2C_TransmitPEC():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:722
+{
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  if (NewState != DISABLE)
+   0:	b129      	cbz	r1, e <I2C_TransmitPEC+0xe>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:725
+  {
+    /* Enable the selected I2C PEC transmission */
+    I2Cx->CR1 |= CR1_PEC_Set;
+   2:	8803      	ldrh	r3, [r0, #0]
+   4:	b29b      	uxth	r3, r3
+   6:	f443 5380 	orr.w	r3, r3, #4096	; 0x1000
+   a:	8003      	strh	r3, [r0, #0]
+   c:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:730
+  }
+  else
+  {
+    /* Disable the selected I2C PEC transmission */
+    I2Cx->CR1 &= CR1_PEC_Reset;
+   e:	8803      	ldrh	r3, [r0, #0]
+  10:	f423 5380 	bic.w	r3, r3, #4096	; 0x1000
+  14:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  18:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  1c:	8003      	strh	r3, [r0, #0]
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.I2C_PECPositionConfig:
+
+00000000 <I2C_PECPositionConfig>:
+I2C_PECPositionConfig():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:753
+{
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_I2C_PEC_POSITION(I2C_PECPosition));
+
+  if (I2C_PECPosition == I2C_PECPosition_Next)
+   0:	f5b1 6f00 	cmp.w	r1, #2048	; 0x800
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:756
+  {
+    /* Next byte in shift register is PEC */
+    I2Cx->CR1 |= I2C_PECPosition_Next;
+   4:	8803      	ldrh	r3, [r0, #0]
+   6:	bf07      	ittee	eq
+   8:	b29b      	uxtheq	r3, r3
+   a:	f443 6300 	orreq.w	r3, r3, #2048	; 0x800
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:761
+  }
+  else
+  {
+    /* Current byte in shift register is PEC */
+    I2Cx->CR1 &= I2C_PECPosition_Current;
+   e:	f423 6300 	bicne.w	r3, r3, #2048	; 0x800
+  12:	041b      	lslne	r3, r3, #16
+  14:	bf18      	it	ne
+  16:	0c1b      	lsrne	r3, r3, #16
+  18:	8003      	strh	r3, [r0, #0]
+  1a:	4770      	bx	lr
+
+Disassembly of section .text.I2C_CalculatePEC:
+
+00000000 <I2C_CalculatePEC>:
+I2C_CalculatePEC():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:781
+{
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  if (NewState != DISABLE)
+   0:	b129      	cbz	r1, e <I2C_CalculatePEC+0xe>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:784
+  {
+    /* Enable the selected I2C PEC calculation */
+    I2Cx->CR1 |= CR1_ENPEC_Set;
+   2:	8803      	ldrh	r3, [r0, #0]
+   4:	b29b      	uxth	r3, r3
+   6:	f043 0320 	orr.w	r3, r3, #32
+   a:	8003      	strh	r3, [r0, #0]
+   c:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:789
+  }
+  else
+  {
+    /* Disable the selected I2C PEC calculation */
+    I2Cx->CR1 &= CR1_ENPEC_Reset;
+   e:	8803      	ldrh	r3, [r0, #0]
+  10:	f023 0320 	bic.w	r3, r3, #32
+  14:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  18:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  1c:	8003      	strh	r3, [r0, #0]
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.I2C_GetPEC:
+
+00000000 <I2C_GetPEC>:
+I2C_GetPEC():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:806
+{
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+
+  /* Return the selected I2C PEC value */
+  return ((I2Cx->SR2) >> 8);
+   0:	8b00      	ldrh	r0, [r0, #24]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:807
+}
+   2:	f3c0 2007 	ubfx	r0, r0, #8, #8
+   6:	4770      	bx	lr
+
+Disassembly of section .text.I2C_ARPCmd:
+
+00000000 <I2C_ARPCmd>:
+I2C_ARPCmd():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:824
+{
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  if (NewState != DISABLE)
+   0:	b129      	cbz	r1, e <I2C_ARPCmd+0xe>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:827
+  {
+    /* Enable the selected I2C ARP */
+    I2Cx->CR1 |= CR1_ENARP_Set;
+   2:	8803      	ldrh	r3, [r0, #0]
+   4:	b29b      	uxth	r3, r3
+   6:	f043 0310 	orr.w	r3, r3, #16
+   a:	8003      	strh	r3, [r0, #0]
+   c:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:832
+  }
+  else
+  {
+    /* Disable the selected I2C ARP */
+    I2Cx->CR1 &= CR1_ENARP_Reset;
+   e:	8803      	ldrh	r3, [r0, #0]
+  10:	f023 0310 	bic.w	r3, r3, #16
+  14:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  18:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  1c:	8003      	strh	r3, [r0, #0]
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.I2C_StretchClockCmd:
+
+00000000 <I2C_StretchClockCmd>:
+I2C_StretchClockCmd():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:851
+{
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  if (NewState == DISABLE)
+   0:	b929      	cbnz	r1, e <I2C_StretchClockCmd+0xe>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:854
+  {
+    /* Enable the selected I2C Clock stretching */
+    I2Cx->CR1 |= CR1_NOSTRETCH_Set;
+   2:	8803      	ldrh	r3, [r0, #0]
+   4:	b29b      	uxth	r3, r3
+   6:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+   a:	8003      	strh	r3, [r0, #0]
+   c:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:859
+  }
+  else
+  {
+    /* Disable the selected I2C Clock stretching */
+    I2Cx->CR1 &= CR1_NOSTRETCH_Reset;
+   e:	8803      	ldrh	r3, [r0, #0]
+  10:	f023 0380 	bic.w	r3, r3, #128	; 0x80
+  14:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  18:	ea4f 4313 	mov.w	r3, r3, lsr #16
+  1c:	8003      	strh	r3, [r0, #0]
+  1e:	4770      	bx	lr
+
+Disassembly of section .text.I2C_FastModeDutyCycleConfig:
+
+00000000 <I2C_FastModeDutyCycleConfig>:
+I2C_FastModeDutyCycleConfig():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:880
+{
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_I2C_DUTY_CYCLE(I2C_DutyCycle));
+
+  if (I2C_DutyCycle != I2C_DutyCycle_16_9)
+   0:	f5b1 4f80 	cmp.w	r1, #16384	; 0x4000
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:883
+  {
+    /* I2C fast mode Tlow/Thigh=2 */
+    I2Cx->CCR &= I2C_DutyCycle_2;
+   4:	8b83      	ldrh	r3, [r0, #28]
+   6:	bf1d      	ittte	ne
+   8:	f423 4380 	bicne.w	r3, r3, #16384	; 0x4000
+   c:	041b      	lslne	r3, r3, #16
+   e:	0c1b      	lsrne	r3, r3, #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:888
+  }
+  else
+  {
+    /* I2C fast mode Tlow/Thigh=16/9 */
+    I2Cx->CCR |= I2C_DutyCycle_16_9;
+  10:	b29b      	uxtheq	r3, r3
+  12:	bf08      	it	eq
+  14:	f443 4380 	orreq.w	r3, r3, #16384	; 0x4000
+  18:	8383      	strh	r3, [r0, #28]
+  1a:	4770      	bx	lr
+
+Disassembly of section .text.I2C_GetLastEvent:
+
+00000000 <I2C_GetLastEvent>:
+I2C_GetLastEvent():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:908
+
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+
+  /* Read the I2Cx status register */
+  flag1 = I2Cx->SR1;
+   0:	8a83      	ldrh	r3, [r0, #20]
+   2:	b29b      	uxth	r3, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:909
+  flag2 = I2Cx->SR2;
+   4:	8b00      	ldrh	r0, [r0, #24]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:913
+  flag2 = flag2 << 16;
+
+  /* Get the last event value from I2C status register */
+  lastevent = (flag1 | flag2) & FLAG_Mask;
+   6:	ea43 4000 	orr.w	r0, r3, r0, lsl #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:917
+
+  /* Return status */
+  return lastevent;
+}
+   a:	f020 407f 	bic.w	r0, r0, #4278190080	; 0xff000000
+   e:	4770      	bx	lr
+
+Disassembly of section .text.I2C_CheckEvent:
+
+00000000 <I2C_CheckEvent>:
+I2C_CheckEvent():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:952
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_I2C_EVENT(I2C_EVENT));
+
+  /* Read the I2Cx status register */
+  flag1 = I2Cx->SR1;
+   0:	8a83      	ldrh	r3, [r0, #20]
+   2:	b29b      	uxth	r3, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:953
+  flag2 = I2Cx->SR2;
+   4:	8b00      	ldrh	r0, [r0, #24]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:957
+  flag2 = flag2 << 16;
+
+  /* Get the last event value from I2C status register */
+  lastevent = (flag1 | flag2) & FLAG_Mask;
+   6:	ea43 4000 	orr.w	r0, r3, r0, lsl #16
+   a:	f020 407f 	bic.w	r0, r0, #4278190080	; 0xff000000
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:973
+    status = ERROR;
+  }
+
+  /* Return status */
+  return status;
+}
+   e:	4288      	cmp	r0, r1
+  10:	bf14      	ite	ne
+  12:	2000      	movne	r0, #0
+  14:	2001      	moveq	r0, #1
+  16:	4770      	bx	lr
+
+Disassembly of section .text.I2C_GetFlagStatus:
+
+00000000 <I2C_GetFlagStatus>:
+I2C_GetFlagStatus():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1022
+  
+  /* Read flag register index */
+  i2creg = I2C_FLAG >> 28;
+  
+  /* Get bit[23:0] of the flag */
+  I2C_FLAG &= FLAG_Mask;
+   0:	f021 437f 	bic.w	r3, r1, #4278190080	; 0xff000000
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1024
+  
+  if(i2creg != 0)
+   4:	0f09      	lsrs	r1, r1, #28
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1027
+  {
+    /* Get the I2Cx SR1 register address */
+    i2cxbase += 0x14;
+   6:	bf12      	itee	ne
+   8:	3014      	addne	r0, #20
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1032
+  }
+  else
+  {
+    /* Flag in I2Cx SR2 Register */
+    I2C_FLAG = (u32)(I2C_FLAG >> 16);
+   a:	0c1b      	lsreq	r3, r3, #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1034
+    /* Get the I2Cx SR2 register address */
+    i2cxbase += 0x18;
+   c:	3018      	addeq	r0, #24
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1037
+  }
+  
+  if(((*(vu32 *)i2cxbase) & I2C_FLAG) != (u32)RESET)
+   e:	6802      	ldr	r2, [r0, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1040
+  {
+    /* I2C_FLAG is set */
+    bitstatus = SET;
+  10:	421a      	tst	r2, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1050
+    bitstatus = RESET;
+  }
+  
+  /* Return the I2C_FLAG status */
+  return  bitstatus;
+}
+  12:	bf0c      	ite	eq
+  14:	2000      	moveq	r0, #0
+  16:	2001      	movne	r0, #1
+  18:	4770      	bx	lr
+  1a:	bf00      	nop
+
+Disassembly of section .text.I2C_ClearFlag:
+
+00000000 <I2C_ClearFlag>:
+I2C_ClearFlag():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1104
+
+  /* Get the I2C flag position */
+  flagpos = I2C_FLAG & FLAG_Mask;
+
+  /* Clear the selected I2C flag */
+  I2Cx->SR1 = (u16)~flagpos;
+   0:	ea6f 0101 	mvn.w	r1, r1
+   4:	b289      	uxth	r1, r1
+   6:	8281      	strh	r1, [r0, #20]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1105
+}
+   8:	4770      	bx	lr
+   a:	bf00      	nop
+
+Disassembly of section .text.I2C_GetITStatus:
+
+00000000 <I2C_GetITStatus>:
+I2C_GetITStatus():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1141
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_I2C_GET_IT(I2C_IT));
+
+  /* Check if the interrupt source is enabled or not */
+  enablestatus = (u32)(((I2C_IT & ITEN_Mask) >> 16) & (I2Cx->CR2)) ;  
+   0:	8883      	ldrh	r3, [r0, #4]
+   2:	b29a      	uxth	r2, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1147
+
+  /* Get bit[23:0] of the flag */
+  I2C_IT &= FLAG_Mask;
+
+  /* Check the status of the specified I2C flag */
+  if (((I2Cx->SR1 & I2C_IT) != (u32)RESET) && enablestatus)
+   4:	8a83      	ldrh	r3, [r0, #20]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1144
+
+  /* Check if the interrupt source is enabled or not */
+  enablestatus = (u32)(((I2C_IT & ITEN_Mask) >> 16) & (I2Cx->CR2)) ;  
+
+  /* Get bit[23:0] of the flag */
+  I2C_IT &= FLAG_Mask;
+   6:	b29b      	uxth	r3, r3
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1147
+
+  /* Check the status of the specified I2C flag */
+  if (((I2Cx->SR1 & I2C_IT) != (u32)RESET) && enablestatus)
+   8:	420b      	tst	r3, r1
+   a:	d007      	beq.n	1c <I2C_GetITStatus+0x1c>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1141
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_I2C_GET_IT(I2C_IT));
+
+  /* Check if the interrupt source is enabled or not */
+  enablestatus = (u32)(((I2C_IT & ITEN_Mask) >> 16) & (I2Cx->CR2)) ;  
+   c:	f001 61e0 	and.w	r1, r1, #117440512	; 0x7000000
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1131
+*                                      Address matched flag (Slave mode)”ENDAD”
+*                       - I2C_IT_SB: Start bit flag (Master mode)
+* Output         : None
+* Return         : The new state of I2C_IT (SET or RESET).
+*******************************************************************************/
+ITStatus I2C_GetITStatus(I2C_TypeDef* I2Cx, u32 I2C_IT)
+  10:	ea12 4111 	ands.w	r1, r2, r1, lsr #16
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1150
+
+  /* Check the status of the specified I2C flag */
+  if (((I2Cx->SR1 & I2C_IT) != (u32)RESET) && enablestatus)
+  {
+    /* I2C_IT is set */
+    bitstatus = SET;
+  14:	bf0c      	ite	eq
+  16:	2000      	moveq	r0, #0
+  18:	2001      	movne	r0, #1
+  1a:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1155
+  }
+  else
+  {
+    /* I2C_IT is reset */
+    bitstatus = RESET;
+  1c:	f04f 0000 	mov.w	r0, #0
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1159
+  }
+  /* Return the I2C_IT status */
+  return  bitstatus;
+}
+  20:	4770      	bx	lr
+  22:	bf00      	nop
+
+Disassembly of section .text.I2C_ClearITPendingBit:
+
+00000000 <I2C_ClearITPendingBit>:
+I2C_ClearITPendingBit():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1213
+
+  /* Get the I2C flag position */
+  flagpos = I2C_IT & FLAG_Mask;
+
+  /* Clear the selected I2C flag */
+  I2Cx->SR1 = (u16)~flagpos;
+   0:	ea6f 0101 	mvn.w	r1, r1
+   4:	b289      	uxth	r1, r1
+   6:	8281      	strh	r1, [r0, #20]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_i2c.c:1214
+}
+   8:	4770      	bx	lr
+   a:	bf00      	nop

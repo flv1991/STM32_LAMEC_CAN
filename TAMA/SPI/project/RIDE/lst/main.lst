@@ -1,0 +1,1968 @@
+
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\RIDE\obj\main.o:     file format elf32-littlearm
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\RIDE\obj\main.o
+
+
+Disassembly of section .text.RCC_Config_HSE_PLL_Max:
+
+00000000 <RCC_Config_HSE_PLL_Max>:
+RCC_Config_HSE_PLL_Max():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:23
+ float x1, z1;
+ char xusart,yusart,zusart;
+ int flaginitbola=0;
+ int flagxesq, flagxdir,flagycima,flagybaixo;
+ //float y1;
+void RCC_Config_HSE_PLL_Max(void){
+   0:	b510      	push	{r4, lr}
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:24
+RCC_DeInit();
+   2:	f7ff fffe 	bl	0 <RCC_DeInit>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:25
+FLASH_SetLatency(FLASH_Latency_2);
+   6:	f04f 0002 	mov.w	r0, #2
+   a:	f7ff fffe 	bl	0 <FLASH_SetLatency>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:29
+/*configurar clock externo a 72Mhz */
+
+//bypass pois está ligado no OSC_IN um circuito oscilatorio externo
+RCC_HSEConfig(RCC_HSE_Bypass);
+   e:	f44f 2080 	mov.w	r0, #262144	; 0x40000
+  12:	f7ff fffe 	bl	0 <RCC_HSEConfig>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:32
+//Após a ativação do HSE deveremos esperar até que o sinal de relógio esteja pronto e estável
+ErrorStatus HSEStartUpStatus;
+HSEStartUpStatus=RCC_WaitForHSEStartUp();
+  16:	f7ff fffe 	bl	0 <RCC_WaitForHSEStartUp>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:34
+
+if(HSEStartUpStatus==SUCCESS) /*retorna SUCCESS ou ERROR*/
+  1a:	2801      	cmp	r0, #1
+  1c:	d125      	bne.n	6a <RCC_Config_HSE_PLL_Max+0x6a>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:38
+{   
+
+      //divisão do prescaler AHB por 1
+      RCC_HCLKConfig(RCC_SYSCLK_Div1);
+  1e:	f100 30ff 	add.w	r0, r0, #4294967295
+  22:	f7ff fffe 	bl	0 <RCC_HCLKConfig>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:40
+      //divisão do prescaler APB1 por 2
+      RCC_PCLK1Config(RCC_HCLK_Div2);
+  26:	f44f 6080 	mov.w	r0, #1024	; 0x400
+  2a:	f7ff fffe 	bl	0 <RCC_PCLK1Config>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:42
+      //divisão do prescaler APB2 por 1
+      RCC_PCLK2Config(RCC_HCLK_Div1);
+  2e:	f04f 0000 	mov.w	r0, #0
+  32:	f7ff fffe 	bl	0 <RCC_PCLK2Config>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:44
+    //configuar a PLL para 72Mhz
+    RCC_PLLConfig(RCC_PLLSource_HSE_Div1,RCC_PLLMul_6);
+  36:	f44f 3080 	mov.w	r0, #65536	; 0x10000
+  3a:	f44f 1180 	mov.w	r1, #1048576	; 0x100000
+  3e:	f7ff fffe 	bl	0 <RCC_PLLConfig>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:46
+    //activar a pll
+    RCC_PLLCmd(ENABLE);
+  42:	f04f 0001 	mov.w	r0, #1
+  46:	f7ff fffe 	bl	0 <RCC_PLLCmd>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:48
+    
+    while(RCC_GetFlagStatus( RCC_FLAG_PLLRDY)==RESET);
+  4a:	f04f 0439 	mov.w	r4, #57	; 0x39
+  4e:	4620      	mov	r0, r4
+  50:	f7ff fffe 	bl	0 <RCC_GetFlagStatus>
+  54:	2800      	cmp	r0, #0
+  56:	d0fa      	beq.n	4e <RCC_Config_HSE_PLL_Max+0x4e>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:51
+    //activa o sysclk pll
+    
+    RCC_SYSCLKConfig(RCC_SYSCLKSource_PLLCLK);
+  58:	f04f 0002 	mov.w	r0, #2
+  5c:	f7ff fffe 	bl	0 <RCC_SYSCLKConfig>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:55
+
+    
+    //confirmar que o clock está correcto logo esperar que a fonte de relógio esteja correta
+    while(RCC_GetSYSCLKSource()!=0x08);
+  60:	f7ff fffe 	bl	0 <RCC_GetSYSCLKSource>
+  64:	2808      	cmp	r0, #8
+  66:	d1fb      	bne.n	60 <RCC_Config_HSE_PLL_Max+0x60>
+  68:	bd10      	pop	{r4, pc}
+  6a:	e7fe      	b.n	6a <RCC_Config_HSE_PLL_Max+0x6a>
+
+Disassembly of section .text.rcc:
+
+00000000 <rcc>:
+rcc():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:65
+
+
+}
+
+
+void rcc(void){
+   0:	b508      	push	{r3, lr}
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:67
+ 
+RCC_APB1PeriphClockCmd(RCC_APB1Periph_SPI2 | RCC_APB1Periph_USART2, ENABLE);
+   2:	f44f 3010 	mov.w	r0, #147456	; 0x24000
+   6:	f04f 0101 	mov.w	r1, #1
+   a:	f7ff fffe 	bl	0 <RCC_APB1PeriphClockCmd>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:68
+ RCC_APB2PeriphClockCmd( RCC_APB2Periph_GPIOA |RCC_APB2Periph_GPIOB | RCC_APB2Periph_GPIOD , ENABLE );
+   e:	f04f 002c 	mov.w	r0, #44	; 0x2c
+  12:	f04f 0101 	mov.w	r1, #1
+  16:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:70
+
+}
+  1a:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.gpio:
+
+00000000 <gpio>:
+gpio():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:72
+
+void gpio(void){
+   0:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+   4:	b083      	sub	sp, #12
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:83
+//SPI CS - PD2
+
+
+    /* GPIO configuration */
+    GPIO_InitTypeDef GPIO_InitStructure;
+     GPIO_DeInit(GPIOB);//função deinit faz reset as configs do porto
+   6:	f44f 6440 	mov.w	r4, #3072	; 0xc00
+   a:	f2c4 0401 	movt	r4, #16385	; 0x4001
+   e:	4620      	mov	r0, r4
+  10:	f7ff fffe 	bl	0 <GPIO_DeInit>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:84
+     GPIO_DeInit(GPIOD);
+  14:	f44f 56a0 	mov.w	r6, #5120	; 0x1400
+  18:	f2c4 0601 	movt	r6, #16385	; 0x4001
+  1c:	4630      	mov	r0, r6
+  1e:	f7ff fffe 	bl	0 <GPIO_DeInit>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:85
+    GPIO_DeInit(GPIOA);
+  22:	f44f 6500 	mov.w	r5, #2048	; 0x800
+  26:	f2c4 0501 	movt	r5, #16385	; 0x4001
+  2a:	4628      	mov	r0, r5
+  2c:	f7ff fffe 	bl	0 <GPIO_DeInit>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:87
+//CS
+      GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_2; 
+  30:	f04f 0804 	mov.w	r8, #4
+  34:	46c1      	mov	r9, r8
+  36:	f8ad 8004 	strh.w	r8, [sp, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:88
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP; 
+  3a:	f04f 0310 	mov.w	r3, #16
+  3e:	f88d 3007 	strb.w	r3, [sp, #7]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:89
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  42:	f04f 0703 	mov.w	r7, #3
+  46:	f88d 7006 	strb.w	r7, [sp, #6]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:90
+    GPIO_Init(GPIOD, &GPIO_InitStructure);
+  4a:	4630      	mov	r0, r6
+  4c:	eb0d 0108 	add.w	r1, sp, r8
+  50:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:96
+  
+//MOSI PB15
+//miso PB14
+//sck PB13
+
+   GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_15  | GPIO_Pin_13; 
+  54:	f24a 0300 	movw	r3, #40960	; 0xa000
+  58:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:97
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP; 
+  5c:	f04f 0618 	mov.w	r6, #24
+  60:	f88d 6007 	strb.w	r6, [sp, #7]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:98
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  64:	f88d 7006 	strb.w	r7, [sp, #6]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:99
+    GPIO_Init(GPIOB, &GPIO_InitStructure);
+  68:	4620      	mov	r0, r4
+  6a:	eb0d 0108 	add.w	r1, sp, r8
+  6e:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:101
+//
+   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14; 
+  72:	f44f 4380 	mov.w	r3, #16384	; 0x4000
+  76:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:102
+    GPIO_InitStructure.GPIO_Mode =GPIO_Mode_IN_FLOATING; 
+  7a:	f88d 8007 	strb.w	r8, [sp, #7]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:103
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  7e:	f88d 7006 	strb.w	r7, [sp, #6]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:104
+    GPIO_Init(GPIOB, &GPIO_InitStructure);
+  82:	4620      	mov	r0, r4
+  84:	eb0d 0108 	add.w	r1, sp, r8
+  88:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:109
+    
+
+    
+    
+    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_8; //pino 8 
+  8c:	f44f 7380 	mov.w	r3, #256	; 0x100
+  90:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:110
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; //CAN
+  94:	f88d 8007 	strb.w	r8, [sp, #7]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:111
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  98:	f88d 7006 	strb.w	r7, [sp, #6]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:112
+    GPIO_Init(GPIOB, &GPIO_InitStructure);//inicia o GPIOB8 como saida
+  9c:	4620      	mov	r0, r4
+  9e:	eb0d 0108 	add.w	r1, sp, r8
+  a2:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:117
+
+
+
+    //PA2 USART TX Alternate Function Push-Pull
+    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_2; //pino 2
+  a6:	f8ad 8004 	strh.w	r8, [sp, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:118
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP; 
+  aa:	f88d 6007 	strb.w	r6, [sp, #7]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:119
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  ae:	f88d 7006 	strb.w	r7, [sp, #6]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:120
+    GPIO_Init(GPIOA, &GPIO_InitStructure);//inicia o GPIOA2
+  b2:	4628      	mov	r0, r5
+  b4:	eb0d 0108 	add.w	r1, sp, r8
+  b8:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:122
+    //PA3 USART RX GPIO_Mode_IN_FLOATING
+    GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_3; //pino 3
+  bc:	f04f 0308 	mov.w	r3, #8
+  c0:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:123
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; 
+  c4:	f88d 8007 	strb.w	r8, [sp, #7]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:124
+    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  c8:	f88d 7006 	strb.w	r7, [sp, #6]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:125
+    GPIO_Init(GPIOA, &GPIO_InitStructure);//inicia o GPIOA3
+  cc:	4628      	mov	r0, r5
+  ce:	eb0d 0108 	add.w	r1, sp, r8
+  d2:	f7ff fffe 	bl	0 <GPIO_Init>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:127
+    
+}
+  d6:	b003      	add	sp, #12
+  d8:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+
+Disassembly of section .text.spi:
+
+00000000 <spi>:
+spi():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:129
+
+void spi(void){
+   0:	b530      	push	{r4, r5, lr}
+   2:	b087      	sub	sp, #28
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:139
+  //SPI CS - PD2
+
+
+/* --------------SPI_MASTER configuration------------------------------*/
+SPI_InitTypeDef SPI_InitStructure;
+SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_256;
+   4:	f04f 0238 	mov.w	r2, #56	; 0x38
+   8:	f8ad 2010 	strh.w	r2, [sp, #16]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:140
+SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;
+   c:	f04f 0300 	mov.w	r3, #0
+  10:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:141
+SPI_InitStructure.SPI_Mode = SPI_Mode_Master;
+  14:	f44f 7282 	mov.w	r2, #260	; 0x104
+  18:	f8ad 2006 	strh.w	r2, [sp, #6]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:142
+SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;
+  1c:	f8ad 3008 	strh.w	r3, [sp, #8]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:143
+SPI_InitStructure.SPI_NSS = SPI_NSS_Hard;
+  20:	f8ad 300e 	strh.w	r3, [sp, #14]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:144
+SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;
+  24:	f8ad 3012 	strh.w	r3, [sp, #18]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:145
+SPI_InitStructure.SPI_CPOL = SPI_CPOL_High;
+  28:	f04f 0302 	mov.w	r3, #2
+  2c:	f8ad 300a 	strh.w	r3, [sp, #10]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:146
+SPI_InitStructure.SPI_CPHA = SPI_CPHA_2Edge;
+  30:	f04f 0501 	mov.w	r5, #1
+  34:	f8ad 500c 	strh.w	r5, [sp, #12]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:147
+SPI_Init(SPI2, &SPI_InitStructure);
+  38:	f44f 5460 	mov.w	r4, #14336	; 0x3800
+  3c:	f2c4 0400 	movt	r4, #16384	; 0x4000
+  40:	4620      	mov	r0, r4
+  42:	a901      	add	r1, sp, #4
+  44:	f7ff fffe 	bl	0 <SPI_Init>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:148
+SPI_Cmd(SPI2, ENABLE);
+  48:	4620      	mov	r0, r4
+  4a:	4629      	mov	r1, r5
+  4c:	f7ff fffe 	bl	0 <SPI_Cmd>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:149
+}
+  50:	b007      	add	sp, #28
+  52:	bd30      	pop	{r4, r5, pc}
+
+Disassembly of section .text.SPI_read:
+
+00000000 <SPI_read>:
+SPI_read():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:152
+
+uint8_t SPI_read(uint8_t address)
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4606      	mov	r6, r0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:154
+    uint8_t value;
+    GPIO_WriteBit(GPIOD, GPIO_Pin_2,RESET); 
+   4:	f44f 50a0 	mov.w	r0, #5120	; 0x1400
+   8:	f2c4 0001 	movt	r0, #16385	; 0x4001
+   c:	f04f 0104 	mov.w	r1, #4
+  10:	f04f 0200 	mov.w	r2, #0
+  14:	f7ff fffe 	bl	0 <GPIO_WriteBit>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:155
+    address = 0x80 | address;                         // 0b10 - reading and clearing status
+  18:	f046 0680 	orr.w	r6, r6, #128	; 0x80
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:157
+  
+    while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_TXE) == RESET); 
+  1c:	f44f 5460 	mov.w	r4, #14336	; 0x3800
+  20:	f2c4 0400 	movt	r4, #16384	; 0x4000
+  24:	f04f 0502 	mov.w	r5, #2
+  28:	4620      	mov	r0, r4
+  2a:	4629      	mov	r1, r5
+  2c:	f7ff fffe 	bl	0 <SPI_I2S_GetFlagStatus>
+  30:	2800      	cmp	r0, #0
+  32:	d0f9      	beq.n	28 <SPI_read+0x28>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:158
+    SPI_I2S_SendData(SPI2, address);
+  34:	f44f 5060 	mov.w	r0, #14336	; 0x3800
+  38:	f2c4 0000 	movt	r0, #16384	; 0x4000
+  3c:	4631      	mov	r1, r6
+  3e:	f7ff fffe 	bl	0 <SPI_I2S_SendData>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:159
+    while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+  42:	f44f 5460 	mov.w	r4, #14336	; 0x3800
+  46:	f2c4 0400 	movt	r4, #16384	; 0x4000
+  4a:	f04f 0501 	mov.w	r5, #1
+  4e:	4620      	mov	r0, r4
+  50:	4629      	mov	r1, r5
+  52:	f7ff fffe 	bl	0 <SPI_I2S_GetFlagStatus>
+  56:	2800      	cmp	r0, #0
+  58:	d0f9      	beq.n	4e <SPI_read+0x4e>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:160
+    SPI_I2S_ReceiveData(SPI2);
+  5a:	f44f 5060 	mov.w	r0, #14336	; 0x3800
+  5e:	f2c4 0000 	movt	r0, #16384	; 0x4000
+  62:	f7ff fffe 	bl	0 <SPI_I2S_ReceiveData>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:162
+ 
+    while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_TXE) == RESET); 
+  66:	f44f 5460 	mov.w	r4, #14336	; 0x3800
+  6a:	f2c4 0400 	movt	r4, #16384	; 0x4000
+  6e:	f04f 0502 	mov.w	r5, #2
+  72:	4620      	mov	r0, r4
+  74:	4629      	mov	r1, r5
+  76:	f7ff fffe 	bl	0 <SPI_I2S_GetFlagStatus>
+  7a:	2800      	cmp	r0, #0
+  7c:	d0f9      	beq.n	72 <SPI_read+0x72>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:163
+    SPI_I2S_SendData(SPI2, 0xFF);
+  7e:	f44f 5060 	mov.w	r0, #14336	; 0x3800
+  82:	f2c4 0000 	movt	r0, #16384	; 0x4000
+  86:	f04f 01ff 	mov.w	r1, #255	; 0xff
+  8a:	f7ff fffe 	bl	0 <SPI_I2S_SendData>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:164
+    while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+  8e:	f44f 5460 	mov.w	r4, #14336	; 0x3800
+  92:	f2c4 0400 	movt	r4, #16384	; 0x4000
+  96:	f04f 0501 	mov.w	r5, #1
+  9a:	4620      	mov	r0, r4
+  9c:	4629      	mov	r1, r5
+  9e:	f7ff fffe 	bl	0 <SPI_I2S_GetFlagStatus>
+  a2:	2800      	cmp	r0, #0
+  a4:	d0f9      	beq.n	9a <SPI_read+0x9a>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:165
+  value=SPI_I2S_ReceiveData(SPI2);
+  a6:	f44f 5060 	mov.w	r0, #14336	; 0x3800
+  aa:	f2c4 0000 	movt	r0, #16384	; 0x4000
+  ae:	f7ff fffe 	bl	0 <SPI_I2S_ReceiveData>
+  b2:	4604      	mov	r4, r0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:166
+    GPIO_WriteBit(GPIOD, GPIO_Pin_2,SET);
+  b4:	f44f 50a0 	mov.w	r0, #5120	; 0x1400
+  b8:	f2c4 0001 	movt	r0, #16385	; 0x4001
+  bc:	f04f 0104 	mov.w	r1, #4
+  c0:	f04f 0201 	mov.w	r2, #1
+  c4:	f7ff fffe 	bl	0 <GPIO_WriteBit>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:169
+ 
+  return value ;
+}
+  c8:	b2e0      	uxtb	r0, r4
+  ca:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.SPI_send:
+
+00000000 <SPI_send>:
+SPI_send():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:173
+
+
+void SPI_send(uint8_t address, uint8_t data)
+{
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4606      	mov	r6, r0
+   4:	460f      	mov	r7, r1
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:174
+    GPIO_WriteBit(GPIOD, GPIO_Pin_2,RESET);
+   6:	f44f 50a0 	mov.w	r0, #5120	; 0x1400
+   a:	f2c4 0001 	movt	r0, #16385	; 0x4001
+   e:	f04f 0104 	mov.w	r1, #4
+  12:	f04f 0200 	mov.w	r2, #0
+  16:	f7ff fffe 	bl	0 <GPIO_WriteBit>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:176
+ 
+    while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_TXE) == RESET); 
+  1a:	f44f 5460 	mov.w	r4, #14336	; 0x3800
+  1e:	f2c4 0400 	movt	r4, #16384	; 0x4000
+  22:	f04f 0502 	mov.w	r5, #2
+  26:	4620      	mov	r0, r4
+  28:	4629      	mov	r1, r5
+  2a:	f7ff fffe 	bl	0 <SPI_I2S_GetFlagStatus>
+  2e:	2800      	cmp	r0, #0
+  30:	d0f9      	beq.n	26 <SPI_send+0x26>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:177
+    SPI_I2S_SendData(SPI2, address);
+  32:	f44f 5060 	mov.w	r0, #14336	; 0x3800
+  36:	f2c4 0000 	movt	r0, #16384	; 0x4000
+  3a:	4631      	mov	r1, r6
+  3c:	f7ff fffe 	bl	0 <SPI_I2S_SendData>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:178
+    while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+  40:	f44f 5460 	mov.w	r4, #14336	; 0x3800
+  44:	f2c4 0400 	movt	r4, #16384	; 0x4000
+  48:	f04f 0501 	mov.w	r5, #1
+  4c:	4620      	mov	r0, r4
+  4e:	4629      	mov	r1, r5
+  50:	f7ff fffe 	bl	0 <SPI_I2S_GetFlagStatus>
+  54:	2800      	cmp	r0, #0
+  56:	d0f9      	beq.n	4c <SPI_send+0x4c>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:179
+    SPI_I2S_ReceiveData(SPI2);
+  58:	f44f 5060 	mov.w	r0, #14336	; 0x3800
+  5c:	f2c4 0000 	movt	r0, #16384	; 0x4000
+  60:	f7ff fffe 	bl	0 <SPI_I2S_ReceiveData>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:181
+ 
+    while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_TXE) == RESET); 
+  64:	f44f 5460 	mov.w	r4, #14336	; 0x3800
+  68:	f2c4 0400 	movt	r4, #16384	; 0x4000
+  6c:	f04f 0502 	mov.w	r5, #2
+  70:	4620      	mov	r0, r4
+  72:	4629      	mov	r1, r5
+  74:	f7ff fffe 	bl	0 <SPI_I2S_GetFlagStatus>
+  78:	2800      	cmp	r0, #0
+  7a:	d0f9      	beq.n	70 <SPI_send+0x70>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:182
+    SPI_I2S_SendData(SPI2, data);
+  7c:	f44f 5060 	mov.w	r0, #14336	; 0x3800
+  80:	f2c4 0000 	movt	r0, #16384	; 0x4000
+  84:	4639      	mov	r1, r7
+  86:	f7ff fffe 	bl	0 <SPI_I2S_SendData>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:183
+    while(SPI_I2S_GetFlagStatus(SPI2, SPI_I2S_FLAG_RXNE) == RESET);
+  8a:	f44f 5460 	mov.w	r4, #14336	; 0x3800
+  8e:	f2c4 0400 	movt	r4, #16384	; 0x4000
+  92:	f04f 0501 	mov.w	r5, #1
+  96:	4620      	mov	r0, r4
+  98:	4629      	mov	r1, r5
+  9a:	f7ff fffe 	bl	0 <SPI_I2S_GetFlagStatus>
+  9e:	2800      	cmp	r0, #0
+  a0:	d0f9      	beq.n	96 <SPI_send+0x96>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:184
+    SPI_I2S_ReceiveData(SPI2);
+  a2:	f44f 5060 	mov.w	r0, #14336	; 0x3800
+  a6:	f2c4 0000 	movt	r0, #16384	; 0x4000
+  aa:	f7ff fffe 	bl	0 <SPI_I2S_ReceiveData>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:186
+ 
+    GPIO_WriteBit(GPIOD, GPIO_Pin_2,SET);
+  ae:	f44f 50a0 	mov.w	r0, #5120	; 0x1400
+  b2:	f2c4 0001 	movt	r0, #16385	; 0x4001
+  b6:	f04f 0104 	mov.w	r1, #4
+  ba:	f04f 0201 	mov.w	r2, #1
+  be:	f7ff fffe 	bl	0 <GPIO_WriteBit>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:187
+}
+  c2:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.acc:
+
+00000000 <acc>:
+acc():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:190
+
+
+void acc(void){
+   0:	b570      	push	{r4, r5, r6, lr}
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:192
+float y1;
+MSB = SPI_read(0x2D);                     // Z-axis MSB  
+   2:	f04f 002d 	mov.w	r0, #45	; 0x2d
+   6:	f7ff fffe 	bl	0 <acc>
+   a:	f240 0500 	movw	r5, #0
+   e:	f2c0 0500 	movt	r5, #0
+  12:	6028      	str	r0, [r5, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:193
+      LSB = SPI_read(0x2C);                     // Z-axis LSB
+  14:	f04f 002c 	mov.w	r0, #44	; 0x2c
+  18:	f7ff fffe 	bl	0 <acc>
+  1c:	f240 0300 	movw	r3, #0
+  20:	f2c0 0300 	movt	r3, #0
+  24:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:194
+      Zg = (MSB << 8) | (LSB);                  // Merging
+  26:	682c      	ldr	r4, [r5, #0]
+  28:	ea40 2404 	orr.w	r4, r0, r4, lsl #8
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:195
+      Zg=Zg&0xfff; //mascara para ficarmos só com 12bits
+  2c:	ea4f 5404 	mov.w	r4, r4, lsl #20
+  30:	ea4f 5414 	mov.w	r4, r4, lsr #20
+  34:	f240 0300 	movw	r3, #0
+  38:	f2c0 0300 	movt	r3, #0
+  3c:	601c      	str	r4, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:196
+      if(Zg>=0&&Zg<=2047)
+  3e:	f5b4 6f00 	cmp.w	r4, #2048	; 0x800
+  42:	d229      	bcs.n	5a <acc+0x5a>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:197
+        {z1=1.0*Zg/988;
+  44:	f240 0500 	movw	r5, #0
+  48:	f2c0 0500 	movt	r5, #0
+  4c:	4620      	mov	r0, r4
+  4e:	f7ff fffe 	bl	0 <__aeabi_i2d>
+  52:	a3d3      	add	r3, pc, #844	; (adr r3, 3a0 <acc+0x3a0>)
+  54:	e9d3 2300 	ldrd	r2, r3, [r3]
+  58:	f7ff fffe 	bl	0 <__aeabi_ddiv>
+  5c:	f7ff fffe 	bl	0 <__aeabi_d2f>
+  60:	6028      	str	r0, [r5, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:198
+       zusart=100*Zg/3060-32.29;}
+  62:	f240 0500 	movw	r5, #0
+  66:	f2c0 0500 	movt	r5, #0
+  6a:	f04f 0364 	mov.w	r3, #100	; 0x64
+  6e:	fb03 f404 	mul.w	r4, r3, r4
+  72:	f248 032b 	movw	r3, #32811	; 0x802b
+  76:	f6c2 23d5 	movt	r3, #10965	; 0x2ad5
+  7a:	fb83 1304 	smull	r1, r3, r3, r4
+  7e:	ea4f 2063 	mov.w	r0, r3, asr #9
+  82:	f7ff fffe 	bl	0 <__aeabi_i2d>
+  86:	a3c8      	add	r3, pc, #800	; (adr r3, 3a8 <acc+0x3a8>)
+  88:	e9d3 2300 	ldrd	r2, r3, [r3]
+  8c:	f7ff fffe 	bl	0 <__aeabi_dsub>
+  90:	f7ff fffe 	bl	0 <__aeabi_d2iz>
+  94:	7028      	strb	r0, [r5, #0]
+  96:	e029      	b.n	ec <acc+0xec>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:200
+      else
+       { z1=1.0*Zg/1068-3.83;
+  98:	f240 0500 	movw	r5, #0
+  9c:	f2c0 0500 	movt	r5, #0
+  a0:	4620      	mov	r0, r4
+  a2:	f7ff fffe 	bl	0 <__aeabi_i2d>
+  a6:	a3c2      	add	r3, pc, #776	; (adr r3, 3b0 <acc+0x3b0>)
+  a8:	e9d3 2300 	ldrd	r2, r3, [r3]
+  ac:	f7ff fffe 	bl	0 <__aeabi_ddiv>
+  b0:	a3c1      	add	r3, pc, #772	; (adr r3, 3b8 <acc+0x3b8>)
+  b2:	e9d3 2300 	ldrd	r2, r3, [r3]
+  b6:	f7ff fffe 	bl	0 <__aeabi_dsub>
+  ba:	f7ff fffe 	bl	0 <__aeabi_d2f>
+  be:	6028      	str	r0, [r5, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:201
+     zusart=-100*Zg/988+100;}
+  c0:	f240 0300 	movw	r3, #0
+  c4:	f2c0 0300 	movt	r3, #0
+  c8:	f06f 0263 	mvn.w	r2, #99	; 0x63
+  cc:	fb02 f404 	mul.w	r4, r2, r4
+  d0:	f64f 12c9 	movw	r2, #63945	; 0xf9c9
+  d4:	f2c8 42a9 	movt	r2, #33961	; 0x84a9
+  d8:	fb82 1204 	smull	r1, r2, r2, r4
+  dc:	1912      	adds	r2, r2, r4
+  de:	ea4f 74e4 	mov.w	r4, r4, asr #31
+  e2:	ebc4 2462 	rsb	r4, r4, r2, asr #9
+  e6:	f104 0464 	add.w	r4, r4, #100	; 0x64
+  ea:	701c      	strb	r4, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:202
+        left_part_z=(int) z1;
+  ec:	f240 0300 	movw	r3, #0
+  f0:	f2c0 0300 	movt	r3, #0
+  f4:	681d      	ldr	r5, [r3, #0]
+  f6:	4628      	mov	r0, r5
+  f8:	f7ff fffe 	bl	0 <__aeabi_f2iz>
+  fc:	f240 0300 	movw	r3, #0
+ 100:	f2c0 0300 	movt	r3, #0
+ 104:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:203
+        right_part_z = (z1 - left_part_z) * 100000;
+ 106:	f240 0400 	movw	r4, #0
+ 10a:	f2c0 0400 	movt	r4, #0
+ 10e:	f7ff fffe 	bl	0 <__aeabi_i2f>
+ 112:	4601      	mov	r1, r0
+ 114:	4628      	mov	r0, r5
+ 116:	f7ff fffe 	bl	0 <__aeabi_fsub>
+ 11a:	f44f 41a0 	mov.w	r1, #20480	; 0x5000
+ 11e:	f2c4 71c3 	movt	r1, #18371	; 0x47c3
+ 122:	f7ff fffe 	bl	0 <__aeabi_fmul>
+ 126:	f7ff fffe 	bl	0 <__aeabi_f2iz>
+ 12a:	6020      	str	r0, [r4, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:205
+    
+      MSB = SPI_read(0x2B);                     // Z-axis MSB
+ 12c:	f04f 002b 	mov.w	r0, #43	; 0x2b
+ 130:	f7ff fffe 	bl	0 <acc>
+ 134:	f240 0500 	movw	r5, #0
+ 138:	f2c0 0500 	movt	r5, #0
+ 13c:	6028      	str	r0, [r5, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:206
+      LSB = SPI_read(0x2A);                     // Z-axis LSB
+ 13e:	f04f 002a 	mov.w	r0, #42	; 0x2a
+ 142:	f7ff fffe 	bl	0 <acc>
+ 146:	f240 0300 	movw	r3, #0
+ 14a:	f2c0 0300 	movt	r3, #0
+ 14e:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:207
+      Yg = (MSB << 8) | (LSB);  
+ 150:	682c      	ldr	r4, [r5, #0]
+ 152:	ea40 2404 	orr.w	r4, r0, r4, lsl #8
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:208
+      Yg=Yg&0xfff;    // Merging  
+ 156:	ea4f 5404 	mov.w	r4, r4, lsl #20
+ 15a:	ea4f 5414 	mov.w	r4, r4, lsr #20
+ 15e:	f240 0300 	movw	r3, #0
+ 162:	f2c0 0300 	movt	r3, #0
+ 166:	601c      	str	r4, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:209
+      if(Yg>=0&&Yg<=1015){
+ 168:	f5b4 7f7e 	cmp.w	r4, #1016	; 0x3f8
+ 16c:	d221      	bcs.n	1b2 <acc+0x1b2>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:211
+        //y1=1.0*Yg/1015;
+      y1=63*Yg/1015+64;
+ 16e:	ea4f 1384 	mov.w	r3, r4, lsl #6
+ 172:	1b1b      	subs	r3, r3, r4
+ 174:	f648 55bf 	movw	r5, #36287	; 0x8dbf
+ 178:	f2c8 1522 	movt	r5, #33058	; 0x8122
+ 17c:	fb85 2003 	smull	r2, r0, r5, r3
+ 180:	18c0      	adds	r0, r0, r3
+ 182:	ea4f 73e3 	mov.w	r3, r3, asr #31
+ 186:	ebc3 2060 	rsb	r0, r3, r0, asr #9
+ 18a:	f100 0040 	add.w	r0, r0, #64	; 0x40
+ 18e:	f7ff fffe 	bl	0 <__aeabi_i2f>
+ 192:	4606      	mov	r6, r0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:212
+        yusart=100*Yg/1015;
+ 194:	f240 0300 	movw	r3, #0
+ 198:	f2c0 0300 	movt	r3, #0
+ 19c:	f04f 0264 	mov.w	r2, #100	; 0x64
+ 1a0:	fb02 f404 	mul.w	r4, r2, r4
+ 1a4:	fb85 1504 	smull	r1, r5, r5, r4
+ 1a8:	192c      	adds	r4, r5, r4
+ 1aa:	ea4f 2464 	mov.w	r4, r4, asr #9
+ 1ae:	701c      	strb	r4, [r3, #0]
+ 1b0:	e037      	b.n	222 <acc+0x222>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:217
+      }
+      else
+        {
+        // y1=-1.0*Yg/1015+4.03;
+        y1=64.0*Yg/1015-194.2;
+ 1b2:	4620      	mov	r0, r4
+ 1b4:	f7ff fffe 	bl	0 <__aeabi_i2d>
+ 1b8:	f04f 0200 	mov.w	r2, #0
+ 1bc:	f04f 0300 	mov.w	r3, #0
+ 1c0:	f2c4 0350 	movt	r3, #16464	; 0x4050
+ 1c4:	f7ff fffe 	bl	0 <__aeabi_dmul>
+ 1c8:	a37d      	add	r3, pc, #500	; (adr r3, 3c0 <acc+0x3c0>)
+ 1ca:	e9d3 2300 	ldrd	r2, r3, [r3]
+ 1ce:	f7ff fffe 	bl	0 <__aeabi_ddiv>
+ 1d2:	a37d      	add	r3, pc, #500	; (adr r3, 3c8 <acc+0x3c8>)
+ 1d4:	e9d3 2300 	ldrd	r2, r3, [r3]
+ 1d8:	f7ff fffe 	bl	0 <__aeabi_dsub>
+ 1dc:	f7ff fffe 	bl	0 <__aeabi_d2f>
+ 1e0:	4606      	mov	r6, r0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:218
+yusart=-(-100*Yg/1015+403.45);
+ 1e2:	f240 0500 	movw	r5, #0
+ 1e6:	f2c0 0500 	movt	r5, #0
+ 1ea:	f06f 0363 	mvn.w	r3, #99	; 0x63
+ 1ee:	fb03 f404 	mul.w	r4, r3, r4
+ 1f2:	f648 53bf 	movw	r3, #36287	; 0x8dbf
+ 1f6:	f2c8 1322 	movt	r3, #33058	; 0x8122
+ 1fa:	fb83 2304 	smull	r2, r3, r3, r4
+ 1fe:	1918      	adds	r0, r3, r4
+ 200:	ea4f 74e4 	mov.w	r4, r4, asr #31
+ 204:	ebc4 2060 	rsb	r0, r4, r0, asr #9
+ 208:	f7ff fffe 	bl	0 <__aeabi_i2d>
+ 20c:	a370      	add	r3, pc, #448	; (adr r3, 3d0 <acc+0x3d0>)
+ 20e:	e9d3 2300 	ldrd	r2, r3, [r3]
+ 212:	f7ff fffe 	bl	0 <__aeabi_dadd>
+ 216:	f101 4300 	add.w	r3, r1, #2147483648	; 0x80000000
+ 21a:	4619      	mov	r1, r3
+ 21c:	f7ff fffe 	bl	0 <__aeabi_d2iz>
+ 220:	7028      	strb	r0, [r5, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:220
+    }
+        left_part_y=(int) y1;
+ 222:	4630      	mov	r0, r6
+ 224:	f7ff fffe 	bl	0 <__aeabi_f2iz>
+ 228:	f240 0300 	movw	r3, #0
+ 22c:	f2c0 0300 	movt	r3, #0
+ 230:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:221
+        right_part_y = (y1 - left_part_y) * 100000;
+ 232:	f240 0400 	movw	r4, #0
+ 236:	f2c0 0400 	movt	r4, #0
+ 23a:	f7ff fffe 	bl	0 <__aeabi_i2f>
+ 23e:	4601      	mov	r1, r0
+ 240:	4630      	mov	r0, r6
+ 242:	f7ff fffe 	bl	0 <__aeabi_fsub>
+ 246:	f44f 41a0 	mov.w	r1, #20480	; 0x5000
+ 24a:	f2c4 71c3 	movt	r1, #18371	; 0x47c3
+ 24e:	f7ff fffe 	bl	0 <__aeabi_fmul>
+ 252:	f7ff fffe 	bl	0 <__aeabi_f2iz>
+ 256:	6020      	str	r0, [r4, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:222
+      MSB = SPI_read(0x29);
+ 258:	f04f 0029 	mov.w	r0, #41	; 0x29
+ 25c:	f7ff fffe 	bl	0 <acc>
+ 260:	f240 0500 	movw	r5, #0
+ 264:	f2c0 0500 	movt	r5, #0
+ 268:	6028      	str	r0, [r5, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:223
+      LSB = SPI_read(0x28);                     
+ 26a:	f04f 0028 	mov.w	r0, #40	; 0x28
+ 26e:	f7ff fffe 	bl	0 <acc>
+ 272:	f240 0300 	movw	r3, #0
+ 276:	f2c0 0300 	movt	r3, #0
+ 27a:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:224
+      Xg = (MSB << 8) | (LSB);
+ 27c:	682c      	ldr	r4, [r5, #0]
+ 27e:	ea40 2404 	orr.w	r4, r0, r4, lsl #8
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:225
+      Xg=Xg&0xfff; 
+ 282:	ea4f 5404 	mov.w	r4, r4, lsl #20
+ 286:	ea4f 5414 	mov.w	r4, r4, lsr #20
+ 28a:	f240 0300 	movw	r3, #0
+ 28e:	f2c0 0300 	movt	r3, #0
+ 292:	601c      	str	r4, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:226
+      if(Xg>=0&&Xg<=1015){
+ 294:	f5b4 7f7e 	cmp.w	r4, #1016	; 0x3f8
+ 298:	d225      	bcs.n	52 <acc+0x52>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:227
+         x1=63*Xg/1015+64;
+ 29a:	f240 0600 	movw	r6, #0
+ 29e:	f2c0 0600 	movt	r6, #0
+ 2a2:	ea4f 1384 	mov.w	r3, r4, lsl #6
+ 2a6:	1b1b      	subs	r3, r3, r4
+ 2a8:	f648 55bf 	movw	r5, #36287	; 0x8dbf
+ 2ac:	f2c8 1522 	movt	r5, #33058	; 0x8122
+ 2b0:	fb85 1003 	smull	r1, r0, r5, r3
+ 2b4:	18c0      	adds	r0, r0, r3
+ 2b6:	ea4f 73e3 	mov.w	r3, r3, asr #31
+ 2ba:	ebc3 2060 	rsb	r0, r3, r0, asr #9
+ 2be:	f100 0040 	add.w	r0, r0, #64	; 0x40
+ 2c2:	f7ff fffe 	bl	0 <__aeabi_i2f>
+ 2c6:	6030      	str	r0, [r6, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:228
+        xusart=100*Xg/1015;
+ 2c8:	f240 0300 	movw	r3, #0
+ 2cc:	f2c0 0300 	movt	r3, #0
+ 2d0:	f04f 0264 	mov.w	r2, #100	; 0x64
+ 2d4:	fb02 f404 	mul.w	r4, r2, r4
+ 2d8:	fb85 2504 	smull	r2, r5, r5, r4
+ 2dc:	192c      	adds	r4, r5, r4
+ 2de:	ea4f 2464 	mov.w	r4, r4, asr #9
+ 2e2:	701c      	strb	r4, [r3, #0]
+ 2e4:	e03b      	b.n	35e <acc+0x35e>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:231
+      }
+      else
+       { x1=64.0*Xg/1015-194.2;
+ 2e6:	f240 0500 	movw	r5, #0
+ 2ea:	f2c0 0500 	movt	r5, #0
+ 2ee:	4620      	mov	r0, r4
+ 2f0:	f7ff fffe 	bl	0 <__aeabi_i2d>
+ 2f4:	f04f 0200 	mov.w	r2, #0
+ 2f8:	f04f 0300 	mov.w	r3, #0
+ 2fc:	f2c4 0350 	movt	r3, #16464	; 0x4050
+ 300:	f7ff fffe 	bl	0 <__aeabi_dmul>
+ 304:	a32e      	add	r3, pc, #184	; (adr r3, 3c0 <acc+0x3c0>)
+ 306:	e9d3 2300 	ldrd	r2, r3, [r3]
+ 30a:	f7ff fffe 	bl	0 <__aeabi_ddiv>
+ 30e:	a32e      	add	r3, pc, #184	; (adr r3, 3c8 <acc+0x3c8>)
+ 310:	e9d3 2300 	ldrd	r2, r3, [r3]
+ 314:	f7ff fffe 	bl	0 <__aeabi_dsub>
+ 318:	f7ff fffe 	bl	0 <__aeabi_d2f>
+ 31c:	6028      	str	r0, [r5, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:232
+        xusart=-(-100*Xg/1015+403.45);
+ 31e:	f240 0500 	movw	r5, #0
+ 322:	f2c0 0500 	movt	r5, #0
+ 326:	f06f 0363 	mvn.w	r3, #99	; 0x63
+ 32a:	fb03 f404 	mul.w	r4, r3, r4
+ 32e:	f648 53bf 	movw	r3, #36287	; 0x8dbf
+ 332:	f2c8 1322 	movt	r3, #33058	; 0x8122
+ 336:	fb83 1304 	smull	r1, r3, r3, r4
+ 33a:	1918      	adds	r0, r3, r4
+ 33c:	ea4f 74e4 	mov.w	r4, r4, asr #31
+ 340:	ebc4 2060 	rsb	r0, r4, r0, asr #9
+ 344:	f7ff fffe 	bl	0 <__aeabi_i2d>
+ 348:	a321      	add	r3, pc, #132	; (adr r3, 3d0 <acc+0x3d0>)
+ 34a:	e9d3 2300 	ldrd	r2, r3, [r3]
+ 34e:	f7ff fffe 	bl	0 <__aeabi_dadd>
+ 352:	f101 4300 	add.w	r3, r1, #2147483648	; 0x80000000
+ 356:	4619      	mov	r1, r3
+ 358:	f7ff fffe 	bl	0 <__aeabi_d2iz>
+ 35c:	7028      	strb	r0, [r5, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:234
+    }
+        left_part_x=(int) x1;
+ 35e:	f240 0300 	movw	r3, #0
+ 362:	f2c0 0300 	movt	r3, #0
+ 366:	681d      	ldr	r5, [r3, #0]
+ 368:	4628      	mov	r0, r5
+ 36a:	f7ff fffe 	bl	0 <__aeabi_f2iz>
+ 36e:	f240 0300 	movw	r3, #0
+ 372:	f2c0 0300 	movt	r3, #0
+ 376:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:235
+        right_part_x = (x1 - left_part_x) * 100000;
+ 378:	f240 0400 	movw	r4, #0
+ 37c:	f2c0 0400 	movt	r4, #0
+ 380:	f7ff fffe 	bl	0 <__aeabi_i2f>
+ 384:	4601      	mov	r1, r0
+ 386:	4628      	mov	r0, r5
+ 388:	f7ff fffe 	bl	0 <__aeabi_fsub>
+ 38c:	f44f 41a0 	mov.w	r1, #20480	; 0x5000
+ 390:	f2c4 71c3 	movt	r1, #18371	; 0x47c3
+ 394:	f7ff fffe 	bl	0 <__aeabi_fmul>
+ 398:	f7ff fffe 	bl	0 <__aeabi_f2iz>
+ 39c:	6020      	str	r0, [r4, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:237
+
+}
+ 39e:	bd70      	pop	{r4, r5, r6, pc}
+ 3a0:	00000000 	.word	0x00000000
+ 3a4:	408ee000 	.word	0x408ee000
+ 3a8:	b851eb85 	.word	0xb851eb85
+ 3ac:	4040251e 	.word	0x4040251e
+ 3b0:	00000000 	.word	0x00000000
+ 3b4:	4090b000 	.word	0x4090b000
+ 3b8:	0a3d70a4 	.word	0x0a3d70a4
+ 3bc:	400ea3d7 	.word	0x400ea3d7
+ 3c0:	00000000 	.word	0x00000000
+ 3c4:	408fb800 	.word	0x408fb800
+ 3c8:	66666666 	.word	0x66666666
+ 3cc:	40684666 	.word	0x40684666
+ 3d0:	33333333 	.word	0x33333333
+ 3d4:	40793733 	.word	0x40793733
+
+Disassembly of section .text.clearcircle:
+
+00000000 <clearcircle>:
+clearcircle():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:240
+
+void clearcircle(int xCenter, int yCenter, int radius)
+{int x, y, r2,cnt,r;
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	b085      	sub	sp, #20
+   6:	4682      	mov	sl, r0
+   8:	468b      	mov	fp, r1
+   a:	9201      	str	r2, [sp, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:241
+r2 = radius * radius;
+   c:	fb02 f202 	mul.w	r2, r2, r2
+  10:	9202      	str	r2, [sp, #8]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:243
+
+for (x = -radius; x <= radius; x++) {
+  12:	9b01      	ldr	r3, [sp, #4]
+  14:	f1c3 0300 	rsb	r3, r3, #0
+  18:	9303      	str	r3, [sp, #12]
+  1a:	9a01      	ldr	r2, [sp, #4]
+  1c:	429a      	cmp	r2, r3
+  1e:	db6f      	blt.n	100 <clearcircle+0x100>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:239
+        left_part_x=(int) x1;
+        right_part_x = (x1 - left_part_x) * 100000;
+
+}
+
+void clearcircle(int xCenter, int yCenter, int radius)
+  20:	1ac6      	subs	r6, r0, r3
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:245
+{int x, y, r2,cnt,r;
+r2 = radius * radius;
+
+for (x = -radius; x <= radius; x++) {
+ y = (int) (sqrt(r2 - x*x) + 0.5);
+LCD_DrawPixel( xCenter + x, yCenter + y, 0xFFFF );
+  22:	f64f 77ff 	movw	r7, #65535	; 0xffff
+  26:	461d      	mov	r5, r3
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:244
+void clearcircle(int xCenter, int yCenter, int radius)
+{int x, y, r2,cnt,r;
+r2 = radius * radius;
+
+for (x = -radius; x <= radius; x++) {
+ y = (int) (sqrt(r2 - x*x) + 0.5);
+  28:	9b02      	ldr	r3, [sp, #8]
+  2a:	fb05 3015 	mls	r0, r5, r5, r3
+  2e:	f7ff fffe 	bl	0 <__aeabi_i2d>
+  32:	f7ff fffe 	bl	0 <sqrt>
+  36:	f04f 0200 	mov.w	r2, #0
+  3a:	f04f 0300 	mov.w	r3, #0
+  3e:	f6c3 73e0 	movt	r3, #16352	; 0x3fe0
+  42:	f7ff fffe 	bl	0 <__aeabi_dadd>
+  46:	f7ff fffe 	bl	0 <__aeabi_d2iz>
+  4a:	4604      	mov	r4, r0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:239
+        left_part_x=(int) x1;
+        right_part_x = (x1 - left_part_x) * 100000;
+
+}
+
+void clearcircle(int xCenter, int yCenter, int radius)
+  4c:	eb05 080a 	add.w	r8, r5, sl
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:245
+{int x, y, r2,cnt,r;
+r2 = radius * radius;
+
+for (x = -radius; x <= radius; x++) {
+ y = (int) (sqrt(r2 - x*x) + 0.5);
+LCD_DrawPixel( xCenter + x, yCenter + y, 0xFFFF );
+  50:	eb00 090b 	add.w	r9, r0, fp
+  54:	4640      	mov	r0, r8
+  56:	4649      	mov	r1, r9
+  58:	463a      	mov	r2, r7
+  5a:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:246
+LCD_DrawPixel( xCenter + x, yCenter - y, 0xFFFF );
+  5e:	ebc4 040b 	rsb	r4, r4, fp
+  62:	4640      	mov	r0, r8
+  64:	4621      	mov	r1, r4
+  66:	463a      	mov	r2, r7
+  68:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:247
+LCD_DrawPixel( xCenter - x, yCenter + y,0xFFFF );
+  6c:	4630      	mov	r0, r6
+  6e:	4649      	mov	r1, r9
+  70:	463a      	mov	r2, r7
+  72:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:248
+LCD_DrawPixel( xCenter - x, yCenter - y, 0xFFFF );
+  76:	4630      	mov	r0, r6
+  78:	4621      	mov	r1, r4
+  7a:	463a      	mov	r2, r7
+  7c:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:243
+
+void clearcircle(int xCenter, int yCenter, int radius)
+{int x, y, r2,cnt,r;
+r2 = radius * radius;
+
+for (x = -radius; x <= radius; x++) {
+  80:	f105 0501 	add.w	r5, r5, #1
+  84:	f106 36ff 	add.w	r6, r6, #4294967295
+  88:	9a01      	ldr	r2, [sp, #4]
+  8a:	42aa      	cmp	r2, r5
+  8c:	dacc      	bge.n	28 <clearcircle+0x28>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:239
+        left_part_x=(int) x1;
+        right_part_x = (x1 - left_part_x) * 100000;
+
+}
+
+void clearcircle(int xCenter, int yCenter, int radius)
+  8e:	9b03      	ldr	r3, [sp, #12]
+  90:	ebc3 060b 	rsb	r6, r3, fp
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:254
+
+}
+
+for (y = -radius; y <= radius; y++) {
+ x = (int) (sqrt(r2 - y*y) + 0.5);
+LCD_DrawPixel( xCenter + x, yCenter + y, 0xFFFF );
+  94:	f64f 77ff 	movw	r7, #65535	; 0xffff
+  98:	461d      	mov	r5, r3
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:253
+LCD_DrawPixel( xCenter - x, yCenter - y, 0xFFFF );
+
+}
+
+for (y = -radius; y <= radius; y++) {
+ x = (int) (sqrt(r2 - y*y) + 0.5);
+  9a:	9a02      	ldr	r2, [sp, #8]
+  9c:	fb05 2015 	mls	r0, r5, r5, r2
+  a0:	f7ff fffe 	bl	0 <__aeabi_i2d>
+  a4:	f7ff fffe 	bl	0 <sqrt>
+  a8:	f04f 0200 	mov.w	r2, #0
+  ac:	f04f 0300 	mov.w	r3, #0
+  b0:	f6c3 73e0 	movt	r3, #16352	; 0x3fe0
+  b4:	f7ff fffe 	bl	0 <__aeabi_dadd>
+  b8:	f7ff fffe 	bl	0 <__aeabi_d2iz>
+  bc:	4680      	mov	r8, r0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:254
+LCD_DrawPixel( xCenter + x, yCenter + y, 0xFFFF );
+  be:	eb00 040a 	add.w	r4, r0, sl
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:239
+        left_part_x=(int) x1;
+        right_part_x = (x1 - left_part_x) * 100000;
+
+}
+
+void clearcircle(int xCenter, int yCenter, int radius)
+  c2:	eb05 090b 	add.w	r9, r5, fp
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:254
+
+}
+
+for (y = -radius; y <= radius; y++) {
+ x = (int) (sqrt(r2 - y*y) + 0.5);
+LCD_DrawPixel( xCenter + x, yCenter + y, 0xFFFF );
+  c6:	4620      	mov	r0, r4
+  c8:	4649      	mov	r1, r9
+  ca:	463a      	mov	r2, r7
+  cc:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:255
+LCD_DrawPixel( xCenter + x, yCenter - y, 0xFFFF );
+  d0:	4620      	mov	r0, r4
+  d2:	4631      	mov	r1, r6
+  d4:	463a      	mov	r2, r7
+  d6:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:256
+LCD_DrawPixel( xCenter - x, yCenter + y, 0xFFFF );
+  da:	ebc8 040a 	rsb	r4, r8, sl
+  de:	4620      	mov	r0, r4
+  e0:	4649      	mov	r1, r9
+  e2:	463a      	mov	r2, r7
+  e4:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:257
+LCD_DrawPixel( xCenter - x, yCenter - y, 0xFFFF );
+  e8:	4620      	mov	r0, r4
+  ea:	4631      	mov	r1, r6
+  ec:	463a      	mov	r2, r7
+  ee:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:252
+LCD_DrawPixel( xCenter - x, yCenter + y,0xFFFF );
+LCD_DrawPixel( xCenter - x, yCenter - y, 0xFFFF );
+
+}
+
+for (y = -radius; y <= radius; y++) {
+  f2:	f105 0501 	add.w	r5, r5, #1
+  f6:	f106 36ff 	add.w	r6, r6, #4294967295
+  fa:	9b01      	ldr	r3, [sp, #4]
+  fc:	42ab      	cmp	r3, r5
+  fe:	dacc      	bge.n	9a <clearcircle+0x9a>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:263
+
+
+}
+
+
+}
+ 100:	b005      	add	sp, #20
+ 102:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 106:	bf00      	nop
+
+Disassembly of section .text.drawcircle:
+
+00000000 <drawcircle>:
+drawcircle():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:266
+
+void drawcircle(int xCenter, int yCenter, int radius)
+{int x, y, r2;
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	b085      	sub	sp, #20
+   6:	4682      	mov	sl, r0
+   8:	468b      	mov	fp, r1
+   a:	9201      	str	r2, [sp, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:267
+r2 = radius * radius;
+   c:	fb02 f202 	mul.w	r2, r2, r2
+  10:	9202      	str	r2, [sp, #8]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:269
+
+for (x = -radius; x <= radius; x++) {
+  12:	9b01      	ldr	r3, [sp, #4]
+  14:	f1c3 0300 	rsb	r3, r3, #0
+  18:	9303      	str	r3, [sp, #12]
+  1a:	9a01      	ldr	r2, [sp, #4]
+  1c:	429a      	cmp	r2, r3
+  1e:	db6f      	blt.n	100 <drawcircle+0x100>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:265
+}
+
+
+}
+
+void drawcircle(int xCenter, int yCenter, int radius)
+  20:	1ac6      	subs	r6, r0, r3
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:271
+{int x, y, r2;
+r2 = radius * radius;
+
+for (x = -radius; x <= radius; x++) {
+ y = (int) (sqrt(r2 - x*x) + 0.5);
+LCD_DrawPixel( xCenter + x, yCenter + y, 0 );
+  22:	f04f 0700 	mov.w	r7, #0
+  26:	461d      	mov	r5, r3
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:270
+void drawcircle(int xCenter, int yCenter, int radius)
+{int x, y, r2;
+r2 = radius * radius;
+
+for (x = -radius; x <= radius; x++) {
+ y = (int) (sqrt(r2 - x*x) + 0.5);
+  28:	9b02      	ldr	r3, [sp, #8]
+  2a:	fb05 3015 	mls	r0, r5, r5, r3
+  2e:	f7ff fffe 	bl	0 <__aeabi_i2d>
+  32:	f7ff fffe 	bl	0 <sqrt>
+  36:	f04f 0200 	mov.w	r2, #0
+  3a:	f04f 0300 	mov.w	r3, #0
+  3e:	f6c3 73e0 	movt	r3, #16352	; 0x3fe0
+  42:	f7ff fffe 	bl	0 <__aeabi_dadd>
+  46:	f7ff fffe 	bl	0 <__aeabi_d2iz>
+  4a:	4604      	mov	r4, r0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:265
+}
+
+
+}
+
+void drawcircle(int xCenter, int yCenter, int radius)
+  4c:	eb05 080a 	add.w	r8, r5, sl
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:271
+{int x, y, r2;
+r2 = radius * radius;
+
+for (x = -radius; x <= radius; x++) {
+ y = (int) (sqrt(r2 - x*x) + 0.5);
+LCD_DrawPixel( xCenter + x, yCenter + y, 0 );
+  50:	eb00 090b 	add.w	r9, r0, fp
+  54:	4640      	mov	r0, r8
+  56:	4649      	mov	r1, r9
+  58:	463a      	mov	r2, r7
+  5a:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:272
+LCD_DrawPixel( xCenter + x, yCenter - y, 0 );
+  5e:	ebc4 040b 	rsb	r4, r4, fp
+  62:	4640      	mov	r0, r8
+  64:	4621      	mov	r1, r4
+  66:	463a      	mov	r2, r7
+  68:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:273
+LCD_DrawPixel( xCenter - x, yCenter + y, 0 );
+  6c:	4630      	mov	r0, r6
+  6e:	4649      	mov	r1, r9
+  70:	463a      	mov	r2, r7
+  72:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:274
+LCD_DrawPixel( xCenter - x, yCenter - y, 0 );
+  76:	4630      	mov	r0, r6
+  78:	4621      	mov	r1, r4
+  7a:	463a      	mov	r2, r7
+  7c:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:269
+
+void drawcircle(int xCenter, int yCenter, int radius)
+{int x, y, r2;
+r2 = radius * radius;
+
+for (x = -radius; x <= radius; x++) {
+  80:	f105 0501 	add.w	r5, r5, #1
+  84:	f106 36ff 	add.w	r6, r6, #4294967295
+  88:	9a01      	ldr	r2, [sp, #4]
+  8a:	42aa      	cmp	r2, r5
+  8c:	dacc      	bge.n	28 <drawcircle+0x28>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:265
+}
+
+
+}
+
+void drawcircle(int xCenter, int yCenter, int radius)
+  8e:	9b03      	ldr	r3, [sp, #12]
+  90:	ebc3 060b 	rsb	r6, r3, fp
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:280
+
+}
+
+for (y = -radius; y <= radius; y++) {
+ x = (int) (sqrt(r2 - y*y) + 0.5);
+LCD_DrawPixel( xCenter + x, yCenter + y, 0 );
+  94:	f04f 0700 	mov.w	r7, #0
+  98:	461d      	mov	r5, r3
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:279
+LCD_DrawPixel( xCenter - x, yCenter - y, 0 );
+
+}
+
+for (y = -radius; y <= radius; y++) {
+ x = (int) (sqrt(r2 - y*y) + 0.5);
+  9a:	9a02      	ldr	r2, [sp, #8]
+  9c:	fb05 2015 	mls	r0, r5, r5, r2
+  a0:	f7ff fffe 	bl	0 <__aeabi_i2d>
+  a4:	f7ff fffe 	bl	0 <sqrt>
+  a8:	f04f 0200 	mov.w	r2, #0
+  ac:	f04f 0300 	mov.w	r3, #0
+  b0:	f6c3 73e0 	movt	r3, #16352	; 0x3fe0
+  b4:	f7ff fffe 	bl	0 <__aeabi_dadd>
+  b8:	f7ff fffe 	bl	0 <__aeabi_d2iz>
+  bc:	4680      	mov	r8, r0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:280
+LCD_DrawPixel( xCenter + x, yCenter + y, 0 );
+  be:	eb00 040a 	add.w	r4, r0, sl
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:265
+}
+
+
+}
+
+void drawcircle(int xCenter, int yCenter, int radius)
+  c2:	eb05 090b 	add.w	r9, r5, fp
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:280
+
+}
+
+for (y = -radius; y <= radius; y++) {
+ x = (int) (sqrt(r2 - y*y) + 0.5);
+LCD_DrawPixel( xCenter + x, yCenter + y, 0 );
+  c6:	4620      	mov	r0, r4
+  c8:	4649      	mov	r1, r9
+  ca:	463a      	mov	r2, r7
+  cc:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:281
+LCD_DrawPixel( xCenter + x, yCenter - y, 0 );
+  d0:	4620      	mov	r0, r4
+  d2:	4631      	mov	r1, r6
+  d4:	463a      	mov	r2, r7
+  d6:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:282
+LCD_DrawPixel( xCenter - x, yCenter + y, 0 );
+  da:	ebc8 040a 	rsb	r4, r8, sl
+  de:	4620      	mov	r0, r4
+  e0:	4649      	mov	r1, r9
+  e2:	463a      	mov	r2, r7
+  e4:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:283
+LCD_DrawPixel( xCenter - x, yCenter - y, 0 );
+  e8:	4620      	mov	r0, r4
+  ea:	4631      	mov	r1, r6
+  ec:	463a      	mov	r2, r7
+  ee:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:278
+LCD_DrawPixel( xCenter - x, yCenter + y, 0 );
+LCD_DrawPixel( xCenter - x, yCenter - y, 0 );
+
+}
+
+for (y = -radius; y <= radius; y++) {
+  f2:	f105 0501 	add.w	r5, r5, #1
+  f6:	f106 36ff 	add.w	r6, r6, #4294967295
+  fa:	9b01      	ldr	r3, [sp, #4]
+  fc:	42ab      	cmp	r3, r5
+  fe:	dacc      	bge.n	9a <drawcircle+0x9a>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:289
+
+
+}
+
+
+}
+ 100:	b005      	add	sp, #20
+ 102:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 106:	bf00      	nop
+
+Disassembly of section .text.alvo:
+
+00000000 <alvo>:
+alvo():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:291
+
+void alvo(void){
+   0:	b510      	push	{r4, lr}
+   2:	b082      	sub	sp, #8
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:292
+LCD_DrawRect( 64, 0, 1, 128, 0 );
+   4:	f04f 0400 	mov.w	r4, #0
+   8:	9400      	str	r4, [sp, #0]
+   a:	f04f 0040 	mov.w	r0, #64	; 0x40
+   e:	4621      	mov	r1, r4
+  10:	f04f 0201 	mov.w	r2, #1
+  14:	f04f 0380 	mov.w	r3, #128	; 0x80
+  18:	f7ff fffe 	bl	0 <LCD_DrawRect>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:293
+LCD_DrawRect( 0, 64, 128, 1, 0 );
+  1c:	9400      	str	r4, [sp, #0]
+  1e:	4620      	mov	r0, r4
+  20:	f04f 0140 	mov.w	r1, #64	; 0x40
+  24:	f04f 0280 	mov.w	r2, #128	; 0x80
+  28:	f04f 0301 	mov.w	r3, #1
+  2c:	f7ff fffe 	bl	0 <LCD_DrawRect>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:294
+drawcircle(64,64,65);
+  30:	f04f 0040 	mov.w	r0, #64	; 0x40
+  34:	4601      	mov	r1, r0
+  36:	f04f 0241 	mov.w	r2, #65	; 0x41
+  3a:	f7ff fffe 	bl	0 <alvo>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:295
+drawcircle(64,64,55);
+  3e:	f04f 0040 	mov.w	r0, #64	; 0x40
+  42:	4601      	mov	r1, r0
+  44:	f04f 0237 	mov.w	r2, #55	; 0x37
+  48:	f7ff fffe 	bl	0 <alvo>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:296
+drawcircle(64,64,45);
+  4c:	f04f 0040 	mov.w	r0, #64	; 0x40
+  50:	4601      	mov	r1, r0
+  52:	f04f 022d 	mov.w	r2, #45	; 0x2d
+  56:	f7ff fffe 	bl	0 <alvo>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:297
+drawcircle(64,64,35);
+  5a:	f04f 0040 	mov.w	r0, #64	; 0x40
+  5e:	4601      	mov	r1, r0
+  60:	f04f 0223 	mov.w	r2, #35	; 0x23
+  64:	f7ff fffe 	bl	0 <alvo>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:298
+drawcircle(64,64,25);
+  68:	f04f 0040 	mov.w	r0, #64	; 0x40
+  6c:	4601      	mov	r1, r0
+  6e:	f04f 0219 	mov.w	r2, #25
+  72:	f7ff fffe 	bl	0 <alvo>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:299
+drawcircle(64,64,15);
+  76:	f04f 0040 	mov.w	r0, #64	; 0x40
+  7a:	4601      	mov	r1, r0
+  7c:	f04f 020f 	mov.w	r2, #15
+  80:	f7ff fffe 	bl	0 <alvo>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:300
+drawcircle(64,64,5);
+  84:	f04f 0040 	mov.w	r0, #64	; 0x40
+  88:	4601      	mov	r1, r0
+  8a:	f04f 0205 	mov.w	r2, #5
+  8e:	f7ff fffe 	bl	0 <alvo>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:302
+
+}
+  92:	b002      	add	sp, #8
+  94:	bd10      	pop	{r4, pc}
+  96:	bf00      	nop
+
+Disassembly of section .text.bola:
+
+00000000 <bola>:
+bola():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:304
+void bola(int x, int y)
+{
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4605      	mov	r5, r0
+   4:	460e      	mov	r6, r1
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:308
+
+int bmp;
+int cnt;
+if (flaginitbola==0){
+   6:	f240 0300 	movw	r3, #0
+   a:	f2c0 0300 	movt	r3, #0
+   e:	681b      	ldr	r3, [r3, #0]
+  10:	bb13      	cbnz	r3, 58 <bola+0x58>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:309
+drawcircle(64,64,1);
+  12:	f04f 0040 	mov.w	r0, #64	; 0x40
+  16:	4601      	mov	r1, r0
+  18:	f04f 0201 	mov.w	r2, #1
+  1c:	f7ff fffe 	bl	0 <bola>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:310
+drawcircle(64,64,2);
+  20:	f04f 0040 	mov.w	r0, #64	; 0x40
+  24:	4601      	mov	r1, r0
+  26:	f04f 0202 	mov.w	r2, #2
+  2a:	f7ff fffe 	bl	0 <bola>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:311
+drawcircle(64,64,3);
+  2e:	f04f 0040 	mov.w	r0, #64	; 0x40
+  32:	4601      	mov	r1, r0
+  34:	f04f 0203 	mov.w	r2, #3
+  38:	f7ff fffe 	bl	0 <bola>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:312
+drawcircle(64,64,4);
+  3c:	f04f 0040 	mov.w	r0, #64	; 0x40
+  40:	4601      	mov	r1, r0
+  42:	f04f 0204 	mov.w	r2, #4
+  46:	f7ff fffe 	bl	0 <bola>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:313
+flaginitbola=1;
+  4a:	f240 0300 	movw	r3, #0
+  4e:	f2c0 0300 	movt	r3, #0
+  52:	f04f 0201 	mov.w	r2, #1
+  56:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:315
+}
+drawcircle(x,y,0);
+  58:	4628      	mov	r0, r5
+  5a:	4631      	mov	r1, r6
+  5c:	f04f 0200 	mov.w	r2, #0
+  60:	f7ff fffe 	bl	0 <bola>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:316
+drawcircle(x,y,1);
+  64:	4628      	mov	r0, r5
+  66:	4631      	mov	r1, r6
+  68:	f04f 0201 	mov.w	r2, #1
+  6c:	f7ff fffe 	bl	0 <bola>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:317
+drawcircle(x,y,2);
+  70:	4628      	mov	r0, r5
+  72:	4631      	mov	r1, r6
+  74:	f04f 0202 	mov.w	r2, #2
+  78:	f7ff fffe 	bl	0 <bola>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:318
+drawcircle(x,y,3);
+  7c:	4628      	mov	r0, r5
+  7e:	4631      	mov	r1, r6
+  80:	f04f 0203 	mov.w	r2, #3
+  84:	f7ff fffe 	bl	0 <bola>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:319
+drawcircle(x,y,4);
+  88:	4628      	mov	r0, r5
+  8a:	4631      	mov	r1, r6
+  8c:	f04f 0204 	mov.w	r2, #4
+  90:	f7ff fffe 	bl	0 <bola>
+  94:	f04f 0405 	mov.w	r4, #5
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:326
+
+
+
+for (cnt = 0; cnt < 20; ++cnt)
+{
+ clearcircle(x,y,5+cnt);
+  98:	4628      	mov	r0, r5
+  9a:	4631      	mov	r1, r6
+  9c:	4622      	mov	r2, r4
+  9e:	f7ff fffe 	bl	0 <bola>
+  a2:	f104 0401 	add.w	r4, r4, #1
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:324
+drawcircle(x,y,4);
+
+
+
+
+for (cnt = 0; cnt < 20; ++cnt)
+  a6:	2c19      	cmp	r4, #25
+  a8:	d1f6      	bne.n	98 <bola+0x98>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:328
+{
+ clearcircle(x,y,5+cnt);
+}
+ alvo();
+  aa:	f7ff fffe 	bl	0 <bola>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:330
+//delay(90000);
+     }
+  ae:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.nvic:
+
+00000000 <nvic>:
+nvic():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:334
+ 
+
+void nvic(void)
+{
+   0:	b500      	push	{lr}
+   2:	b083      	sub	sp, #12
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:338
+ 	NVIC_InitTypeDef NVIC_InitStructure;
+	/* Configura o Priority Group com 1 bit */
+
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
+   4:	f44f 60c0 	mov.w	r0, #1536	; 0x600
+   8:	f7ff fffe 	bl	0 <NVIC_PriorityGroupConfig>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:339
+	NVIC_InitStructure.NVIC_IRQChannel=USART2_IRQChannel;
+   c:	f04f 0326 	mov.w	r3, #38	; 0x26
+  10:	f88d 3004 	strb.w	r3, [sp, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:340
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=0;
+  14:	f04f 0300 	mov.w	r3, #0
+  18:	f88d 3005 	strb.w	r3, [sp, #5]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:341
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority=2;
+  1c:	f04f 0302 	mov.w	r3, #2
+  20:	f88d 3006 	strb.w	r3, [sp, #6]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:342
+	NVIC_InitStructure.NVIC_IRQChannelCmd=ENABLE;
+  24:	f04f 0301 	mov.w	r3, #1
+  28:	f88d 3007 	strb.w	r3, [sp, #7]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:343
+	NVIC_Init(&NVIC_InitStructure);
+  2c:	a801      	add	r0, sp, #4
+  2e:	f7ff fffe 	bl	0 <NVIC_Init>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:346
+
+
+ }
+  32:	b003      	add	sp, #12
+  34:	bd00      	pop	{pc}
+  36:	bf00      	nop
+
+Disassembly of section .text.usart:
+
+00000000 <usart>:
+usart():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:348
+
+void usart(int baud){
+   0:	b530      	push	{r4, r5, lr}
+   2:	b085      	sub	sp, #20
+   4:	4605      	mov	r5, r0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:350
+
+USART_DeInit(USART2);
+   6:	f44f 4488 	mov.w	r4, #17408	; 0x4400
+   a:	f2c4 0400 	movt	r4, #16384	; 0x4000
+   e:	4620      	mov	r0, r4
+  10:	f7ff fffe 	bl	0 <USART_DeInit>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:352
+USART_InitTypeDef USART_InitStructure;
+USART_InitStructure.USART_BaudRate = baud;
+  14:	9500      	str	r5, [sp, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:353
+USART_InitStructure.USART_WordLength = USART_WordLength_8b;
+  16:	f04f 0300 	mov.w	r3, #0
+  1a:	f8ad 3004 	strh.w	r3, [sp, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:354
+USART_InitStructure.USART_StopBits = USART_StopBits_1;
+  1e:	f8ad 3006 	strh.w	r3, [sp, #6]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:355
+USART_InitStructure.USART_Parity = USART_Parity_No;
+  22:	f8ad 3008 	strh.w	r3, [sp, #8]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:356
+USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+  26:	f8ad 300c 	strh.w	r3, [sp, #12]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:357
+USART_InitStructure.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
+  2a:	f04f 030c 	mov.w	r3, #12
+  2e:	f8ad 300a 	strh.w	r3, [sp, #10]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:359
+
+USART_Init(USART2, &USART_InitStructure);
+  32:	4620      	mov	r0, r4
+  34:	4669      	mov	r1, sp
+  36:	f7ff fffe 	bl	0 <USART_Init>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:361
+
+USART_Cmd(USART2, ENABLE);
+  3a:	4620      	mov	r0, r4
+  3c:	f04f 0101 	mov.w	r1, #1
+  40:	f7ff fffe 	bl	0 <USART_Cmd>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:363
+
+USART_ITConfig(USART2, USART_IT_RXNE, ENABLE);
+  44:	4620      	mov	r0, r4
+  46:	f240 5125 	movw	r1, #1317	; 0x525
+  4a:	f04f 0201 	mov.w	r2, #1
+  4e:	f7ff fffe 	bl	0 <USART_ITConfig>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:367
+
+
+
+}
+  52:	b005      	add	sp, #20
+  54:	bd30      	pop	{r4, r5, pc}
+  56:	bf00      	nop
+
+Disassembly of section .text.main:
+
+00000000 <main>:
+main():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:372
+
+ 
+ 
+int main(void)
+{  
+   0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   4:	b084      	sub	sp, #16
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:376
+
+    char buffer2[15];  
+    
+  RCC_Config_HSE_PLL_Max();
+   6:	f7ff fffe 	bl	0 <main>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:377
+LCD_Init();
+   a:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:378
+DRAW_Init ();
+   e:	f7ff fffe 	bl	0 <DRAW_Init>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:380
+
+  rcc();
+  12:	f7ff fffe 	bl	0 <main>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:381
+  gpio();
+  16:	f7ff fffe 	bl	0 <main>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:382
+  spi();
+  1a:	f7ff fffe 	bl	0 <main>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:383
+usart(9600);
+  1e:	f44f 5016 	mov.w	r0, #9600	; 0x2580
+  22:	f7ff fffe 	bl	0 <main>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:384
+nvic();
+  26:	f7ff fffe 	bl	0 <main>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:386
+uint32_t addr=0,bmp;
+GPIO_WriteBit(GPIOD, GPIO_Pin_2, Bit_SET); 
+  2a:	f44f 50a0 	mov.w	r0, #5120	; 0x1400
+  2e:	f2c4 0001 	movt	r0, #16385	; 0x4001
+  32:	f04f 0104 	mov.w	r1, #4
+  36:	f04f 0201 	mov.w	r2, #1
+  3a:	f7ff fffe 	bl	0 <GPIO_WriteBit>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:394
+//Wait for data reception on MISO to complete
+//Wait until SPI is no longer busy
+//Transfer the received data from the data register
+  
+//configacc();
+    SPI_send(0x20, 0xC7);                        
+  3e:	f04f 0020 	mov.w	r0, #32
+  42:	f04f 01c7 	mov.w	r1, #199	; 0xc7
+  46:	f7ff fffe 	bl	0 <main>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:398
+    //SPI_send(0x21, 0b10000001);    
+
+    //SPI_send(0x22, 0x00);     
+addr=SPI_read(0x0f);
+  4a:	f04f 000f 	mov.w	r0, #15
+  4e:	f7ff fffe 	bl	0 <main>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:417
+    while (1)
+      {   
+acc();
+
+      
+      if (flagrx==1)
+  52:	f240 0400 	movw	r4, #0
+  56:	f2c0 0400 	movt	r4, #0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:419
+          {     flagrx=0;//flag rx ?ctivada quando recebe alguma coisa por USART
+                RxData = USART_ReceiveData(USART2);//o que receber na usart2 ?olocado na variavel rxdata  
+  5a:	f240 0700 	movw	r7, #0
+  5e:	f2c0 0700 	movt	r7, #0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:435
+                          while(USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET);
+		                    USART_SendData(USART2,buff[3]);
+                break;
+                
+                                case 'Y': case 'y':
+sprintf(buff, "%2d\n",yusart);
+  62:	f240 0800 	movw	r8, #0
+  66:	f2c0 0800 	movt	r8, #0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:414
+// delay(5000000);
+char buff[15];
+char valor=xusart;
+    while (1)
+      {   
+acc();
+  6a:	f7ff fffe 	bl	0 <main>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:417
+
+      
+      if (flagrx==1)
+  6e:	6863      	ldr	r3, [r4, #4]
+  70:	2b01      	cmp	r3, #1
+  72:	f040 80f2 	bne.w	25a <main+0x25a>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:418
+          {     flagrx=0;//flag rx ?ctivada quando recebe alguma coisa por USART
+  76:	f04f 0300 	mov.w	r3, #0
+  7a:	6063      	str	r3, [r4, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:419
+                RxData = USART_ReceiveData(USART2);//o que receber na usart2 ?olocado na variavel rxdata  
+  7c:	f44f 4088 	mov.w	r0, #17408	; 0x4400
+  80:	f2c4 0000 	movt	r0, #16384	; 0x4000
+  84:	f7ff fffe 	bl	0 <USART_ReceiveData>
+  88:	b2c0      	uxtb	r0, r0
+  8a:	7038      	strb	r0, [r7, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:420
+                switch ( RxData ){ 
+  8c:	783b      	ldrb	r3, [r7, #0]
+  8e:	f1a3 0358 	sub.w	r3, r3, #88	; 0x58
+  92:	2b21      	cmp	r3, #33	; 0x21
+  94:	f200 80e1 	bhi.w	25a <main+0x25a>
+  98:	e8df f013 	tbh	[pc, r3, lsl #1]
+  9c:	00810022 	.word	0x00810022
+  a0:	00df00df 	.word	0x00df00df
+  a4:	00df00df 	.word	0x00df00df
+  a8:	00df00df 	.word	0x00df00df
+  ac:	00df00df 	.word	0x00df00df
+  b0:	00df00df 	.word	0x00df00df
+  b4:	00df00df 	.word	0x00df00df
+  b8:	00df00df 	.word	0x00df00df
+  bc:	00df00df 	.word	0x00df00df
+  c0:	00df00df 	.word	0x00df00df
+  c4:	00df00df 	.word	0x00df00df
+  c8:	00df00df 	.word	0x00df00df
+  cc:	00df00df 	.word	0x00df00df
+  d0:	00df00df 	.word	0x00df00df
+  d4:	00df00df 	.word	0x00df00df
+  d8:	00df00df 	.word	0x00df00df
+  dc:	00810022 	.word	0x00810022
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:423
+                
+                case 'X': case 'x':
+sprintf(buff, "%2d\n",xusart);
+  e0:	f240 0300 	movw	r3, #0
+  e4:	f2c0 0300 	movt	r3, #0
+  e8:	4668      	mov	r0, sp
+  ea:	4641      	mov	r1, r8
+  ec:	f993 2000 	ldrsb.w	r2, [r3]
+  f0:	f7ff fffe 	bl	0 <sprintf>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:424
+      while(USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET);
+  f4:	f44f 4588 	mov.w	r5, #17408	; 0x4400
+  f8:	f2c4 0500 	movt	r5, #16384	; 0x4000
+  fc:	f04f 0680 	mov.w	r6, #128	; 0x80
+ 100:	4628      	mov	r0, r5
+ 102:	4631      	mov	r1, r6
+ 104:	f7ff fffe 	bl	0 <USART_GetFlagStatus>
+ 108:	2800      	cmp	r0, #0
+ 10a:	d0f9      	beq.n	100 <main+0x100>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:425
+		                    USART_SendData(USART2,buff[0]);  
+ 10c:	f99d 1000 	ldrsb.w	r1, [sp]
+ 110:	f44f 4088 	mov.w	r0, #17408	; 0x4400
+ 114:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 118:	b289      	uxth	r1, r1
+ 11a:	f7ff fffe 	bl	0 <USART_SendData>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:426
+       while(USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET);
+ 11e:	f44f 4588 	mov.w	r5, #17408	; 0x4400
+ 122:	f2c4 0500 	movt	r5, #16384	; 0x4000
+ 126:	f04f 0680 	mov.w	r6, #128	; 0x80
+ 12a:	4628      	mov	r0, r5
+ 12c:	4631      	mov	r1, r6
+ 12e:	f7ff fffe 	bl	0 <USART_GetFlagStatus>
+ 132:	2800      	cmp	r0, #0
+ 134:	d0f9      	beq.n	12a <main+0x12a>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:427
+		                    USART_SendData(USART2,buff[1]);
+ 136:	f99d 1001 	ldrsb.w	r1, [sp, #1]
+ 13a:	f44f 4088 	mov.w	r0, #17408	; 0x4400
+ 13e:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 142:	b289      	uxth	r1, r1
+ 144:	f7ff fffe 	bl	0 <USART_SendData>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:428
+             while(USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET);
+ 148:	f44f 4588 	mov.w	r5, #17408	; 0x4400
+ 14c:	f2c4 0500 	movt	r5, #16384	; 0x4000
+ 150:	f04f 0680 	mov.w	r6, #128	; 0x80
+ 154:	4628      	mov	r0, r5
+ 156:	4631      	mov	r1, r6
+ 158:	f7ff fffe 	bl	0 <USART_GetFlagStatus>
+ 15c:	2800      	cmp	r0, #0
+ 15e:	d0f9      	beq.n	154 <main+0x154>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:429
+		                    USART_SendData(USART2,buff[2]); 
+ 160:	f99d 1002 	ldrsb.w	r1, [sp, #2]
+ 164:	f44f 4088 	mov.w	r0, #17408	; 0x4400
+ 168:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 16c:	b289      	uxth	r1, r1
+ 16e:	f7ff fffe 	bl	0 <USART_SendData>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:430
+                          while(USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET);
+ 172:	f44f 4588 	mov.w	r5, #17408	; 0x4400
+ 176:	f2c4 0500 	movt	r5, #16384	; 0x4000
+ 17a:	f04f 0680 	mov.w	r6, #128	; 0x80
+ 17e:	4628      	mov	r0, r5
+ 180:	4631      	mov	r1, r6
+ 182:	f7ff fffe 	bl	0 <USART_GetFlagStatus>
+ 186:	2800      	cmp	r0, #0
+ 188:	d0f9      	beq.n	17e <main+0x17e>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:431
+		                    USART_SendData(USART2,buff[3]);
+ 18a:	f99d 1003 	ldrsb.w	r1, [sp, #3]
+ 18e:	f44f 4088 	mov.w	r0, #17408	; 0x4400
+ 192:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 196:	b289      	uxth	r1, r1
+ 198:	f7ff fffe 	bl	0 <USART_SendData>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:432
+                break;
+ 19c:	e05d      	b.n	bf <main+0xbf>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:435
+                
+                                case 'Y': case 'y':
+sprintf(buff, "%2d\n",yusart);
+ 19e:	f240 0300 	movw	r3, #0
+ 1a2:	f2c0 0300 	movt	r3, #0
+ 1a6:	4668      	mov	r0, sp
+ 1a8:	4641      	mov	r1, r8
+ 1aa:	f993 2000 	ldrsb.w	r2, [r3]
+ 1ae:	f7ff fffe 	bl	0 <sprintf>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:436
+      while(USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET);
+ 1b2:	f44f 4588 	mov.w	r5, #17408	; 0x4400
+ 1b6:	f2c4 0500 	movt	r5, #16384	; 0x4000
+ 1ba:	f04f 0680 	mov.w	r6, #128	; 0x80
+ 1be:	4628      	mov	r0, r5
+ 1c0:	4631      	mov	r1, r6
+ 1c2:	f7ff fffe 	bl	0 <USART_GetFlagStatus>
+ 1c6:	2800      	cmp	r0, #0
+ 1c8:	d0f9      	beq.n	1be <main+0x1be>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:437
+		                    USART_SendData(USART2,buff[0]);  
+ 1ca:	f99d 1000 	ldrsb.w	r1, [sp]
+ 1ce:	f44f 4088 	mov.w	r0, #17408	; 0x4400
+ 1d2:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 1d6:	b289      	uxth	r1, r1
+ 1d8:	f7ff fffe 	bl	0 <USART_SendData>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:438
+       while(USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET);
+ 1dc:	f44f 4588 	mov.w	r5, #17408	; 0x4400
+ 1e0:	f2c4 0500 	movt	r5, #16384	; 0x4000
+ 1e4:	f04f 0680 	mov.w	r6, #128	; 0x80
+ 1e8:	4628      	mov	r0, r5
+ 1ea:	4631      	mov	r1, r6
+ 1ec:	f7ff fffe 	bl	0 <USART_GetFlagStatus>
+ 1f0:	2800      	cmp	r0, #0
+ 1f2:	d0f9      	beq.n	1e8 <main+0x1e8>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:439
+		                    USART_SendData(USART2,buff[1]);
+ 1f4:	f99d 1001 	ldrsb.w	r1, [sp, #1]
+ 1f8:	f44f 4088 	mov.w	r0, #17408	; 0x4400
+ 1fc:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 200:	b289      	uxth	r1, r1
+ 202:	f7ff fffe 	bl	0 <USART_SendData>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:440
+             while(USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET);
+ 206:	f44f 4588 	mov.w	r5, #17408	; 0x4400
+ 20a:	f2c4 0500 	movt	r5, #16384	; 0x4000
+ 20e:	f04f 0680 	mov.w	r6, #128	; 0x80
+ 212:	4628      	mov	r0, r5
+ 214:	4631      	mov	r1, r6
+ 216:	f7ff fffe 	bl	0 <USART_GetFlagStatus>
+ 21a:	2800      	cmp	r0, #0
+ 21c:	d0f9      	beq.n	212 <main+0x212>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:441
+		                    USART_SendData(USART2,buff[2]); 
+ 21e:	f99d 1002 	ldrsb.w	r1, [sp, #2]
+ 222:	f44f 4088 	mov.w	r0, #17408	; 0x4400
+ 226:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 22a:	b289      	uxth	r1, r1
+ 22c:	f7ff fffe 	bl	0 <USART_SendData>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:442
+                          while(USART_GetFlagStatus(USART2, USART_FLAG_TXE) == RESET);
+ 230:	f44f 4588 	mov.w	r5, #17408	; 0x4400
+ 234:	f2c4 0500 	movt	r5, #16384	; 0x4000
+ 238:	f04f 0680 	mov.w	r6, #128	; 0x80
+ 23c:	4628      	mov	r0, r5
+ 23e:	4631      	mov	r1, r6
+ 240:	f7ff fffe 	bl	0 <USART_GetFlagStatus>
+ 244:	2800      	cmp	r0, #0
+ 246:	d0f9      	beq.n	23c <main+0x23c>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:443
+		                    USART_SendData(USART2,buff[3]);
+ 248:	f99d 1003 	ldrsb.w	r1, [sp, #3]
+ 24c:	f44f 4088 	mov.w	r0, #17408	; 0x4400
+ 250:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 254:	b289      	uxth	r1, r1
+ 256:	f7ff fffe 	bl	0 <USART_SendData>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:461
+            
+          
+          
+          
+          }
+     bola(left_part_x,left_part_y);
+ 25a:	f240 0200 	movw	r2, #0
+ 25e:	f2c0 0200 	movt	r2, #0
+ 262:	f240 0300 	movw	r3, #0
+ 266:	f2c0 0300 	movt	r3, #0
+ 26a:	6810      	ldr	r0, [r2, #0]
+ 26c:	6819      	ldr	r1, [r3, #0]
+ 26e:	f7ff fffe 	bl	0 <main>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:478
+                // sprintf(buffer2,"z:%f        ",valor);
+      // DRAW_DisplayString( 1, 50, buffer2, strlen(buffer2));
+ // delay(500000);
+
+              
+    }
+ 272:	e6fa      	b.n	6a <main+0x6a>
+
+Disassembly of section .text.delay:
+
+00000000 <delay>:
+delay():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:484
+    return (0);
+}
+
+
+void delay(volatile uint32_t time2delay)
+{
+   0:	b082      	sub	sp, #8
+   2:	9001      	str	r0, [sp, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:485
+    for ( ; time2delay > 0; time2delay--)
+   4:	9b01      	ldr	r3, [sp, #4]
+   6:	b133      	cbz	r3, 16 <delay+0x16>
+   8:	9b01      	ldr	r3, [sp, #4]
+   a:	f103 33ff 	add.w	r3, r3, #4294967295
+   e:	9301      	str	r3, [sp, #4]
+  10:	9b01      	ldr	r3, [sp, #4]
+  12:	2b00      	cmp	r3, #0
+  14:	d1f8      	bne.n	8 <delay+0x8>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/main.c:488
+    {
+    }
+}
+  16:	b002      	add	sp, #8
+  18:	4770      	bx	lr
+  1a:	bf00      	nop

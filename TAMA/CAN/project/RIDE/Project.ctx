@@ -1,0 +1,98 @@
+
+<Debug>
+	<Project>
+		<SpyWatch>
+			<Report>
+				<Def Header="InspectReport" NbCol="4" >
+					<Col Type="PT_STRING" Header="Name" sizeCache="DDDDDDDDDDDD" AutoSize="1" Edit="1" Sortable="1" />
+					<Col Type="PT_STRING" Header="Value" sizeCache="DDDDDDDDDDDDDDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="1" />
+					<Col Type="PT_STRING" Header="File" sizeCache="DDDD" AutoSize="1" Edit="0" Visible="0" />
+					<Col Type="PT_STRING" Header="Line" sizeCache="DDDD" AutoSize="1" Edit="0" Visible="0" />
+																																				
+				</Def>
+				<Rows>
+					<Row Name="Data" Value="error(3): Undefined symbol" File="C:\Users\fv\Desktop\TAMA\TIM\project\main.c" Line="204" />
+																																				
+				</Rows>
+																												
+			</Report>
+																				
+		</SpyWatch>
+		<CodeView TopRow="134222496" Focus="4294967295" >
+			<CodeReport>
+				<0>108</0>
+				<1>119</1>
+				<2>64</2>
+				<3>363</3>
+				<4>65</4>
+				<5>139</5>
+																												
+			</CodeReport>
+																				
+		</CodeView>
+		<MemoryView Focus="134217996" TopRow="0" NbPerLine="8" />
+												
+	</Project>
+	<Flags>
+		<Report>
+			<Def Header="FlagReport" NbCol="9" >
+				<Col Type="PT_BOOL" Header="Check" sizeCache="18" AutoSize="0" Edit="1" Sortable="1" Icon="C:\Program Files (x86)\Raisonance\Ride\Config\Resources\check.bmp" />
+				<Col Type="PT_STRING" Header="Kind" sizeCache="DDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="1" />
+				<Col Type="PT_STRING" Header="KindID" sizeCache="DD" AutoSize="1" Edit="0" Sortable="1" Visible="0" />
+				<Col Type="PT_STRING" Header="Space" sizeCache="DDDDDD" AutoSize="1" Edit="0" Sortable="1" />
+				<Col Type="PT_STRING" Header="SpaceID" sizeCache="DD" AutoSize="0" Edit="0" Sortable="0" Visible="0" />
+				<Col Type="PT_STRING" Header="Line" sizeCache="DDDDDDDDD" AutoSize="1" Edit="0" Sortable="1" Visible="1" />
+				<Col Type="PT_STRING" Header="File" sizeCache="DDDDDDDDDDDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="1" Visible="1" />
+				<Col Type="PT_STRING" Header="Path" sizeCache="DDDDDDDDDDDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="0" Visible="0" />
+				<Col Type="PT_STRING" Header="Condition" sizeCache="DDDDDDDDDDDDDDDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="0" />
+				<Col Type="PT_STRING" Header="Condexpr" sizeCache="DD" AutoSize="1" Edit="0" Sortable="0" Visible="0" />
+				<Col Type="PT_STRING" Header="Condcount" sizeCache="DD" AutoSize="1" Edit="0" Sortable="0" Visible="0" />
+							
+			</Def>
+			<Rows/>
+					
+		</Report>
+			
+	</Flags>
+	<Views>
+		<View File="C:\Users\fv\Desktop\TAMA\TIM\project\main.c" Line="113" Index="0" focus="1" />
+		<View File="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.c" Line="1014" Index="1" />
+		<View File="C:\Users\fv\Desktop\TAMA\TIM\project\lcd.h" Line="0" Index="2" />
+	</Views>
+	<Grep>
+		<GrepIncludeSub>yes</GrepIncludeSub>
+		<GrepMatchCase>no</GrepMatchCase>
+		<GrepMatchWhole>no</GrepMatchWhole>
+		<GrepRegExp>no</GrepRegExp>
+		<GrepReplaceMode>no</GrepReplaceMode>
+		<GrepFileTypes>
+			<GrepFileTypesValue>*.c;*.h</GrepFileTypesValue>
+			<GrepFileType>*.c;*.h</GrepFileType>
+		</GrepFileTypes>
+		<GrepFindWhat>
+			<GrepFindWhatValue/>
+		</GrepFindWhat>
+		<GrepFindWhere>
+			<GrepFindWhereValue/>
+			<GrepPathStr>Application Files</GrepPathStr>
+			<GrepPathStr>Application Path</GrepPathStr>
+		</GrepFindWhere>
+		<GrepReplaceWhat>
+			<GrepReplaceWhatValue/>
+		</GrepReplaceWhat>
+	</Grep>
+	<FindStrings>
+		<Find>StdId</Find>
+		<Find>CANx</Find>
+		<Find>rccconfig</Find>
+		<Find>ReadoutputDataBit</Find>
+		<Find>Read</Find>
+		<Find>GPIO_WriteBit</Find>
+		<Find>ReadOutput_DataBit</Find>
+		<Find>HSE_Value</Find>
+		<Find>draw_init</Find>
+	</FindStrings>
+	<ReplaceStrings>
+		<Find>CAN</Find>
+	</ReplaceStrings>
+</Debug>

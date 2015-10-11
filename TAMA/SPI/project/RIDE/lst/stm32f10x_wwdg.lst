@@ -1,0 +1,187 @@
+
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\RIDE\obj\stm32f10x_wwdg.o:     file format elf32-littlearm
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\RIDE\obj\stm32f10x_wwdg.o
+
+
+Disassembly of section .text.WWDG_DeInit:
+
+00000000 <WWDG_DeInit>:
+WWDG_DeInit():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:54
+* Input          : None
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void WWDG_DeInit(void)
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:55
+  RCC_APB1PeriphResetCmd(RCC_APB1Periph_WWDG, ENABLE);
+   2:	f44f 6000 	mov.w	r0, #2048	; 0x800
+   6:	f04f 0101 	mov.w	r1, #1
+   a:	f7ff fffe 	bl	0 <RCC_APB1PeriphResetCmd>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:56
+  RCC_APB1PeriphResetCmd(RCC_APB1Periph_WWDG, DISABLE);
+   e:	f44f 6000 	mov.w	r0, #2048	; 0x800
+  12:	f04f 0100 	mov.w	r1, #0
+  16:	f7ff fffe 	bl	0 <RCC_APB1PeriphResetCmd>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:57
+}
+  1a:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.WWDG_SetPrescaler:
+
+00000000 <WWDG_SetPrescaler>:
+WWDG_SetPrescaler():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:79
+
+  /* Check the parameters */
+  assert_param(IS_WWDG_PRESCALER(WWDG_Prescaler));
+
+  /* Clear WDGTB[1:0] bits */
+  tmpreg = WWDG->CFR & CFR_WDGTB_Mask;
+   0:	f44f 5330 	mov.w	r3, #11264	; 0x2c00
+   4:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   8:	685a      	ldr	r2, [r3, #4]
+   a:	f422 72c0 	bic.w	r2, r2, #384	; 0x180
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:82
+
+  /* Set WDGTB[1:0] bits according to WWDG_Prescaler value */
+  tmpreg |= WWDG_Prescaler;
+   e:	ea40 0202 	orr.w	r2, r0, r2
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:85
+
+  /* Store the new value */
+  WWDG->CFR = tmpreg;
+  12:	605a      	str	r2, [r3, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:86
+}
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text.WWDG_SetWindowValue:
+
+00000000 <WWDG_SetWindowValue>:
+WWDG_SetWindowValue():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:105
+
+  /* Check the parameters */
+  assert_param(IS_WWDG_WINDOW_VALUE(WindowValue));
+
+  /* Clear W[6:0] bits */
+  tmpreg = WWDG->CFR & CFR_W_Mask;
+   0:	f44f 5330 	mov.w	r3, #11264	; 0x2c00
+   4:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   8:	685a      	ldr	r2, [r3, #4]
+   a:	f022 027f 	bic.w	r2, r2, #127	; 0x7f
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:108
+
+  /* Set W[6:0] bits according to WindowValue value */
+  tmpreg |= WindowValue & BIT_Mask;
+   e:	f000 007f 	and.w	r0, r0, #127	; 0x7f
+  12:	ea40 0202 	orr.w	r2, r0, r2
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:111
+
+  /* Store the new value */
+  WWDG->CFR = tmpreg;
+  16:	605a      	str	r2, [r3, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:112
+}
+  18:	4770      	bx	lr
+  1a:	bf00      	nop
+
+Disassembly of section .text.WWDG_EnableIT:
+
+00000000 <WWDG_EnableIT>:
+WWDG_EnableIT():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:123
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void WWDG_EnableIT(void)
+{
+  *(vu32 *) CFR_EWI_BB = (u32)ENABLE;
+   0:	f248 03a4 	movw	r3, #32932	; 0x80a4
+   4:	f2c4 2305 	movt	r3, #16901	; 0x4205
+   8:	f04f 0201 	mov.w	r2, #1
+   c:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:124
+}
+   e:	4770      	bx	lr
+
+Disassembly of section .text.WWDG_SetCounter:
+
+00000000 <WWDG_SetCounter>:
+WWDG_SetCounter():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:141
+  /* Check the parameters */
+  assert_param(IS_WWDG_COUNTER(Counter));
+
+  /* Write to T[6:0] bits to configure the counter value, no need to do
+     a read-modify-write; writing a 0 to WDGA bit does nothing */
+  WWDG->CR = Counter & BIT_Mask;
+   0:	f000 007f 	and.w	r0, r0, #127	; 0x7f
+   4:	f44f 5330 	mov.w	r3, #11264	; 0x2c00
+   8:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   c:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:142
+}
+   e:	4770      	bx	lr
+
+Disassembly of section .text.WWDG_Enable:
+
+00000000 <WWDG_Enable>:
+WWDG_Enable():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:158
+void WWDG_Enable(u8 Counter)
+{
+  /* Check the parameters */
+  assert_param(IS_WWDG_COUNTER(Counter));
+
+  WWDG->CR = CR_WDGA_Set | Counter;
+   0:	f040 0080 	orr.w	r0, r0, #128	; 0x80
+   4:	f44f 5330 	mov.w	r3, #11264	; 0x2c00
+   8:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   c:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:159
+}
+   e:	4770      	bx	lr
+
+Disassembly of section .text.WWDG_GetFlagStatus:
+
+00000000 <WWDG_GetFlagStatus>:
+WWDG_GetFlagStatus():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:170
+* Output         : None
+* Return         : The new state of the Early Wakeup interrupt flag (SET or RESET)
+*******************************************************************************/
+FlagStatus WWDG_GetFlagStatus(void)
+{
+  return (FlagStatus)(WWDG->SR);
+   0:	f44f 5330 	mov.w	r3, #11264	; 0x2c00
+   4:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   8:	6898      	ldr	r0, [r3, #8]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:171
+}
+   a:	b2c0      	uxtb	r0, r0
+   c:	4770      	bx	lr
+   e:	bf00      	nop
+
+Disassembly of section .text.WWDG_ClearFlag:
+
+00000000 <WWDG_ClearFlag>:
+WWDG_ClearFlag():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:182
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void WWDG_ClearFlag(void)
+{
+  WWDG->SR = (u32)RESET;
+   0:	f44f 5330 	mov.w	r3, #11264	; 0x2c00
+   4:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   8:	f04f 0200 	mov.w	r2, #0
+   c:	609a      	str	r2, [r3, #8]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_wwdg.c:183
+}
+   e:	4770      	bx	lr

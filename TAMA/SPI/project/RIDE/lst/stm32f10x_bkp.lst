@@ -1,0 +1,274 @@
+
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\RIDE\obj\stm32f10x_bkp.o:     file format elf32-littlearm
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\RIDE\obj\stm32f10x_bkp.o
+
+
+Disassembly of section .text.BKP_DeInit:
+
+00000000 <BKP_DeInit>:
+BKP_DeInit():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:73
+* Input          : None
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void BKP_DeInit(void)
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:74
+  RCC_BackupResetCmd(ENABLE);
+   2:	f04f 0001 	mov.w	r0, #1
+   6:	f7ff fffe 	bl	0 <RCC_BackupResetCmd>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:75
+  RCC_BackupResetCmd(DISABLE);
+   a:	f04f 0000 	mov.w	r0, #0
+   e:	f7ff fffe 	bl	0 <RCC_BackupResetCmd>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:76
+}
+  12:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.BKP_TamperPinLevelConfig:
+
+00000000 <BKP_TamperPinLevelConfig>:
+BKP_TamperPinLevelConfig():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:93
+void BKP_TamperPinLevelConfig(u16 BKP_TamperPinLevel)
+{
+  /* Check the parameters */
+  assert_param(IS_BKP_TAMPER_PIN_LEVEL(BKP_TamperPinLevel));
+
+  *(vu32 *) CR_TPAL_BB = BKP_TamperPinLevel;
+   0:	f248 6304 	movw	r3, #34308	; 0x8604
+   4:	f2c4 230d 	movt	r3, #16909	; 0x420d
+   8:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:94
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.BKP_TamperPinCmd:
+
+00000000 <BKP_TamperPinCmd>:
+BKP_TamperPinCmd():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:109
+void BKP_TamperPinCmd(FunctionalState NewState)
+{
+  /* Check the parameters */
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  *(vu32 *) CR_TPE_BB = (u32)NewState;
+   0:	f44f 4306 	mov.w	r3, #34304	; 0x8600
+   4:	f2c4 230d 	movt	r3, #16909	; 0x420d
+   8:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:110
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.BKP_ITConfig:
+
+00000000 <BKP_ITConfig>:
+BKP_ITConfig():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:125
+void BKP_ITConfig(FunctionalState NewState)
+{
+  /* Check the parameters */
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  *(vu32 *) CSR_TPIE_BB = (u32)NewState;
+   0:	f248 6388 	movw	r3, #34440	; 0x8688
+   4:	f2c4 230d 	movt	r3, #16909	; 0x420d
+   8:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:126
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.BKP_RTCOutputConfig:
+
+00000000 <BKP_RTCOutputConfig>:
+BKP_RTCOutputConfig():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:150
+  u16 tmpreg = 0;
+
+  /* Check the parameters */
+  assert_param(IS_BKP_RTC_OUTPUT_SOURCE(BKP_RTCOutputSource));
+
+  tmpreg = BKP->RTCCR;
+   0:	f44f 42d8 	mov.w	r2, #27648	; 0x6c00
+   4:	f2c4 0200 	movt	r2, #16384	; 0x4000
+   8:	8d93      	ldrh	r3, [r2, #44]	; 0x2c
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:153
+
+  /* Clear CCO, ASOE and ASOS bits */
+  tmpreg &= RTCCR_Mask;
+   a:	f423 7360 	bic.w	r3, r3, #896	; 0x380
+   e:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  12:	ea4f 4313 	mov.w	r3, r3, lsr #16
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:156
+  
+  /* Set CCO, ASOE and ASOS bits according to BKP_RTCOutputSource value */
+  tmpreg |= BKP_RTCOutputSource;
+  16:	ea40 0303 	orr.w	r3, r0, r3
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:159
+
+  /* Store the new value */
+  BKP->RTCCR = tmpreg;
+  1a:	8593      	strh	r3, [r2, #44]	; 0x2c
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:160
+}
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+
+Disassembly of section .text.BKP_SetRTCCalibrationValue:
+
+00000000 <BKP_SetRTCCalibrationValue>:
+BKP_SetRTCCalibrationValue():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:177
+  u16 tmpreg = 0;
+
+  /* Check the parameters */
+  assert_param(IS_BKP_CALIBRATION_VALUE(CalibrationValue));
+
+  tmpreg = BKP->RTCCR;
+   0:	f44f 42d8 	mov.w	r2, #27648	; 0x6c00
+   4:	f2c4 0200 	movt	r2, #16384	; 0x4000
+   8:	8d93      	ldrh	r3, [r2, #44]	; 0x2c
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:180
+
+  /* Clear CAL[6:0] bits */
+  tmpreg &= RTCCR_CAL_Mask;
+   a:	f023 037f 	bic.w	r3, r3, #127	; 0x7f
+   e:	ea4f 4303 	mov.w	r3, r3, lsl #16
+  12:	ea4f 4313 	mov.w	r3, r3, lsr #16
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:183
+
+  /* Set CAL[6:0] bits according to CalibrationValue value */
+  tmpreg |= CalibrationValue;
+  16:	ea40 0303 	orr.w	r3, r0, r3
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:186
+
+  /* Store the new value */
+  BKP->RTCCR = tmpreg;
+  1a:	8593      	strh	r3, [r2, #44]	; 0x2c
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:187
+}
+  1c:	4770      	bx	lr
+  1e:	bf00      	nop
+
+Disassembly of section .text.BKP_WriteBackupRegister:
+
+00000000 <BKP_WriteBackupRegister>:
+BKP_WriteBackupRegister():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:203
+void BKP_WriteBackupRegister(u16 BKP_DR, u16 Data)
+{
+  /* Check the parameters */
+  assert_param(IS_BKP_DR(BKP_DR));
+
+  *(vu16 *) (BKP_BASE + BKP_DR) = Data;
+   0:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   4:	f500 40d8 	add.w	r0, r0, #27648	; 0x6c00
+   8:	8001      	strh	r1, [r0, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:204
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.BKP_ReadBackupRegister:
+
+00000000 <BKP_ReadBackupRegister>:
+BKP_ReadBackupRegister():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:219
+u16 BKP_ReadBackupRegister(u16 BKP_DR)
+{
+  /* Check the parameters */
+  assert_param(IS_BKP_DR(BKP_DR));
+
+  return (*(vu16 *) (BKP_BASE + BKP_DR));
+   0:	f100 4080 	add.w	r0, r0, #1073741824	; 0x40000000
+   4:	f500 40d8 	add.w	r0, r0, #27648	; 0x6c00
+   8:	8800      	ldrh	r0, [r0, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:220
+}
+   a:	b280      	uxth	r0, r0
+   c:	4770      	bx	lr
+   e:	bf00      	nop
+
+Disassembly of section .text.BKP_GetFlagStatus:
+
+00000000 <BKP_GetFlagStatus>:
+BKP_GetFlagStatus():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:231
+* Output         : None
+* Return         : The new state of the Tamper Pin Event flag (SET or RESET).
+*******************************************************************************/
+FlagStatus BKP_GetFlagStatus(void)
+{
+  return (FlagStatus)(*(vu32 *) CSR_TEF_BB);
+   0:	f248 63a0 	movw	r3, #34464	; 0x86a0
+   4:	f2c4 230d 	movt	r3, #16909	; 0x420d
+   8:	6818      	ldr	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:232
+}
+   a:	b2c0      	uxtb	r0, r0
+   c:	4770      	bx	lr
+   e:	bf00      	nop
+
+Disassembly of section .text.BKP_ClearFlag:
+
+00000000 <BKP_ClearFlag>:
+BKP_ClearFlag():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:244
+* Return         : None
+*******************************************************************************/
+void BKP_ClearFlag(void)
+{
+  /* Set CTE bit to clear Tamper Pin Event flag */
+  BKP->CSR |= CSR_CTE_Set;
+   0:	f44f 43d8 	mov.w	r3, #27648	; 0x6c00
+   4:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   8:	8e9a      	ldrh	r2, [r3, #52]	; 0x34
+   a:	b292      	uxth	r2, r2
+   c:	f042 0201 	orr.w	r2, r2, #1
+  10:	869a      	strh	r2, [r3, #52]	; 0x34
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:245
+}
+  12:	4770      	bx	lr
+
+Disassembly of section .text.BKP_GetITStatus:
+
+00000000 <BKP_GetITStatus>:
+BKP_GetITStatus():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:256
+* Output         : None
+* Return         : The new state of the Tamper Pin Interrupt (SET or RESET).
+*******************************************************************************/
+ITStatus BKP_GetITStatus(void)
+{
+  return (ITStatus)(*(vu32 *) CSR_TIF_BB);
+   0:	f248 63a4 	movw	r3, #34468	; 0x86a4
+   4:	f2c4 230d 	movt	r3, #16909	; 0x420d
+   8:	6818      	ldr	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:257
+}
+   a:	b2c0      	uxtb	r0, r0
+   c:	4770      	bx	lr
+   e:	bf00      	nop
+
+Disassembly of section .text.BKP_ClearITPendingBit:
+
+00000000 <BKP_ClearITPendingBit>:
+BKP_ClearITPendingBit():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:269
+* Return         : None
+*******************************************************************************/
+void BKP_ClearITPendingBit(void)
+{
+  /* Set CTI bit to clear Tamper Pin Interrupt pending bit */
+  BKP->CSR |= CSR_CTI_Set;
+   0:	f44f 43d8 	mov.w	r3, #27648	; 0x6c00
+   4:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   8:	8e9a      	ldrh	r2, [r3, #52]	; 0x34
+   a:	b292      	uxth	r2, r2
+   c:	f042 0202 	orr.w	r2, r2, #2
+  10:	869a      	strh	r2, [r3, #52]	; 0x34
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_bkp.c:270
+}
+  12:	4770      	bx	lr

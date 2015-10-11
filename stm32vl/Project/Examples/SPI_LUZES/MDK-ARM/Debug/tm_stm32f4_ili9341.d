@@ -1,0 +1,16 @@
+.\debug\tm_stm32f4_ili9341.o: ..\..\..\..\Libraries\STM32F10x_StdPeriph_Driver\src\tm_stm32f4_ili9341.c
+.\debug\tm_stm32f4_ili9341.o: ..\..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\tm_stm32f4_ili9341.h
+.\debug\tm_stm32f4_ili9341.o: ..\..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
+.\debug\tm_stm32f4_ili9341.o: ..\..\..\..\Libraries\CMSIS\CM3\CoreSupport\core_cm3.h
+.\debug\tm_stm32f4_ili9341.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\debug\tm_stm32f4_ili9341.o: ..\..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\system_stm32f10x.h
+.\debug\tm_stm32f4_ili9341.o: ..\stm32f10x_conf.h
+.\debug\tm_stm32f4_ili9341.o: ..\..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_exti.h
+.\debug\tm_stm32f4_ili9341.o: ..\..\..\..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\stm32f10x.h
+.\debug\tm_stm32f4_ili9341.o: ..\..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_gpio.h
+.\debug\tm_stm32f4_ili9341.o: ..\..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_rcc.h
+.\debug\tm_stm32f4_ili9341.o: ..\..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h
+.\debug\tm_stm32f4_ili9341.o: ..\..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\misc.h
+.\debug\tm_stm32f4_ili9341.o: ..\defines.h
+.\debug\tm_stm32f4_ili9341.o: ..\..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h
+.\debug\tm_stm32f4_ili9341.o: ..\..\..\..\Libraries\STM32F10x_StdPeriph_Driver\inc\../inc/tm_stm32f4_fonts.h

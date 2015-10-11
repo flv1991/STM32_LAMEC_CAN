@@ -1,0 +1,111 @@
+
+<Debug>
+	<Project>
+		<SpyWatch>
+			<Report>
+				<Def Header="InspectReport" NbCol="4" >
+					<Col Type="PT_STRING" Header="Name" sizeCache="DDDDDDDDDDDD" AutoSize="1" Edit="1" Sortable="1" />
+					<Col Type="PT_STRING" Header="Value" sizeCache="DDDDDDDDDDDDDDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="1" />
+					<Col Type="PT_STRING" Header="File" sizeCache="DDDD" AutoSize="1" Edit="0" Visible="0" />
+					<Col Type="PT_STRING" Header="Line" sizeCache="DDDD" AutoSize="1" Edit="0" Visible="0" />
+																		
+				</Def>
+				<Rows/>
+														
+			</Report>
+										
+		</SpyWatch>
+		<CodeView TopRow="134229438" Focus="4294967295" >
+			<CodeReport>
+				<0>107</0>
+				<1>118</1>
+				<2>64</2>
+				<3>368</3>
+				<4>64</4>
+				<5>148</5>
+														
+			</CodeReport>
+										
+		</CodeView>
+		<MemoryView Focus="134226544" TopRow="0" NbPerLine="8" />
+						
+	</Project>
+	<Flags>
+		<Report>
+			<Def Header="FlagReport" NbCol="9" >
+				<Col Type="PT_BOOL" Header="Check" sizeCache="18" AutoSize="0" Edit="1" Sortable="1" Icon="C:\Program Files (x86)\Raisonance\Ride\Config\Resources\check.bmp" />
+				<Col Type="PT_STRING" Header="Kind" sizeCache="DDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="1" />
+				<Col Type="PT_STRING" Header="KindID" sizeCache="DD" AutoSize="1" Edit="0" Sortable="1" Visible="0" />
+				<Col Type="PT_STRING" Header="Space" sizeCache="DDDDDD" AutoSize="1" Edit="0" Sortable="1" />
+				<Col Type="PT_STRING" Header="SpaceID" sizeCache="DD" AutoSize="0" Edit="0" Sortable="0" Visible="0" />
+				<Col Type="PT_STRING" Header="Line" sizeCache="DDDDDDDDD" AutoSize="1" Edit="0" Sortable="1" Visible="1" />
+				<Col Type="PT_STRING" Header="File" sizeCache="DDDDDDDDDDDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="1" Visible="1" />
+				<Col Type="PT_STRING" Header="Path" sizeCache="DDDDDDDDDDDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="0" Visible="0" />
+				<Col Type="PT_STRING" Header="Condition" sizeCache="DDDDDDDDDDDDDDDDDDDDDDDD" AutoSize="1" Edit="0" Sortable="0" />
+				<Col Type="PT_STRING" Header="Condexpr" sizeCache="DD" AutoSize="1" Edit="0" Sortable="0" Visible="0" />
+				<Col Type="PT_STRING" Header="Condcount" sizeCache="DD" AutoSize="1" Edit="0" Sortable="0" Visible="0" />
+							
+			</Def>
+			<Rows/>
+					
+		</Report>
+			
+	</Flags>
+	<Views>
+		<View File="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="371" Index="0" focus="1" />
+	</Views>
+	<Grep>
+		<GrepIncludeSub>yes</GrepIncludeSub>
+		<GrepMatchCase>no</GrepMatchCase>
+		<GrepMatchWhole>no</GrepMatchWhole>
+		<GrepRegExp>no</GrepRegExp>
+		<GrepReplaceMode>no</GrepReplaceMode>
+		<GrepFileTypes>
+			<GrepFileTypesValue>*.c;*.h</GrepFileTypesValue>
+			<GrepFileType>*.c;*.h</GrepFileType>
+		</GrepFileTypes>
+		<GrepFindWhat>
+			<GrepFindWhatValue/>
+		</GrepFindWhat>
+		<GrepFindWhere>
+			<GrepFindWhereValue/>
+			<GrepPathStr>Application Files</GrepPathStr>
+			<GrepPathStr>Application Path</GrepPathStr>
+		</GrepFindWhere>
+		<GrepReplaceWhat>
+			<GrepReplaceWhatValue/>
+		</GrepReplaceWhat>
+	</Grep>
+	<FindStrings>
+		<Find>buffer2</Find>
+		<Find>usart2</Find>
+		<Find>usart</Find>
+		<Find>fill</Find>
+		<Find>y1</Find>
+		<Find>delay</Find>
+		<Find>recebi</Find>
+		<Find>brilho</Find>
+		<Find>flagrx</Find>
+		<Find>NVIC_IRQChannel</Find>
+		<Find>TIM2_IRQChannel</Find>
+		<Find> USART</Find>
+		<Find> USART_IT_RXNE</Find>
+		<Find>USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);</Find>
+		<Find>USART_InitTypeDef</Find>
+		<Find>USART_BaudRate</Find>
+		<Find>72</Find>
+		<Find>GPIO_EXTILineConfig</Find>
+		<Find>EXT</Find>
+		<Find>EXI</Find>
+		<Find>EXTI</Find>
+		<Find>tim2</Find>
+		<Find>rccconfig</Find>
+		<Find>ReadoutputDataBit</Find>
+		<Find>Read</Find>
+		<Find>GPIO_WriteBit</Find>
+		<Find>ReadOutput_DataBit</Find>
+		<Find>HSE_Value</Find>
+		<Find>draw_init</Find>
+	</FindStrings>
+	<ReplaceStrings/>
+</Debug>

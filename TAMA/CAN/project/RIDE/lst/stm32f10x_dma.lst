@@ -1,0 +1,656 @@
+
+C:\Users\fv\Desktop\TAMA\TIM\project\RIDE\obj\stm32f10x_dma.o:     file format elf32-littlearm
+C:\Users\fv\Desktop\TAMA\TIM\project\RIDE\obj\stm32f10x_dma.o
+
+
+Disassembly of section .text.DMA_DeInit:
+
+00000000 <DMA_DeInit>:
+DMA_DeInit():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:69
+{
+  /* Check the parameters */
+  assert_param(IS_DMA_ALL_PERIPH(DMAy_Channelx));
+
+  /* Disable the selected DMAy Channelx */
+  DMAy_Channelx->CCR &= CCR_ENABLE_Reset;
+   0:	6803      	ldr	r3, [r0, #0]
+   2:	f023 0301 	bic.w	r3, r3, #1
+   6:	6003      	str	r3, [r0, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:72
+
+  /* Reset DMAy Channelx control register */
+  DMAy_Channelx->CCR  = 0;
+   8:	f04f 0300 	mov.w	r3, #0
+   c:	6003      	str	r3, [r0, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:75
+  
+  /* Reset DMAy Channelx remaining bytes register */
+  DMAy_Channelx->CNDTR = 0;
+   e:	6043      	str	r3, [r0, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:78
+  
+  /* Reset DMAy Channelx peripheral address register */
+  DMAy_Channelx->CPAR  = 0;
+  10:	6083      	str	r3, [r0, #8]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:81
+  
+  /* Reset DMAy Channelx memory address register */
+  DMAy_Channelx->CMAR = 0;
+  12:	60c3      	str	r3, [r0, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:83
+
+  switch (*(u32*)&DMAy_Channelx)
+  14:	f04f 036c 	mov.w	r3, #108	; 0x6c
+  18:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  1c:	4298      	cmp	r0, r3
+  1e:	f000 8087 	beq.w	130 <DMA_DeInit+0x130>
+  22:	f04f 036c 	mov.w	r3, #108	; 0x6c
+  26:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  2a:	4298      	cmp	r0, r3
+  2c:	d827      	bhi.n	7e <DMA_DeInit+0x7e>
+  2e:	f04f 0330 	mov.w	r3, #48	; 0x30
+  32:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  36:	4298      	cmp	r0, r3
+  38:	d05f      	beq.n	fa <DMA_DeInit+0xfa>
+  3a:	f04f 0330 	mov.w	r3, #48	; 0x30
+  3e:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  42:	4298      	cmp	r0, r3
+  44:	d80d      	bhi.n	62 <DMA_DeInit+0x62>
+  46:	f04f 0308 	mov.w	r3, #8
+  4a:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  4e:	4298      	cmp	r0, r3
+  50:	d041      	beq.n	d6 <DMA_DeInit+0xd6>
+  52:	f04f 031c 	mov.w	r3, #28
+  56:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  5a:	4298      	cmp	r0, r3
+  5c:	f040 80a6 	bne.w	1ac <DMA_DeInit+0x1ac>
+  60:	e042      	b.n	e8 <DMA_DeInit+0xe8>
+  62:	f04f 0344 	mov.w	r3, #68	; 0x44
+  66:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  6a:	4298      	cmp	r0, r3
+  6c:	d04e      	beq.n	10c <DMA_DeInit+0x10c>
+  6e:	f04f 0358 	mov.w	r3, #88	; 0x58
+  72:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  76:	4298      	cmp	r0, r3
+  78:	f040 8098 	bne.w	1ac <DMA_DeInit+0x1ac>
+  7c:	e04f      	b.n	11e <DMA_DeInit+0x11e>
+  7e:	f240 431c 	movw	r3, #1052	; 0x41c
+  82:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  86:	4298      	cmp	r0, r3
+  88:	d06d      	beq.n	166 <DMA_DeInit+0x166>
+  8a:	f240 431c 	movw	r3, #1052	; 0x41c
+  8e:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  92:	4298      	cmp	r0, r3
+  94:	d80c      	bhi.n	b0 <DMA_DeInit+0xb0>
+  96:	f04f 0380 	mov.w	r3, #128	; 0x80
+  9a:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  9e:	4298      	cmp	r0, r3
+  a0:	d04f      	beq.n	142 <DMA_DeInit+0x142>
+  a2:	f44f 6381 	mov.w	r3, #1032	; 0x408
+  a6:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  aa:	4298      	cmp	r0, r3
+  ac:	d17e      	bne.n	1ac <DMA_DeInit+0x1ac>
+  ae:	e051      	b.n	154 <DMA_DeInit+0x154>
+  b0:	f240 4344 	movw	r3, #1092	; 0x444
+  b4:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  b8:	4298      	cmp	r0, r3
+  ba:	d066      	beq.n	18a <DMA_DeInit+0x18a>
+  bc:	f44f 638b 	mov.w	r3, #1112	; 0x458
+  c0:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  c4:	4298      	cmp	r0, r3
+  c6:	d069      	beq.n	19c <DMA_DeInit+0x19c>
+  c8:	f44f 6386 	mov.w	r3, #1072	; 0x430
+  cc:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  d0:	4298      	cmp	r0, r3
+  d2:	d16b      	bne.n	1ac <DMA_DeInit+0x1ac>
+  d4:	e050      	b.n	178 <DMA_DeInit+0x178>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:87
+  {
+    case DMA1_Channel1_BASE:
+      /* Reset interrupt pending bits for DMA1 Channel1 */
+      DMA1->IFCR |= DMA1_Channel1_IT_Mask;
+  d6:	f04f 0300 	mov.w	r3, #0
+  da:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  de:	685a      	ldr	r2, [r3, #4]
+  e0:	f042 020f 	orr.w	r2, r2, #15
+  e4:	605a      	str	r2, [r3, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:88
+      break;
+  e6:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:92
+
+    case DMA1_Channel2_BASE:
+      /* Reset interrupt pending bits for DMA1 Channel2 */
+      DMA1->IFCR |= DMA1_Channel2_IT_Mask;
+  e8:	f04f 0300 	mov.w	r3, #0
+  ec:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  f0:	685a      	ldr	r2, [r3, #4]
+  f2:	f042 02f0 	orr.w	r2, r2, #240	; 0xf0
+  f6:	605a      	str	r2, [r3, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:93
+      break;
+  f8:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:97
+
+    case DMA1_Channel3_BASE:
+      /* Reset interrupt pending bits for DMA1 Channel3 */
+      DMA1->IFCR |= DMA1_Channel3_IT_Mask;
+  fa:	f04f 0300 	mov.w	r3, #0
+  fe:	f2c4 0302 	movt	r3, #16386	; 0x4002
+ 102:	685a      	ldr	r2, [r3, #4]
+ 104:	f442 6270 	orr.w	r2, r2, #3840	; 0xf00
+ 108:	605a      	str	r2, [r3, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:98
+      break;
+ 10a:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:102
+
+    case DMA1_Channel4_BASE:
+      /* Reset interrupt pending bits for DMA1 Channel4 */
+      DMA1->IFCR |= DMA1_Channel4_IT_Mask;
+ 10c:	f04f 0300 	mov.w	r3, #0
+ 110:	f2c4 0302 	movt	r3, #16386	; 0x4002
+ 114:	685a      	ldr	r2, [r3, #4]
+ 116:	f442 4270 	orr.w	r2, r2, #61440	; 0xf000
+ 11a:	605a      	str	r2, [r3, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:103
+      break;
+ 11c:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:107
+
+    case DMA1_Channel5_BASE:
+      /* Reset interrupt pending bits for DMA1 Channel5 */
+      DMA1->IFCR |= DMA1_Channel5_IT_Mask;
+ 11e:	f04f 0300 	mov.w	r3, #0
+ 122:	f2c4 0302 	movt	r3, #16386	; 0x4002
+ 126:	685a      	ldr	r2, [r3, #4]
+ 128:	f442 2270 	orr.w	r2, r2, #983040	; 0xf0000
+ 12c:	605a      	str	r2, [r3, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:108
+      break;
+ 12e:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:112
+
+    case DMA1_Channel6_BASE:
+      /* Reset interrupt pending bits for DMA1 Channel6 */
+      DMA1->IFCR |= DMA1_Channel6_IT_Mask;
+ 130:	f04f 0300 	mov.w	r3, #0
+ 134:	f2c4 0302 	movt	r3, #16386	; 0x4002
+ 138:	685a      	ldr	r2, [r3, #4]
+ 13a:	f442 0270 	orr.w	r2, r2, #15728640	; 0xf00000
+ 13e:	605a      	str	r2, [r3, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:113
+      break;
+ 140:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:117
+
+    case DMA1_Channel7_BASE:
+      /* Reset interrupt pending bits for DMA1 Channel7 */
+      DMA1->IFCR |= DMA1_Channel7_IT_Mask;
+ 142:	f04f 0300 	mov.w	r3, #0
+ 146:	f2c4 0302 	movt	r3, #16386	; 0x4002
+ 14a:	685a      	ldr	r2, [r3, #4]
+ 14c:	f042 6270 	orr.w	r2, r2, #251658240	; 0xf000000
+ 150:	605a      	str	r2, [r3, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:118
+      break;
+ 152:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:122
+
+    case DMA2_Channel1_BASE:
+      /* Reset interrupt pending bits for DMA2 Channel1 */
+      DMA2->IFCR |= DMA2_Channel1_IT_Mask;
+ 154:	f44f 6380 	mov.w	r3, #1024	; 0x400
+ 158:	f2c4 0302 	movt	r3, #16386	; 0x4002
+ 15c:	685a      	ldr	r2, [r3, #4]
+ 15e:	f042 020f 	orr.w	r2, r2, #15
+ 162:	605a      	str	r2, [r3, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:123
+      break;
+ 164:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:127
+
+    case DMA2_Channel2_BASE:
+      /* Reset interrupt pending bits for DMA2 Channel2 */
+      DMA2->IFCR |= DMA2_Channel2_IT_Mask;
+ 166:	f44f 6380 	mov.w	r3, #1024	; 0x400
+ 16a:	f2c4 0302 	movt	r3, #16386	; 0x4002
+ 16e:	685a      	ldr	r2, [r3, #4]
+ 170:	f042 02f0 	orr.w	r2, r2, #240	; 0xf0
+ 174:	605a      	str	r2, [r3, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:128
+      break;
+ 176:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:132
+
+    case DMA2_Channel3_BASE:
+      /* Reset interrupt pending bits for DMA2 Channel3 */
+      DMA2->IFCR |= DMA2_Channel3_IT_Mask;
+ 178:	f44f 6380 	mov.w	r3, #1024	; 0x400
+ 17c:	f2c4 0302 	movt	r3, #16386	; 0x4002
+ 180:	685a      	ldr	r2, [r3, #4]
+ 182:	f442 6270 	orr.w	r2, r2, #3840	; 0xf00
+ 186:	605a      	str	r2, [r3, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:133
+      break;
+ 188:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:137
+
+    case DMA2_Channel4_BASE:
+      /* Reset interrupt pending bits for DMA2 Channel4 */
+      DMA2->IFCR |= DMA2_Channel4_IT_Mask;
+ 18a:	f44f 6380 	mov.w	r3, #1024	; 0x400
+ 18e:	f2c4 0302 	movt	r3, #16386	; 0x4002
+ 192:	685a      	ldr	r2, [r3, #4]
+ 194:	f442 4270 	orr.w	r2, r2, #61440	; 0xf000
+ 198:	605a      	str	r2, [r3, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:138
+      break;
+ 19a:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:142
+
+    case DMA2_Channel5_BASE:
+      /* Reset interrupt pending bits for DMA2 Channel5 */
+      DMA2->IFCR |= DMA2_Channel5_IT_Mask;
+ 19c:	f44f 6380 	mov.w	r3, #1024	; 0x400
+ 1a0:	f2c4 0302 	movt	r3, #16386	; 0x4002
+ 1a4:	685a      	ldr	r2, [r3, #4]
+ 1a6:	f442 2270 	orr.w	r2, r2, #983040	; 0xf0000
+ 1aa:	605a      	str	r2, [r3, #4]
+ 1ac:	4770      	bx	lr
+ 1ae:	bf00      	nop
+
+Disassembly of section .text.DMA_Init:
+
+00000000 <DMA_Init>:
+DMA_Init():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:164
+*                    DMA Channel.
+* Output         : None
+* Return         : None
+******************************************************************************/
+void DMA_Init(DMA_Channel_TypeDef* DMAy_Channelx, DMA_InitTypeDef* DMA_InitStruct)
+{
+   0:	b410      	push	{r4}
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:181
+  assert_param(IS_DMA_PRIORITY(DMA_InitStruct->DMA_Priority));
+  assert_param(IS_DMA_M2M_STATE(DMA_InitStruct->DMA_M2M));
+
+/*--------------------------- DMAy Channelx CCR Configuration -----------------*/
+  /* Get the DMAy_Channelx CCR value */
+  tmpreg = DMAy_Channelx->CCR;
+   2:	6802      	ldr	r2, [r0, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:183
+  /* Clear MEM2MEM, PL, MSIZE, PSIZE, MINC, PINC, CIRC and DIR bits */
+  tmpreg &= CCR_CLEAR_Mask;
+   4:	f422 42fe 	bic.w	r2, r2, #32512	; 0x7f00
+   8:	f022 02f0 	bic.w	r2, r2, #240	; 0xf0
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:193
+  /* Set MINC bit according to DMA_MemoryInc value */
+  /* Set PSIZE bits according to DMA_PeripheralDataSize value */
+  /* Set MSIZE bits according to DMA_MemoryDataSize value */
+  /* Set PL bits according to DMA_Priority value */
+  /* Set the MEM2MEM bit according to DMA_M2M value */
+  tmpreg |= DMA_InitStruct->DMA_DIR | DMA_InitStruct->DMA_Mode |
+   c:	6a0c      	ldr	r4, [r1, #32]
+   e:	688b      	ldr	r3, [r1, #8]
+  10:	ea44 0303 	orr.w	r3, r4, r3
+  14:	690c      	ldr	r4, [r1, #16]
+  16:	4323      	orrs	r3, r4
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:194
+            DMA_InitStruct->DMA_PeripheralInc | DMA_InitStruct->DMA_MemoryInc |
+  18:	694c      	ldr	r4, [r1, #20]
+  1a:	4323      	orrs	r3, r4
+  1c:	698c      	ldr	r4, [r1, #24]
+  1e:	4323      	orrs	r3, r4
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:195
+            DMA_InitStruct->DMA_PeripheralDataSize | DMA_InitStruct->DMA_MemoryDataSize |
+  20:	69cc      	ldr	r4, [r1, #28]
+  22:	4323      	orrs	r3, r4
+  24:	6a4c      	ldr	r4, [r1, #36]	; 0x24
+  26:	4323      	orrs	r3, r4
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:196
+            DMA_InitStruct->DMA_Priority | DMA_InitStruct->DMA_M2M;
+  28:	6a8c      	ldr	r4, [r1, #40]	; 0x28
+  2a:	4323      	orrs	r3, r4
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:193
+  /* Set MINC bit according to DMA_MemoryInc value */
+  /* Set PSIZE bits according to DMA_PeripheralDataSize value */
+  /* Set MSIZE bits according to DMA_MemoryDataSize value */
+  /* Set PL bits according to DMA_Priority value */
+  /* Set the MEM2MEM bit according to DMA_M2M value */
+  tmpreg |= DMA_InitStruct->DMA_DIR | DMA_InitStruct->DMA_Mode |
+  2c:	4313      	orrs	r3, r2
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:198
+            DMA_InitStruct->DMA_PeripheralInc | DMA_InitStruct->DMA_MemoryInc |
+            DMA_InitStruct->DMA_PeripheralDataSize | DMA_InitStruct->DMA_MemoryDataSize |
+            DMA_InitStruct->DMA_Priority | DMA_InitStruct->DMA_M2M;
+  /* Write to DMAy Channelx CCR */
+  DMAy_Channelx->CCR = tmpreg;
+  2e:	6003      	str	r3, [r0, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:202
+
+/*--------------------------- DMAy Channelx CNDTR Configuration ---------------*/
+  /* Write to DMAy Channelx CNDTR */
+  DMAy_Channelx->CNDTR = DMA_InitStruct->DMA_BufferSize;
+  30:	68cb      	ldr	r3, [r1, #12]
+  32:	6043      	str	r3, [r0, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:206
+
+/*--------------------------- DMAy Channelx CPAR Configuration ----------------*/
+  /* Write to DMAy Channelx CPAR */
+  DMAy_Channelx->CPAR = DMA_InitStruct->DMA_PeripheralBaseAddr;
+  34:	680b      	ldr	r3, [r1, #0]
+  36:	6083      	str	r3, [r0, #8]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:210
+
+/*--------------------------- DMAy Channelx CMAR Configuration ----------------*/
+  /* Write to DMAy Channelx CMAR */
+  DMAy_Channelx->CMAR = DMA_InitStruct->DMA_MemoryBaseAddr;
+  38:	684b      	ldr	r3, [r1, #4]
+  3a:	60c3      	str	r3, [r0, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:211
+}
+  3c:	bc10      	pop	{r4}
+  3e:	4770      	bx	lr
+
+Disassembly of section .text.DMA_StructInit:
+
+00000000 <DMA_StructInit>:
+DMA_StructInit():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:225
+*******************************************************************************/
+void DMA_StructInit(DMA_InitTypeDef* DMA_InitStruct)
+{
+/*-------------- Reset DMA init structure parameters values ------------------*/
+  /* Initialize the DMA_PeripheralBaseAddr member */
+  DMA_InitStruct->DMA_PeripheralBaseAddr = 0;
+   0:	f04f 0300 	mov.w	r3, #0
+   4:	6003      	str	r3, [r0, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:228
+
+  /* Initialize the DMA_MemoryBaseAddr member */
+  DMA_InitStruct->DMA_MemoryBaseAddr = 0;
+   6:	6043      	str	r3, [r0, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:231
+
+  /* Initialize the DMA_DIR member */
+  DMA_InitStruct->DMA_DIR = DMA_DIR_PeripheralSRC;
+   8:	6083      	str	r3, [r0, #8]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:234
+
+  /* Initialize the DMA_BufferSize member */
+  DMA_InitStruct->DMA_BufferSize = 0;
+   a:	60c3      	str	r3, [r0, #12]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:237
+
+  /* Initialize the DMA_PeripheralInc member */
+  DMA_InitStruct->DMA_PeripheralInc = DMA_PeripheralInc_Disable;
+   c:	6103      	str	r3, [r0, #16]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:240
+
+  /* Initialize the DMA_MemoryInc member */
+  DMA_InitStruct->DMA_MemoryInc = DMA_MemoryInc_Disable;
+   e:	6143      	str	r3, [r0, #20]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:243
+
+  /* Initialize the DMA_PeripheralDataSize member */
+  DMA_InitStruct->DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
+  10:	6183      	str	r3, [r0, #24]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:246
+
+  /* Initialize the DMA_MemoryDataSize member */
+  DMA_InitStruct->DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;
+  12:	61c3      	str	r3, [r0, #28]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:249
+
+  /* Initialize the DMA_Mode member */
+  DMA_InitStruct->DMA_Mode = DMA_Mode_Normal;
+  14:	6203      	str	r3, [r0, #32]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:252
+
+  /* Initialize the DMA_Priority member */
+  DMA_InitStruct->DMA_Priority = DMA_Priority_Low;
+  16:	6243      	str	r3, [r0, #36]	; 0x24
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:255
+
+  /* Initialize the DMA_M2M member */
+  DMA_InitStruct->DMA_M2M = DMA_M2M_Disable;
+  18:	6283      	str	r3, [r0, #40]	; 0x28
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:256
+}
+  1a:	4770      	bx	lr
+
+Disassembly of section .text.DMA_Cmd:
+
+00000000 <DMA_Cmd>:
+DMA_Cmd():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:275
+{
+  /* Check the parameters */
+  assert_param(IS_DMA_ALL_PERIPH(DMAy_Channelx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  if (NewState != DISABLE)
+   0:	b121      	cbz	r1, c <DMA_Cmd+0xc>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:278
+  {
+    /* Enable the selected DMAy Channelx */
+    DMAy_Channelx->CCR |= CCR_ENABLE_Set;
+   2:	6803      	ldr	r3, [r0, #0]
+   4:	f043 0301 	orr.w	r3, r3, #1
+   8:	6003      	str	r3, [r0, #0]
+   a:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:283
+  }
+  else
+  {
+    /* Disable the selected DMAy Channelx */
+    DMAy_Channelx->CCR &= CCR_ENABLE_Reset;
+   c:	6803      	ldr	r3, [r0, #0]
+   e:	f023 0301 	bic.w	r3, r3, #1
+  12:	6003      	str	r3, [r0, #0]
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text.DMA_ITConfig:
+
+00000000 <DMA_ITConfig>:
+DMA_ITConfig():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:311
+  /* Check the parameters */
+  assert_param(IS_DMA_ALL_PERIPH(DMAy_Channelx));
+  assert_param(IS_DMA_CONFIG_IT(DMA_IT));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  if (NewState != DISABLE)
+   0:	b11a      	cbz	r2, a <DMA_ITConfig+0xa>
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:314
+  {
+    /* Enable the selected DMA interrupts */
+    DMAy_Channelx->CCR |= DMA_IT;
+   2:	6803      	ldr	r3, [r0, #0]
+   4:	4319      	orrs	r1, r3
+   6:	6001      	str	r1, [r0, #0]
+   8:	4770      	bx	lr
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:319
+  }
+  else
+  {
+    /* Disable the selected DMA interrupts */
+    DMAy_Channelx->CCR &= ~DMA_IT;
+   a:	6803      	ldr	r3, [r0, #0]
+   c:	ea23 0101 	bic.w	r1, r3, r1
+  10:	6001      	str	r1, [r0, #0]
+  12:	4770      	bx	lr
+
+Disassembly of section .text.DMA_GetCurrDataCounter:
+
+00000000 <DMA_GetCurrDataCounter>:
+DMA_GetCurrDataCounter():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:340
+{
+  /* Check the parameters */
+  assert_param(IS_DMA_ALL_PERIPH(DMAy_Channelx));
+
+  /* Return the number of remaining data units for DMAy Channelx */
+  return ((u16)(DMAy_Channelx->CNDTR));
+   0:	6840      	ldr	r0, [r0, #4]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:341
+}
+   2:	b280      	uxth	r0, r0
+   4:	4770      	bx	lr
+   6:	bf00      	nop
+
+Disassembly of section .text.DMA_GetFlagStatus:
+
+00000000 <DMA_GetFlagStatus>:
+DMA_GetFlagStatus():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:408
+
+  /* Check the parameters */
+  assert_param(IS_DMA_GET_FLAG(DMA_FLAG));
+
+  /* Calculate the used DMA */
+  if ((DMA_FLAG & FLAG_Mask) != (u32)RESET)
+   0:	f010 5f80 	tst.w	r0, #268435456	; 0x10000000
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:411
+  {
+    /* Get DMA2 ISR register value */
+    tmpreg = DMA2->ISR ;
+   4:	bf14      	ite	ne
+   6:	f44f 6380 	movne.w	r3, #1024	; 0x400
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:416
+  }
+  else
+  {
+    /* Get DMA1 ISR register value */
+    tmpreg = DMA1->ISR ;
+   a:	2300      	moveq	r3, #0
+   c:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  10:	681b      	ldr	r3, [r3, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:423
+
+  /* Check the status of the specified DMA flag */
+  if ((tmpreg & DMA_FLAG) != (u32)RESET)
+  {
+    /* DMA_FLAG is set */
+    bitstatus = SET;
+  12:	4203      	tst	r3, r0
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:433
+    bitstatus = RESET;
+  }
+  
+  /* Return the DMA_FLAG status */
+  return  bitstatus;
+}
+  14:	bf0c      	ite	eq
+  16:	2000      	moveq	r0, #0
+  18:	2001      	movne	r0, #1
+  1a:	4770      	bx	lr
+
+Disassembly of section .text.DMA_ClearFlag:
+
+00000000 <DMA_ClearFlag>:
+DMA_ClearFlag():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:498
+{
+  /* Check the parameters */
+  assert_param(IS_DMA_CLEAR_FLAG(DMA_FLAG));
+
+  /* Calculate the used DMA */
+  if ((DMA_FLAG & FLAG_Mask) != (u32)RESET)
+   0:	f010 5f80 	tst.w	r0, #268435456	; 0x10000000
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:501
+  {
+    /* Clear the selected DMA flags */
+    DMA2->IFCR = DMA_FLAG;
+   4:	bf14      	ite	ne
+   6:	f44f 6380 	movne.w	r3, #1024	; 0x400
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:506
+  }
+  else
+  {
+    /* Clear the selected DMA flags */
+    DMA1->IFCR = DMA_FLAG;
+   a:	2300      	moveq	r3, #0
+   c:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  10:	6058      	str	r0, [r3, #4]
+  12:	4770      	bx	lr
+
+Disassembly of section .text.DMA_GetITStatus:
+
+00000000 <DMA_GetITStatus>:
+DMA_GetITStatus():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:576
+
+  /* Check the parameters */
+  assert_param(IS_DMA_GET_IT(DMA_IT));
+
+  /* Calculate the used DMA */
+  if ((DMA_IT & FLAG_Mask) != (u32)RESET)
+   0:	f010 5f80 	tst.w	r0, #268435456	; 0x10000000
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:579
+  {
+    /* Get DMA2 ISR register value */
+    tmpreg = DMA2->ISR ;
+   4:	bf14      	ite	ne
+   6:	f44f 6380 	movne.w	r3, #1024	; 0x400
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:584
+  }
+  else
+  {
+    /* Get DMA1 ISR register value */
+    tmpreg = DMA1->ISR ;
+   a:	2300      	moveq	r3, #0
+   c:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  10:	681b      	ldr	r3, [r3, #0]
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:591
+
+  /* Check the status of the specified DMA interrupt */
+  if ((tmpreg & DMA_IT) != (u32)RESET)
+  {
+    /* DMA_IT is set */
+    bitstatus = SET;
+  12:	4203      	tst	r3, r0
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:600
+    /* DMA_IT is reset */
+    bitstatus = RESET;
+  }
+  /* Return the DMA_IT status */
+  return  bitstatus;
+}
+  14:	bf0c      	ite	eq
+  16:	2000      	moveq	r0, #0
+  18:	2001      	movne	r0, #1
+  1a:	4770      	bx	lr
+
+Disassembly of section .text.DMA_ClearITPendingBit:
+
+00000000 <DMA_ClearITPendingBit>:
+DMA_ClearITPendingBit():
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:665
+{
+  /* Check the parameters */
+  assert_param(IS_DMA_CLEAR_IT(DMA_IT));
+
+  /* Calculate the used DMA */
+  if ((DMA_IT & FLAG_Mask) != (u32)RESET)
+   0:	f010 5f80 	tst.w	r0, #268435456	; 0x10000000
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:668
+  {
+    /* Clear the selected DMA interrupt pending bits */
+    DMA2->IFCR = DMA_IT;
+   4:	bf14      	ite	ne
+   6:	f44f 6380 	movne.w	r3, #1024	; 0x400
+C:\Users\fv\Desktop\TAMA\TIM\library\src/stm32f10x_dma.c:673
+  }
+  else
+  {
+    /* Clear the selected DMA interrupt pending bits */
+    DMA1->IFCR = DMA_IT;
+   a:	2300      	moveq	r3, #0
+   c:	f2c4 0302 	movt	r3, #16386	; 0x4002
+  10:	6058      	str	r0, [r3, #4]
+  12:	4770      	bx	lr

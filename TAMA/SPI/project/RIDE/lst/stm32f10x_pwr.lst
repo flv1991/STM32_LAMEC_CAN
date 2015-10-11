@@ -1,0 +1,282 @@
+
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\RIDE\obj\stm32f10x_pwr.o:     file format elf32-littlearm
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\RIDE\obj\stm32f10x_pwr.o
+
+
+Disassembly of section .text.PWR_DeInit:
+
+00000000 <PWR_DeInit>:
+PWR_DeInit():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:68
+* Input          : None
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void PWR_DeInit(void)
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:69
+  RCC_APB1PeriphResetCmd(RCC_APB1Periph_PWR, ENABLE);
+   2:	f04f 5080 	mov.w	r0, #268435456	; 0x10000000
+   6:	f04f 0101 	mov.w	r1, #1
+   a:	f7ff fffe 	bl	0 <RCC_APB1PeriphResetCmd>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:70
+  RCC_APB1PeriphResetCmd(RCC_APB1Periph_PWR, DISABLE);
+   e:	f04f 5080 	mov.w	r0, #268435456	; 0x10000000
+  12:	f04f 0100 	mov.w	r1, #0
+  16:	f7ff fffe 	bl	0 <RCC_APB1PeriphResetCmd>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:71
+}
+  1a:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.PWR_BackupAccessCmd:
+
+00000000 <PWR_BackupAccessCmd>:
+PWR_BackupAccessCmd():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:86
+void PWR_BackupAccessCmd(FunctionalState NewState)
+{
+  /* Check the parameters */
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  *(vu32 *) CR_DBP_BB = (u32)NewState;
+   0:	f04f 0320 	mov.w	r3, #32
+   4:	f2c4 230e 	movt	r3, #16910	; 0x420e
+   8:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:87
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.PWR_PVDCmd:
+
+00000000 <PWR_PVDCmd>:
+PWR_PVDCmd():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:102
+void PWR_PVDCmd(FunctionalState NewState)
+{
+  /* Check the parameters */
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  *(vu32 *) CR_PVDE_BB = (u32)NewState;
+   0:	f04f 0310 	mov.w	r3, #16
+   4:	f2c4 230e 	movt	r3, #16910	; 0x420e
+   8:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:103
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.PWR_PVDLevelConfig:
+
+00000000 <PWR_PVDLevelConfig>:
+PWR_PVDLevelConfig():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:129
+  u32 tmpreg = 0;
+
+  /* Check the parameters */
+  assert_param(IS_PWR_PVD_LEVEL(PWR_PVDLevel));
+
+  tmpreg = PWR->CR;
+   0:	f44f 43e0 	mov.w	r3, #28672	; 0x7000
+   4:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   8:	681a      	ldr	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:132
+
+  /* Clear PLS[7:5] bits */
+  tmpreg &= CR_PLS_Mask;
+   a:	f022 02e0 	bic.w	r2, r2, #224	; 0xe0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:135
+
+  /* Set PLS[7:5] bits according to PWR_PVDLevel value */
+  tmpreg |= PWR_PVDLevel;
+   e:	ea40 0202 	orr.w	r2, r0, r2
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:138
+
+  /* Store the new value */
+  PWR->CR = tmpreg;
+  12:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:139
+}
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text.PWR_WakeUpPinCmd:
+
+00000000 <PWR_WakeUpPinCmd>:
+PWR_WakeUpPinCmd():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:154
+void PWR_WakeUpPinCmd(FunctionalState NewState)
+{
+  /* Check the parameters */
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+  *(vu32 *) CSR_EWUP_BB = (u32)NewState;
+   0:	f04f 03a0 	mov.w	r3, #160	; 0xa0
+   4:	f2c4 230e 	movt	r3, #16910	; 0x420e
+   8:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:155
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.PWR_EnterSTOPMode:
+
+00000000 <PWR_EnterSTOPMode>:
+PWR_EnterSTOPMode():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:174
+*                       - PWR_STOPEntry_WFE: enter STOP mode with WFE instruction
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void PWR_EnterSTOPMode(u32 PWR_Regulator, u8 PWR_STOPEntry)
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:182
+  /* Check the parameters */
+  assert_param(IS_PWR_REGULATOR(PWR_Regulator));
+  assert_param(IS_PWR_STOP_ENTRY(PWR_STOPEntry));
+  
+  /* Select the regulator state in STOP mode ---------------------------------*/
+  tmpreg = PWR->CR;
+   2:	f44f 43e0 	mov.w	r3, #28672	; 0x7000
+   6:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   a:	681a      	ldr	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:185
+
+  /* Clear PDDS and LPDS bits */
+  tmpreg &= CR_DS_Mask;
+   c:	f022 0203 	bic.w	r2, r2, #3
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:188
+
+  /* Set LPDS bit according to PWR_Regulator value */
+  tmpreg |= PWR_Regulator;
+  10:	ea40 0202 	orr.w	r2, r0, r2
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:191
+
+  /* Store the new value */
+  PWR->CR = tmpreg;
+  14:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:194
+
+  /* Set SLEEPDEEP bit of Cortex System Control Register */
+  *(vu32 *) SCB_SysCtrl |= SysCtrl_SLEEPDEEP_Set;
+  16:	f64e 5310 	movw	r3, #60688	; 0xed10
+  1a:	f2ce 0300 	movt	r3, #57344	; 0xe000
+  1e:	681a      	ldr	r2, [r3, #0]
+  20:	f042 0204 	orr.w	r2, r2, #4
+  24:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:197
+  
+  /* Select STOP mode entry --------------------------------------------------*/
+  if(PWR_STOPEntry == PWR_STOPEntry_WFI)
+  26:	2901      	cmp	r1, #1
+  28:	d102      	bne.n	30 <PWR_EnterSTOPMode+0x30>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:200
+  {   
+    /* Request Wait For Interrupt */
+    __WFI();
+  2a:	f7ff fffe 	bl	0 <__WFI>
+  2e:	bd08      	pop	{r3, pc}
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:205
+  }
+  else
+  {
+    /* Request Wait For Event */
+    __WFE();
+  30:	f7ff fffe 	bl	0 <__WFE>
+  34:	bd08      	pop	{r3, pc}
+  36:	bf00      	nop
+
+Disassembly of section .text.PWR_EnterSTANDBYMode:
+
+00000000 <PWR_EnterSTANDBYMode>:
+PWR_EnterSTANDBYMode():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:217
+* Input          : None
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void PWR_EnterSTANDBYMode(void)
+{
+   0:	b508      	push	{r3, lr}
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:219
+  /* Clear Wake-up flag */
+  PWR->CR |= CR_CWUF_Set;
+   2:	f44f 43e0 	mov.w	r3, #28672	; 0x7000
+   6:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   a:	681a      	ldr	r2, [r3, #0]
+   c:	f042 0204 	orr.w	r2, r2, #4
+  10:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:222
+
+  /* Select STANDBY mode */
+  PWR->CR |= CR_PDDS_Set;
+  12:	681a      	ldr	r2, [r3, #0]
+  14:	f042 0202 	orr.w	r2, r2, #2
+  18:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:225
+
+  /* Set SLEEPDEEP bit of Cortex System Control Register */
+  *(vu32 *) SCB_SysCtrl |= SysCtrl_SLEEPDEEP_Set;
+  1a:	f64e 5310 	movw	r3, #60688	; 0xed10
+  1e:	f2ce 0300 	movt	r3, #57344	; 0xe000
+  22:	681a      	ldr	r2, [r3, #0]
+  24:	f042 0204 	orr.w	r2, r2, #4
+  28:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:228
+
+  /* Request Wait For Interrupt */
+  __WFI();
+  2a:	f7ff fffe 	bl	0 <__WFI>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:229
+}
+  2e:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.PWR_GetFlagStatus:
+
+00000000 <PWR_GetFlagStatus>:
+PWR_GetFlagStatus():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:249
+  FlagStatus bitstatus = RESET;
+
+  /* Check the parameters */
+  assert_param(IS_PWR_GET_FLAG(PWR_FLAG));
+  
+  if ((PWR->CSR & PWR_FLAG) != (u32)RESET)
+   0:	f44f 43e0 	mov.w	r3, #28672	; 0x7000
+   4:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   8:	685b      	ldr	r3, [r3, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:251
+  {
+    bitstatus = SET;
+   a:	4218      	tst	r0, r3
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:260
+    bitstatus = RESET;
+  }
+
+  /* Return the flag status */
+  return bitstatus;
+}
+   c:	bf0c      	ite	eq
+   e:	2000      	moveq	r0, #0
+  10:	2001      	movne	r0, #1
+  12:	4770      	bx	lr
+
+Disassembly of section .text.PWR_ClearFlag:
+
+00000000 <PWR_ClearFlag>:
+PWR_ClearFlag():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:277
+void PWR_ClearFlag(u32 PWR_FLAG)
+{
+  /* Check the parameters */
+  assert_param(IS_PWR_CLEAR_FLAG(PWR_FLAG));
+         
+  PWR->CR |=  PWR_FLAG << 2;
+   0:	f44f 43e0 	mov.w	r3, #28672	; 0x7000
+   4:	f2c4 0300 	movt	r3, #16384	; 0x4000
+   8:	681a      	ldr	r2, [r3, #0]
+   a:	ea42 0280 	orr.w	r2, r2, r0, lsl #2
+   e:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_pwr.c:278
+}
+  10:	4770      	bx	lr
+  12:	bf00      	nop

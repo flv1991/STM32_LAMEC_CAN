@@ -1,0 +1,2123 @@
+<!-- DWF2XML 2.00.01 - Raisonance Dwarf information extractor -->
+<aoffile Filename="Project" dwarf="1">
+ <modulelist>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" >
+   <type Family="Base" Name="unsigned int" ID="41"/>
+   <type Family="Base" Name="signed char" ID="48"/>
+   <type Family="Base" Name="unsigned char" ID="55"/>
+   <type Family="Base" Name="short int" ID="62"/>
+   <type Family="Base" Name="short unsigned int" ID="69"/>
+   <type Family="Base" Name="int" ID="76"/>
+   <type Family="Base" Name="long long int" ID="83"/>
+   <type Family="Base" Name="long long unsigned int" ID="90"/>
+   <type Family="Base" Name="long int" ID="97"/>
+   <type Family="Base" Name="long unsigned int" ID="104"/>
+   <type Family="Base" Name="char" ID="111"/>
+   <type Family="typedef" Name="u32" Line="39" ID="118" toTI="104"/>
+   <type Family="typedef" Name="u16" Line="40" ID="129" toTI="69"/>
+   <type Family="typedef" Name="u8" Line="41" ID="140" toTI="55"/>
+   <type Family="typedef" Name="FunctionalState" Line="59" ID="202" toTI="181"/>
+   <type Family="typedef" Name="ErrorStatus" Line="62" ID="234" toTI="213"/>
+   <type Family="ComponentList" Line="334" ID="245">
+    <Component Name="CRL" TI="254" Line="336" Offs="0"/>
+    <Component Name="CRH" TI="269" Line="337" Offs="4"/>
+    <Component Name="IDR" TI="284" Line="338" Offs="8"/>
+    <Component Name="ODR" TI="299" Line="339" Offs="12"/>
+    <Component Name="BSRR" TI="314" Line="340" Offs="16"/>
+    <Component Name="BRR" TI="329" Line="341" Offs="20"/>
+    <Component Name="LCKR" TI="344" Line="342" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="GPIO_TypeDef" Line="343" ID="360" toTI="245"/>
+   <type Family="ComponentList" Line="491" ID="372">
+    <Component Name="CR1" TI="381" Line="493" Offs="0"/>
+    <Component Name="RESERVED0" TI="396" Line="494" Offs="2"/>
+    <Component Name="CR2" TI="411" Line="495" Offs="4"/>
+    <Component Name="RESERVED1" TI="426" Line="496" Offs="6"/>
+    <Component Name="SR" TI="441" Line="497" Offs="8"/>
+    <Component Name="RESERVED2" TI="455" Line="498" Offs="10"/>
+    <Component Name="DR" TI="470" Line="499" Offs="12"/>
+    <Component Name="RESERVED3" TI="484" Line="500" Offs="14"/>
+    <Component Name="CRCPR" TI="499" Line="501" Offs="16"/>
+    <Component Name="RESERVED4" TI="514" Line="502" Offs="18"/>
+    <Component Name="RXCRCR" TI="529" Line="503" Offs="20"/>
+    <Component Name="RESERVED5" TI="544" Line="504" Offs="22"/>
+    <Component Name="TXCRCR" TI="559" Line="505" Offs="24"/>
+    <Component Name="RESERVED6" TI="574" Line="506" Offs="26"/>
+    <Component Name="I2SCFGR" TI="589" Line="507" Offs="28"/>
+    <Component Name="RESERVED7" TI="604" Line="508" Offs="30"/>
+    <Component Name="I2SPR" TI="619" Line="509" Offs="32"/>
+    <Component Name="RESERVED8" TI="634" Line="510" Offs="34"/>
+   </type>
+   <type Family="typedef" Name="SPI_TypeDef" Line="511" ID="650" toTI="372"/>
+   <type Family="ComponentList" Line="568" ID="662">
+    <Component Name="SR" TI="671" Line="570" Offs="0"/>
+    <Component Name="RESERVED0" TI="685" Line="571" Offs="2"/>
+    <Component Name="DR" TI="700" Line="572" Offs="4"/>
+    <Component Name="RESERVED1" TI="714" Line="573" Offs="6"/>
+    <Component Name="BRR" TI="729" Line="574" Offs="8"/>
+    <Component Name="RESERVED2" TI="744" Line="575" Offs="10"/>
+    <Component Name="CR1" TI="759" Line="576" Offs="12"/>
+    <Component Name="RESERVED3" TI="774" Line="577" Offs="14"/>
+    <Component Name="CR2" TI="789" Line="578" Offs="16"/>
+    <Component Name="RESERVED4" TI="804" Line="579" Offs="18"/>
+    <Component Name="CR3" TI="819" Line="580" Offs="20"/>
+    <Component Name="RESERVED5" TI="834" Line="581" Offs="22"/>
+    <Component Name="GTPR" TI="849" Line="582" Offs="24"/>
+    <Component Name="RESERVED6" TI="864" Line="583" Offs="26"/>
+   </type>
+   <type Family="typedef" Name="USART_TypeDef" Line="584" ID="880" toTI="662"/>
+   <type Family="typedef" Name="GPIOSpeed_TypeDef" Line="39" ID="919" toTI="892"/>
+   <type Family="typedef" Name="GPIOMode_TypeDef" Line="54" ID="988" toTI="930"/>
+   <type Family="ComponentList" Line="62" ID="999">
+    <Component Name="GPIO_Pin" TI="1007" Line="64" Offs="0"/>
+    <Component Name="GPIO_Speed" TI="1021" Line="65" Offs="2"/>
+    <Component Name="GPIO_Mode" TI="1035" Line="66" Offs="3"/>
+   </type>
+   <type Family="typedef" Name="GPIO_InitTypeDef" Line="67" ID="1050" toTI="999"/>
+   <type Family="ComponentList" Line="26" ID="1082">
+    <Component Name="NVIC_IRQChannel" TI="1090" Line="28" Offs="0"/>
+    <Component Name="NVIC_IRQChannelPreemptionPriority" TI="1104" Line="29" Offs="1"/>
+    <Component Name="NVIC_IRQChannelSubPriority" TI="1118" Line="30" Offs="2"/>
+    <Component Name="NVIC_IRQChannelCmd" TI="1132" Line="31" Offs="3"/>
+   </type>
+   <type Family="typedef" Name="NVIC_InitTypeDef" Line="32" ID="1147" toTI="1082"/>
+   <type Family="ComponentList" Line="26" ID="1158">
+    <Component Name="SPI_Direction" TI="1166" Line="28" Offs="0"/>
+    <Component Name="SPI_Mode" TI="1180" Line="29" Offs="2"/>
+    <Component Name="SPI_DataSize" TI="1194" Line="30" Offs="4"/>
+    <Component Name="SPI_CPOL" TI="1208" Line="31" Offs="6"/>
+    <Component Name="SPI_CPHA" TI="1222" Line="32" Offs="8"/>
+    <Component Name="SPI_NSS" TI="1236" Line="33" Offs="10"/>
+    <Component Name="SPI_BaudRatePrescaler" TI="1250" Line="34" Offs="12"/>
+    <Component Name="SPI_FirstBit" TI="1264" Line="35" Offs="14"/>
+    <Component Name="SPI_CRCPolynomial" TI="1278" Line="36" Offs="16"/>
+   </type>
+   <type Family="typedef" Name="SPI_InitTypeDef" Line="37" ID="1293" toTI="1158"/>
+   <type Family="ComponentList" Line="26" ID="1304">
+    <Component Name="USART_BaudRate" TI="1312" Line="28" Offs="0"/>
+    <Component Name="USART_WordLength" TI="1326" Line="29" Offs="4"/>
+    <Component Name="USART_StopBits" TI="1340" Line="30" Offs="6"/>
+    <Component Name="USART_Parity" TI="1354" Line="31" Offs="8"/>
+    <Component Name="USART_Mode" TI="1368" Line="32" Offs="10"/>
+    <Component Name="USART_HardwareFlowControl" TI="1382" Line="33" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="USART_InitTypeDef" Line="34" ID="1397" toTI="1304"/>
+   <type Family="typedef" Name="uint8_t" Line="42" ID="1408" toTI="55"/>
+   <type Family="typedef" Name="int32_t" Line="79" ID="1419" toTI="97"/>
+   <type Family="typedef" Name="uint32_t" Line="80" ID="1430" toTI="104"/>
+   <type Family="Base" Name="double" ID="1441"/>
+   <type Family="Base" Name="float" ID="1448"/>
+   <type Family="Base" Name="long double" ID="1455"/>
+   <function Name="RCC_Config_HSE_PLL_Max" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="23">
+    <variable Name="HSEStartUpStatus" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="31" Addr="0x0" TI="234"/>
+   </function >
+   <function Name="rcc" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="65">
+   </function >
+   <function Name="gpio" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="72">
+    <variable Name="GPIO_InitStructure" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="82" Addr="0x34000004" TI="1050"/>
+   </function >
+   <function Name="spi" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="129">
+    <variable Name="SPI_InitStructure" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="138" Addr="0x34000004" TI="1293"/>
+   </function >
+   <function Name="SPI_read" TI="1408" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="151">
+    <parameter Name="address" TI="1408" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="151" Addr="0x0" Param="Yes"/>
+    <variable Name="value" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="153" Addr="0x0" TI="1408"/>
+   </function >
+   <function Name="SPI_send" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="172">
+    <parameter Name="address" TI="1408" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="172" Addr="0x0" Param="Yes"/>
+    <parameter Name="data" TI="1408" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="172" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="acc" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="190">
+    <variable Name="y1" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="191" Addr="0x0" TI="1448"/>
+   </function >
+   <function Name="clearcircle" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="239">
+    <parameter Name="xCenter" TI="76" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="239" Addr="0x0" Param="Yes"/>
+    <parameter Name="yCenter" TI="76" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="239" Addr="0x1" Param="Yes"/>
+    <parameter Name="radius" TI="76" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="239" Addr="0x2" Param="Yes"/>
+    <variable Name="x" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="240" Addr="0x3" TI="76"/>
+    <variable Name="y" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="240" Addr="0x0" TI="76"/>
+    <variable Name="r2" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="240" Addr="0x2" TI="76"/>
+   </function >
+   <function Name="drawcircle" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="265">
+    <parameter Name="xCenter" TI="76" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="265" Addr="0x0" Param="Yes"/>
+    <parameter Name="yCenter" TI="76" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="265" Addr="0x1" Param="Yes"/>
+    <parameter Name="radius" TI="76" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="265" Addr="0x2" Param="Yes"/>
+    <variable Name="x" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="266" Addr="0x3" TI="76"/>
+    <variable Name="y" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="266" Addr="0x0" TI="76"/>
+    <variable Name="r2" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="266" Addr="0x2" TI="76"/>
+   </function >
+   <function Name="alvo" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="291">
+   </function >
+   <function Name="bola" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="303">
+    <parameter Name="x" TI="76" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="303" Addr="0x0" Param="Yes"/>
+    <parameter Name="y" TI="76" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="303" Addr="0x1" Param="Yes"/>
+    <variable Name="cnt" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="307" Addr="0x0" TI="76"/>
+   </function >
+   <function Name="nvic" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="333">
+    <variable Name="NVIC_InitStructure" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="335" Addr="0x34000004" TI="1147"/>
+   </function >
+   <function Name="usart" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="348">
+    <parameter Name="baud" TI="76" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="348" Addr="0x0" Param="Yes"/>
+    <variable Name="USART_InitStructure" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="351" Addr="0x34000000" TI="1397"/>
+   </function >
+   <function Name="main" TI="76" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="371">
+   <type Family="array" ID="2485" toTI="111"/>
+    <variable Name="addr" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="385" Addr="0x0" TI="1430"/>
+    <variable Name="buff" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="410" Addr="0x34000000" TI="2485"/>
+    <variable Name="valor" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="411" Addr="0x20000204" TI="111"/>
+   </function >
+   <variable Name="flagrx" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="10" Addr="0x200001A0" TI="2562"/>
+   <variable Name="RxData" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="13" Addr="0x20000214" TI="2580"/>
+   <variable Name="left_part_z" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="14" Addr="0x200001EC" TI="1419"/>
+   <variable Name="right_part_z" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="14" Addr="0x20000220" TI="1419"/>
+   <variable Name="left_part_x" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="15" Addr="0x20000208" TI="1419"/>
+   <variable Name="right_part_x" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="15" Addr="0x20000200" TI="1419"/>
+   <variable Name="left_part_y" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="16" Addr="0x200001D4" TI="1419"/>
+   <variable Name="right_part_y" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="16" Addr="0x200001E4" TI="1419"/>
+   <variable Name="i" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="17" Addr="0x200001A4" TI="97"/>
+   <variable Name="MSB" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="17" Addr="0x200001F8" TI="97"/>
+   <variable Name="LSB" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="17" Addr="0x200001F0" TI="97"/>
+   <variable Name="Xg" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="17" Addr="0x200001DC" TI="97"/>
+   <variable Name="Yg" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="17" Addr="0x2000021C" TI="97"/>
+   <variable Name="Zg" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="17" Addr="0x20000218" TI="97"/>
+   <variable Name="x1" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="18" Addr="0x20000210" TI="1448"/>
+   <variable Name="z1" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="18" Addr="0x200001E8" TI="1448"/>
+   <variable Name="xusart" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="19" Addr="0x20000204" TI="111"/>
+   <variable Name="yusart" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="19" Addr="0x200001E1" TI="111"/>
+   <variable Name="zusart" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="19" Addr="0x200001E0" TI="111"/>
+   <variable Name="flaginitbola" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="20" Addr="0x2000019C" TI="76"/>
+   <variable Name="flagxesq" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="21" Addr="0x200001FC" TI="76"/>
+   <variable Name="flagxdir" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="21" Addr="0x2000020C" TI="76"/>
+   <variable Name="flagycima" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="21" Addr="0x200001D8" TI="76"/>
+   <variable Name="flagybaixo" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\main.c" Line="21" Addr="0x200001F4" TI="76"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" >
+   <type Family="Base" Name="long int" ID="3268"/>
+   <type Family="Base" Name="short int" ID="3275"/>
+   <type Family="Base" Name="signed char" ID="3282"/>
+   <type Family="Base" Name="long unsigned int" ID="3300"/>
+   <type Family="typedef" Name="u32" Line="39" ID="3289" toTI="3300"/>
+   <type Family="Base" Name="short unsigned int" ID="3318"/>
+   <type Family="typedef" Name="u16" Line="40" ID="3307" toTI="3318"/>
+   <type Family="Base" Name="unsigned char" ID="3325"/>
+   <type Family="Base" Name="unsigned int" ID="3342"/>
+   <type Family="ComponentList" Line="334" ID="3349">
+    <Component Name="CRL" TI="3358" Line="336" Offs="0"/>
+    <Component Name="CRH" TI="3373" Line="337" Offs="4"/>
+    <Component Name="IDR" TI="3388" Line="338" Offs="8"/>
+    <Component Name="ODR" TI="3403" Line="339" Offs="12"/>
+    <Component Name="BSRR" TI="3418" Line="340" Offs="16"/>
+    <Component Name="BRR" TI="3433" Line="341" Offs="20"/>
+    <Component Name="LCKR" TI="3448" Line="342" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="GPIO_TypeDef" Line="343" ID="3464" toTI="3349"/>
+   <type Family="ComponentList" Line="568" ID="3476">
+    <Component Name="SR" TI="3485" Line="570" Offs="0"/>
+    <Component Name="RESERVED0" TI="3499" Line="571" Offs="2"/>
+    <Component Name="DR" TI="3514" Line="572" Offs="4"/>
+    <Component Name="RESERVED1" TI="3528" Line="573" Offs="6"/>
+    <Component Name="BRR" TI="3543" Line="574" Offs="8"/>
+    <Component Name="RESERVED2" TI="3558" Line="575" Offs="10"/>
+    <Component Name="CR1" TI="3573" Line="576" Offs="12"/>
+    <Component Name="RESERVED3" TI="3588" Line="577" Offs="14"/>
+    <Component Name="CR2" TI="3603" Line="578" Offs="16"/>
+    <Component Name="RESERVED4" TI="3618" Line="579" Offs="18"/>
+    <Component Name="CR3" TI="3633" Line="580" Offs="20"/>
+    <Component Name="RESERVED5" TI="3648" Line="581" Offs="22"/>
+    <Component Name="GTPR" TI="3663" Line="582" Offs="24"/>
+    <Component Name="RESERVED6" TI="3678" Line="583" Offs="26"/>
+   </type>
+   <type Family="typedef" Name="USART_TypeDef" Line="584" ID="3694" toTI="3476"/>
+   <function Name="WWDG_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="150">
+   </function >
+   <function Name="PVD_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="161">
+   </function >
+   <function Name="TAMPER_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="172">
+   </function >
+   <function Name="RTC_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="183">
+   </function >
+   <function Name="FLASH_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="194">
+   </function >
+   <function Name="RCC_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="205">
+   </function >
+   <function Name="EXTI0_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="216">
+   </function >
+   <function Name="EXTI1_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="232">
+   </function >
+   <function Name="EXTI2_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="243">
+   </function >
+   <function Name="EXTI3_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="254">
+   </function >
+   <function Name="EXTI4_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="265">
+   </function >
+   <function Name="DMA1_Channel1_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="276">
+   </function >
+   <function Name="DMA1_Channel2_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="287">
+   </function >
+   <function Name="DMA1_Channel3_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="298">
+   </function >
+   <function Name="DMA1_Channel4_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="309">
+   </function >
+   <function Name="DMA1_Channel5_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="320">
+   </function >
+   <function Name="DMA1_Channel6_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="331">
+   </function >
+   <function Name="DMA1_Channel7_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="342">
+   </function >
+   <function Name="ADC1_2_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="353">
+   </function >
+   <function Name="EXTI9_5_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="410">
+   </function >
+   <function Name="TIM1_BRK_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="421">
+   </function >
+   <function Name="TIM1_UP_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="433">
+   </function >
+   <function Name="TIM1_TRG_COM_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="445">
+   </function >
+   <function Name="TIM1_CC_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="456">
+   </function >
+   <function Name="TIM2_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="467">
+   </function >
+   <function Name="TIM3_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="479">
+   </function >
+   <function Name="TIM4_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="490">
+   </function >
+   <function Name="I2C1_EV_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="501">
+   </function >
+   <function Name="I2C1_ER_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="512">
+   </function >
+   <function Name="I2C2_EV_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="523">
+   </function >
+   <function Name="I2C2_ER_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="534">
+   </function >
+   <function Name="SPI1_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="545">
+   </function >
+   <function Name="SPI2_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="556">
+   </function >
+   <function Name="USART1_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="567">
+   </function >
+   <function Name="USART2_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="580">
+   </function >
+   <function Name="USART3_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="593">
+   </function >
+   <function Name="EXTI15_10_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="604">
+   </function >
+   <function Name="RTCAlarm_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="615">
+   </function >
+   <function Name="USBWakeUp_IRQHandler" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\stm32f10x_it.c" Line="626">
+   </function >
+   <type Family="Base" Name="int" ID="5151"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_adc.c" >
+   <type Family="Base" Name="long int" ID="5213"/>
+   <type Family="Base" Name="short int" ID="5220"/>
+   <type Family="Base" Name="signed char" ID="5227"/>
+   <type Family="Base" Name="long unsigned int" ID="5245"/>
+   <type Family="typedef" Name="u32" Line="39" ID="5234" toTI="5245"/>
+   <type Family="Base" Name="short unsigned int" ID="5263"/>
+   <type Family="typedef" Name="u16" Line="40" ID="5252" toTI="5263"/>
+   <type Family="Base" Name="unsigned char" ID="5280"/>
+   <type Family="typedef" Name="u8" Line="41" ID="5270" toTI="5280"/>
+   <type Family="typedef" Name="vu32" Line="47" ID="5287" toTI="5298"/>
+   <type Family="typedef" Name="FlagStatus" Line="57" ID="5324" toTI="5303"/>
+   <type Family="typedef" Name="ITStatus" Line="57" ID="5335" toTI="5303"/>
+   <type Family="typedef" Name="FunctionalState" Line="59" ID="5367" toTI="5346"/>
+   <type Family="ComponentList" Line="36" ID="5378">
+    <Component Name="SR" TI="5386" Line="38" Offs="0"/>
+    <Component Name="CR1" TI="5399" Line="39" Offs="4"/>
+    <Component Name="CR2" TI="5413" Line="40" Offs="8"/>
+    <Component Name="SMPR1" TI="5427" Line="41" Offs="12"/>
+    <Component Name="SMPR2" TI="5441" Line="42" Offs="16"/>
+    <Component Name="JOFR1" TI="5455" Line="43" Offs="20"/>
+    <Component Name="JOFR2" TI="5469" Line="44" Offs="24"/>
+    <Component Name="JOFR3" TI="5483" Line="45" Offs="28"/>
+    <Component Name="JOFR4" TI="5497" Line="46" Offs="32"/>
+    <Component Name="HTR" TI="5511" Line="47" Offs="36"/>
+    <Component Name="LTR" TI="5525" Line="48" Offs="40"/>
+    <Component Name="SQR1" TI="5539" Line="49" Offs="44"/>
+    <Component Name="SQR2" TI="5553" Line="50" Offs="48"/>
+    <Component Name="SQR3" TI="5567" Line="51" Offs="52"/>
+    <Component Name="JSQR" TI="5581" Line="52" Offs="56"/>
+    <Component Name="JDR1" TI="5595" Line="53" Offs="60"/>
+    <Component Name="JDR2" TI="5609" Line="54" Offs="64"/>
+    <Component Name="JDR3" TI="5623" Line="55" Offs="68"/>
+    <Component Name="JDR4" TI="5637" Line="56" Offs="72"/>
+    <Component Name="DR" TI="5651" Line="57" Offs="76"/>
+   </type>
+   <type Family="typedef" Name="ADC_TypeDef" Line="58" ID="5665" toTI="5378"/>
+   <type Family="Base" Name="unsigned int" ID="5676"/>
+   <type Family="ComponentList" Line="26" ID="5683">
+    <Component Name="ADC_Mode" TI="5691" Line="28" Offs="0"/>
+    <Component Name="ADC_ScanConvMode" TI="5705" Line="29" Offs="4"/>
+    <Component Name="ADC_ContinuousConvMode" TI="5719" Line="30" Offs="5"/>
+    <Component Name="ADC_ExternalTrigConv" TI="5733" Line="31" Offs="8"/>
+    <Component Name="ADC_DataAlign" TI="5747" Line="32" Offs="12"/>
+    <Component Name="ADC_NbrOfChannel" TI="5761" Line="33" Offs="16"/>
+   </type>
+   <type Family="typedef" Name="ADC_InitTypeDef" Line="34" ID="5776" toTI="5683"/>
+   <type Family="Pointer" TI="5828" toTI="5665"/>
+   <type Family="Pointer" TI="5916" toTI="5776"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_bkp.c" >
+   <type Family="Base" Name="long int" ID="8155"/>
+   <type Family="Base" Name="short int" ID="8162"/>
+   <type Family="Base" Name="signed char" ID="8169"/>
+   <type Family="Base" Name="long unsigned int" ID="8187"/>
+   <type Family="typedef" Name="u32" Line="39" ID="8176" toTI="8187"/>
+   <type Family="Base" Name="short unsigned int" ID="8205"/>
+   <type Family="typedef" Name="u16" Line="40" ID="8194" toTI="8205"/>
+   <type Family="Base" Name="unsigned char" ID="8222"/>
+   <type Family="typedef" Name="u8" Line="41" ID="8212" toTI="8222"/>
+   <type Family="typedef" Name="vu32" Line="47" ID="8229" toTI="8240"/>
+   <type Family="typedef" Name="vu16" Line="48" ID="8245" toTI="8256"/>
+   <type Family="typedef" Name="FlagStatus" Line="57" ID="8282" toTI="8261"/>
+   <type Family="typedef" Name="ITStatus" Line="57" ID="8293" toTI="8261"/>
+   <type Family="typedef" Name="FunctionalState" Line="59" ID="8325" toTI="8304"/>
+   <type Family="ComponentList" Line="61" ID="8336">
+    <Component Name="RESERVED0" TI="8344" Line="63" Offs="0"/>
+    <Component Name="DR1" TI="8358" Line="64" Offs="4"/>
+    <Component Name="RESERVED1" TI="8372" Line="65" Offs="6"/>
+    <Component Name="DR2" TI="8386" Line="66" Offs="8"/>
+    <Component Name="RESERVED2" TI="8400" Line="67" Offs="10"/>
+    <Component Name="DR3" TI="8414" Line="68" Offs="12"/>
+    <Component Name="RESERVED3" TI="8428" Line="69" Offs="14"/>
+    <Component Name="DR4" TI="8442" Line="70" Offs="16"/>
+    <Component Name="RESERVED4" TI="8456" Line="71" Offs="18"/>
+    <Component Name="DR5" TI="8470" Line="72" Offs="20"/>
+    <Component Name="RESERVED5" TI="8484" Line="73" Offs="22"/>
+    <Component Name="DR6" TI="8498" Line="74" Offs="24"/>
+    <Component Name="RESERVED6" TI="8512" Line="75" Offs="26"/>
+    <Component Name="DR7" TI="8526" Line="76" Offs="28"/>
+    <Component Name="RESERVED7" TI="8540" Line="77" Offs="30"/>
+    <Component Name="DR8" TI="8554" Line="78" Offs="32"/>
+    <Component Name="RESERVED8" TI="8568" Line="79" Offs="34"/>
+    <Component Name="DR9" TI="8582" Line="80" Offs="36"/>
+    <Component Name="RESERVED9" TI="8596" Line="81" Offs="38"/>
+    <Component Name="DR10" TI="8610" Line="82" Offs="40"/>
+    <Component Name="RESERVED10" TI="8624" Line="83" Offs="42"/>
+    <Component Name="RTCCR" TI="8638" Line="84" Offs="44"/>
+    <Component Name="RESERVED11" TI="8652" Line="85" Offs="46"/>
+    <Component Name="CR" TI="8666" Line="86" Offs="48"/>
+    <Component Name="RESERVED12" TI="8679" Line="87" Offs="50"/>
+    <Component Name="CSR" TI="8693" Line="88" Offs="52"/>
+   <type Family="array" ID="9650" toTI="8194"/>
+    <Component Name="RESERVED13" TI="8707" Line="89" Offs="54"/>
+    <Component Name="DR11" TI="8721" Line="90" Offs="64"/>
+    <Component Name="RESERVED14" TI="8735" Line="91" Offs="66"/>
+    <Component Name="DR12" TI="8749" Line="92" Offs="68"/>
+    <Component Name="RESERVED15" TI="8763" Line="93" Offs="70"/>
+    <Component Name="DR13" TI="8777" Line="94" Offs="72"/>
+    <Component Name="RESERVED16" TI="8791" Line="95" Offs="74"/>
+    <Component Name="DR14" TI="8805" Line="96" Offs="76"/>
+    <Component Name="RESERVED17" TI="8819" Line="97" Offs="78"/>
+    <Component Name="DR15" TI="8833" Line="98" Offs="80"/>
+    <Component Name="RESERVED18" TI="8847" Line="99" Offs="82"/>
+    <Component Name="DR16" TI="8861" Line="100" Offs="84"/>
+    <Component Name="RESERVED19" TI="8875" Line="101" Offs="86"/>
+    <Component Name="DR17" TI="8889" Line="102" Offs="88"/>
+    <Component Name="RESERVED20" TI="8903" Line="103" Offs="90"/>
+    <Component Name="DR18" TI="8917" Line="104" Offs="92"/>
+    <Component Name="RESERVED21" TI="8931" Line="105" Offs="94"/>
+    <Component Name="DR19" TI="8945" Line="106" Offs="96"/>
+    <Component Name="RESERVED22" TI="8959" Line="107" Offs="98"/>
+    <Component Name="DR20" TI="8973" Line="108" Offs="100"/>
+    <Component Name="RESERVED23" TI="8987" Line="109" Offs="102"/>
+    <Component Name="DR21" TI="9001" Line="110" Offs="104"/>
+    <Component Name="RESERVED24" TI="9015" Line="111" Offs="106"/>
+    <Component Name="DR22" TI="9029" Line="112" Offs="108"/>
+    <Component Name="RESERVED25" TI="9043" Line="113" Offs="110"/>
+    <Component Name="DR23" TI="9057" Line="114" Offs="112"/>
+    <Component Name="RESERVED26" TI="9071" Line="115" Offs="114"/>
+    <Component Name="DR24" TI="9085" Line="116" Offs="116"/>
+    <Component Name="RESERVED27" TI="9099" Line="117" Offs="118"/>
+    <Component Name="DR25" TI="9113" Line="118" Offs="120"/>
+    <Component Name="RESERVED28" TI="9127" Line="119" Offs="122"/>
+    <Component Name="DR26" TI="9141" Line="120" Offs="124"/>
+    <Component Name="RESERVED29" TI="9155" Line="121" Offs="126"/>
+    <Component Name="DR27" TI="9169" Line="122" Offs="128"/>
+    <Component Name="RESERVED30" TI="9184" Line="123" Offs="130"/>
+    <Component Name="DR28" TI="9199" Line="124" Offs="132"/>
+    <Component Name="RESERVED31" TI="9214" Line="125" Offs="134"/>
+    <Component Name="DR29" TI="9229" Line="126" Offs="136"/>
+    <Component Name="RESERVED32" TI="9244" Line="127" Offs="138"/>
+    <Component Name="DR30" TI="9259" Line="128" Offs="140"/>
+    <Component Name="RESERVED33" TI="9274" Line="129" Offs="142"/>
+    <Component Name="DR31" TI="9289" Line="130" Offs="144"/>
+    <Component Name="RESERVED34" TI="9304" Line="131" Offs="146"/>
+    <Component Name="DR32" TI="9319" Line="132" Offs="148"/>
+    <Component Name="RESERVED35" TI="9334" Line="133" Offs="150"/>
+    <Component Name="DR33" TI="9349" Line="134" Offs="152"/>
+    <Component Name="RESERVED36" TI="9364" Line="135" Offs="154"/>
+    <Component Name="DR34" TI="9379" Line="136" Offs="156"/>
+    <Component Name="RESERVED37" TI="9394" Line="137" Offs="158"/>
+    <Component Name="DR35" TI="9409" Line="138" Offs="160"/>
+    <Component Name="RESERVED38" TI="9424" Line="139" Offs="162"/>
+    <Component Name="DR36" TI="9439" Line="140" Offs="164"/>
+    <Component Name="RESERVED39" TI="9454" Line="141" Offs="166"/>
+    <Component Name="DR37" TI="9469" Line="142" Offs="168"/>
+    <Component Name="RESERVED40" TI="9484" Line="143" Offs="170"/>
+    <Component Name="DR38" TI="9499" Line="144" Offs="172"/>
+    <Component Name="RESERVED41" TI="9514" Line="145" Offs="174"/>
+    <Component Name="DR39" TI="9529" Line="146" Offs="176"/>
+    <Component Name="RESERVED42" TI="9544" Line="147" Offs="178"/>
+    <Component Name="DR40" TI="9559" Line="148" Offs="180"/>
+    <Component Name="RESERVED43" TI="9574" Line="149" Offs="182"/>
+    <Component Name="DR41" TI="9589" Line="150" Offs="184"/>
+    <Component Name="RESERVED44" TI="9604" Line="151" Offs="186"/>
+    <Component Name="DR42" TI="9619" Line="152" Offs="188"/>
+    <Component Name="RESERVED45" TI="9634" Line="153" Offs="190"/>
+   </type>
+   <type Family="Base" Name="unsigned int" ID="9666"/>
+   <type Family="typedef" Name="BKP_TypeDef" Line="154" ID="9673" toTI="8336"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_can.c" >
+   <type Family="Base" Name="long int" ID="10153"/>
+   <type Family="Base" Name="short int" ID="10160"/>
+   <type Family="Base" Name="signed char" ID="10167"/>
+   <type Family="Base" Name="long unsigned int" ID="10185"/>
+   <type Family="typedef" Name="u32" Line="39" ID="10174" toTI="10185"/>
+   <type Family="Base" Name="short unsigned int" ID="10203"/>
+   <type Family="typedef" Name="u16" Line="40" ID="10192" toTI="10203"/>
+   <type Family="Base" Name="unsigned char" ID="10220"/>
+   <type Family="typedef" Name="u8" Line="41" ID="10210" toTI="10220"/>
+   <type Family="typedef" Name="FlagStatus" Line="57" ID="10253" toTI="10232"/>
+   <type Family="typedef" Name="ITStatus" Line="57" ID="10264" toTI="10232"/>
+   <type Family="typedef" Name="FunctionalState" Line="59" ID="10296" toTI="10275"/>
+   <type Family="Base" Name="unsigned int" ID="10307"/>
+   <type Family="ComponentList" Line="157" ID="10314">
+    <Component Name="TIR" TI="10322" Line="159" Offs="0"/>
+    <Component Name="TDTR" TI="10336" Line="160" Offs="4"/>
+    <Component Name="TDLR" TI="10350" Line="161" Offs="8"/>
+    <Component Name="TDHR" TI="10364" Line="162" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="CAN_TxMailBox_TypeDef" Line="163" ID="10379" toTI="10314"/>
+   <type Family="ComponentList" Line="165" ID="10390">
+    <Component Name="RIR" TI="10398" Line="167" Offs="0"/>
+    <Component Name="RDTR" TI="10412" Line="168" Offs="4"/>
+    <Component Name="RDLR" TI="10426" Line="169" Offs="8"/>
+    <Component Name="RDHR" TI="10440" Line="170" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="CAN_FIFOMailBox_TypeDef" Line="171" ID="10455" toTI="10390"/>
+   <type Family="ComponentList" Line="173" ID="10466">
+    <Component Name="FR1" TI="10474" Line="175" Offs="0"/>
+    <Component Name="FR2" TI="10488" Line="176" Offs="4"/>
+   </type>
+   <type Family="typedef" Name="CAN_FilterRegister_TypeDef" Line="177" ID="10503" toTI="10466"/>
+   <type Family="ComponentList" Line="179" ID="10514">
+    <Component Name="MCR" TI="10523" Line="181" Offs="0"/>
+    <Component Name="MSR" TI="10537" Line="182" Offs="4"/>
+    <Component Name="TSR" TI="10551" Line="183" Offs="8"/>
+    <Component Name="RF0R" TI="10565" Line="184" Offs="12"/>
+    <Component Name="RF1R" TI="10579" Line="185" Offs="16"/>
+    <Component Name="IER" TI="10593" Line="186" Offs="20"/>
+    <Component Name="ESR" TI="10607" Line="187" Offs="24"/>
+    <Component Name="BTR" TI="10621" Line="188" Offs="28"/>
+   <type Family="array" ID="10845" toTI="10174"/>
+    <Component Name="RESERVED0" TI="10635" Line="189" Offs="32"/>
+   <type Family="array" ID="10861" toTI="10379"/>
+    <Component Name="sTxMailBox" TI="10649" Line="190" Offs="384"/>
+   <type Family="array" ID="10877" toTI="10455"/>
+    <Component Name="sFIFOMailBox" TI="10664" Line="191" Offs="432"/>
+   <type Family="array" ID="10893" toTI="10174"/>
+    <Component Name="RESERVED1" TI="10679" Line="192" Offs="464"/>
+    <Component Name="FMR" TI="10694" Line="193" Offs="512"/>
+    <Component Name="FM1R" TI="10709" Line="194" Offs="516"/>
+    <Component Name="RESERVED2" TI="10724" Line="195" Offs="520"/>
+    <Component Name="FS1R" TI="10739" Line="196" Offs="524"/>
+    <Component Name="RESERVED3" TI="10754" Line="197" Offs="528"/>
+    <Component Name="FFA1R" TI="10769" Line="198" Offs="532"/>
+    <Component Name="RESERVED4" TI="10784" Line="199" Offs="536"/>
+    <Component Name="FA1R" TI="10799" Line="200" Offs="540"/>
+   <type Family="array" ID="10909" toTI="10174"/>
+    <Component Name="RESERVED5" TI="10814" Line="201" Offs="544"/>
+   <type Family="array" ID="10925" toTI="10503"/>
+    <Component Name="sFilterRegister" TI="10829" Line="202" Offs="576"/>
+   </type>
+   <type Family="typedef" Name="CAN_TypeDef" Line="203" ID="10941" toTI="10514"/>
+   <type Family="ComponentList" Line="26" ID="10952">
+    <Component Name="CAN_TTCM" TI="10960" Line="28" Offs="0"/>
+    <Component Name="CAN_ABOM" TI="10974" Line="29" Offs="1"/>
+    <Component Name="CAN_AWUM" TI="10988" Line="30" Offs="2"/>
+    <Component Name="CAN_NART" TI="11002" Line="31" Offs="3"/>
+    <Component Name="CAN_RFLM" TI="11016" Line="32" Offs="4"/>
+    <Component Name="CAN_TXFP" TI="11030" Line="33" Offs="5"/>
+    <Component Name="CAN_Mode" TI="11044" Line="34" Offs="6"/>
+    <Component Name="CAN_SJW" TI="11058" Line="35" Offs="7"/>
+    <Component Name="CAN_BS1" TI="11072" Line="36" Offs="8"/>
+    <Component Name="CAN_BS2" TI="11086" Line="37" Offs="9"/>
+    <Component Name="CAN_Prescaler" TI="11100" Line="38" Offs="10"/>
+   </type>
+   <type Family="typedef" Name="CAN_InitTypeDef" Line="39" ID="11115" toTI="10952"/>
+   <type Family="ComponentList" Line="42" ID="11126">
+    <Component Name="CAN_FilterNumber" TI="11134" Line="44" Offs="0"/>
+    <Component Name="CAN_FilterMode" TI="11148" Line="45" Offs="1"/>
+    <Component Name="CAN_FilterScale" TI="11162" Line="46" Offs="2"/>
+    <Component Name="CAN_FilterIdHigh" TI="11176" Line="47" Offs="4"/>
+    <Component Name="CAN_FilterIdLow" TI="11190" Line="48" Offs="6"/>
+    <Component Name="CAN_FilterMaskIdHigh" TI="11204" Line="49" Offs="8"/>
+    <Component Name="CAN_FilterMaskIdLow" TI="11218" Line="50" Offs="10"/>
+    <Component Name="CAN_FilterFIFOAssignment" TI="11232" Line="51" Offs="12"/>
+    <Component Name="CAN_FilterActivation" TI="11246" Line="52" Offs="14"/>
+   </type>
+   <type Family="typedef" Name="CAN_FilterInitTypeDef" Line="53" ID="11261" toTI="11126"/>
+   <type Family="ComponentList" Line="56" ID="11272">
+    <Component Name="StdId" TI="11280" Line="58" Offs="0"/>
+    <Component Name="ExtId" TI="11294" Line="59" Offs="4"/>
+    <Component Name="IDE" TI="11308" Line="60" Offs="8"/>
+    <Component Name="RTR" TI="11322" Line="61" Offs="9"/>
+    <Component Name="DLC" TI="11336" Line="62" Offs="10"/>
+   <type Family="array" ID="11365" toTI="10210"/>
+    <Component Name="Data" TI="11350" Line="63" Offs="11"/>
+   </type>
+   <type Family="typedef" Name="CanTxMsg" Line="64" ID="11381" toTI="11272"/>
+   <type Family="ComponentList" Line="67" ID="11392">
+    <Component Name="StdId" TI="11400" Line="69" Offs="0"/>
+    <Component Name="ExtId" TI="11414" Line="70" Offs="4"/>
+    <Component Name="IDE" TI="11428" Line="71" Offs="8"/>
+    <Component Name="RTR" TI="11442" Line="72" Offs="9"/>
+    <Component Name="DLC" TI="11456" Line="73" Offs="10"/>
+    <Component Name="Data" TI="11470" Line="74" Offs="11"/>
+    <Component Name="FMI" TI="11484" Line="75" Offs="19"/>
+   </type>
+   <type Family="typedef" Name="CanRxMsg" Line="76" ID="11499" toTI="11392"/>
+   <type Family="Pointer" TI="11680" toTI="11115"/>
+   <type Family="Pointer" TI="11740" toTI="11261"/>
+   <type Family="Pointer" TI="11905" toTI="11381"/>
+   <type Family="Pointer" TI="12174" toTI="11499"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_crc.c" >
+   <type Family="Base" Name="long int" ID="12515"/>
+   <type Family="Base" Name="short int" ID="12522"/>
+   <type Family="Base" Name="signed char" ID="12529"/>
+   <type Family="Base" Name="long unsigned int" ID="12547"/>
+   <type Family="typedef" Name="u32" Line="39" ID="12536" toTI="12547"/>
+   <type Family="Base" Name="short unsigned int" ID="12565"/>
+   <type Family="typedef" Name="u16" Line="40" ID="12554" toTI="12565"/>
+   <type Family="Base" Name="unsigned char" ID="12582"/>
+   <type Family="typedef" Name="u8" Line="41" ID="12572" toTI="12582"/>
+   <type Family="Base" Name="unsigned int" ID="12599"/>
+   <type Family="ComponentList" Line="206" ID="12606">
+    <Component Name="DR" TI="12614" Line="208" Offs="0"/>
+    <Component Name="IDR" TI="12627" Line="209" Offs="4"/>
+    <Component Name="RESERVED0" TI="12641" Line="210" Offs="5"/>
+    <Component Name="RESERVED1" TI="12655" Line="211" Offs="6"/>
+    <Component Name="CR" TI="12669" Line="212" Offs="8"/>
+   </type>
+   <type Family="typedef" Name="CRC_TypeDef" Line="213" ID="12683" toTI="12606"/>
+   <type Family="Pointer" TI="12833" toTI="12536"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_dac.c" >
+   <type Family="Base" Name="long int" ID="12967"/>
+   <type Family="Base" Name="short int" ID="12974"/>
+   <type Family="Base" Name="signed char" ID="12981"/>
+   <type Family="Base" Name="long unsigned int" ID="12999"/>
+   <type Family="typedef" Name="u32" Line="39" ID="12988" toTI="12999"/>
+   <type Family="Base" Name="short unsigned int" ID="13017"/>
+   <type Family="typedef" Name="u16" Line="40" ID="13006" toTI="13017"/>
+   <type Family="Base" Name="unsigned char" ID="13024"/>
+   <type Family="typedef" Name="vu32" Line="47" ID="13031" toTI="13042"/>
+   <type Family="typedef" Name="FunctionalState" Line="59" ID="13068" toTI="13047"/>
+   <type Family="Base" Name="unsigned int" ID="13079"/>
+   <type Family="ComponentList" Line="217" ID="13086">
+    <Component Name="CR" TI="13094" Line="219" Offs="0"/>
+    <Component Name="SWTRIGR" TI="13107" Line="220" Offs="4"/>
+    <Component Name="DHR12R1" TI="13121" Line="221" Offs="8"/>
+    <Component Name="DHR12L1" TI="13135" Line="222" Offs="12"/>
+    <Component Name="DHR8R1" TI="13149" Line="223" Offs="16"/>
+    <Component Name="DHR12R2" TI="13163" Line="224" Offs="20"/>
+    <Component Name="DHR12L2" TI="13177" Line="225" Offs="24"/>
+    <Component Name="DHR8R2" TI="13191" Line="226" Offs="28"/>
+    <Component Name="DHR12RD" TI="13205" Line="227" Offs="32"/>
+    <Component Name="DHR12LD" TI="13219" Line="228" Offs="36"/>
+    <Component Name="DHR8RD" TI="13233" Line="229" Offs="40"/>
+    <Component Name="DOR1" TI="13247" Line="230" Offs="44"/>
+    <Component Name="DOR2" TI="13261" Line="231" Offs="48"/>
+   </type>
+   <type Family="typedef" Name="DAC_TypeDef" Line="232" ID="13276" toTI="13086"/>
+   <type Family="ComponentList" Line="26" ID="13287">
+    <Component Name="DAC_Trigger" TI="13295" Line="28" Offs="0"/>
+    <Component Name="DAC_WaveGeneration" TI="13309" Line="29" Offs="4"/>
+    <Component Name="DAC_LFSRUnmask_TriangleAmplitude" TI="13323" Line="30" Offs="8"/>
+    <Component Name="DAC_OutputBuffer" TI="13337" Line="31" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="DAC_InitTypeDef" Line="32" ID="13352" toTI="13287"/>
+   <type Family="Pointer" TI="13470" toTI="13352"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_dbgmcu.c" >
+   <type Family="Base" Name="long int" ID="14067"/>
+   <type Family="Base" Name="short int" ID="14074"/>
+   <type Family="Base" Name="signed char" ID="14081"/>
+   <type Family="Base" Name="long unsigned int" ID="14099"/>
+   <type Family="typedef" Name="u32" Line="39" ID="14088" toTI="14099"/>
+   <type Family="Base" Name="short unsigned int" ID="14106"/>
+   <type Family="Base" Name="unsigned char" ID="14113"/>
+   <type Family="typedef" Name="FunctionalState" Line="59" ID="14146" toTI="14125"/>
+   <type Family="Base" Name="unsigned int" ID="14157"/>
+   <type Family="ComponentList" Line="235" ID="14164">
+    <Component Name="IDCODE" TI="14172" Line="237" Offs="0"/>
+    <Component Name="CR" TI="14186" Line="238" Offs="4"/>
+   </type>
+   <type Family="typedef" Name="DBGMCU_TypeDef" Line="239" ID="14200" toTI="14164"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_dma.c" >
+   <type Family="Base" Name="long int" ID="14350"/>
+   <type Family="Base" Name="short int" ID="14357"/>
+   <type Family="Base" Name="signed char" ID="14364"/>
+   <type Family="Base" Name="long unsigned int" ID="14382"/>
+   <type Family="typedef" Name="u32" Line="39" ID="14371" toTI="14382"/>
+   <type Family="Base" Name="short unsigned int" ID="14400"/>
+   <type Family="typedef" Name="u16" Line="40" ID="14389" toTI="14400"/>
+   <type Family="Base" Name="unsigned char" ID="14407"/>
+   <type Family="typedef" Name="FlagStatus" Line="57" ID="14440" toTI="14419"/>
+   <type Family="typedef" Name="ITStatus" Line="57" ID="14451" toTI="14419"/>
+   <type Family="typedef" Name="FunctionalState" Line="59" ID="14483" toTI="14462"/>
+   <type Family="Base" Name="unsigned int" ID="14494"/>
+   <type Family="ComponentList" Line="242" ID="14501">
+    <Component Name="CCR" TI="14509" Line="244" Offs="0"/>
+    <Component Name="CNDTR" TI="14523" Line="245" Offs="4"/>
+    <Component Name="CPAR" TI="14537" Line="246" Offs="8"/>
+    <Component Name="CMAR" TI="14551" Line="247" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="DMA_Channel_TypeDef" Line="248" ID="14566" toTI="14501"/>
+   <type Family="ComponentList" Line="250" ID="14577">
+    <Component Name="ISR" TI="14585" Line="252" Offs="0"/>
+    <Component Name="IFCR" TI="14599" Line="253" Offs="4"/>
+   </type>
+   <type Family="typedef" Name="DMA_TypeDef" Line="254" ID="14614" toTI="14577"/>
+   <type Family="ComponentList" Line="26" ID="14625">
+    <Component Name="DMA_PeripheralBaseAddr" TI="14633" Line="28" Offs="0"/>
+    <Component Name="DMA_MemoryBaseAddr" TI="14647" Line="29" Offs="4"/>
+    <Component Name="DMA_DIR" TI="14661" Line="30" Offs="8"/>
+    <Component Name="DMA_BufferSize" TI="14675" Line="31" Offs="12"/>
+    <Component Name="DMA_PeripheralInc" TI="14689" Line="32" Offs="16"/>
+    <Component Name="DMA_MemoryInc" TI="14703" Line="33" Offs="20"/>
+    <Component Name="DMA_PeripheralDataSize" TI="14717" Line="34" Offs="24"/>
+    <Component Name="DMA_MemoryDataSize" TI="14731" Line="35" Offs="28"/>
+    <Component Name="DMA_Mode" TI="14745" Line="36" Offs="32"/>
+    <Component Name="DMA_Priority" TI="14759" Line="37" Offs="36"/>
+    <Component Name="DMA_M2M" TI="14773" Line="38" Offs="40"/>
+   </type>
+   <type Family="typedef" Name="DMA_InitTypeDef" Line="39" ID="14788" toTI="14625"/>
+   <type Family="Pointer" TI="14837" toTI="14566"/>
+   <type Family="Pointer" TI="14910" toTI="14788"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_exti.c" >
+   <type Family="Base" Name="long int" ID="15398"/>
+   <type Family="Base" Name="short int" ID="15405"/>
+   <type Family="Base" Name="signed char" ID="15412"/>
+   <type Family="Base" Name="long unsigned int" ID="15430"/>
+   <type Family="typedef" Name="u32" Line="39" ID="15419" toTI="15430"/>
+   <type Family="Base" Name="short unsigned int" ID="15437"/>
+   <type Family="Base" Name="unsigned char" ID="15444"/>
+   <type Family="typedef" Name="vu32" Line="47" ID="15451" toTI="15462"/>
+   <type Family="typedef" Name="FlagStatus" Line="57" ID="15488" toTI="15467"/>
+   <type Family="typedef" Name="ITStatus" Line="57" ID="15499" toTI="15467"/>
+   <type Family="typedef" Name="FunctionalState" Line="59" ID="15531" toTI="15510"/>
+   <type Family="Base" Name="unsigned int" ID="15542"/>
+   <type Family="ComponentList" Line="257" ID="15549">
+    <Component Name="IMR" TI="15558" Line="259" Offs="0"/>
+    <Component Name="EMR" TI="15573" Line="260" Offs="4"/>
+    <Component Name="RTSR" TI="15588" Line="261" Offs="8"/>
+    <Component Name="FTSR" TI="15603" Line="262" Offs="12"/>
+    <Component Name="SWIER" TI="15618" Line="263" Offs="16"/>
+    <Component Name="PR" TI="15633" Line="264" Offs="20"/>
+   </type>
+   <type Family="typedef" Name="EXTI_TypeDef" Line="265" ID="15648" toTI="15549"/>
+   <type Family="typedef" Name="EXTIMode_TypeDef" Line="30" ID="15681" toTI="15660"/>
+   <type Family="typedef" Name="EXTITrigger_TypeDef" Line="40" ID="15719" toTI="15692"/>
+   <type Family="ComponentList" Line="47" ID="15730">
+    <Component Name="EXTI_Line" TI="15738" Line="49" Offs="0"/>
+    <Component Name="EXTI_Mode" TI="15752" Line="50" Offs="4"/>
+    <Component Name="EXTI_Trigger" TI="15766" Line="51" Offs="5"/>
+    <Component Name="EXTI_LineCmd" TI="15780" Line="52" Offs="6"/>
+   </type>
+   <type Family="typedef" Name="EXTI_InitTypeDef" Line="53" ID="15795" toTI="15730"/>
+   <type Family="Pointer" TI="15865" toTI="15795"/>
+   <function Name="EXTI_ClearITPendingBit" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_exti.c" Line="211">
+    <parameter Name="EXTI_Line" TI="15419" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_exti.c" Line="211" Addr="0x0" Param="Yes"/>
+   </function >
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_flash.c" >
+   <type Family="Base" Name="long int" ID="16194"/>
+   <type Family="Base" Name="short int" ID="16201"/>
+   <type Family="Base" Name="signed char" ID="16208"/>
+   <type Family="Base" Name="long unsigned int" ID="16226"/>
+   <type Family="typedef" Name="u32" Line="39" ID="16215" toTI="16226"/>
+   <type Family="Base" Name="short unsigned int" ID="16233"/>
+   <type Family="Base" Name="unsigned char" ID="16240"/>
+   <type Family="Base" Name="unsigned int" ID="16252"/>
+   <type Family="ComponentList" Line="268" ID="16259">
+    <Component Name="ACR" TI="16268" Line="270" Offs="0"/>
+    <Component Name="KEYR" TI="16283" Line="271" Offs="4"/>
+    <Component Name="OPTKEYR" TI="16298" Line="272" Offs="8"/>
+    <Component Name="SR" TI="16313" Line="273" Offs="12"/>
+    <Component Name="CR" TI="16327" Line="274" Offs="16"/>
+    <Component Name="AR" TI="16341" Line="275" Offs="20"/>
+    <Component Name="RESERVED" TI="16355" Line="276" Offs="24"/>
+    <Component Name="OBR" TI="16370" Line="277" Offs="28"/>
+    <Component Name="WRPR" TI="16385" Line="278" Offs="32"/>
+   </type>
+   <type Family="typedef" Name="FLASH_TypeDef" Line="279" ID="16401" toTI="16259"/>
+   <function Name="FLASH_SetLatency" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_flash.c" Line="86">
+    <parameter Name="FLASH_Latency" TI="16215" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_flash.c" Line="86" Addr="0x0" Param="Yes"/>
+   </function >
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_fsmc.c" >
+   <type Family="Base" Name="long int" ID="16565"/>
+   <type Family="Base" Name="short int" ID="16572"/>
+   <type Family="Base" Name="signed char" ID="16579"/>
+   <type Family="Base" Name="long unsigned int" ID="16597"/>
+   <type Family="typedef" Name="u32" Line="39" ID="16586" toTI="16597"/>
+   <type Family="Base" Name="short unsigned int" ID="16615"/>
+   <type Family="typedef" Name="u16" Line="40" ID="16604" toTI="16615"/>
+   <type Family="Base" Name="unsigned char" ID="16622"/>
+   <type Family="typedef" Name="FlagStatus" Line="57" ID="16655" toTI="16634"/>
+   <type Family="typedef" Name="ITStatus" Line="57" ID="16666" toTI="16634"/>
+   <type Family="typedef" Name="FunctionalState" Line="59" ID="16698" toTI="16677"/>
+   <type Family="Base" Name="unsigned int" ID="16709"/>
+   <type Family="ComponentList" Line="294" ID="16716">
+   <type Family="array" ID="16741" toTI="16597"/>
+    <Component Name="BTCR" TI="16725" Line="296" Offs="0"/>
+   </type>
+   <type Family="typedef" Name="FSMC_Bank1_TypeDef" Line="297" ID="16762" toTI="16716"/>
+   <type Family="ComponentList" Line="299" ID="16774">
+   <type Family="array" ID="16799" toTI="16597"/>
+    <Component Name="BWTR" TI="16783" Line="301" Offs="0"/>
+   </type>
+   <type Family="typedef" Name="FSMC_Bank1E_TypeDef" Line="302" ID="16820" toTI="16774"/>
+   <type Family="ComponentList" Line="304" ID="16832">
+    <Component Name="PCR2" TI="16841" Line="306" Offs="0"/>
+    <Component Name="SR2" TI="16856" Line="307" Offs="4"/>
+    <Component Name="PMEM2" TI="16871" Line="308" Offs="8"/>
+    <Component Name="PATT2" TI="16886" Line="309" Offs="12"/>
+    <Component Name="RESERVED0" TI="16901" Line="310" Offs="16"/>
+    <Component Name="ECCR2" TI="16916" Line="311" Offs="20"/>
+   </type>
+   <type Family="typedef" Name="FSMC_Bank2_TypeDef" Line="312" ID="16932" toTI="16832"/>
+   <type Family="ComponentList" Line="314" ID="16944">
+    <Component Name="PCR3" TI="16953" Line="316" Offs="0"/>
+    <Component Name="SR3" TI="16968" Line="317" Offs="4"/>
+    <Component Name="PMEM3" TI="16983" Line="318" Offs="8"/>
+    <Component Name="PATT3" TI="16998" Line="319" Offs="12"/>
+    <Component Name="RESERVED0" TI="17013" Line="320" Offs="16"/>
+    <Component Name="ECCR3" TI="17028" Line="321" Offs="20"/>
+   </type>
+   <type Family="typedef" Name="FSMC_Bank3_TypeDef" Line="322" ID="17044" toTI="16944"/>
+   <type Family="ComponentList" Line="324" ID="17056">
+    <Component Name="PCR4" TI="17065" Line="326" Offs="0"/>
+    <Component Name="SR4" TI="17080" Line="327" Offs="4"/>
+    <Component Name="PMEM4" TI="17095" Line="328" Offs="8"/>
+    <Component Name="PATT4" TI="17110" Line="329" Offs="12"/>
+    <Component Name="PIO4" TI="17125" Line="330" Offs="16"/>
+   </type>
+   <type Family="typedef" Name="FSMC_Bank4_TypeDef" Line="331" ID="17141" toTI="17056"/>
+   <type Family="ComponentList" Line="26" ID="17153">
+    <Component Name="FSMC_AddressSetupTime" TI="17161" Line="28" Offs="0"/>
+    <Component Name="FSMC_AddressHoldTime" TI="17175" Line="29" Offs="4"/>
+    <Component Name="FSMC_DataSetupTime" TI="17189" Line="30" Offs="8"/>
+    <Component Name="FSMC_BusTurnAroundDuration" TI="17203" Line="31" Offs="12"/>
+    <Component Name="FSMC_CLKDivision" TI="17217" Line="32" Offs="16"/>
+    <Component Name="FSMC_DataLatency" TI="17231" Line="33" Offs="20"/>
+    <Component Name="FSMC_AccessMode" TI="17245" Line="34" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="FSMC_NORSRAMTimingInitTypeDef" Line="35" ID="17260" toTI="17153"/>
+   <type Family="ComponentList" Line="38" ID="17271">
+    <Component Name="FSMC_Bank" TI="17279" Line="40" Offs="0"/>
+    <Component Name="FSMC_DataAddressMux" TI="17293" Line="41" Offs="4"/>
+    <Component Name="FSMC_MemoryType" TI="17307" Line="42" Offs="8"/>
+    <Component Name="FSMC_MemoryDataWidth" TI="17321" Line="43" Offs="12"/>
+    <Component Name="FSMC_BurstAccessMode" TI="17335" Line="44" Offs="16"/>
+    <Component Name="FSMC_WaitSignalPolarity" TI="17349" Line="45" Offs="20"/>
+    <Component Name="FSMC_WrapMode" TI="17363" Line="46" Offs="24"/>
+    <Component Name="FSMC_WaitSignalActive" TI="17377" Line="47" Offs="28"/>
+    <Component Name="FSMC_WriteOperation" TI="17391" Line="48" Offs="32"/>
+    <Component Name="FSMC_WaitSignal" TI="17405" Line="49" Offs="36"/>
+    <Component Name="FSMC_ExtendedMode" TI="17419" Line="50" Offs="40"/>
+    <Component Name="FSMC_WriteBurst" TI="17433" Line="51" Offs="44"/>
+   <type Family="Pointer" TI="17476" toTI="17260"/>
+    <Component Name="FSMC_ReadWriteTimingStruct" TI="17447" Line="53" Offs="48"/>
+    <Component Name="FSMC_WriteTimingStruct" TI="17461" Line="55" Offs="52"/>
+   </type>
+   <type Family="typedef" Name="FSMC_NORSRAMInitTypeDef" Line="56" ID="17482" toTI="17271"/>
+   <type Family="ComponentList" Line="59" ID="17493">
+    <Component Name="FSMC_SetupTime" TI="17501" Line="61" Offs="0"/>
+    <Component Name="FSMC_WaitSetupTime" TI="17515" Line="62" Offs="4"/>
+    <Component Name="FSMC_HoldSetupTime" TI="17529" Line="63" Offs="8"/>
+    <Component Name="FSMC_HiZSetupTime" TI="17543" Line="64" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="FSMC_NAND_PCCARDTimingInitTypeDef" Line="65" ID="17558" toTI="17493"/>
+   <type Family="ComponentList" Line="68" ID="17569">
+    <Component Name="FSMC_Bank" TI="17577" Line="70" Offs="0"/>
+    <Component Name="FSMC_Waitfeature" TI="17591" Line="71" Offs="4"/>
+    <Component Name="FSMC_MemoryDataWidth" TI="17605" Line="72" Offs="8"/>
+    <Component Name="FSMC_ECC" TI="17619" Line="73" Offs="12"/>
+    <Component Name="FSMC_ECCPageSize" TI="17633" Line="74" Offs="16"/>
+    <Component Name="FSMC_AddressLowMapping" TI="17647" Line="75" Offs="20"/>
+    <Component Name="FSMC_TCLRSetupTime" TI="17661" Line="76" Offs="24"/>
+    <Component Name="FSMC_TARSetupTime" TI="17675" Line="77" Offs="28"/>
+   <type Family="Pointer" TI="17718" toTI="17558"/>
+    <Component Name="FSMC_CommonSpaceTimingStruct" TI="17689" Line="79" Offs="32"/>
+    <Component Name="FSMC_AttributeSpaceTimingStruct" TI="17703" Line="81" Offs="36"/>
+   </type>
+   <type Family="typedef" Name="FSMC_NANDInitTypeDef" Line="82" ID="17724" toTI="17569"/>
+   <type Family="ComponentList" Line="85" ID="17735">
+    <Component Name="FSMC_Waitfeature" TI="17743" Line="87" Offs="0"/>
+    <Component Name="FSMC_AddressLowMapping" TI="17757" Line="88" Offs="4"/>
+    <Component Name="FSMC_TCLRSetupTime" TI="17771" Line="89" Offs="8"/>
+    <Component Name="FSMC_TARSetupTime" TI="17785" Line="90" Offs="12"/>
+    <Component Name="FSMC_CommonSpaceTimingStruct" TI="17799" Line="92" Offs="16"/>
+    <Component Name="FSMC_AttributeSpaceTimingStruct" TI="17813" Line="94" Offs="20"/>
+    <Component Name="FSMC_IOSpaceTimingStruct" TI="17827" Line="96" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="FSMC_PCCARDInitTypeDef" Line="97" ID="17842" toTI="17735"/>
+   <type Family="Pointer" TI="17992" toTI="17482"/>
+   <type Family="Pointer" TI="18082" toTI="17724"/>
+   <type Family="Pointer" TI="18131" toTI="17842"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" >
+   <type Family="Base" Name="long int" ID="18968"/>
+   <type Family="Base" Name="short int" ID="18975"/>
+   <type Family="Base" Name="signed char" ID="18982"/>
+   <type Family="Base" Name="long unsigned int" ID="19000"/>
+   <type Family="typedef" Name="u32" Line="39" ID="18989" toTI="19000"/>
+   <type Family="Base" Name="short unsigned int" ID="19018"/>
+   <type Family="typedef" Name="u16" Line="40" ID="19007" toTI="19018"/>
+   <type Family="Base" Name="unsigned char" ID="19035"/>
+   <type Family="typedef" Name="u8" Line="41" ID="19025" toTI="19035"/>
+   <type Family="typedef" Name="vu32" Line="47" ID="19042" toTI="19053"/>
+   <type Family="typedef" Name="FunctionalState" Line="59" ID="19079" toTI="19058"/>
+   <type Family="Base" Name="unsigned int" ID="19090"/>
+   <type Family="ComponentList" Line="334" ID="19097">
+    <Component Name="CRL" TI="19106" Line="336" Offs="0"/>
+    <Component Name="CRH" TI="19121" Line="337" Offs="4"/>
+    <Component Name="IDR" TI="19136" Line="338" Offs="8"/>
+    <Component Name="ODR" TI="19151" Line="339" Offs="12"/>
+    <Component Name="BSRR" TI="19166" Line="340" Offs="16"/>
+    <Component Name="BRR" TI="19181" Line="341" Offs="20"/>
+    <Component Name="LCKR" TI="19196" Line="342" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="GPIO_TypeDef" Line="343" ID="19212" toTI="19097"/>
+   <type Family="ComponentList" Line="345" ID="19224">
+    <Component Name="EVCR" TI="19233" Line="347" Offs="0"/>
+    <Component Name="MAPR" TI="19248" Line="348" Offs="4"/>
+   <type Family="array" ID="19279" toTI="19000"/>
+    <Component Name="EXTICR" TI="19263" Line="349" Offs="8"/>
+   </type>
+   <type Family="typedef" Name="AFIO_TypeDef" Line="350" ID="19300" toTI="19224"/>
+   <type Family="typedef" Name="GPIOSpeed_TypeDef" Line="39" ID="19339" toTI="19312"/>
+   <type Family="typedef" Name="GPIOMode_TypeDef" Line="54" ID="19408" toTI="19350"/>
+   <type Family="ComponentList" Line="62" ID="19419">
+    <Component Name="GPIO_Pin" TI="19427" Line="64" Offs="0"/>
+    <Component Name="GPIO_Speed" TI="19441" Line="65" Offs="2"/>
+    <Component Name="GPIO_Mode" TI="19455" Line="66" Offs="3"/>
+   </type>
+   <type Family="typedef" Name="GPIO_InitTypeDef" Line="67" ID="19470" toTI="19419"/>
+   <type Family="typedef" Name="BitAction" Line="73" ID="19502" toTI="19481"/>
+   <function Name="GPIO_DeInit" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="51">
+   <type Family="Pointer" TI="19554" toTI="19212"/>
+    <parameter Name="GPIOx" TI="19554" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="51" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="GPIO_Init" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="124">
+    <parameter Name="GPIOx" TI="19554" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="124" Addr="0x0" Param="Yes"/>
+   <type Family="Pointer" TI="19723" toTI="19470"/>
+    <parameter Name="GPIO_InitStruct" TI="19723" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="124" Addr="0x1" Param="Yes"/>
+    <variable Name="currentmode" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="126" Addr="0x0" TI="18989"/>
+    <variable Name="currentpin" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="126" Addr="0x0" TI="18989"/>
+    <variable Name="pinpos" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="126" Addr="0x0" TI="18989"/>
+    <variable Name="pos" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="126" Addr="0x0" TI="18989"/>
+    <variable Name="tmpreg" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="127" Addr="0x0" TI="18989"/>
+    <variable Name="pinmask" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="127" Addr="0x0" TI="18989"/>
+   </function >
+   <function Name="GPIO_ReadInputDataBit" TI="19025" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="246">
+    <parameter Name="GPIOx" TI="19554" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="246" Addr="0x0" Param="Yes"/>
+    <parameter Name="GPIO_Pin" TI="19007" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="246" Addr="0x1" Param="Yes"/>
+    <variable Name="bitstatus" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="248" Addr="0x0" TI="19025"/>
+   </function >
+   <function Name="GPIO_ReadInputData" TI="19007" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="272">
+    <parameter Name="GPIOx" TI="19554" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="272" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="GPIO_ReadOutputDataBit" TI="19025" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="289">
+    <parameter Name="GPIOx" TI="19554" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="289" Addr="0x0" Param="Yes"/>
+    <parameter Name="GPIO_Pin" TI="19007" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="289" Addr="0x1" Param="Yes"/>
+    <variable Name="bitstatus" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="291" Addr="0x0" TI="19025"/>
+   </function >
+   <function Name="GPIO_WriteBit" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="374">
+    <parameter Name="GPIOx" TI="19554" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="374" Addr="0x0" Param="Yes"/>
+    <parameter Name="GPIO_Pin" TI="19007" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="374" Addr="0x1" Param="Yes"/>
+    <parameter Name="BitVal" TI="19502" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_gpio.c" Line="374" Addr="0x2" Param="Yes"/>
+   </function >
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_i2c.c" >
+   <type Family="Base" Name="long int" ID="20652"/>
+   <type Family="Base" Name="short int" ID="20659"/>
+   <type Family="Base" Name="signed char" ID="20666"/>
+   <type Family="Base" Name="long unsigned int" ID="20684"/>
+   <type Family="typedef" Name="u32" Line="39" ID="20673" toTI="20684"/>
+   <type Family="Base" Name="short unsigned int" ID="20702"/>
+   <type Family="typedef" Name="u16" Line="40" ID="20691" toTI="20702"/>
+   <type Family="Base" Name="unsigned char" ID="20719"/>
+   <type Family="typedef" Name="u8" Line="41" ID="20709" toTI="20719"/>
+   <type Family="typedef" Name="vu32" Line="47" ID="20726" toTI="20737"/>
+   <type Family="typedef" Name="vu16" Line="48" ID="20742" toTI="20753"/>
+   <type Family="typedef" Name="FlagStatus" Line="57" ID="20779" toTI="20758"/>
+   <type Family="typedef" Name="ITStatus" Line="57" ID="20790" toTI="20758"/>
+   <type Family="typedef" Name="FunctionalState" Line="59" ID="20822" toTI="20801"/>
+   <type Family="typedef" Name="ErrorStatus" Line="62" ID="20854" toTI="20833"/>
+   <type Family="Base" Name="unsigned int" ID="20865"/>
+   <type Family="ComponentList" Line="353" ID="20872">
+    <Component Name="CR1" TI="20881" Line="355" Offs="0"/>
+    <Component Name="RESERVED0" TI="20896" Line="356" Offs="2"/>
+    <Component Name="CR2" TI="20911" Line="357" Offs="4"/>
+    <Component Name="RESERVED1" TI="20926" Line="358" Offs="6"/>
+    <Component Name="OAR1" TI="20941" Line="359" Offs="8"/>
+    <Component Name="RESERVED2" TI="20956" Line="360" Offs="10"/>
+    <Component Name="OAR2" TI="20971" Line="361" Offs="12"/>
+    <Component Name="RESERVED3" TI="20986" Line="362" Offs="14"/>
+    <Component Name="DR" TI="21001" Line="363" Offs="16"/>
+    <Component Name="RESERVED4" TI="21015" Line="364" Offs="18"/>
+    <Component Name="SR1" TI="21030" Line="365" Offs="20"/>
+    <Component Name="RESERVED5" TI="21045" Line="366" Offs="22"/>
+    <Component Name="SR2" TI="21060" Line="367" Offs="24"/>
+    <Component Name="RESERVED6" TI="21075" Line="368" Offs="26"/>
+    <Component Name="CCR" TI="21090" Line="369" Offs="28"/>
+    <Component Name="RESERVED7" TI="21105" Line="370" Offs="30"/>
+    <Component Name="TRISE" TI="21120" Line="371" Offs="32"/>
+    <Component Name="RESERVED8" TI="21135" Line="372" Offs="34"/>
+   </type>
+   <type Family="typedef" Name="I2C_TypeDef" Line="373" ID="21151" toTI="20872"/>
+   <type Family="ComponentList" Line="26" ID="21163">
+    <Component Name="I2C_Mode" TI="21171" Line="28" Offs="0"/>
+    <Component Name="I2C_DutyCycle" TI="21185" Line="29" Offs="2"/>
+    <Component Name="I2C_OwnAddress1" TI="21199" Line="30" Offs="4"/>
+    <Component Name="I2C_Ack" TI="21213" Line="31" Offs="6"/>
+    <Component Name="I2C_AcknowledgedAddress" TI="21227" Line="32" Offs="8"/>
+    <Component Name="I2C_ClockSpeed" TI="21241" Line="33" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="I2C_InitTypeDef" Line="34" ID="21256" toTI="21163"/>
+   <type Family="ComponentList" Line="25" ID="21267">
+    <Component Name="SYSCLK_Frequency" TI="21275" Line="27" Offs="0"/>
+    <Component Name="HCLK_Frequency" TI="21289" Line="28" Offs="4"/>
+    <Component Name="PCLK1_Frequency" TI="21303" Line="29" Offs="8"/>
+    <Component Name="PCLK2_Frequency" TI="21317" Line="30" Offs="12"/>
+    <Component Name="ADCCLK_Frequency" TI="21331" Line="31" Offs="16"/>
+   </type>
+   <type Family="typedef" Name="RCC_ClocksTypeDef" Line="32" ID="21346" toTI="21267"/>
+   <type Family="Pointer" TI="21398" toTI="21151"/>
+   <type Family="Pointer" TI="21534" toTI="21256"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_iwdg.c" >
+   <type Family="Base" Name="long int" ID="23467"/>
+   <type Family="Base" Name="short int" ID="23474"/>
+   <type Family="Base" Name="signed char" ID="23481"/>
+   <type Family="Base" Name="long unsigned int" ID="23499"/>
+   <type Family="typedef" Name="u32" Line="39" ID="23488" toTI="23499"/>
+   <type Family="Base" Name="short unsigned int" ID="23517"/>
+   <type Family="typedef" Name="u16" Line="40" ID="23506" toTI="23517"/>
+   <type Family="Base" Name="unsigned char" ID="23534"/>
+   <type Family="typedef" Name="u8" Line="41" ID="23524" toTI="23534"/>
+   <type Family="typedef" Name="FlagStatus" Line="57" ID="23567" toTI="23546"/>
+   <type Family="Base" Name="unsigned int" ID="23578"/>
+   <type Family="ComponentList" Line="376" ID="23585">
+    <Component Name="KR" TI="23594" Line="378" Offs="0"/>
+    <Component Name="PR" TI="23608" Line="379" Offs="4"/>
+    <Component Name="RLR" TI="23622" Line="380" Offs="8"/>
+    <Component Name="SR" TI="23637" Line="381" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="IWDG_TypeDef" Line="382" ID="23652" toTI="23585"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_lib.c" >
+   <type Family="Base" Name="long int" ID="23911"/>
+   <type Family="Base" Name="short int" ID="23918"/>
+   <type Family="Base" Name="signed char" ID="23925"/>
+   <type Family="Base" Name="long unsigned int" ID="23932"/>
+   <type Family="Base" Name="short unsigned int" ID="23939"/>
+   <type Family="Base" Name="unsigned char" ID="23946"/>
+   <type Family="Base" Name="unsigned int" ID="23953"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_nvic.c" >
+   <type Family="Base" Name="long int" ID="24002"/>
+   <type Family="Base" Name="short int" ID="24009"/>
+   <type Family="Base" Name="signed char" ID="24016"/>
+   <type Family="Base" Name="long unsigned int" ID="24034"/>
+   <type Family="typedef" Name="u32" Line="39" ID="24023" toTI="24034"/>
+   <type Family="Base" Name="short unsigned int" ID="24052"/>
+   <type Family="typedef" Name="u16" Line="40" ID="24041" toTI="24052"/>
+   <type Family="Base" Name="unsigned char" ID="24069"/>
+   <type Family="typedef" Name="u8" Line="41" ID="24059" toTI="24069"/>
+   <type Family="typedef" Name="vu32" Line="47" ID="24076" toTI="24087"/>
+   <type Family="typedef" Name="ITStatus" Line="57" ID="24118" toTI="24097"/>
+   <type Family="typedef" Name="FunctionalState" Line="59" ID="24150" toTI="24129"/>
+   <type Family="Base" Name="unsigned int" ID="24161"/>
+   <type Family="ComponentList" Line="385" ID="24168">
+   <type Family="array" ID="24353" toTI="24034"/>
+    <Component Name="ISER" TI="24178" Line="387" Offs="0"/>
+   <type Family="array" ID="24374" toTI="24023"/>
+    <Component Name="RESERVED0" TI="24193" Line="388" Offs="8"/>
+    <Component Name="ICER" TI="24208" Line="389" Offs="128"/>
+    <Component Name="RSERVED1" TI="24224" Line="390" Offs="136"/>
+    <Component Name="ISPR" TI="24240" Line="391" Offs="256"/>
+    <Component Name="RESERVED2" TI="24256" Line="392" Offs="264"/>
+    <Component Name="ICPR" TI="24272" Line="393" Offs="384"/>
+    <Component Name="RESERVED3" TI="24288" Line="394" Offs="392"/>
+    <Component Name="IABR" TI="24304" Line="395" Offs="512"/>
+   <type Family="array" ID="24410" toTI="24023"/>
+    <Component Name="RESERVED4" TI="24320" Line="396" Offs="520"/>
+   <type Family="array" ID="24426" toTI="24034"/>
+    <Component Name="IPR" TI="24336" Line="397" Offs="768"/>
+   </type>
+   <type Family="typedef" Name="NVIC_TypeDef" Line="398" ID="24447" toTI="24168"/>
+   <type Family="ComponentList" Line="400" ID="24459">
+    <Component Name="CPUID" TI="24468" Line="402" Offs="0"/>
+    <Component Name="ICSR" TI="24483" Line="403" Offs="4"/>
+    <Component Name="VTOR" TI="24498" Line="404" Offs="8"/>
+    <Component Name="AIRCR" TI="24513" Line="405" Offs="12"/>
+    <Component Name="SCR" TI="24528" Line="406" Offs="16"/>
+    <Component Name="CCR" TI="24543" Line="407" Offs="20"/>
+   <type Family="array" ID="24679" toTI="24034"/>
+    <Component Name="SHPR" TI="24558" Line="408" Offs="24"/>
+    <Component Name="SHCSR" TI="24573" Line="409" Offs="36"/>
+    <Component Name="CFSR" TI="24588" Line="410" Offs="40"/>
+    <Component Name="HFSR" TI="24603" Line="411" Offs="44"/>
+    <Component Name="DFSR" TI="24618" Line="412" Offs="48"/>
+    <Component Name="MMFAR" TI="24633" Line="413" Offs="52"/>
+    <Component Name="BFAR" TI="24648" Line="414" Offs="56"/>
+    <Component Name="AFSR" TI="24663" Line="415" Offs="60"/>
+   </type>
+   <type Family="typedef" Name="SCB_TypeDef" Line="416" ID="24700" toTI="24459"/>
+   <type Family="ComponentList" Line="26" ID="24712">
+    <Component Name="NVIC_IRQChannel" TI="24720" Line="28" Offs="0"/>
+    <Component Name="NVIC_IRQChannelPreemptionPriority" TI="24734" Line="29" Offs="1"/>
+    <Component Name="NVIC_IRQChannelSubPriority" TI="24748" Line="30" Offs="2"/>
+    <Component Name="NVIC_IRQChannelCmd" TI="24762" Line="31" Offs="3"/>
+   </type>
+   <type Family="typedef" Name="NVIC_InitTypeDef" Line="32" ID="24777" toTI="24712"/>
+   <function Name="NVIC_PriorityGroupConfig" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_nvic.c" Line="97">
+    <parameter Name="NVIC_PriorityGroup" TI="24023" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_nvic.c" Line="97" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="NVIC_Init" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_nvic.c" Line="116">
+   <type Family="Pointer" TI="25024" toTI="24777"/>
+    <parameter Name="NVIC_InitStruct" TI="25024" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_nvic.c" Line="116" Addr="0x0" Param="Yes"/>
+    <variable Name="tmppriority" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_nvic.c" Line="118" Addr="0x0" TI="24023"/>
+    <variable Name="tmpreg" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_nvic.c" Line="118" Addr="0x0" TI="24023"/>
+    <variable Name="tmpmask" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_nvic.c" Line="118" Addr="0x0" TI="24023"/>
+    <variable Name="tmppre" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_nvic.c" Line="119" Addr="0x0" TI="24023"/>
+    <variable Name="tmpsub" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_nvic.c" Line="119" Addr="0x0" TI="24023"/>
+   </function >
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_pwr.c" >
+   <type Family="Base" Name="long int" ID="26410"/>
+   <type Family="Base" Name="short int" ID="26417"/>
+   <type Family="Base" Name="signed char" ID="26424"/>
+   <type Family="Base" Name="long unsigned int" ID="26442"/>
+   <type Family="typedef" Name="u32" Line="39" ID="26431" toTI="26442"/>
+   <type Family="Base" Name="short unsigned int" ID="26449"/>
+   <type Family="Base" Name="unsigned char" ID="26466"/>
+   <type Family="typedef" Name="u8" Line="41" ID="26456" toTI="26466"/>
+   <type Family="typedef" Name="vu32" Line="47" ID="26473" toTI="26484"/>
+   <type Family="typedef" Name="FlagStatus" Line="57" ID="26510" toTI="26489"/>
+   <type Family="typedef" Name="FunctionalState" Line="59" ID="26542" toTI="26521"/>
+   <type Family="Base" Name="unsigned int" ID="26553"/>
+   <type Family="ComponentList" Line="419" ID="26560">
+    <Component Name="CR" TI="26569" Line="421" Offs="0"/>
+    <Component Name="CSR" TI="26583" Line="422" Offs="4"/>
+   </type>
+   <type Family="typedef" Name="PWR_TypeDef" Line="423" ID="26599" toTI="26560"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" >
+   <type Family="Base" Name="long int" ID="27028"/>
+   <type Family="Base" Name="short int" ID="27035"/>
+   <type Family="Base" Name="signed char" ID="27042"/>
+   <type Family="Base" Name="long unsigned int" ID="27060"/>
+   <type Family="typedef" Name="u32" Line="39" ID="27049" toTI="27060"/>
+   <type Family="Base" Name="short unsigned int" ID="27078"/>
+   <type Family="typedef" Name="u16" Line="40" ID="27067" toTI="27078"/>
+   <type Family="Base" Name="unsigned char" ID="27095"/>
+   <type Family="typedef" Name="u8" Line="41" ID="27085" toTI="27095"/>
+   <type Family="typedef" Name="vu32" Line="47" ID="27102" toTI="27113"/>
+   <type Family="typedef" Name="vu8" Line="49" ID="27118" toTI="27129"/>
+   <type Family="typedef" Name="FlagStatus" Line="57" ID="27155" toTI="27134"/>
+   <type Family="typedef" Name="ITStatus" Line="57" ID="27166" toTI="27134"/>
+   <type Family="typedef" Name="FunctionalState" Line="59" ID="27198" toTI="27177"/>
+   <type Family="typedef" Name="ErrorStatus" Line="62" ID="27230" toTI="27209"/>
+   <type Family="Base" Name="unsigned int" ID="27241"/>
+   <type Family="ComponentList" Line="426" ID="27248">
+    <Component Name="CR" TI="27257" Line="428" Offs="0"/>
+    <Component Name="CFGR" TI="27271" Line="429" Offs="4"/>
+    <Component Name="CIR" TI="27286" Line="430" Offs="8"/>
+    <Component Name="APB2RSTR" TI="27301" Line="431" Offs="12"/>
+    <Component Name="APB1RSTR" TI="27316" Line="432" Offs="16"/>
+    <Component Name="AHBENR" TI="27331" Line="433" Offs="20"/>
+    <Component Name="APB2ENR" TI="27346" Line="434" Offs="24"/>
+    <Component Name="APB1ENR" TI="27361" Line="435" Offs="28"/>
+    <Component Name="BDCR" TI="27376" Line="436" Offs="32"/>
+    <Component Name="CSR" TI="27391" Line="437" Offs="36"/>
+   </type>
+   <type Family="typedef" Name="RCC_TypeDef" Line="438" ID="27407" toTI="27248"/>
+   <type Family="ComponentList" Line="25" ID="27419">
+    <Component Name="SYSCLK_Frequency" TI="27427" Line="27" Offs="0"/>
+    <Component Name="HCLK_Frequency" TI="27441" Line="28" Offs="4"/>
+    <Component Name="PCLK1_Frequency" TI="27455" Line="29" Offs="8"/>
+    <Component Name="PCLK2_Frequency" TI="27469" Line="30" Offs="12"/>
+    <Component Name="ADCCLK_Frequency" TI="27483" Line="31" Offs="16"/>
+   </type>
+   <type Family="typedef" Name="RCC_ClocksTypeDef" Line="32" ID="27498" toTI="27419"/>
+   <function Name="RCC_DeInit" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="124">
+   </function >
+   <function Name="RCC_HSEConfig" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="159">
+    <parameter Name="RCC_HSE" TI="27049" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="159" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="RCC_PLLConfig" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="287">
+    <parameter Name="RCC_PLLSource" TI="27049" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="287" Addr="0x0" Param="Yes"/>
+    <parameter Name="RCC_PLLMul" TI="27049" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="287" Addr="0x1" Param="Yes"/>
+    <variable Name="tmpreg" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="289" Addr="0x0" TI="27049"/>
+   </function >
+   <function Name="RCC_PLLCmd" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="316">
+    <parameter Name="NewState" TI="27198" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="316" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="RCC_SYSCLKConfig" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="335">
+    <parameter Name="RCC_SYSCLKSource" TI="27049" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="335" Addr="0x0" Param="Yes"/>
+    <variable Name="tmpreg" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="337" Addr="0x0" TI="27049"/>
+   </function >
+   <function Name="RCC_GetSYSCLKSource" TI="27085" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="365">
+   </function >
+   <function Name="RCC_HCLKConfig" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="388">
+    <parameter Name="RCC_SYSCLK" TI="27049" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="388" Addr="0x0" Param="Yes"/>
+    <variable Name="tmpreg" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="390" Addr="0x0" TI="27049"/>
+   </function >
+   <function Name="RCC_PCLK1Config" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="421">
+    <parameter Name="RCC_HCLK" TI="27049" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="421" Addr="0x0" Param="Yes"/>
+    <variable Name="tmpreg" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="423" Addr="0x0" TI="27049"/>
+   </function >
+   <function Name="RCC_PCLK2Config" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="454">
+    <parameter Name="RCC_HCLK" TI="27049" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="454" Addr="0x0" Param="Yes"/>
+    <variable Name="tmpreg" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="456" Addr="0x0" TI="27049"/>
+   </function >
+   <function Name="RCC_GetClocksFreq" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="668">
+   <type Family="Pointer" TI="28436" toTI="27498"/>
+    <parameter Name="RCC_Clocks" TI="28436" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="668" Addr="0x0" Param="Yes"/>
+    <variable Name="tmp" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="670" Addr="0x0" TI="27049"/>
+    <variable Name="pllmull" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="670" Addr="0x0" TI="27049"/>
+    <variable Name="pllsource" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="670" Addr="0x0" TI="27049"/>
+    <variable Name="presc" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="670" Addr="0x0" TI="27049"/>
+   </function >
+   <function Name="RCC_APB2PeriphClockCmd" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="801">
+    <parameter Name="RCC_APB2Periph" TI="27049" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="801" Addr="0x0" Param="Yes"/>
+    <parameter Name="NewState" TI="27198" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="801" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="RCC_APB1PeriphClockCmd" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="835">
+    <parameter Name="RCC_APB1Periph" TI="27049" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="835" Addr="0x0" Param="Yes"/>
+    <parameter Name="NewState" TI="27198" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="835" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="RCC_APB2PeriphResetCmd" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="867">
+    <parameter Name="RCC_APB2Periph" TI="27049" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="867" Addr="0x0" Param="Yes"/>
+    <parameter Name="NewState" TI="27198" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="867" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="RCC_APB1PeriphResetCmd" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="900">
+    <parameter Name="RCC_APB1Periph" TI="27049" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="900" Addr="0x0" Param="Yes"/>
+    <parameter Name="NewState" TI="27198" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="900" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="RCC_GetFlagStatus" TI="27155" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="989">
+    <parameter Name="RCC_FLAG" TI="27085" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="989" Addr="0x0" Param="Yes"/>
+    <variable Name="tmp" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="991" Addr="0x0" TI="27049"/>
+    <variable Name="statusreg" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="992" Addr="0x0" TI="27049"/>
+    <variable Name="bitstatus" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="993" Addr="0x0" TI="27155"/>
+   </function >
+   <function Name="RCC_WaitForHSEStartUp" TI="27230" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="198">
+    <variable Name="StartUpCounter" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="200" Addr="0x34000004" TI="27113"/>
+    <variable Name="status" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="201" Addr="0x34000010" TI="27230"/>
+    <variable Name="HSEStatus" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="202" Addr="0x10" TI="27155"/>
+   </function >
+   <type Family="array" ID="29134" toTI="27095"/>
+   <variable Name="APBAHBPrescTable" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="111" Addr="0x800462C" TI="29167"/>
+   <type Family="array" ID="29172" toTI="27095"/>
+   <variable Name="ADCPrescTable" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rcc.c" Line="112" Addr="0x800463C" TI="29205"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_rtc.c" >
+   <type Family="Base" Name="long int" ID="29252"/>
+   <type Family="Base" Name="short int" ID="29259"/>
+   <type Family="Base" Name="signed char" ID="29266"/>
+   <type Family="Base" Name="long unsigned int" ID="29284"/>
+   <type Family="typedef" Name="u32" Line="39" ID="29273" toTI="29284"/>
+   <type Family="Base" Name="short unsigned int" ID="29302"/>
+   <type Family="typedef" Name="u16" Line="40" ID="29291" toTI="29302"/>
+   <type Family="Base" Name="unsigned char" ID="29309"/>
+   <type Family="typedef" Name="FlagStatus" Line="57" ID="29342" toTI="29321"/>
+   <type Family="typedef" Name="ITStatus" Line="57" ID="29353" toTI="29321"/>
+   <type Family="typedef" Name="FunctionalState" Line="59" ID="29385" toTI="29364"/>
+   <type Family="Base" Name="unsigned int" ID="29396"/>
+   <type Family="ComponentList" Line="441" ID="29403">
+    <Component Name="CRH" TI="29412" Line="443" Offs="0"/>
+    <Component Name="RESERVED0" TI="29427" Line="444" Offs="2"/>
+    <Component Name="CRL" TI="29442" Line="445" Offs="4"/>
+    <Component Name="RESERVED1" TI="29457" Line="446" Offs="6"/>
+    <Component Name="PRLH" TI="29472" Line="447" Offs="8"/>
+    <Component Name="RESERVED2" TI="29487" Line="448" Offs="10"/>
+    <Component Name="PRLL" TI="29502" Line="449" Offs="12"/>
+    <Component Name="RESERVED3" TI="29517" Line="450" Offs="14"/>
+    <Component Name="DIVH" TI="29532" Line="451" Offs="16"/>
+    <Component Name="RESERVED4" TI="29547" Line="452" Offs="18"/>
+    <Component Name="DIVL" TI="29562" Line="453" Offs="20"/>
+    <Component Name="RESERVED5" TI="29577" Line="454" Offs="22"/>
+    <Component Name="CNTH" TI="29592" Line="455" Offs="24"/>
+    <Component Name="RESERVED6" TI="29607" Line="456" Offs="26"/>
+    <Component Name="CNTL" TI="29622" Line="457" Offs="28"/>
+    <Component Name="RESERVED7" TI="29637" Line="458" Offs="30"/>
+    <Component Name="ALRH" TI="29652" Line="459" Offs="32"/>
+    <Component Name="RESERVED8" TI="29667" Line="460" Offs="34"/>
+    <Component Name="ALRL" TI="29682" Line="461" Offs="36"/>
+    <Component Name="RESERVED9" TI="29697" Line="462" Offs="38"/>
+   </type>
+   <type Family="typedef" Name="RTC_TypeDef" Line="463" ID="29713" toTI="29403"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_sdio.c" >
+   <type Family="Base" Name="long int" ID="30308"/>
+   <type Family="Base" Name="short int" ID="30315"/>
+   <type Family="Base" Name="signed char" ID="30322"/>
+   <type Family="Base" Name="long unsigned int" ID="30340"/>
+   <type Family="typedef" Name="u32" Line="39" ID="30329" toTI="30340"/>
+   <type Family="Base" Name="short unsigned int" ID="30347"/>
+   <type Family="Base" Name="unsigned char" ID="30364"/>
+   <type Family="typedef" Name="u8" Line="41" ID="30354" toTI="30364"/>
+   <type Family="typedef" Name="vu32" Line="47" ID="30371" toTI="30382"/>
+   <type Family="typedef" Name="FlagStatus" Line="57" ID="30413" toTI="30392"/>
+   <type Family="typedef" Name="ITStatus" Line="57" ID="30424" toTI="30392"/>
+   <type Family="typedef" Name="FunctionalState" Line="59" ID="30456" toTI="30435"/>
+   <type Family="Base" Name="unsigned int" ID="30467"/>
+   <type Family="ComponentList" Line="466" ID="30474">
+    <Component Name="POWER" TI="30483" Line="468" Offs="0"/>
+    <Component Name="CLKCR" TI="30498" Line="469" Offs="4"/>
+    <Component Name="ARG" TI="30513" Line="470" Offs="8"/>
+    <Component Name="CMD" TI="30528" Line="471" Offs="12"/>
+    <Component Name="RESPCMD" TI="30543" Line="472" Offs="16"/>
+    <Component Name="RESP1" TI="30558" Line="473" Offs="20"/>
+    <Component Name="RESP2" TI="30573" Line="474" Offs="24"/>
+    <Component Name="RESP3" TI="30588" Line="475" Offs="28"/>
+    <Component Name="RESP4" TI="30603" Line="476" Offs="32"/>
+    <Component Name="DTIMER" TI="30618" Line="477" Offs="36"/>
+    <Component Name="DLEN" TI="30633" Line="478" Offs="40"/>
+    <Component Name="DCTRL" TI="30648" Line="479" Offs="44"/>
+    <Component Name="DCOUNT" TI="30663" Line="480" Offs="48"/>
+    <Component Name="STA" TI="30678" Line="481" Offs="52"/>
+    <Component Name="ICR" TI="30693" Line="482" Offs="56"/>
+    <Component Name="MASK" TI="30708" Line="483" Offs="60"/>
+   <type Family="array" ID="30785" toTI="30329"/>
+    <Component Name="RESERVED0" TI="30723" Line="484" Offs="64"/>
+    <Component Name="FIFOCNT" TI="30738" Line="485" Offs="72"/>
+   <type Family="array" ID="30801" toTI="30329"/>
+    <Component Name="RESERVED1" TI="30753" Line="486" Offs="76"/>
+    <Component Name="FIFO" TI="30768" Line="487" Offs="128"/>
+   </type>
+   <type Family="typedef" Name="SDIO_TypeDef" Line="488" ID="30817" toTI="30474"/>
+   <type Family="ComponentList" Line="25" ID="30829">
+    <Component Name="SDIO_ClockDiv" TI="30837" Line="27" Offs="0"/>
+    <Component Name="SDIO_ClockEdge" TI="30851" Line="28" Offs="4"/>
+    <Component Name="SDIO_ClockBypass" TI="30865" Line="29" Offs="8"/>
+    <Component Name="SDIO_ClockPowerSave" TI="30879" Line="30" Offs="12"/>
+    <Component Name="SDIO_BusWide" TI="30893" Line="31" Offs="16"/>
+    <Component Name="SDIO_HardwareFlowControl" TI="30907" Line="32" Offs="20"/>
+   </type>
+   <type Family="typedef" Name="SDIO_InitTypeDef" Line="33" ID="30922" toTI="30829"/>
+   <type Family="ComponentList" Line="35" ID="30933">
+    <Component Name="SDIO_Argument" TI="30941" Line="37" Offs="0"/>
+    <Component Name="SDIO_CmdIndex" TI="30955" Line="38" Offs="4"/>
+    <Component Name="SDIO_Response" TI="30969" Line="39" Offs="8"/>
+    <Component Name="SDIO_Wait" TI="30983" Line="40" Offs="12"/>
+    <Component Name="SDIO_CPSM" TI="30997" Line="41" Offs="16"/>
+   </type>
+   <type Family="typedef" Name="SDIO_CmdInitTypeDef" Line="42" ID="31012" toTI="30933"/>
+   <type Family="ComponentList" Line="44" ID="31023">
+    <Component Name="SDIO_DataTimeOut" TI="31031" Line="46" Offs="0"/>
+    <Component Name="SDIO_DataLength" TI="31045" Line="47" Offs="4"/>
+    <Component Name="SDIO_DataBlockSize" TI="31059" Line="48" Offs="8"/>
+    <Component Name="SDIO_TransferDir" TI="31073" Line="49" Offs="12"/>
+    <Component Name="SDIO_TransferMode" TI="31087" Line="50" Offs="16"/>
+    <Component Name="SDIO_DPSM" TI="31101" Line="51" Offs="20"/>
+   </type>
+   <type Family="typedef" Name="SDIO_DataInitTypeDef" Line="52" ID="31116" toTI="31023"/>
+   <type Family="Pointer" TI="31201" toTI="30922"/>
+   <type Family="Pointer" TI="31500" toTI="31012"/>
+   <type Family="Pointer" TI="31676" toTI="31116"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_spi.c" >
+   <type Family="Base" Name="long int" ID="32399"/>
+   <type Family="Base" Name="short int" ID="32406"/>
+   <type Family="Base" Name="signed char" ID="32413"/>
+   <type Family="Base" Name="long unsigned int" ID="32431"/>
+   <type Family="typedef" Name="u32" Line="39" ID="32420" toTI="32431"/>
+   <type Family="Base" Name="short unsigned int" ID="32449"/>
+   <type Family="typedef" Name="u16" Line="40" ID="32438" toTI="32449"/>
+   <type Family="Base" Name="unsigned char" ID="32466"/>
+   <type Family="typedef" Name="u8" Line="41" ID="32456" toTI="32466"/>
+   <type Family="typedef" Name="FlagStatus" Line="57" ID="32499" toTI="32478"/>
+   <type Family="typedef" Name="ITStatus" Line="57" ID="32510" toTI="32478"/>
+   <type Family="typedef" Name="FunctionalState" Line="59" ID="32542" toTI="32521"/>
+   <type Family="Base" Name="unsigned int" ID="32553"/>
+   <type Family="ComponentList" Line="491" ID="32560">
+    <Component Name="CR1" TI="32569" Line="493" Offs="0"/>
+    <Component Name="RESERVED0" TI="32584" Line="494" Offs="2"/>
+    <Component Name="CR2" TI="32599" Line="495" Offs="4"/>
+    <Component Name="RESERVED1" TI="32614" Line="496" Offs="6"/>
+    <Component Name="SR" TI="32629" Line="497" Offs="8"/>
+    <Component Name="RESERVED2" TI="32643" Line="498" Offs="10"/>
+    <Component Name="DR" TI="32658" Line="499" Offs="12"/>
+    <Component Name="RESERVED3" TI="32672" Line="500" Offs="14"/>
+    <Component Name="CRCPR" TI="32687" Line="501" Offs="16"/>
+    <Component Name="RESERVED4" TI="32702" Line="502" Offs="18"/>
+    <Component Name="RXCRCR" TI="32717" Line="503" Offs="20"/>
+    <Component Name="RESERVED5" TI="32732" Line="504" Offs="22"/>
+    <Component Name="TXCRCR" TI="32747" Line="505" Offs="24"/>
+    <Component Name="RESERVED6" TI="32762" Line="506" Offs="26"/>
+    <Component Name="I2SCFGR" TI="32777" Line="507" Offs="28"/>
+    <Component Name="RESERVED7" TI="32792" Line="508" Offs="30"/>
+    <Component Name="I2SPR" TI="32807" Line="509" Offs="32"/>
+    <Component Name="RESERVED8" TI="32822" Line="510" Offs="34"/>
+   </type>
+   <type Family="typedef" Name="SPI_TypeDef" Line="511" ID="32838" toTI="32560"/>
+   <type Family="ComponentList" Line="26" ID="32850">
+    <Component Name="SPI_Direction" TI="32858" Line="28" Offs="0"/>
+    <Component Name="SPI_Mode" TI="32872" Line="29" Offs="2"/>
+    <Component Name="SPI_DataSize" TI="32886" Line="30" Offs="4"/>
+    <Component Name="SPI_CPOL" TI="32900" Line="31" Offs="6"/>
+    <Component Name="SPI_CPHA" TI="32914" Line="32" Offs="8"/>
+    <Component Name="SPI_NSS" TI="32928" Line="33" Offs="10"/>
+    <Component Name="SPI_BaudRatePrescaler" TI="32942" Line="34" Offs="12"/>
+    <Component Name="SPI_FirstBit" TI="32956" Line="35" Offs="14"/>
+    <Component Name="SPI_CRCPolynomial" TI="32970" Line="36" Offs="16"/>
+   </type>
+   <type Family="typedef" Name="SPI_InitTypeDef" Line="37" ID="32985" toTI="32850"/>
+   <type Family="ComponentList" Line="40" ID="32996">
+    <Component Name="I2S_Mode" TI="33004" Line="42" Offs="0"/>
+    <Component Name="I2S_Standard" TI="33018" Line="43" Offs="2"/>
+    <Component Name="I2S_DataFormat" TI="33032" Line="44" Offs="4"/>
+    <Component Name="I2S_MCLKOutput" TI="33046" Line="45" Offs="6"/>
+    <Component Name="I2S_AudioFreq" TI="33060" Line="46" Offs="8"/>
+    <Component Name="I2S_CPOL" TI="33074" Line="47" Offs="10"/>
+   </type>
+   <type Family="typedef" Name="I2S_InitTypeDef" Line="48" ID="33089" toTI="32996"/>
+   <type Family="ComponentList" Line="25" ID="33100">
+    <Component Name="SYSCLK_Frequency" TI="33108" Line="27" Offs="0"/>
+    <Component Name="HCLK_Frequency" TI="33122" Line="28" Offs="4"/>
+    <Component Name="PCLK1_Frequency" TI="33136" Line="29" Offs="8"/>
+    <Component Name="PCLK2_Frequency" TI="33150" Line="30" Offs="12"/>
+    <Component Name="ADCCLK_Frequency" TI="33164" Line="31" Offs="16"/>
+   </type>
+   <type Family="typedef" Name="RCC_ClocksTypeDef" Line="32" ID="33179" toTI="33100"/>
+   <type Family="Pointer" TI="33231" toTI="32838"/>
+   <function Name="SPI_Init" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_spi.c" Line="106">
+    <parameter Name="SPIx" TI="33231" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_spi.c" Line="106" Addr="0x0" Param="Yes"/>
+   <type Family="Pointer" TI="33304" toTI="32985"/>
+    <parameter Name="SPI_InitStruct" TI="33304" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_spi.c" Line="106" Addr="0x1" Param="Yes"/>
+    <variable Name="tmpreg" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_spi.c" Line="108" Addr="0x0" TI="32438"/>
+   </function >
+   <type Family="Pointer" TI="33455" toTI="33089"/>
+   <function Name="SPI_Cmd" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_spi.c" Line="334">
+    <parameter Name="SPIx" TI="33231" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_spi.c" Line="334" Addr="0x0" Param="Yes"/>
+    <parameter Name="NewState" TI="32542" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_spi.c" Line="334" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="SPI_I2S_SendData" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_spi.c" Line="468">
+    <parameter Name="SPIx" TI="33231" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_spi.c" Line="468" Addr="0x0" Param="Yes"/>
+    <parameter Name="Data" TI="32438" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_spi.c" Line="468" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="SPI_I2S_ReceiveData" TI="32438" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_spi.c" Line="486">
+    <parameter Name="SPIx" TI="33231" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_spi.c" Line="486" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="SPI_I2S_GetFlagStatus" TI="32499" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_spi.c" Line="720">
+    <parameter Name="SPIx" TI="33231" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_spi.c" Line="720" Addr="0x0" Param="Yes"/>
+    <parameter Name="SPI_I2S_FLAG" TI="32438" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_spi.c" Line="720" Addr="0x1" Param="Yes"/>
+    <variable Name="bitstatus" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_spi.c" Line="722" Addr="0x0" TI="32499"/>
+   </function >
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_systick.c" >
+   <type Family="Base" Name="long int" ID="34716"/>
+   <type Family="Base" Name="short int" ID="34723"/>
+   <type Family="Base" Name="signed char" ID="34730"/>
+   <type Family="Base" Name="long unsigned int" ID="34748"/>
+   <type Family="typedef" Name="u32" Line="39" ID="34737" toTI="34748"/>
+   <type Family="Base" Name="short unsigned int" ID="34755"/>
+   <type Family="Base" Name="unsigned char" ID="34772"/>
+   <type Family="typedef" Name="u8" Line="41" ID="34762" toTI="34772"/>
+   <type Family="typedef" Name="FlagStatus" Line="57" ID="34810" toTI="34789"/>
+   <type Family="typedef" Name="FunctionalState" Line="59" ID="34842" toTI="34821"/>
+   <type Family="Base" Name="unsigned int" ID="34853"/>
+   <type Family="ComponentList" Line="514" ID="34860">
+    <Component Name="CTRL" TI="34869" Line="516" Offs="0"/>
+    <Component Name="LOAD" TI="34884" Line="517" Offs="4"/>
+    <Component Name="VAL" TI="34899" Line="518" Offs="8"/>
+    <Component Name="CALIB" TI="34914" Line="519" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="SysTick_TypeDef" Line="520" ID="34930" toTI="34860"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" >
+   <type Family="Base" Name="long int" ID="35241"/>
+   <type Family="Base" Name="short int" ID="35248"/>
+   <type Family="Base" Name="signed char" ID="35255"/>
+   <type Family="Base" Name="long unsigned int" ID="35273"/>
+   <type Family="typedef" Name="u32" Line="39" ID="35262" toTI="35273"/>
+   <type Family="Base" Name="short unsigned int" ID="35291"/>
+   <type Family="typedef" Name="u16" Line="40" ID="35280" toTI="35291"/>
+   <type Family="Base" Name="unsigned char" ID="35308"/>
+   <type Family="typedef" Name="u8" Line="41" ID="35298" toTI="35308"/>
+   <type Family="typedef" Name="vu32" Line="47" ID="35315" toTI="35326"/>
+   <type Family="typedef" Name="FlagStatus" Line="57" ID="35357" toTI="35336"/>
+   <type Family="typedef" Name="ITStatus" Line="57" ID="35368" toTI="35336"/>
+   <type Family="typedef" Name="FunctionalState" Line="59" ID="35400" toTI="35379"/>
+   <type Family="Base" Name="unsigned int" ID="35411"/>
+   <type Family="ComponentList" Line="523" ID="35418">
+    <Component Name="CR1" TI="35427" Line="525" Offs="0"/>
+    <Component Name="RESERVED0" TI="35442" Line="526" Offs="2"/>
+    <Component Name="CR2" TI="35457" Line="527" Offs="4"/>
+    <Component Name="RESERVED1" TI="35472" Line="528" Offs="6"/>
+    <Component Name="SMCR" TI="35487" Line="529" Offs="8"/>
+    <Component Name="RESERVED2" TI="35502" Line="530" Offs="10"/>
+    <Component Name="DIER" TI="35517" Line="531" Offs="12"/>
+    <Component Name="RESERVED3" TI="35532" Line="532" Offs="14"/>
+    <Component Name="SR" TI="35547" Line="533" Offs="16"/>
+    <Component Name="RESERVED4" TI="35561" Line="534" Offs="18"/>
+    <Component Name="EGR" TI="35576" Line="535" Offs="20"/>
+    <Component Name="RESERVED5" TI="35591" Line="536" Offs="22"/>
+    <Component Name="CCMR1" TI="35606" Line="537" Offs="24"/>
+    <Component Name="RESERVED6" TI="35621" Line="538" Offs="26"/>
+    <Component Name="CCMR2" TI="35636" Line="539" Offs="28"/>
+    <Component Name="RESERVED7" TI="35651" Line="540" Offs="30"/>
+    <Component Name="CCER" TI="35666" Line="541" Offs="32"/>
+    <Component Name="RESERVED8" TI="35681" Line="542" Offs="34"/>
+    <Component Name="CNT" TI="35696" Line="543" Offs="36"/>
+    <Component Name="RESERVED9" TI="35711" Line="544" Offs="38"/>
+    <Component Name="PSC" TI="35726" Line="545" Offs="40"/>
+    <Component Name="RESERVED10" TI="35741" Line="546" Offs="42"/>
+    <Component Name="ARR" TI="35756" Line="547" Offs="44"/>
+    <Component Name="RESERVED11" TI="35771" Line="548" Offs="46"/>
+    <Component Name="RCR" TI="35786" Line="549" Offs="48"/>
+    <Component Name="RESERVED12" TI="35801" Line="550" Offs="50"/>
+    <Component Name="CCR1" TI="35816" Line="551" Offs="52"/>
+    <Component Name="RESERVED13" TI="35831" Line="552" Offs="54"/>
+    <Component Name="CCR2" TI="35846" Line="553" Offs="56"/>
+    <Component Name="RESERVED14" TI="35861" Line="554" Offs="58"/>
+    <Component Name="CCR3" TI="35876" Line="555" Offs="60"/>
+    <Component Name="RESERVED15" TI="35891" Line="556" Offs="62"/>
+    <Component Name="CCR4" TI="35906" Line="557" Offs="64"/>
+    <Component Name="RESERVED16" TI="35921" Line="558" Offs="66"/>
+    <Component Name="BDTR" TI="35936" Line="559" Offs="68"/>
+    <Component Name="RESERVED17" TI="35951" Line="560" Offs="70"/>
+    <Component Name="DCR" TI="35966" Line="561" Offs="72"/>
+    <Component Name="RESERVED18" TI="35981" Line="562" Offs="74"/>
+    <Component Name="DMAR" TI="35996" Line="563" Offs="76"/>
+    <Component Name="RESERVED19" TI="36011" Line="564" Offs="78"/>
+   </type>
+   <type Family="typedef" Name="TIM_TypeDef" Line="565" ID="36027" toTI="35418"/>
+   <type Family="ComponentList" Line="27" ID="36039">
+    <Component Name="TIM_Prescaler" TI="36047" Line="29" Offs="0"/>
+    <Component Name="TIM_CounterMode" TI="36061" Line="30" Offs="2"/>
+    <Component Name="TIM_Period" TI="36075" Line="31" Offs="4"/>
+    <Component Name="TIM_ClockDivision" TI="36089" Line="32" Offs="6"/>
+    <Component Name="TIM_RepetitionCounter" TI="36103" Line="33" Offs="8"/>
+   </type>
+   <type Family="typedef" Name="TIM_TimeBaseInitTypeDef" Line="34" ID="36118" toTI="36039"/>
+   <type Family="ComponentList" Line="37" ID="36129">
+    <Component Name="TIM_OCMode" TI="36137" Line="39" Offs="0"/>
+    <Component Name="TIM_OutputState" TI="36151" Line="40" Offs="2"/>
+    <Component Name="TIM_OutputNState" TI="36165" Line="41" Offs="4"/>
+    <Component Name="TIM_Pulse" TI="36179" Line="42" Offs="6"/>
+    <Component Name="TIM_OCPolarity" TI="36193" Line="43" Offs="8"/>
+    <Component Name="TIM_OCNPolarity" TI="36207" Line="44" Offs="10"/>
+    <Component Name="TIM_OCIdleState" TI="36221" Line="45" Offs="12"/>
+    <Component Name="TIM_OCNIdleState" TI="36235" Line="46" Offs="14"/>
+   </type>
+   <type Family="typedef" Name="TIM_OCInitTypeDef" Line="47" ID="36250" toTI="36129"/>
+   <type Family="ComponentList" Line="50" ID="36261">
+    <Component Name="TIM_Channel" TI="36269" Line="52" Offs="0"/>
+    <Component Name="TIM_ICPolarity" TI="36283" Line="53" Offs="2"/>
+    <Component Name="TIM_ICSelection" TI="36297" Line="54" Offs="4"/>
+    <Component Name="TIM_ICPrescaler" TI="36311" Line="55" Offs="6"/>
+    <Component Name="TIM_ICFilter" TI="36325" Line="56" Offs="8"/>
+   </type>
+   <type Family="typedef" Name="TIM_ICInitTypeDef" Line="57" ID="36340" toTI="36261"/>
+   <type Family="ComponentList" Line="60" ID="36351">
+    <Component Name="TIM_OSSRState" TI="36359" Line="62" Offs="0"/>
+    <Component Name="TIM_OSSIState" TI="36373" Line="63" Offs="2"/>
+    <Component Name="TIM_LOCKLevel" TI="36387" Line="64" Offs="4"/>
+    <Component Name="TIM_DeadTime" TI="36401" Line="65" Offs="6"/>
+    <Component Name="TIM_Break" TI="36415" Line="66" Offs="8"/>
+    <Component Name="TIM_BreakPolarity" TI="36429" Line="67" Offs="10"/>
+    <Component Name="TIM_AutomaticOutput" TI="36443" Line="68" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="TIM_BDTRInitTypeDef" Line="69" ID="36458" toTI="36351"/>
+   <type Family="Pointer" TI="36583" toTI="36027"/>
+   <function Name="TIM_DeInit" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="134">
+    <parameter Name="TIMx" TI="36583" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="134" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="TIM_TimeBaseInit" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="198">
+    <parameter Name="TIMx" TI="36583" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="198" Addr="0x0" Param="Yes"/>
+   <type Family="Pointer" TI="36811" toTI="36118"/>
+    <parameter Name="TIM_TimeBaseInitStruct" TI="36811" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="198" Addr="0x1" Param="Yes"/>
+   </function >
+   <type Family="Pointer" TI="36916" toTI="36250"/>
+   <function Name="TIM_OC2Init" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="328">
+    <parameter Name="TIMx" TI="36583" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="328" Addr="0x0" Param="Yes"/>
+    <parameter Name="TIM_OCInitStruct" TI="36916" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="328" Addr="0x1" Param="Yes"/>
+    <variable Name="tmpccmrx" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="330" Addr="0x0" TI="35280"/>
+    <variable Name="tmpccer" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="330" Addr="0x0" TI="35280"/>
+    <variable Name="tmpcr2" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="330" Addr="0x0" TI="35280"/>
+   </function >
+   <type Family="Pointer" TI="37287" toTI="36458"/>
+   <function Name="TIM_TimeBaseStructInit" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="750">
+    <parameter Name="TIM_TimeBaseInitStruct" TI="36811" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="750" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="TIM_OCStructInit" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="768">
+    <parameter Name="TIM_OCInitStruct" TI="36916" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="768" Addr="0x0" Param="Yes"/>
+   </function >
+   <type Family="Pointer" TI="37413" toTI="36340"/>
+   <function Name="TIM_Cmd" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="828">
+    <parameter Name="TIMx" TI="36583" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="828" Addr="0x0" Param="Yes"/>
+    <parameter Name="NewState" TI="35400" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="828" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="TIM_ITConfig" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="893">
+    <parameter Name="TIMx" TI="36583" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="893" Addr="0x0" Param="Yes"/>
+    <parameter Name="TIM_IT" TI="35280" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="893" Addr="0x1" Param="Yes"/>
+    <parameter Name="NewState" TI="35400" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="893" Addr="0x2" Param="Yes"/>
+   </function >
+   <function Name="TIM_ARRPreloadConfig" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="1538">
+    <parameter Name="TIMx" TI="36583" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="1538" Addr="0x0" Param="Yes"/>
+    <parameter Name="NewState" TI="35400" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="1538" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="TIM_OC4PreloadConfig" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="1751">
+    <parameter Name="TIMx" TI="36583" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="1751" Addr="0x0" Param="Yes"/>
+    <parameter Name="TIM_OCPreload" TI="35280" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="1751" Addr="0x1" Param="Yes"/>
+    <variable Name="tmpccmr2" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_tim.c" Line="1753" Addr="0x0" TI="35280"/>
+   </function >
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" >
+   <type Family="Base" Name="long int" ID="42810"/>
+   <type Family="Base" Name="short int" ID="42817"/>
+   <type Family="Base" Name="signed char" ID="42824"/>
+   <type Family="Base" Name="long unsigned int" ID="42842"/>
+   <type Family="typedef" Name="u32" Line="39" ID="42831" toTI="42842"/>
+   <type Family="Base" Name="short unsigned int" ID="42860"/>
+   <type Family="typedef" Name="u16" Line="40" ID="42849" toTI="42860"/>
+   <type Family="Base" Name="unsigned char" ID="42877"/>
+   <type Family="typedef" Name="u8" Line="41" ID="42867" toTI="42877"/>
+   <type Family="typedef" Name="vu32" Line="47" ID="42884" toTI="42895"/>
+   <type Family="typedef" Name="FlagStatus" Line="57" ID="42926" toTI="42905"/>
+   <type Family="typedef" Name="ITStatus" Line="57" ID="42937" toTI="42905"/>
+   <type Family="typedef" Name="FunctionalState" Line="59" ID="42969" toTI="42948"/>
+   <type Family="Base" Name="unsigned int" ID="42980"/>
+   <type Family="ComponentList" Line="568" ID="42987">
+    <Component Name="SR" TI="42996" Line="570" Offs="0"/>
+    <Component Name="RESERVED0" TI="43010" Line="571" Offs="2"/>
+    <Component Name="DR" TI="43025" Line="572" Offs="4"/>
+    <Component Name="RESERVED1" TI="43039" Line="573" Offs="6"/>
+    <Component Name="BRR" TI="43054" Line="574" Offs="8"/>
+    <Component Name="RESERVED2" TI="43069" Line="575" Offs="10"/>
+    <Component Name="CR1" TI="43084" Line="576" Offs="12"/>
+    <Component Name="RESERVED3" TI="43099" Line="577" Offs="14"/>
+    <Component Name="CR2" TI="43114" Line="578" Offs="16"/>
+    <Component Name="RESERVED4" TI="43129" Line="579" Offs="18"/>
+    <Component Name="CR3" TI="43144" Line="580" Offs="20"/>
+    <Component Name="RESERVED5" TI="43159" Line="581" Offs="22"/>
+    <Component Name="GTPR" TI="43174" Line="582" Offs="24"/>
+    <Component Name="RESERVED6" TI="43189" Line="583" Offs="26"/>
+   </type>
+   <type Family="typedef" Name="USART_TypeDef" Line="584" ID="43205" toTI="42987"/>
+   <type Family="ComponentList" Line="26" ID="43217">
+    <Component Name="USART_BaudRate" TI="43225" Line="28" Offs="0"/>
+    <Component Name="USART_WordLength" TI="43239" Line="29" Offs="4"/>
+    <Component Name="USART_StopBits" TI="43253" Line="30" Offs="6"/>
+    <Component Name="USART_Parity" TI="43267" Line="31" Offs="8"/>
+    <Component Name="USART_Mode" TI="43281" Line="32" Offs="10"/>
+    <Component Name="USART_HardwareFlowControl" TI="43295" Line="33" Offs="12"/>
+   </type>
+   <type Family="typedef" Name="USART_InitTypeDef" Line="34" ID="43310" toTI="43217"/>
+   <type Family="ComponentList" Line="37" ID="43321">
+    <Component Name="USART_Clock" TI="43329" Line="39" Offs="0"/>
+    <Component Name="USART_CPOL" TI="43343" Line="40" Offs="2"/>
+    <Component Name="USART_CPHA" TI="43357" Line="41" Offs="4"/>
+    <Component Name="USART_LastBit" TI="43371" Line="42" Offs="6"/>
+   </type>
+   <type Family="typedef" Name="USART_ClockInitTypeDef" Line="43" ID="43386" toTI="43321"/>
+   <type Family="ComponentList" Line="25" ID="43397">
+    <Component Name="SYSCLK_Frequency" TI="43405" Line="27" Offs="0"/>
+    <Component Name="HCLK_Frequency" TI="43419" Line="28" Offs="4"/>
+    <Component Name="PCLK1_Frequency" TI="43433" Line="29" Offs="8"/>
+    <Component Name="PCLK2_Frequency" TI="43447" Line="30" Offs="12"/>
+    <Component Name="ADCCLK_Frequency" TI="43461" Line="31" Offs="16"/>
+   </type>
+   <type Family="typedef" Name="RCC_ClocksTypeDef" Line="32" ID="43476" toTI="43397"/>
+   <function Name="USART_DeInit" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="90">
+   <type Family="Pointer" TI="43528" toTI="43205"/>
+    <parameter Name="USARTx" TI="43528" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="90" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="USART_Init" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="140">
+    <parameter Name="USARTx" TI="43528" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="140" Addr="0x0" Param="Yes"/>
+   <type Family="Pointer" TI="43679" toTI="43310"/>
+    <parameter Name="USART_InitStruct" TI="43679" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="140" Addr="0x1" Param="Yes"/>
+    <variable Name="tmpreg" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="142" Addr="0x0" TI="42831"/>
+    <variable Name="apbclock" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="142" Addr="0x0" TI="42831"/>
+    <variable Name="integerdivider" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="143" Addr="0x0" TI="42831"/>
+    <variable Name="fractionaldivider" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="144" Addr="0x0" TI="42831"/>
+    <variable Name="usartxbase" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="145" Addr="0x0" TI="42831"/>
+    <variable Name="RCC_ClocksStatus" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="146" Addr="0x4000004" TI="43476"/>
+   </function >
+   <type Family="Pointer" TI="43793" toTI="43386"/>
+   <function Name="USART_Cmd" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="311">
+    <parameter Name="USARTx" TI="43528" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="311" Addr="0x0" Param="Yes"/>
+    <parameter Name="NewState" TI="42969" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="311" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="USART_ITConfig" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="354">
+    <parameter Name="USARTx" TI="43528" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="354" Addr="0x0" Param="Yes"/>
+    <parameter Name="USART_IT" TI="42849" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="354" Addr="0x1" Param="Yes"/>
+    <parameter Name="NewState" TI="42969" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="354" Addr="0x2" Param="Yes"/>
+    <variable Name="usartreg" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="356" Addr="0x0" TI="42831"/>
+    <variable Name="itpos" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="356" Addr="0x0" TI="42831"/>
+    <variable Name="itmask" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="356" Addr="0x0" TI="42831"/>
+    <variable Name="usartxbase" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="357" Addr="0x0" TI="42831"/>
+   </function >
+   <function Name="USART_SendData" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="571">
+    <parameter Name="USARTx" TI="43528" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="571" Addr="0x0" Param="Yes"/>
+    <parameter Name="Data" TI="42849" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="571" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="USART_ReceiveData" TI="42849" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="590">
+    <parameter Name="USARTx" TI="43528" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="590" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="USART_GetFlagStatus" TI="42926" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="821">
+    <parameter Name="USARTx" TI="43528" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="821" Addr="0x0" Param="Yes"/>
+    <parameter Name="USART_FLAG" TI="42849" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="821" Addr="0x1" Param="Yes"/>
+    <variable Name="bitstatus" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="823" Addr="0x0" TI="42926"/>
+   </function >
+   <function Name="USART_ClearITPendingBit" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="986">
+    <parameter Name="USARTx" TI="43528" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="986" Addr="0x0" Param="Yes"/>
+    <parameter Name="USART_IT" TI="42849" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="986" Addr="0x1" Param="Yes"/>
+    <variable Name="bitpos" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="988" Addr="0x4000000" TI="42849"/>
+    <variable Name="itmask" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_usart.c" Line="988" Addr="0x4000000" TI="42849"/>
+   </function >
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\stm32f10x_wwdg.c" >
+   <type Family="Base" Name="long int" ID="45275"/>
+   <type Family="Base" Name="short int" ID="45282"/>
+   <type Family="Base" Name="signed char" ID="45289"/>
+   <type Family="Base" Name="long unsigned int" ID="45307"/>
+   <type Family="typedef" Name="u32" Line="39" ID="45296" toTI="45307"/>
+   <type Family="Base" Name="short unsigned int" ID="45314"/>
+   <type Family="Base" Name="unsigned char" ID="45331"/>
+   <type Family="typedef" Name="u8" Line="41" ID="45321" toTI="45331"/>
+   <type Family="typedef" Name="vu32" Line="47" ID="45338" toTI="45349"/>
+   <type Family="typedef" Name="FlagStatus" Line="57" ID="45375" toTI="45354"/>
+   <type Family="Base" Name="unsigned int" ID="45407"/>
+   <type Family="ComponentList" Line="587" ID="45414">
+    <Component Name="CR" TI="45423" Line="589" Offs="0"/>
+    <Component Name="CFR" TI="45437" Line="590" Offs="4"/>
+    <Component Name="SR" TI="45452" Line="591" Offs="8"/>
+   </type>
+   <type Family="typedef" Name="WWDG_TypeDef" Line="592" ID="45467" toTI="45414"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\Util.c" >
+   <type Family="Base" Name="signed char" ID="45794"/>
+   <type Family="Base" Name="unsigned char" ID="45801"/>
+   <type Family="Base" Name="short int" ID="45808"/>
+   <type Family="Base" Name="short unsigned int" ID="45815"/>
+   <type Family="Base" Name="int" ID="45822"/>
+   <type Family="Base" Name="unsigned int" ID="45829"/>
+   <type Family="Base" Name="long long int" ID="45836"/>
+   <type Family="Base" Name="long long unsigned int" ID="45843"/>
+   <type Family="Base" Name="long int" ID="45850"/>
+   <type Family="Base" Name="long unsigned int" ID="45857"/>
+   <type Family="Pointer" TI="45866" toTI="45864"/>
+   <type Family="Base" Name="char" ID="45878"/>
+   <type Family="Pointer" TI="45872" toTI="45878"/>
+   <type Family="Pointer" TI="45885" toTI="45891"/>
+   <type Family="typedef" Name="uint8_t" Line="42" ID="45896" toTI="45801"/>
+   <type Family="typedef" Name="s32" Line="23" ID="45907" toTI="45850"/>
+   <type Family="typedef" Name="s16" Line="24" ID="45918" toTI="45808"/>
+   <type Family="typedef" Name="u32" Line="39" ID="45929" toTI="45857"/>
+   <type Family="typedef" Name="u16" Line="40" ID="45940" toTI="45815"/>
+   <type Family="typedef" Name="u8" Line="41" ID="45951" toTI="45801"/>
+   <type Family="typedef" Name="vu16" Line="48" ID="45966" toTI="45977"/>
+   <type Family="ComponentList" Line="334" ID="46024">
+    <Component Name="CRL" TI="46033" Line="336" Offs="0"/>
+    <Component Name="CRH" TI="46048" Line="337" Offs="4"/>
+    <Component Name="IDR" TI="46063" Line="338" Offs="8"/>
+    <Component Name="ODR" TI="46078" Line="339" Offs="12"/>
+    <Component Name="BSRR" TI="46093" Line="340" Offs="16"/>
+    <Component Name="BRR" TI="46108" Line="341" Offs="20"/>
+    <Component Name="LCKR" TI="46123" Line="342" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="GPIO_TypeDef" Line="343" ID="46139" toTI="46024"/>
+   <type Family="typedef" Name="GPIOSpeed_TypeDef" Line="39" ID="46178" toTI="46151"/>
+   <type Family="typedef" Name="GPIOMode_TypeDef" Line="54" ID="46247" toTI="46189"/>
+   <type Family="ComponentList" Line="62" ID="46258">
+    <Component Name="GPIO_Pin" TI="46266" Line="64" Offs="0"/>
+    <Component Name="GPIO_Speed" TI="46280" Line="65" Offs="2"/>
+    <Component Name="GPIO_Mode" TI="46294" Line="66" Offs="3"/>
+   </type>
+   <type Family="typedef" Name="GPIO_InitTypeDef" Line="67" ID="46309" toTI="46258"/>
+   <type Family="ComponentList" Line="25" ID="46341">
+    <Component Name="SYSCLK_Frequency" TI="46349" Line="27" Offs="0"/>
+    <Component Name="HCLK_Frequency" TI="46363" Line="28" Offs="4"/>
+    <Component Name="PCLK1_Frequency" TI="46377" Line="29" Offs="8"/>
+    <Component Name="PCLK2_Frequency" TI="46391" Line="30" Offs="12"/>
+    <Component Name="ADCCLK_Frequency" TI="46405" Line="31" Offs="16"/>
+   </type>
+   <type Family="typedef" Name="RCC_ClocksTypeDef" Line="32" ID="46420" toTI="46341"/>
+   <type Family="typedef" Name="tHandler" Line="75" ID="46431" toTI="45866"/>
+   <type Family="Pointer" TI="46594" toTI="46600"/>
+   <type Family="Pointer" TI="46919" toTI="45918"/>
+   <function Name="UTIL_ReadBackupRegister" TI="45940" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\Util.c" Line="412">
+    <parameter Name="BKP_DR" TI="45940" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\Util.c" Line="412" Addr="0x0" Param="Yes"/>
+   </function >
+   <type Family="array" ID="47628" toTI="45878"/>
+   <type Family="array" ID="47644" toTI="46431"/>
+   <type Family="array" ID="47686" toTI="45940"/>
+   <variable Name="CurrentSpeed" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\Util.c" Line="28" Addr="0x0" TI="46442"/>
+   <variable Name="dummy_var" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\circle.h" Line="77" Addr="0x0" TI="46485"/>
+   <variable Name="RCC_ClockFreq" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\Util.c" Line="31" Addr="0x0" TI="46420"/>
+   <variable Name="fTemperatureInFahrenheit" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\Util.c" Line="33" Addr="0x0" TI="45951"/>
+   <variable Name="Application_Pointer_Mgr" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\circle.h" Line="429" Addr="0x0" TI="46594"/>
+   <variable Name="dummycounter" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\Util.c" Line="32" Addr="0x0" TI="45822"/>
+   <variable Name="init_already" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\Util.c" Line="34" Addr="0x0" TI="45822"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" >
+   <type Family="Base" Name="long int" ID="47988"/>
+   <type Family="Base" Name="short int" ID="48006"/>
+   <type Family="typedef" Name="s16" Line="24" ID="47995" toTI="48006"/>
+   <type Family="Base" Name="signed char" ID="48013"/>
+   <type Family="Base" Name="long unsigned int" ID="48031"/>
+   <type Family="typedef" Name="u32" Line="39" ID="48020" toTI="48031"/>
+   <type Family="Base" Name="short unsigned int" ID="48049"/>
+   <type Family="typedef" Name="u16" Line="40" ID="48038" toTI="48049"/>
+   <type Family="Base" Name="unsigned char" ID="48066"/>
+   <type Family="typedef" Name="u8" Line="41" ID="48056" toTI="48066"/>
+   <type Family="Base" Name="unsigned int" ID="48073"/>
+   <type Family="typedef" Name="Rotate_H12_V_Match_TypeDef" Line="101" ID="48219" toTI="48189"/>
+   <type Family="Pointer" TI="48230" toTI="48236"/>
+   <type Family="Base" Name="int" ID="48253"/>
+   <type Family="Base" Name="char" ID="48260"/>
+   <type Family="Pointer" TI="48390" toTI="48396"/>
+   <type Family="Pointer" TI="48708" toTI="48714"/>
+   <function Name="DRAW_SetDefaultColor" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="413">
+   </function >
+   <function Name="DRAW_Init" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="177">
+   </function >
+   <type Family="array" ID="49021" toTI="48056"/>
+   <variable Name="CharMagniCoeff" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="28" Addr="0x0" TI="48038"/>
+   <variable Name="BGndColor" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="29" Addr="0x200001A8" TI="48038"/>
+   <variable Name="TextColor" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="30" Addr="0x200001AA" TI="48038"/>
+   <variable Name="dummy_var" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\circle.h" Line="77" Addr="0x0" TI="48080"/>
+   <variable Name="fDisplayTime" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="32" Addr="0x200001AC" TI="48253"/>
+   <variable Name="Application_Pointer_Mgr" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\circle.h" Line="429" Addr="0x0" TI="48230"/>
+   <variable Name="BatState" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="33" Addr="0x20000228" TI="48038"/>
+   <variable Name="OldBatState" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="34" Addr="0x20000224" TI="48038"/>
+   <variable Name="OldTHH" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="35" Addr="0x20000230" TI="48020"/>
+   <variable Name="OldTMM" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="36" Addr="0x20000238" TI="48020"/>
+   <variable Name="OldTSS" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="37" Addr="0x2000023C" TI="48020"/>
+   <variable Name="OldTemp" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="38" Addr="0x20000244" TI="48020"/>
+   <variable Name="xBat" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="39" Addr="0x20000240" TI="48038"/>
+   <variable Name="yBat" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="40" Addr="0x2000022C" TI="48038"/>
+   <variable Name="widthBat" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="41" Addr="0x20000248" TI="48038"/>
+   <variable Name="heightBat" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="42" Addr="0x2000024C" TI="48038"/>
+   <variable Name="UsbState" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="43" Addr="0x2000024A" TI="48056"/>
+   <variable Name="OldUsbState" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="43" Addr="0x2000022A" TI="48056"/>
+   <variable Name="rotate_counter" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="47" Addr="0x200001B0" TI="48253"/>
+   <variable Name="previous_H12" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="48" Addr="0x0" TI="48219"/>
+   <variable Name="previous_previous_H12" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="49" Addr="0x0" TI="48219"/>
+   <variable Name="H12" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="50" Addr="0x20000226" TI="48219"/>
+   <variable Name="CurrentScreenOrientation" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="51" Addr="0x20000234" TI="48219"/>
+   <variable Name="CurrentRotateScreen" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\draw.c" Line="52" Addr="0x0" TI="48253"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" >
+   <type Family="Base" Name="long int" ID="49919"/>
+   <type Family="Base" Name="short int" ID="49937"/>
+   <type Family="typedef" Name="s16" Line="24" ID="49926" toTI="49937"/>
+   <type Family="Base" Name="signed char" ID="49944"/>
+   <type Family="Base" Name="long unsigned int" ID="49962"/>
+   <type Family="typedef" Name="u32" Line="39" ID="49951" toTI="49962"/>
+   <type Family="Base" Name="short unsigned int" ID="49980"/>
+   <type Family="typedef" Name="u16" Line="40" ID="49969" toTI="49980"/>
+   <type Family="Base" Name="unsigned char" ID="49997"/>
+   <type Family="typedef" Name="u8" Line="41" ID="49987" toTI="49997"/>
+   <type Family="Base" Name="unsigned int" ID="50035"/>
+   <type Family="ComponentList" Line="334" ID="50042">
+    <Component Name="CRL" TI="50051" Line="336" Offs="0"/>
+    <Component Name="CRH" TI="50066" Line="337" Offs="4"/>
+    <Component Name="IDR" TI="50081" Line="338" Offs="8"/>
+    <Component Name="ODR" TI="50096" Line="339" Offs="12"/>
+    <Component Name="BSRR" TI="50111" Line="340" Offs="16"/>
+    <Component Name="BRR" TI="50126" Line="341" Offs="20"/>
+    <Component Name="LCKR" TI="50141" Line="342" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="GPIO_TypeDef" Line="343" ID="50157" toTI="50042"/>
+   <type Family="ComponentList" Line="523" ID="50169">
+    <Component Name="CR1" TI="50178" Line="525" Offs="0"/>
+    <Component Name="RESERVED0" TI="50193" Line="526" Offs="2"/>
+    <Component Name="CR2" TI="50208" Line="527" Offs="4"/>
+    <Component Name="RESERVED1" TI="50223" Line="528" Offs="6"/>
+    <Component Name="SMCR" TI="50238" Line="529" Offs="8"/>
+    <Component Name="RESERVED2" TI="50253" Line="530" Offs="10"/>
+    <Component Name="DIER" TI="50268" Line="531" Offs="12"/>
+    <Component Name="RESERVED3" TI="50283" Line="532" Offs="14"/>
+    <Component Name="SR" TI="50298" Line="533" Offs="16"/>
+    <Component Name="RESERVED4" TI="50312" Line="534" Offs="18"/>
+    <Component Name="EGR" TI="50327" Line="535" Offs="20"/>
+    <Component Name="RESERVED5" TI="50342" Line="536" Offs="22"/>
+    <Component Name="CCMR1" TI="50357" Line="537" Offs="24"/>
+    <Component Name="RESERVED6" TI="50372" Line="538" Offs="26"/>
+    <Component Name="CCMR2" TI="50387" Line="539" Offs="28"/>
+    <Component Name="RESERVED7" TI="50402" Line="540" Offs="30"/>
+    <Component Name="CCER" TI="50417" Line="541" Offs="32"/>
+    <Component Name="RESERVED8" TI="50432" Line="542" Offs="34"/>
+    <Component Name="CNT" TI="50447" Line="543" Offs="36"/>
+    <Component Name="RESERVED9" TI="50462" Line="544" Offs="38"/>
+    <Component Name="PSC" TI="50477" Line="545" Offs="40"/>
+    <Component Name="RESERVED10" TI="50492" Line="546" Offs="42"/>
+    <Component Name="ARR" TI="50507" Line="547" Offs="44"/>
+    <Component Name="RESERVED11" TI="50522" Line="548" Offs="46"/>
+    <Component Name="RCR" TI="50537" Line="549" Offs="48"/>
+    <Component Name="RESERVED12" TI="50552" Line="550" Offs="50"/>
+    <Component Name="CCR1" TI="50567" Line="551" Offs="52"/>
+    <Component Name="RESERVED13" TI="50582" Line="552" Offs="54"/>
+    <Component Name="CCR2" TI="50597" Line="553" Offs="56"/>
+    <Component Name="RESERVED14" TI="50612" Line="554" Offs="58"/>
+    <Component Name="CCR3" TI="50627" Line="555" Offs="60"/>
+    <Component Name="RESERVED15" TI="50642" Line="556" Offs="62"/>
+    <Component Name="CCR4" TI="50657" Line="557" Offs="64"/>
+    <Component Name="RESERVED16" TI="50672" Line="558" Offs="66"/>
+    <Component Name="BDTR" TI="50687" Line="559" Offs="68"/>
+    <Component Name="RESERVED17" TI="50702" Line="560" Offs="70"/>
+    <Component Name="DCR" TI="50717" Line="561" Offs="72"/>
+    <Component Name="RESERVED18" TI="50732" Line="562" Offs="74"/>
+    <Component Name="DMAR" TI="50747" Line="563" Offs="76"/>
+    <Component Name="RESERVED19" TI="50762" Line="564" Offs="78"/>
+   </type>
+   <type Family="typedef" Name="TIM_TypeDef" Line="565" ID="50778" toTI="50169"/>
+   <type Family="typedef" Name="GPIOSpeed_TypeDef" Line="39" ID="50817" toTI="50790"/>
+   <type Family="typedef" Name="GPIOMode_TypeDef" Line="54" ID="50886" toTI="50828"/>
+   <type Family="ComponentList" Line="62" ID="50897">
+    <Component Name="GPIO_Pin" TI="50905" Line="64" Offs="0"/>
+    <Component Name="GPIO_Speed" TI="50919" Line="65" Offs="2"/>
+    <Component Name="GPIO_Mode" TI="50933" Line="66" Offs="3"/>
+   </type>
+   <type Family="typedef" Name="GPIO_InitTypeDef" Line="67" ID="50948" toTI="50897"/>
+   <type Family="typedef" Name="BitAction" Line="73" ID="50980" toTI="50959"/>
+   <type Family="ComponentList" Line="27" ID="50991">
+    <Component Name="TIM_Prescaler" TI="50999" Line="29" Offs="0"/>
+    <Component Name="TIM_CounterMode" TI="51013" Line="30" Offs="2"/>
+    <Component Name="TIM_Period" TI="51027" Line="31" Offs="4"/>
+    <Component Name="TIM_ClockDivision" TI="51041" Line="32" Offs="6"/>
+    <Component Name="TIM_RepetitionCounter" TI="51055" Line="33" Offs="8"/>
+   </type>
+   <type Family="typedef" Name="TIM_TimeBaseInitTypeDef" Line="34" ID="51070" toTI="50991"/>
+   <type Family="ComponentList" Line="37" ID="51081">
+    <Component Name="TIM_OCMode" TI="51089" Line="39" Offs="0"/>
+    <Component Name="TIM_OutputState" TI="51103" Line="40" Offs="2"/>
+    <Component Name="TIM_OutputNState" TI="51117" Line="41" Offs="4"/>
+    <Component Name="TIM_Pulse" TI="51131" Line="42" Offs="6"/>
+    <Component Name="TIM_OCPolarity" TI="51145" Line="43" Offs="8"/>
+    <Component Name="TIM_OCNPolarity" TI="51159" Line="44" Offs="10"/>
+    <Component Name="TIM_OCIdleState" TI="51173" Line="45" Offs="12"/>
+    <Component Name="TIM_OCNIdleState" TI="51187" Line="46" Offs="14"/>
+   </type>
+   <type Family="typedef" Name="TIM_OCInitTypeDef" Line="47" ID="51202" toTI="51081"/>
+   <type Family="typedef" Name="DataConfigMode_TypeDef" Line="26" ID="51234" toTI="51213"/>
+   <type Family="typedef" Name="Rotate_H12_V_Match_TypeDef" Line="101" ID="51384" toTI="51354"/>
+   <type Family="Pointer" TI="51395" toTI="51401"/>
+   <type Family="Base" Name="int" ID="51418"/>
+   <type Family="Base" Name="char" ID="51425"/>
+   <function Name="LCD_DataLinesWrite" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="214">
+   <type Family="Pointer" TI="51484" toTI="50157"/>
+    <parameter Name="GPIOx" TI="51484" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="214" Addr="0x0" Param="Yes"/>
+    <parameter Name="PortVal" TI="49951" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="214" Addr="0x1" Param="Yes"/>
+   </function >
+   <function Name="LCD_CtrlLinesWrite" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="267">
+    <parameter Name="GPIOx" TI="51484" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="267" Addr="0x0" Param="Yes"/>
+    <parameter Name="CtrlPins" TI="49951" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="267" Addr="0x1" Param="Yes"/>
+    <parameter Name="BitVal" TI="50980" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="267" Addr="0x2" Param="Yes"/>
+   </function >
+   <function Name="LCD_DataLinesConfig" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="179">
+    <parameter Name="Mode" TI="51234" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="179" Addr="0x0" Param="Yes"/>
+    <variable Name="GPIO_InitStructure" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="181" Addr="0x34000004" TI="50948"/>
+   </function >
+   <function Name="starting_delay" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="150">
+    <parameter Name="time" TI="49962" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="150" Addr="0x0" Param="Yes"/>
+    <variable Name="time2" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="152" Addr="0x3" TI="50004"/>
+   </function >
+   <function Name="LCD_SendLCDCmd" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="691">
+    <parameter Name="Cmd" TI="49987" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="691" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="LCD_SendLCDData" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="719">
+    <parameter Name="Data" TI="49987" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="719" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="LCD_SetRect_For_Cmd" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="1040">
+    <parameter Name="x" TI="49926" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="1040" Addr="0x0" Param="Yes"/>
+    <parameter Name="y" TI="49926" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="1040" Addr="0x1" Param="Yes"/>
+    <parameter Name="width" TI="49926" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="1040" Addr="0x2" Param="Yes"/>
+    <parameter Name="height" TI="49926" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="1040" Addr="0x3" Param="Yes"/>
+   </function >
+   <type Family="Pointer" TI="52113" toTI="52119"/>
+   <type Family="Pointer" TI="52486" toTI="49987"/>
+   <function Name="LCD_DrawPixel" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="913">
+    <parameter Name="XPos" TI="49987" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="913" Addr="0x0" Param="Yes"/>
+    <parameter Name="YPos" TI="49987" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="913" Addr="0x1" Param="Yes"/>
+    <parameter Name="Color" TI="49969" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="913" Addr="0x2" Param="Yes"/>
+   </function >
+   <function Name="LCD_FillRect" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="789">
+    <parameter Name="x" TI="49969" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="789" Addr="0x0" Param="Yes"/>
+    <parameter Name="y" TI="49969" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="789" Addr="0x1" Param="Yes"/>
+    <parameter Name="width" TI="49969" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="789" Addr="0x2" Param="Yes"/>
+    <parameter Name="height" TI="49969" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="789" Addr="0x3" Param="Yes"/>
+    <parameter Name="color" TI="49969" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="789" Addr="0x34000020" Param="Yes"/>
+    <variable Name="Line" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="791" Addr="0x0" TI="49987"/>
+    <variable Name="Column" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="792" Addr="0x0" TI="49987"/>
+   </function >
+   <function Name="LCD_DrawRect" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="885">
+    <parameter Name="x" TI="49969" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="885" Addr="0x0" Param="Yes"/>
+    <parameter Name="y" TI="49969" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="885" Addr="0x1" Param="Yes"/>
+    <parameter Name="width" TI="49969" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="885" Addr="0x2" Param="Yes"/>
+    <parameter Name="height" TI="49969" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="885" Addr="0x3" Param="Yes"/>
+    <parameter Name="color" TI="49969" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="885" Addr="0x34000020" Param="Yes"/>
+   </function >
+   <function Name="LCD_SetBackLight" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="1065">
+    <parameter Name="newBacklightStart" TI="49951" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="1065" Addr="0x0" Param="Yes"/>
+   </function >
+   <function Name="LCD_Init" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="625">
+    <variable Name="GPIO_InitStructure" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="545" Addr="0x34000004" TI="0"/>
+    <variable Name="GPIO_InitStructure" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="232" Addr="0x34000004" TI="0"/>
+   </function >
+   <function Name="LCD_SetScreenOrientation" TI="0" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="1178">
+    <parameter Name="ScreenOrientation" TI="51384" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="1178" Addr="0x0" Param="Yes"/>
+    <parameter Name="H12" TI="51384" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="1178" Addr="0x0" Param="Yes"/>
+   </function >
+   <variable Name="TIM_TimeBaseStructure" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="29" Addr="0x200001C8" TI="51070"/>
+   <variable Name="TIM_OCInitStructure" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="30" Addr="0x200001B8" TI="51202"/>
+   <variable Name="HandlerDivider" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="31" Addr="0x200001B4" TI="51418"/>
+   <type Family="array" ID="53581" toTI="49987"/>
+   <variable Name="AsciiDotsTable" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="43" Addr="0x0" TI="53615"/>
+   <type Family="array" ID="53620" toTI="51418"/>
+   <variable Name="dummy_var" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\circle.h" Line="77" Addr="0x0" TI="51245"/>
+   <variable Name="Application_Pointer_Mgr" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\circle.h" Line="429" Addr="0x0" TI="51395"/>
+   <variable Name="Current_CCR_BackLightStart" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="33" Addr="0x20000000" TI="51418"/>
+   <variable Name="OrientationOffsetX" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="140" Addr="0x20000004" TI="53620"/>
+   <variable Name="OrientationOffsetY" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\lcd.c" Line="141" Addr="0x20000014" TI="53620"/>
+  </module>
+  <module Name="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\buzzer.c" >
+   <type Family="Base" Name="long int" ID="53821"/>
+   <type Family="Base" Name="short int" ID="53828"/>
+   <type Family="Base" Name="signed char" ID="53835"/>
+   <type Family="Base" Name="long unsigned int" ID="53853"/>
+   <type Family="typedef" Name="u32" Line="39" ID="53842" toTI="53853"/>
+   <type Family="Base" Name="short unsigned int" ID="53871"/>
+   <type Family="typedef" Name="u16" Line="40" ID="53860" toTI="53871"/>
+   <type Family="Base" Name="unsigned char" ID="53888"/>
+   <type Family="typedef" Name="u8" Line="41" ID="53878" toTI="53888"/>
+   <type Family="Base" Name="unsigned int" ID="53926"/>
+   <type Family="ComponentList" Line="334" ID="53933">
+    <Component Name="CRL" TI="53942" Line="336" Offs="0"/>
+    <Component Name="CRH" TI="53957" Line="337" Offs="4"/>
+    <Component Name="IDR" TI="53972" Line="338" Offs="8"/>
+    <Component Name="ODR" TI="53987" Line="339" Offs="12"/>
+    <Component Name="BSRR" TI="54002" Line="340" Offs="16"/>
+    <Component Name="BRR" TI="54017" Line="341" Offs="20"/>
+    <Component Name="LCKR" TI="54032" Line="342" Offs="24"/>
+   </type>
+   <type Family="typedef" Name="GPIO_TypeDef" Line="343" ID="54048" toTI="53933"/>
+   <type Family="ComponentList" Line="523" ID="54060">
+    <Component Name="CR1" TI="54069" Line="525" Offs="0"/>
+    <Component Name="RESERVED0" TI="54084" Line="526" Offs="2"/>
+    <Component Name="CR2" TI="54099" Line="527" Offs="4"/>
+    <Component Name="RESERVED1" TI="54114" Line="528" Offs="6"/>
+    <Component Name="SMCR" TI="54129" Line="529" Offs="8"/>
+    <Component Name="RESERVED2" TI="54144" Line="530" Offs="10"/>
+    <Component Name="DIER" TI="54159" Line="531" Offs="12"/>
+    <Component Name="RESERVED3" TI="54174" Line="532" Offs="14"/>
+    <Component Name="SR" TI="54189" Line="533" Offs="16"/>
+    <Component Name="RESERVED4" TI="54203" Line="534" Offs="18"/>
+    <Component Name="EGR" TI="54218" Line="535" Offs="20"/>
+    <Component Name="RESERVED5" TI="54233" Line="536" Offs="22"/>
+    <Component Name="CCMR1" TI="54248" Line="537" Offs="24"/>
+    <Component Name="RESERVED6" TI="54263" Line="538" Offs="26"/>
+    <Component Name="CCMR2" TI="54278" Line="539" Offs="28"/>
+    <Component Name="RESERVED7" TI="54293" Line="540" Offs="30"/>
+    <Component Name="CCER" TI="54308" Line="541" Offs="32"/>
+    <Component Name="RESERVED8" TI="54323" Line="542" Offs="34"/>
+    <Component Name="CNT" TI="54338" Line="543" Offs="36"/>
+    <Component Name="RESERVED9" TI="54353" Line="544" Offs="38"/>
+    <Component Name="PSC" TI="54368" Line="545" Offs="40"/>
+    <Component Name="RESERVED10" TI="54383" Line="546" Offs="42"/>
+    <Component Name="ARR" TI="54398" Line="547" Offs="44"/>
+    <Component Name="RESERVED11" TI="54413" Line="548" Offs="46"/>
+    <Component Name="RCR" TI="54428" Line="549" Offs="48"/>
+    <Component Name="RESERVED12" TI="54443" Line="550" Offs="50"/>
+    <Component Name="CCR1" TI="54458" Line="551" Offs="52"/>
+    <Component Name="RESERVED13" TI="54473" Line="552" Offs="54"/>
+    <Component Name="CCR2" TI="54488" Line="553" Offs="56"/>
+    <Component Name="RESERVED14" TI="54503" Line="554" Offs="58"/>
+    <Component Name="CCR3" TI="54518" Line="555" Offs="60"/>
+    <Component Name="RESERVED15" TI="54533" Line="556" Offs="62"/>
+    <Component Name="CCR4" TI="54548" Line="557" Offs="64"/>
+    <Component Name="RESERVED16" TI="54563" Line="558" Offs="66"/>
+    <Component Name="BDTR" TI="54578" Line="559" Offs="68"/>
+    <Component Name="RESERVED17" TI="54593" Line="560" Offs="70"/>
+    <Component Name="DCR" TI="54608" Line="561" Offs="72"/>
+    <Component Name="RESERVED18" TI="54623" Line="562" Offs="74"/>
+    <Component Name="DMAR" TI="54638" Line="563" Offs="76"/>
+    <Component Name="RESERVED19" TI="54653" Line="564" Offs="78"/>
+   </type>
+   <type Family="typedef" Name="TIM_TypeDef" Line="565" ID="54669" toTI="54060"/>
+   <type Family="typedef" Name="GPIOSpeed_TypeDef" Line="39" ID="54708" toTI="54681"/>
+   <type Family="typedef" Name="GPIOMode_TypeDef" Line="54" ID="54777" toTI="54719"/>
+   <type Family="ComponentList" Line="62" ID="54788">
+    <Component Name="GPIO_Pin" TI="54796" Line="64" Offs="0"/>
+    <Component Name="GPIO_Speed" TI="54810" Line="65" Offs="2"/>
+    <Component Name="GPIO_Mode" TI="54824" Line="66" Offs="3"/>
+   </type>
+   <type Family="typedef" Name="GPIO_InitTypeDef" Line="67" ID="54839" toTI="54788"/>
+   <type Family="ComponentList" Line="25" ID="54850">
+    <Component Name="SYSCLK_Frequency" TI="54858" Line="27" Offs="0"/>
+    <Component Name="HCLK_Frequency" TI="54872" Line="28" Offs="4"/>
+    <Component Name="PCLK1_Frequency" TI="54886" Line="29" Offs="8"/>
+    <Component Name="PCLK2_Frequency" TI="54900" Line="30" Offs="12"/>
+    <Component Name="ADCCLK_Frequency" TI="54914" Line="31" Offs="16"/>
+   </type>
+   <type Family="typedef" Name="RCC_ClocksTypeDef" Line="32" ID="54929" toTI="54850"/>
+   <type Family="ComponentList" Line="27" ID="54940">
+    <Component Name="TIM_Prescaler" TI="54948" Line="29" Offs="0"/>
+    <Component Name="TIM_CounterMode" TI="54962" Line="30" Offs="2"/>
+    <Component Name="TIM_Period" TI="54976" Line="31" Offs="4"/>
+    <Component Name="TIM_ClockDivision" TI="54990" Line="32" Offs="6"/>
+    <Component Name="TIM_RepetitionCounter" TI="55004" Line="33" Offs="8"/>
+   </type>
+   <type Family="typedef" Name="TIM_TimeBaseInitTypeDef" Line="34" ID="55019" toTI="54940"/>
+   <type Family="ComponentList" Line="37" ID="55030">
+    <Component Name="TIM_OCMode" TI="55038" Line="39" Offs="0"/>
+    <Component Name="TIM_OutputState" TI="55052" Line="40" Offs="2"/>
+    <Component Name="TIM_OutputNState" TI="55066" Line="41" Offs="4"/>
+    <Component Name="TIM_Pulse" TI="55080" Line="42" Offs="6"/>
+    <Component Name="TIM_OCPolarity" TI="55094" Line="43" Offs="8"/>
+    <Component Name="TIM_OCNPolarity" TI="55108" Line="44" Offs="10"/>
+    <Component Name="TIM_OCIdleState" TI="55122" Line="45" Offs="12"/>
+    <Component Name="TIM_OCNIdleState" TI="55136" Line="46" Offs="14"/>
+   </type>
+   <type Family="typedef" Name="TIM_OCInitTypeDef" Line="47" ID="55151" toTI="55030"/>
+   <type Family="Pointer" TI="55271" toTI="55277"/>
+   <type Family="Base" Name="int" ID="55294"/>
+   <type Family="Base" Name="char" ID="55351"/>
+   <type Family="Pointer" TI="55825" toTI="55831"/>
+   <variable Name="TIM_TimeBaseStructure" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\buzzer.c" Line="54" Addr="0x0" TI="55019"/>
+   <variable Name="TIM_OCInitStructure" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\buzzer.c" Line="55" Addr="0x0" TI="55151"/>
+   <type Family="array" ID="56013" toTI="53860"/>
+   <variable Name="dummy_var" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\circle.h" Line="77" Addr="0x0" TI="55162"/>
+   <variable Name="Application_Pointer_Mgr" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\circle.h" Line="429" Addr="0x0" TI="55271"/>
+   <variable Name="octave" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\buzzer.c" Line="26" Addr="0x0" TI="55358"/>
+   <variable Name="note" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\buzzer.c" Line="43" Addr="0x0" TI="55401"/>
+   <variable Name="buzz_counter" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\buzzer.c" Line="52" Addr="0x0" TI="55294"/>
+   <variable Name="buzz_in_progress" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\buzzer.c" Line="53" Addr="0x0" TI="55294"/>
+   <variable Name="CCR_Val" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\buzzer.c" Line="56" Addr="0x0" TI="53860"/>
+   <variable Name="Buzzer_Mode" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\buzzer.c" Line="57" Addr="0x0" TI="55301"/>
+   <variable Name="Buzzer_Counter" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\buzzer.c" Line="58" Addr="0x0" TI="53842"/>
+   <variable Name="CurrentMelody" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\buzzer.c" Line="61" Addr="0x0" TI="55825"/>
+   <variable Name="CurrentMelodySTART" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\buzzer.c" Line="62" Addr="0x0" TI="55825"/>
+   <variable Name="DefaultOctave" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\buzzer.c" Line="63" Addr="0x0" TI="53878"/>
+   <variable Name="DefaultDuration" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\buzzer.c" Line="64" Addr="0x0" TI="53878"/>
+   <variable Name="DefaultBeats" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\buzzer.c" Line="65" Addr="0x0" TI="53860"/>
+   <variable Name="Note_Freq" FileName="C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src\buzzer.c" Line="67" Addr="0x0" TI="56013"/>
+  </module>
+ </modulelist>
+</aoffile>
+

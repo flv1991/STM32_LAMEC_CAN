@@ -1,0 +1,840 @@
+
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\RIDE\obj\stm32f10x_sdio.o:     file format elf32-littlearm
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\RIDE\obj\stm32f10x_sdio.o
+
+
+Disassembly of section .text.SDIO_DeInit:
+
+00000000 <SDIO_DeInit>:
+SDIO_DeInit():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:107
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void SDIO_DeInit(void)
+{
+  SDIO->POWER = 0x00000000;
+   0:	f44f 4300 	mov.w	r3, #32768	; 0x8000
+   4:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   8:	f04f 0200 	mov.w	r2, #0
+   c:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:108
+  SDIO->CLKCR = 0x00000000;
+   e:	605a      	str	r2, [r3, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:109
+  SDIO->ARG = 0x00000000;
+  10:	609a      	str	r2, [r3, #8]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:110
+  SDIO->CMD = 0x00000000;
+  12:	60da      	str	r2, [r3, #12]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:111
+  SDIO->DTIMER = 0x00000000;
+  14:	625a      	str	r2, [r3, #36]	; 0x24
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:112
+  SDIO->DLEN = 0x00000000;
+  16:	629a      	str	r2, [r3, #40]	; 0x28
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:113
+  SDIO->DCTRL = 0x00000000;
+  18:	62da      	str	r2, [r3, #44]	; 0x2c
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:114
+  SDIO->ICR = 0x00C007FF;
+  1a:	f240 71ff 	movw	r1, #2047	; 0x7ff
+  1e:	f2c0 01c0 	movt	r1, #192	; 0xc0
+  22:	6399      	str	r1, [r3, #56]	; 0x38
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:115
+  SDIO->MASK = 0x00000000;
+  24:	63da      	str	r2, [r3, #60]	; 0x3c
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:116
+}
+  26:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_Init:
+
+00000000 <SDIO_Init>:
+SDIO_Init():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:129
+*                  peripheral.
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void SDIO_Init(SDIO_InitTypeDef* SDIO_InitStruct)
+{
+   0:	b410      	push	{r4}
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:141
+  assert_param(IS_SDIO_BUS_WIDE(SDIO_InitStruct->SDIO_BusWide));
+  assert_param(IS_SDIO_HARDWARE_FLOW_CONTROL(SDIO_InitStruct->SDIO_HardwareFlowControl)); 
+   
+/*---------------------------- SDIO CLKCR Configuration ------------------------*/  
+  /* Get the SDIO CLKCR value */
+  tmpreg = SDIO->CLKCR;
+   2:	f44f 4300 	mov.w	r3, #32768	; 0x8000
+   6:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   a:	6859      	ldr	r1, [r3, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:152
+  /* Set PWRSAV bit according to SDIO_ClockPowerSave value */
+  /* Set BYPASS bit according to SDIO_ClockBypass value */
+  /* Set WIDBUS bits according to SDIO_BusWide value */
+  /* Set NEGEDGE bits according to SDIO_ClockEdge value */
+  /* Set HWFC_EN bits according to SDIO_HardwareFlowControl value */
+  tmpreg |= (SDIO_InitStruct->SDIO_ClockDiv  | SDIO_InitStruct->SDIO_ClockPowerSave |
+   c:	6884      	ldr	r4, [r0, #8]
+   e:	68c2      	ldr	r2, [r0, #12]
+  10:	ea44 0202 	orr.w	r2, r4, r2
+  14:	6904      	ldr	r4, [r0, #16]
+  16:	4322      	orrs	r2, r4
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:153
+             SDIO_InitStruct->SDIO_ClockBypass | SDIO_InitStruct->SDIO_BusWide |
+  18:	6844      	ldr	r4, [r0, #4]
+  1a:	4322      	orrs	r2, r4
+  1c:	6944      	ldr	r4, [r0, #20]
+  1e:	4322      	orrs	r2, r4
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:144
+/*---------------------------- SDIO CLKCR Configuration ------------------------*/  
+  /* Get the SDIO CLKCR value */
+  tmpreg = SDIO->CLKCR;
+  
+  /* Clear CLKDIV, PWRSAV, BYPASS, WIDBUS, NEGEDGE, HWFC_EN bits */
+  tmpreg &= CLKCR_CLEAR_MASK;
+  20:	f421 41fc 	bic.w	r1, r1, #32256	; 0x7e00
+  24:	f021 01ff 	bic.w	r1, r1, #255	; 0xff
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:154
+  /* Set WIDBUS bits according to SDIO_BusWide value */
+  /* Set NEGEDGE bits according to SDIO_ClockEdge value */
+  /* Set HWFC_EN bits according to SDIO_HardwareFlowControl value */
+  tmpreg |= (SDIO_InitStruct->SDIO_ClockDiv  | SDIO_InitStruct->SDIO_ClockPowerSave |
+             SDIO_InitStruct->SDIO_ClockBypass | SDIO_InitStruct->SDIO_BusWide |
+             SDIO_InitStruct->SDIO_ClockEdge | SDIO_InitStruct->SDIO_HardwareFlowControl); 
+  28:	430a      	orrs	r2, r1
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:152
+  /* Set PWRSAV bit according to SDIO_ClockPowerSave value */
+  /* Set BYPASS bit according to SDIO_ClockBypass value */
+  /* Set WIDBUS bits according to SDIO_BusWide value */
+  /* Set NEGEDGE bits according to SDIO_ClockEdge value */
+  /* Set HWFC_EN bits according to SDIO_HardwareFlowControl value */
+  tmpreg |= (SDIO_InitStruct->SDIO_ClockDiv  | SDIO_InitStruct->SDIO_ClockPowerSave |
+  2a:	7801      	ldrb	r1, [r0, #0]
+  2c:	430a      	orrs	r2, r1
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:157
+             SDIO_InitStruct->SDIO_ClockBypass | SDIO_InitStruct->SDIO_BusWide |
+             SDIO_InitStruct->SDIO_ClockEdge | SDIO_InitStruct->SDIO_HardwareFlowControl); 
+  
+  /* Write to SDIO CLKCR */
+  SDIO->CLKCR = tmpreg;             
+  2e:	605a      	str	r2, [r3, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:158
+}
+  30:	bc10      	pop	{r4}
+  32:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_StructInit:
+
+00000000 <SDIO_StructInit>:
+SDIO_StructInit():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:171
+* Return         : None
+*******************************************************************************/
+void SDIO_StructInit(SDIO_InitTypeDef* SDIO_InitStruct)
+{
+  /* SDIO_InitStruct members default value */
+  SDIO_InitStruct->SDIO_ClockDiv = 0x00;
+   0:	f04f 0300 	mov.w	r3, #0
+   4:	7003      	strb	r3, [r0, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:172
+  SDIO_InitStruct->SDIO_ClockEdge = SDIO_ClockEdge_Rising;
+   6:	6043      	str	r3, [r0, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:173
+  SDIO_InitStruct->SDIO_ClockBypass = SDIO_ClockBypass_Disable;
+   8:	6083      	str	r3, [r0, #8]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:174
+  SDIO_InitStruct->SDIO_ClockPowerSave = SDIO_ClockPowerSave_Disable;
+   a:	60c3      	str	r3, [r0, #12]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:175
+  SDIO_InitStruct->SDIO_BusWide = SDIO_BusWide_1b;
+   c:	6103      	str	r3, [r0, #16]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:176
+  SDIO_InitStruct->SDIO_HardwareFlowControl = SDIO_HardwareFlowControl_Disable;
+   e:	6143      	str	r3, [r0, #20]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:177
+}
+  10:	4770      	bx	lr
+  12:	bf00      	nop
+
+Disassembly of section .text.SDIO_ClockCmd:
+
+00000000 <SDIO_ClockCmd>:
+SDIO_ClockCmd():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:192
+void SDIO_ClockCmd(FunctionalState NewState)
+{
+  /* Check the parameters */
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  *(vu32 *) CLKCR_CLKEN_BB = (u32)NewState;
+   0:	f04f 03a0 	mov.w	r3, #160	; 0xa0
+   4:	f2c4 2330 	movt	r3, #16944	; 0x4230
+   8:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:193
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_SetPowerState:
+
+00000000 <SDIO_SetPowerState>:
+SDIO_SetPowerState():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:210
+void SDIO_SetPowerState(u32 SDIO_PowerState)
+{
+  /* Check the parameters */
+  assert_param(IS_SDIO_POWER_STATE(SDIO_PowerState));
+  
+  SDIO->POWER &= PWR_PWRCTRL_MASK;
+   0:	f44f 4300 	mov.w	r3, #32768	; 0x8000
+   4:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   8:	681a      	ldr	r2, [r3, #0]
+   a:	f022 0203 	bic.w	r2, r2, #3
+   e:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:211
+  SDIO->POWER |= SDIO_PowerState;
+  10:	681a      	ldr	r2, [r3, #0]
+  12:	ea40 0202 	orr.w	r2, r0, r2
+  16:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:212
+}
+  18:	4770      	bx	lr
+  1a:	bf00      	nop
+
+Disassembly of section .text.SDIO_GetPowerState:
+
+00000000 <SDIO_GetPowerState>:
+SDIO_GetPowerState():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:227
+*                       - 0x02: Power UP
+*                       - 0x03: Power ON 
+*******************************************************************************/
+u32 SDIO_GetPowerState(void)
+{
+  return (SDIO->POWER & (~PWR_PWRCTRL_MASK));
+   0:	f44f 4300 	mov.w	r3, #32768	; 0x8000
+   4:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   8:	6818      	ldr	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:228
+}
+   a:	f000 0003 	and.w	r0, r0, #3
+   e:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_ITConfig:
+
+00000000 <SDIO_ITConfig>:
+SDIO_ITConfig():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:280
+{
+  /* Check the parameters */
+  assert_param(IS_SDIO_IT(SDIO_IT));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  if (NewState != DISABLE)
+   0:	b139      	cbz	r1, 12 <SDIO_ITConfig+0x12>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:283
+  {
+    /* Enable the SDIO interrupts */
+    SDIO->MASK |= SDIO_IT;
+   2:	f44f 4300 	mov.w	r3, #32768	; 0x8000
+   6:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   a:	6bda      	ldr	r2, [r3, #60]	; 0x3c
+   c:	4310      	orrs	r0, r2
+   e:	63d8      	str	r0, [r3, #60]	; 0x3c
+  10:	4770      	bx	lr
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:288
+  }
+  else
+  {
+    /* Disable the SDIO interrupts */
+    SDIO->MASK &= ~SDIO_IT;
+  12:	f44f 4300 	mov.w	r3, #32768	; 0x8000
+  16:	f2c4 0301 	movt	r3, #16385	; 0x4001
+  1a:	6bda      	ldr	r2, [r3, #60]	; 0x3c
+  1c:	ea22 0000 	bic.w	r0, r2, r0
+  20:	63d8      	str	r0, [r3, #60]	; 0x3c
+  22:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_DMACmd:
+
+00000000 <SDIO_DMACmd>:
+SDIO_DMACmd():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:305
+void SDIO_DMACmd(FunctionalState NewState)
+{
+  /* Check the parameters */
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  *(vu32 *) DCTRL_DMAEN_BB = (u32)NewState;
+   0:	f240 538c 	movw	r3, #1420	; 0x58c
+   4:	f2c4 2330 	movt	r3, #16944	; 0x4230
+   8:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:306
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_SendCommand:
+
+00000000 <SDIO_SendCommand>:
+SDIO_SendCommand():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:319
+*                  for the SDIO command.
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void SDIO_SendCommand(SDIO_CmdInitTypeDef *SDIO_CmdInitStruct)
+{
+   0:	b410      	push	{r4}
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:330
+  assert_param(IS_SDIO_WAIT(SDIO_CmdInitStruct->SDIO_Wait));
+  assert_param(IS_SDIO_CPSM(SDIO_CmdInitStruct->SDIO_CPSM));
+  
+/*---------------------------- SDIO ARG Configuration ------------------------*/
+  /* Set the SDIO Argument value */
+  SDIO->ARG = SDIO_CmdInitStruct->SDIO_Argument;
+   2:	6802      	ldr	r2, [r0, #0]
+   4:	f44f 4300 	mov.w	r3, #32768	; 0x8000
+   8:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   c:	609a      	str	r2, [r3, #8]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:334
+  
+/*---------------------------- SDIO CMD Configuration ------------------------*/  
+  /* Get the SDIO CMD value */
+  tmpreg = SDIO->CMD;
+   e:	68d9      	ldr	r1, [r3, #12]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:337
+
+  /* Clear CMDINDEX, WAITRESP, WAITINT, WAITPEND, CPSMEN bits */
+  tmpreg &= CMD_CLEAR_MASK;
+  10:	f421 61fe 	bic.w	r1, r1, #2032	; 0x7f0
+  14:	f021 010f 	bic.w	r1, r1, #15
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:342
+  /* Set CMDINDEX bits according to SDIO_CmdIndex value */
+  /* Set WAITRESP bits according to SDIO_Response value */
+  /* Set WAITINT and WAITPEND bits according to SDIO_Wait value */
+  /* Set CPSMEN bits according to SDIO_CPSM value */
+  tmpreg |= (u32)SDIO_CmdInitStruct->SDIO_CmdIndex | SDIO_CmdInitStruct->SDIO_Response
+  18:	6884      	ldr	r4, [r0, #8]
+  1a:	6842      	ldr	r2, [r0, #4]
+  1c:	ea44 0202 	orr.w	r2, r4, r2
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:343
+           | SDIO_CmdInitStruct->SDIO_Wait | SDIO_CmdInitStruct->SDIO_CPSM;
+  20:	68c4      	ldr	r4, [r0, #12]
+  22:	4322      	orrs	r2, r4
+  24:	6900      	ldr	r0, [r0, #16]
+  26:	4302      	orrs	r2, r0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:342
+  tmpreg &= CMD_CLEAR_MASK;
+  /* Set CMDINDEX bits according to SDIO_CmdIndex value */
+  /* Set WAITRESP bits according to SDIO_Response value */
+  /* Set WAITINT and WAITPEND bits according to SDIO_Wait value */
+  /* Set CPSMEN bits according to SDIO_CPSM value */
+  tmpreg |= (u32)SDIO_CmdInitStruct->SDIO_CmdIndex | SDIO_CmdInitStruct->SDIO_Response
+  28:	430a      	orrs	r2, r1
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:346
+           | SDIO_CmdInitStruct->SDIO_Wait | SDIO_CmdInitStruct->SDIO_CPSM;
+  
+  /* Write to SDIO CMD */
+  SDIO->CMD = tmpreg;
+  2a:	60da      	str	r2, [r3, #12]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:347
+}
+  2c:	bc10      	pop	{r4}
+  2e:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_CmdStructInit:
+
+00000000 <SDIO_CmdStructInit>:
+SDIO_CmdStructInit():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:360
+* Return         : None
+*******************************************************************************/
+void SDIO_CmdStructInit(SDIO_CmdInitTypeDef* SDIO_CmdInitStruct)
+{
+  /* SDIO_CmdInitStruct members default value */
+  SDIO_CmdInitStruct->SDIO_Argument = 0x00;
+   0:	f04f 0300 	mov.w	r3, #0
+   4:	6003      	str	r3, [r0, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:361
+  SDIO_CmdInitStruct->SDIO_CmdIndex = 0x00;
+   6:	6043      	str	r3, [r0, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:362
+  SDIO_CmdInitStruct->SDIO_Response = SDIO_Response_No;
+   8:	6083      	str	r3, [r0, #8]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:363
+  SDIO_CmdInitStruct->SDIO_Wait = SDIO_Wait_No;
+   a:	60c3      	str	r3, [r0, #12]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:364
+  SDIO_CmdInitStruct->SDIO_CPSM = SDIO_CPSM_Disable;
+   c:	6103      	str	r3, [r0, #16]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:365
+}
+   e:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_GetCommandResponse:
+
+00000000 <SDIO_GetCommandResponse>:
+SDIO_GetCommandResponse():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:377
+* Output         : None
+* Return         : Returns the command index of the last command response received.
+*******************************************************************************/
+u8 SDIO_GetCommandResponse(void)
+{
+  return (u8)(SDIO->RESPCMD);
+   0:	f44f 4300 	mov.w	r3, #32768	; 0x8000
+   4:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   8:	6918      	ldr	r0, [r3, #16]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:378
+}
+   a:	b2c0      	uxtb	r0, r0
+   c:	4770      	bx	lr
+   e:	bf00      	nop
+
+Disassembly of section .text.SDIO_GetResponse:
+
+00000000 <SDIO_GetResponse>:
+SDIO_GetResponse():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:397
+u32 SDIO_GetResponse(u32 SDIO_RESP)
+{
+  /* Check the parameters */
+  assert_param(IS_SDIO_RESP(SDIO_RESP));
+  
+  return (*(vu32 *)(SDIO_RESP_ADDR + SDIO_RESP)); 
+   0:	f248 0314 	movw	r3, #32788	; 0x8014
+   4:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   8:	58c0      	ldr	r0, [r0, r3]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:398
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_DataConfig:
+
+00000000 <SDIO_DataConfig>:
+SDIO_DataConfig():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:411
+*                  for the SDIO command.
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void SDIO_DataConfig(SDIO_DataInitTypeDef* SDIO_DataInitStruct)
+{
+   0:	b410      	push	{r4}
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:423
+  assert_param(IS_SDIO_TRANSFER_MODE(SDIO_DataInitStruct->SDIO_TransferMode));
+  assert_param(IS_SDIO_DPSM(SDIO_DataInitStruct->SDIO_DPSM));
+
+/*---------------------------- SDIO DTIMER Configuration ---------------------*/
+  /* Set the SDIO Data TimeOut value */
+  SDIO->DTIMER = SDIO_DataInitStruct->SDIO_DataTimeOut;
+   2:	6802      	ldr	r2, [r0, #0]
+   4:	f44f 4300 	mov.w	r3, #32768	; 0x8000
+   8:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   c:	625a      	str	r2, [r3, #36]	; 0x24
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:427
+    
+/*---------------------------- SDIO DLEN Configuration -----------------------*/
+  /* Set the SDIO DataLength value */
+  SDIO->DLEN = SDIO_DataInitStruct->SDIO_DataLength;
+   e:	6842      	ldr	r2, [r0, #4]
+  10:	629a      	str	r2, [r3, #40]	; 0x28
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:431
+  
+/*---------------------------- SDIO DCTRL Configuration ----------------------*/  
+  /* Get the SDIO DCTRL value */
+  tmpreg = SDIO->DCTRL;
+  12:	6ad9      	ldr	r1, [r3, #44]	; 0x2c
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:434
+
+  /* Clear DEN, DTMODE, DTDIR and DBCKSIZE bits */
+  tmpreg &= DCTRL_CLEAR_MASK;
+  14:	f021 01f7 	bic.w	r1, r1, #247	; 0xf7
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:439
+  /* Set DEN bit according to SDIO_DPSM value */
+  /* Set DTMODE bit according to SDIO_TransferMode value */
+  /* Set DTDIR bit according to SDIO_TransferDir value */
+  /* Set DBCKSIZE bits according to SDIO_DataBlockSize value */
+  tmpreg |= (u32)SDIO_DataInitStruct->SDIO_DataBlockSize | SDIO_DataInitStruct->SDIO_TransferDir
+  18:	68c4      	ldr	r4, [r0, #12]
+  1a:	6882      	ldr	r2, [r0, #8]
+  1c:	ea44 0202 	orr.w	r2, r4, r2
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:440
+           | SDIO_DataInitStruct->SDIO_TransferMode | SDIO_DataInitStruct->SDIO_DPSM;
+  20:	6904      	ldr	r4, [r0, #16]
+  22:	4322      	orrs	r2, r4
+  24:	6940      	ldr	r0, [r0, #20]
+  26:	4302      	orrs	r2, r0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:439
+  tmpreg &= DCTRL_CLEAR_MASK;
+  /* Set DEN bit according to SDIO_DPSM value */
+  /* Set DTMODE bit according to SDIO_TransferMode value */
+  /* Set DTDIR bit according to SDIO_TransferDir value */
+  /* Set DBCKSIZE bits according to SDIO_DataBlockSize value */
+  tmpreg |= (u32)SDIO_DataInitStruct->SDIO_DataBlockSize | SDIO_DataInitStruct->SDIO_TransferDir
+  28:	430a      	orrs	r2, r1
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:443
+           | SDIO_DataInitStruct->SDIO_TransferMode | SDIO_DataInitStruct->SDIO_DPSM;
+  
+  /* Write to SDIO DCTRL */
+  SDIO->DCTRL = tmpreg;
+  2a:	62da      	str	r2, [r3, #44]	; 0x2c
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:444
+}
+  2c:	bc10      	pop	{r4}
+  2e:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_DataStructInit:
+
+00000000 <SDIO_DataStructInit>:
+SDIO_DataStructInit():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:457
+* Return         : None
+*******************************************************************************/
+void SDIO_DataStructInit(SDIO_DataInitTypeDef* SDIO_DataInitStruct)
+{
+  /* SDIO_DataInitStruct members default value */
+  SDIO_DataInitStruct->SDIO_DataTimeOut = 0xFFFFFFFF;
+   0:	f04f 33ff 	mov.w	r3, #4294967295
+   4:	6003      	str	r3, [r0, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:458
+  SDIO_DataInitStruct->SDIO_DataLength = 0x00;
+   6:	f04f 0300 	mov.w	r3, #0
+   a:	6043      	str	r3, [r0, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:459
+  SDIO_DataInitStruct->SDIO_DataBlockSize = SDIO_DataBlockSize_1b;
+   c:	6083      	str	r3, [r0, #8]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:460
+  SDIO_DataInitStruct->SDIO_TransferDir = SDIO_TransferDir_ToCard;
+   e:	60c3      	str	r3, [r0, #12]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:461
+  SDIO_DataInitStruct->SDIO_TransferMode = SDIO_TransferMode_Block;  
+  10:	6103      	str	r3, [r0, #16]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:462
+  SDIO_DataInitStruct->SDIO_DPSM = SDIO_DPSM_Disable;
+  12:	6143      	str	r3, [r0, #20]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:463
+}
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text.SDIO_GetDataCounter:
+
+00000000 <SDIO_GetDataCounter>:
+SDIO_GetDataCounter():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:474
+* Output         : None
+* Return         : Number of remaining data bytes to be transferred
+*******************************************************************************/
+u32 SDIO_GetDataCounter(void)
+{ 
+  return SDIO->DCOUNT;
+   0:	f44f 4300 	mov.w	r3, #32768	; 0x8000
+   4:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   8:	6b18      	ldr	r0, [r3, #48]	; 0x30
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:475
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_ReadData:
+
+00000000 <SDIO_ReadData>:
+SDIO_ReadData():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:486
+* Output         : None
+* Return         : Data received
+*******************************************************************************/
+u32 SDIO_ReadData(void)
+{ 
+  return SDIO->FIFO;
+   0:	f44f 4300 	mov.w	r3, #32768	; 0x8000
+   4:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   8:	f8d3 0080 	ldr.w	r0, [r3, #128]	; 0x80
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:487
+}
+   c:	4770      	bx	lr
+   e:	bf00      	nop
+
+Disassembly of section .text.SDIO_WriteData:
+
+00000000 <SDIO_WriteData>:
+SDIO_WriteData():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:498
+* Output         : None
+* Return         : None
+*******************************************************************************/
+void SDIO_WriteData(u32 Data)
+{ 
+  SDIO->FIFO = Data;
+   0:	f44f 4300 	mov.w	r3, #32768	; 0x8000
+   4:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   8:	f8c3 0080 	str.w	r0, [r3, #128]	; 0x80
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:499
+}
+   c:	4770      	bx	lr
+   e:	bf00      	nop
+
+Disassembly of section .text.SDIO_GetFIFOCount:
+
+00000000 <SDIO_GetFIFOCount>:
+SDIO_GetFIFOCount():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:511
+* Output         : None
+* Return         : Remaining number of words.
+*******************************************************************************/
+u32 SDIO_GetFIFOCount(void)
+{ 
+  return SDIO->FIFOCNT;
+   0:	f44f 4300 	mov.w	r3, #32768	; 0x8000
+   4:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   8:	6c98      	ldr	r0, [r3, #72]	; 0x48
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:512
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_StartSDIOReadWait:
+
+00000000 <SDIO_StartSDIOReadWait>:
+SDIO_StartSDIOReadWait():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:527
+void SDIO_StartSDIOReadWait(FunctionalState NewState)
+{ 
+  /* Check the parameters */
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  *(vu32 *) DCTRL_RWSTART_BB = (u32) NewState;
+   0:	f44f 63b4 	mov.w	r3, #1440	; 0x5a0
+   4:	f2c4 2330 	movt	r3, #16944	; 0x4230
+   8:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:528
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_StopSDIOReadWait:
+
+00000000 <SDIO_StopSDIOReadWait>:
+SDIO_StopSDIOReadWait():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:543
+void SDIO_StopSDIOReadWait(FunctionalState NewState)
+{ 
+  /* Check the parameters */
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  *(vu32 *) DCTRL_RWSTOP_BB = (u32) NewState;
+   0:	f240 53a4 	movw	r3, #1444	; 0x5a4
+   4:	f2c4 2330 	movt	r3, #16944	; 0x4230
+   8:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:544
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_SetSDIOReadWaitMode:
+
+00000000 <SDIO_SetSDIOReadWaitMode>:
+SDIO_SetSDIOReadWaitMode():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:561
+void SDIO_SetSDIOReadWaitMode(u32 SDIO_ReadWaitMode)
+{
+  /* Check the parameters */
+  assert_param(IS_SDIO_READWAIT_MODE(SDIO_ReadWaitMode));
+  
+  *(vu32 *) DCTRL_RWMOD_BB = SDIO_ReadWaitMode;
+   0:	f44f 63b5 	mov.w	r3, #1448	; 0x5a8
+   4:	f2c4 2330 	movt	r3, #16944	; 0x4230
+   8:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:562
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_SetSDIOOperation:
+
+00000000 <SDIO_SetSDIOOperation>:
+SDIO_SetSDIOOperation():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:577
+void SDIO_SetSDIOOperation(FunctionalState NewState)
+{ 
+  /* Check the parameters */
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  *(vu32 *) DCTRL_SDIOEN_BB = (u32)NewState;
+   0:	f240 53ac 	movw	r3, #1452	; 0x5ac
+   4:	f2c4 2330 	movt	r3, #16944	; 0x4230
+   8:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:578
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_SendSDIOSuspendCmd:
+
+00000000 <SDIO_SendSDIOSuspendCmd>:
+SDIO_SendSDIOSuspendCmd():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:593
+void SDIO_SendSDIOSuspendCmd(FunctionalState NewState)
+{ 
+  /* Check the parameters */
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  *(vu32 *) CMD_SDIOSUSPEND_BB = (u32)NewState;
+   0:	f44f 73d6 	mov.w	r3, #428	; 0x1ac
+   4:	f2c4 2330 	movt	r3, #16944	; 0x4230
+   8:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:594
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_CommandCompletionCmd:
+
+00000000 <SDIO_CommandCompletionCmd>:
+SDIO_CommandCompletionCmd():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:609
+void SDIO_CommandCompletionCmd(FunctionalState NewState)
+{ 
+  /* Check the parameters */
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  *(vu32 *) CMD_ENCMDCOMPL_BB = (u32)NewState;
+   0:	f44f 73d8 	mov.w	r3, #432	; 0x1b0
+   4:	f2c4 2330 	movt	r3, #16944	; 0x4230
+   8:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:610
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_CEATAITCmd:
+
+00000000 <SDIO_CEATAITCmd>:
+SDIO_CEATAITCmd():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:625
+void SDIO_CEATAITCmd(FunctionalState NewState)
+{ 
+  /* Check the parameters */
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  *(vu32 *) CMD_NIEN_BB = (u32)((~((u32)NewState)) & ((u32)0x1));
+   0:	f010 0f01 	tst.w	r0, #1
+   4:	bf14      	ite	ne
+   6:	2200      	movne	r2, #0
+   8:	2201      	moveq	r2, #1
+   a:	f44f 73da 	mov.w	r3, #436	; 0x1b4
+   e:	f2c4 2330 	movt	r3, #16944	; 0x4230
+  12:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:626
+}
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text.SDIO_SendCEATACmd:
+
+00000000 <SDIO_SendCEATACmd>:
+SDIO_SendCEATACmd():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:641
+void SDIO_SendCEATACmd(FunctionalState NewState)
+{ 
+  /* Check the parameters */
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  *(vu32 *) CMD_ATACMD_BB = (u32)NewState;
+   0:	f44f 73dc 	mov.w	r3, #440	; 0x1b8
+   4:	f2c4 2330 	movt	r3, #16944	; 0x4230
+   8:	6018      	str	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:642
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_GetFlagStatus:
+
+00000000 <SDIO_GetFlagStatus>:
+SDIO_GetFlagStatus():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:690
+  FlagStatus bitstatus = RESET;
+  
+  /* Check the parameters */
+  assert_param(IS_SDIO_FLAG(SDIO_FLAG));
+  
+  if ((SDIO->STA & SDIO_FLAG) != (u32)RESET)
+   0:	f44f 4300 	mov.w	r3, #32768	; 0x8000
+   4:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   8:	6b5b      	ldr	r3, [r3, #52]	; 0x34
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:692
+  {
+    bitstatus = SET;
+   a:	4218      	tst	r0, r3
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:699
+  else
+  {
+    bitstatus = RESET;
+  }
+  return bitstatus;
+}
+   c:	bf0c      	ite	eq
+   e:	2000      	moveq	r0, #0
+  10:	2001      	movne	r0, #1
+  12:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_ClearFlag:
+
+00000000 <SDIO_ClearFlag>:
+SDIO_ClearFlag():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:735
+void SDIO_ClearFlag(u32 SDIO_FLAG)
+{ 
+  /* Check the parameters */
+  assert_param(IS_SDIO_CLEAR_FLAG(SDIO_FLAG));
+   
+  SDIO->ICR = SDIO_FLAG;
+   0:	f44f 4300 	mov.w	r3, #32768	; 0x8000
+   4:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   8:	6398      	str	r0, [r3, #56]	; 0x38
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:736
+}
+   a:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_GetITStatus:
+
+00000000 <SDIO_GetITStatus>:
+SDIO_GetITStatus():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:785
+  ITStatus bitstatus = RESET;
+  
+  /* Check the parameters */
+  assert_param(IS_SDIO_GET_IT(SDIO_IT));
+
+  if ((SDIO->STA & SDIO_IT) != (u32)RESET)  
+   0:	f44f 4300 	mov.w	r3, #32768	; 0x8000
+   4:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   8:	6b5b      	ldr	r3, [r3, #52]	; 0x34
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:787
+  {
+    bitstatus = SET;
+   a:	4218      	tst	r0, r3
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:794
+  else
+  {
+    bitstatus = RESET;
+  }
+  return bitstatus;
+}
+   c:	bf0c      	ite	eq
+   e:	2000      	moveq	r0, #0
+  10:	2001      	movne	r0, #1
+  12:	4770      	bx	lr
+
+Disassembly of section .text.SDIO_ClearITPendingBit:
+
+00000000 <SDIO_ClearITPendingBit>:
+SDIO_ClearITPendingBit():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:829
+void SDIO_ClearITPendingBit(u32 SDIO_IT)
+{ 
+  /* Check the parameters */
+  assert_param(IS_SDIO_CLEAR_IT(SDIO_IT));
+   
+  SDIO->ICR = SDIO_IT;
+   0:	f44f 4300 	mov.w	r3, #32768	; 0x8000
+   4:	f2c4 0301 	movt	r3, #16385	; 0x4001
+   8:	6398      	str	r0, [r3, #56]	; 0x38
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\library\src/stm32f10x_sdio.c:830
+}
+   a:	4770      	bx	lr

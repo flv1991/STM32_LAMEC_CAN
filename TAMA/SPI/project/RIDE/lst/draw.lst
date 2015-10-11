@@ -1,0 +1,910 @@
+
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\RIDE\obj\draw.o:     file format elf32-littlearm
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project\RIDE\obj\draw.o
+
+
+Disassembly of section .text.DRAW_DisplayStringWithMode:
+
+00000000 <DRAW_DisplayStringWithMode>:
+DRAW_DisplayStringWithMode():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:129
+*  @see           DRAW_DisplayStringInverted
+*
+**/
+/******************************************************************************/
+static void DRAW_DisplayStringWithMode( u8 x, u8 y, const u8* ptr, u8 len, int mode )
+   {
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	b083      	sub	sp, #12
+   6:	4689      	mov	r9, r1
+   8:	4690      	mov	r8, r2
+   a:	469b      	mov	fp, r3
+   c:	f8dd a030 	ldr.w	sl, [sp, #48]	; 0x30
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:133
+   u8 ref_x = x, i = 0;
+
+   /* Send the string character by character on LCD */
+   while ((*ptr!=0)&&(i<18))
+  10:	7812      	ldrb	r2, [r2, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:130
+*
+**/
+/******************************************************************************/
+static void DRAW_DisplayStringWithMode( u8 x, u8 y, const u8* ptr, u8 len, int mode )
+   {
+   u8 ref_x = x, i = 0;
+  12:	4605      	mov	r5, r0
+  14:	f04f 0400 	mov.w	r4, #0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:133
+
+   /* Send the string character by character on LCD */
+   while ((*ptr!=0)&&(i<18))
+  18:	2a00      	cmp	r2, #0
+  1a:	d02e      	beq.n	7a <DRAW_DisplayStringWithMode+0x7a>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:130
+*
+**/
+/******************************************************************************/
+static void DRAW_DisplayStringWithMode( u8 x, u8 y, const u8* ptr, u8 len, int mode )
+   {
+   u8 ref_x = x, i = 0;
+  1c:	4605      	mov	r5, r0
+  1e:	f04f 0400 	mov.w	r4, #0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:136
+
+   /* Send the string character by character on LCD */
+   while ((*ptr!=0)&&(i<18))
+      {
+      /* Display one character on LCD */
+      LCD_DisplayChar( ref_x, y, *ptr, mode ? BGndColor : TextColor,  mode ? TextColor : BGndColor, CharMagniCoeff );
+  22:	f240 0700 	movw	r7, #0
+  26:	f2c0 0700 	movt	r7, #0
+  2a:	f240 0600 	movw	r6, #0
+  2e:	f2c0 0600 	movt	r6, #0
+  32:	f1ba 0f00 	cmp.w	sl, #0
+  36:	d002      	beq.n	3e <DRAW_DisplayStringWithMode+0x3e>
+  38:	883b      	ldrh	r3, [r7, #0]
+  3a:	8879      	ldrh	r1, [r7, #2]
+  3c:	e001      	b.n	42 <DRAW_DisplayStringWithMode+0x42>
+  3e:	887b      	ldrh	r3, [r7, #2]
+  40:	8839      	ldrh	r1, [r7, #0]
+  42:	9100      	str	r1, [sp, #0]
+  44:	8831      	ldrh	r1, [r6, #0]
+  46:	9101      	str	r1, [sp, #4]
+  48:	4628      	mov	r0, r5
+  4a:	4649      	mov	r1, r9
+  4c:	f7ff fffe 	bl	0 <LCD_DisplayChar>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:139
+
+      /* Increment the column position by 7 */
+      ref_x+= (7*CharMagniCoeff);
+  50:	7833      	ldrb	r3, [r6, #0]
+  52:	ebc3 03c3 	rsb	r3, r3, r3, lsl #3
+  56:	18ed      	adds	r5, r5, r3
+  58:	b2ed      	uxtb	r5, r5
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:145
+
+      /* Point on the next character */
+      ptr++;
+
+      /* Increment the character counter */
+      i++;
+  5a:	f104 0401 	add.w	r4, r4, #1
+  5e:	b2e4      	uxtb	r4, r4
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:133
+static void DRAW_DisplayStringWithMode( u8 x, u8 y, const u8* ptr, u8 len, int mode )
+   {
+   u8 ref_x = x, i = 0;
+
+   /* Send the string character by character on LCD */
+   while ((*ptr!=0)&&(i<18))
+  60:	f818 2f01 	ldrb.w	r2, [r8, #1]!
+  64:	2c11      	cmp	r4, #17
+  66:	bf8c      	ite	hi
+  68:	2300      	movhi	r3, #0
+  6a:	2301      	movls	r3, #1
+  6c:	2a00      	cmp	r2, #0
+  6e:	bf0c      	ite	eq
+  70:	2300      	moveq	r3, #0
+  72:	f003 0301 	andne.w	r3, r3, #1
+  76:	2b00      	cmp	r3, #0
+  78:	d1db      	bne.n	32 <DRAW_DisplayStringWithMode+0x32>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:149
+      /* Increment the character counter */
+      i++;
+      /* If we reach the maximum Line character */
+      }
+
+   while ( i < len )
+  7a:	45a3      	cmp	fp, r4
+  7c:	d924      	bls.n	c8 <DRAW_DisplayStringWithMode+0xc8>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:152
+      {
+      /* Display one character on LCD */
+      LCD_DisplayChar( ref_x, y, ' ', mode ? BGndColor : TextColor, mode ? TextColor : BGndColor, CharMagniCoeff );
+  7e:	f240 0600 	movw	r6, #0
+  82:	f2c0 0600 	movt	r6, #0
+  86:	f240 0700 	movw	r7, #0
+  8a:	f2c0 0700 	movt	r7, #0
+  8e:	f04f 0820 	mov.w	r8, #32
+  92:	f1ba 0f00 	cmp.w	sl, #0
+  96:	d002      	beq.n	9e <DRAW_DisplayStringWithMode+0x9e>
+  98:	8833      	ldrh	r3, [r6, #0]
+  9a:	8872      	ldrh	r2, [r6, #2]
+  9c:	e001      	b.n	a2 <DRAW_DisplayStringWithMode+0xa2>
+  9e:	8873      	ldrh	r3, [r6, #2]
+  a0:	8832      	ldrh	r2, [r6, #0]
+  a2:	9200      	str	r2, [sp, #0]
+  a4:	883a      	ldrh	r2, [r7, #0]
+  a6:	9201      	str	r2, [sp, #4]
+  a8:	4628      	mov	r0, r5
+  aa:	4649      	mov	r1, r9
+  ac:	4642      	mov	r2, r8
+  ae:	f7ff fffe 	bl	0 <LCD_DisplayChar>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:155
+
+      /* Increment the column position by 7 */
+      ref_x += ( 7 * CharMagniCoeff );
+  b2:	883b      	ldrh	r3, [r7, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:158
+
+      /* Increment the character counter */
+      i++;
+  b4:	f104 0401 	add.w	r4, r4, #1
+  b8:	b2e4      	uxtb	r4, r4
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:149
+      /* Increment the character counter */
+      i++;
+      /* If we reach the maximum Line character */
+      }
+
+   while ( i < len )
+  ba:	45a3      	cmp	fp, r4
+  bc:	d904      	bls.n	c8 <DRAW_DisplayStringWithMode+0xc8>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:155
+      {
+      /* Display one character on LCD */
+      LCD_DisplayChar( ref_x, y, ' ', mode ? BGndColor : TextColor, mode ? TextColor : BGndColor, CharMagniCoeff );
+
+      /* Increment the column position by 7 */
+      ref_x += ( 7 * CharMagniCoeff );
+  be:	ebc3 03c3 	rsb	r3, r3, r3, lsl #3
+  c2:	18ed      	adds	r5, r5, r3
+  c4:	b2ed      	uxtb	r5, r5
+  c6:	e7e4      	b.n	92 <DRAW_DisplayStringWithMode+0x92>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:160
+
+      /* Increment the character counter */
+      i++;
+      }
+   }
+  c8:	b003      	add	sp, #12
+  ca:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+  ce:	bf00      	nop
+
+Disassembly of section .text.DRAW_SetCharMagniCoeff:
+
+00000000 <DRAW_SetCharMagniCoeff>:
+DRAW_SetCharMagniCoeff():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:219
+*
+**/
+/******************************************************************************/
+void DRAW_SetCharMagniCoeff( u16 Coeff )
+   {
+   CharMagniCoeff = Coeff;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	8018      	strh	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:220
+   }
+   a:	4770      	bx	lr
+
+Disassembly of section .text.DRAW_GetCharMagniCoeff:
+
+00000000 <DRAW_GetCharMagniCoeff>:
+DRAW_GetCharMagniCoeff():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:236
+*  @return  Current magnifying value.
+*
+**/
+/******************************************************************************/
+u16 DRAW_GetCharMagniCoeff( void )
+   {
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:238
+   return CharMagniCoeff;
+   }
+   8:	8818      	ldrh	r0, [r3, #0]
+   a:	4770      	bx	lr
+
+Disassembly of section .text.DRAW_GetTextColor:
+
+00000000 <DRAW_GetTextColor>:
+DRAW_GetTextColor():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:254
+*  @return  The current RGB color used to draw text.
+*
+**/
+/******************************************************************************/
+u16 DRAW_GetTextColor( void )
+   {
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:256
+   return TextColor;
+   }
+   8:	8858      	ldrh	r0, [r3, #2]
+   a:	4770      	bx	lr
+
+Disassembly of section .text.DRAW_SetTextColor:
+
+00000000 <DRAW_SetTextColor>:
+DRAW_SetTextColor():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:273
+*
+**/
+/******************************************************************************/
+void DRAW_SetTextColor( u16 Color )
+   {
+   TextColor = Color ;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	8058      	strh	r0, [r3, #2]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:274
+   }
+   a:	4770      	bx	lr
+
+Disassembly of section .text.DRAW_GetBGndColor:
+
+00000000 <DRAW_GetBGndColor>:
+DRAW_GetBGndColor():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:290
+*  @return  The current RGB color used for the background.
+*
+**/
+/******************************************************************************/
+u16 DRAW_GetBGndColor( void )
+   {
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:292
+   return BGndColor;
+   }
+   8:	8818      	ldrh	r0, [r3, #0]
+   a:	4770      	bx	lr
+
+Disassembly of section .text.DRAW_SetBGndColor:
+
+00000000 <DRAW_SetBGndColor>:
+DRAW_SetBGndColor():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:309
+*
+**/
+/******************************************************************************/
+void DRAW_SetBGndColor(u16 Color)
+   {
+   BGndColor = Color;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	8018      	strh	r0, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:310
+   }
+   a:	4770      	bx	lr
+
+Disassembly of section .text.DRAW_SetImage:
+
+00000000 <DRAW_SetImage>:
+DRAW_SetImage():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:335
+*  @warning       The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void DRAW_SetImage( const u16* imageptr, u8 x, u8 y, u8 width, u8 height )
+   {
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	4605      	mov	r5, r0
+   4:	461e      	mov	r6, r3
+   6:	f89d 4010 	ldrb.w	r4, [sp, #16]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:339
+   int i;
+
+   // Select screen area to access.
+   LCD_SetRect_For_Cmd( x, y, width, height );
+   a:	4608      	mov	r0, r1
+   c:	4611      	mov	r1, r2
+   e:	461a      	mov	r2, r3
+  10:	4623      	mov	r3, r4
+  12:	f7ff fffe 	bl	0 <LCD_SetRect_For_Cmd>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:342
+
+   // Send command to write data on the LCD screen.
+   LCD_SendLCDCmd(ST7637_RAMWR);
+  16:	f04f 002c 	mov.w	r0, #44	; 0x2c
+  1a:	f7ff fffe 	bl	0 <LCD_SendLCDCmd>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:344
+
+   for( i = 0; i < ( width * height ); i++ )
+  1e:	fb06 f604 	mul.w	r6, r6, r4
+  22:	b176      	cbz	r6, 42 <DRAW_SetImage+0x42>
+  24:	f04f 0400 	mov.w	r4, #0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:346
+      {
+      LCD_SendLCDData( imageptr[ i ] & 0xff );
+  28:	7828      	ldrb	r0, [r5, #0]
+  2a:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:347
+      LCD_SendLCDData( ( imageptr[ i ] >> 8 ) & 0xff );
+  2e:	f835 0b02 	ldrh.w	r0, [r5], #2
+  32:	ea4f 2010 	mov.w	r0, r0, lsr #8
+  36:	f7ff fffe 	bl	0 <LCD_SendLCDData>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:344
+   LCD_SetRect_For_Cmd( x, y, width, height );
+
+   // Send command to write data on the LCD screen.
+   LCD_SendLCDCmd(ST7637_RAMWR);
+
+   for( i = 0; i < ( width * height ); i++ )
+  3a:	f104 0401 	add.w	r4, r4, #1
+  3e:	42b4      	cmp	r4, r6
+  40:	dbf2      	blt.n	28 <DRAW_SetImage+0x28>
+  42:	bd70      	pop	{r4, r5, r6, pc}
+
+Disassembly of section .text.DRAW_DisplayString:
+
+00000000 <DRAW_DisplayString>:
+DRAW_DisplayString():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:373
+*  @warning       The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void DRAW_DisplayString( u8 x, u8 y, const u8* ptr, u8 len )
+   {
+   0:	b510      	push	{r4, lr}
+   2:	b082      	sub	sp, #8
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:374
+   DRAW_DisplayStringWithMode( x, y, ptr, len, 0 );
+   4:	f04f 0400 	mov.w	r4, #0
+   8:	9400      	str	r4, [sp, #0]
+   a:	f7ff fffe 	bl	0 <DRAW_DisplayString>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:375
+   }
+   e:	b002      	add	sp, #8
+  10:	bd10      	pop	{r4, pc}
+  12:	bf00      	nop
+
+Disassembly of section .text.DRAW_DisplayStringInverted:
+
+00000000 <DRAW_DisplayStringInverted>:
+DRAW_DisplayStringInverted():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:397
+*  @warning       The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void DRAW_DisplayStringInverted( u8 x, u8 y, const u8* ptr, u8 len )
+   {
+   0:	b510      	push	{r4, lr}
+   2:	b082      	sub	sp, #8
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:399
+   //BackGround and Text Colors are inverted
+   DRAW_DisplayStringWithMode( x, y, ptr, len, 1 );
+   4:	f04f 0401 	mov.w	r4, #1
+   8:	9400      	str	r4, [sp, #0]
+   a:	f7ff fffe 	bl	0 <DRAW_DisplayStringInverted>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:400
+   }
+   e:	b002      	add	sp, #8
+  10:	bd10      	pop	{r4, pc}
+  12:	bf00      	nop
+
+Disassembly of section .text.DRAW_SetDefaultColor:
+
+00000000 <DRAW_SetDefaultColor>:
+DRAW_SetDefaultColor():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:415
+*
+**/
+/******************************************************************************/
+void DRAW_SetDefaultColor (void)
+   {
+   BGndColor = RGB_WHITE;
+   0:	f240 0300 	movw	r3, #0
+   4:	f2c0 0300 	movt	r3, #0
+   8:	f04f 32ff 	mov.w	r2, #4294967295
+   c:	801a      	strh	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:416
+   TextColor = RGB_BLACK;
+   e:	f04f 0200 	mov.w	r2, #0
+  12:	805a      	strh	r2, [r3, #2]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:417
+   }
+  14:	4770      	bx	lr
+  16:	bf00      	nop
+
+Disassembly of section .text.DRAW_Init:
+
+00000000 <DRAW_Init>:
+DRAW_Init():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:178
+*  @attention  This function must <b>NOT</b> be called by the user.
+*
+**/
+/******************************************************************************/
+void DRAW_Init( void )
+   {
+   0:	b500      	push	{lr}
+   2:	b083      	sub	sp, #12
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:179
+   LCD_Init();
+   4:	f7ff fffe 	bl	0 <LCD_Init>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:183
+#ifdef _MEMS
+   MEMS_GetRotation( &CurrentScreenOrientation );
+#endif
+   LCD_SetScreenOrientation( CurrentScreenOrientation );
+   8:	f240 0300 	movw	r3, #0
+   c:	f2c0 0300 	movt	r3, #0
+  10:	7818      	ldrb	r0, [r3, #0]
+  12:	f7ff fffe 	bl	0 <LCD_SetScreenOrientation>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:185
+
+   xBat        = 98;
+  16:	f240 0300 	movw	r3, #0
+  1a:	f2c0 0300 	movt	r3, #0
+  1e:	f04f 0262 	mov.w	r2, #98	; 0x62
+  22:	801a      	strh	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:186
+   yBat        = 3;
+  24:	f240 0300 	movw	r3, #0
+  28:	f2c0 0300 	movt	r3, #0
+  2c:	f04f 0203 	mov.w	r2, #3
+  30:	801a      	strh	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:187
+   OldBatState = 10;
+  32:	f240 0300 	movw	r3, #0
+  36:	f2c0 0300 	movt	r3, #0
+  3a:	f04f 020a 	mov.w	r2, #10
+  3e:	801a      	strh	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:188
+   OldTSS      = 100;
+  40:	f240 0300 	movw	r3, #0
+  44:	f2c0 0300 	movt	r3, #0
+  48:	f04f 0264 	mov.w	r2, #100	; 0x64
+  4c:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:189
+   OldTMM      = 100;
+  4e:	f240 0300 	movw	r3, #0
+  52:	f2c0 0300 	movt	r3, #0
+  56:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:190
+   OldTHH      = 100;
+  58:	f240 0300 	movw	r3, #0
+  5c:	f2c0 0300 	movt	r3, #0
+  60:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:191
+   OldTemp     = -1;
+  62:	f240 0300 	movw	r3, #0
+  66:	f2c0 0300 	movt	r3, #0
+  6a:	f04f 32ff 	mov.w	r2, #4294967295
+  6e:	601a      	str	r2, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:194
+
+   // Clear LCD and draw black and white logo
+   DRAW_SetDefaultColor();
+  70:	f7ff fffe 	bl	0 <DRAW_Init>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:195
+	LCD_FillRect( 0, 0, CHIP_SCREEN_WIDTH, CHIP_SCREEN_HEIGHT, BGndColor );
+  74:	f240 0300 	movw	r3, #0
+  78:	f2c0 0300 	movt	r3, #0
+  7c:	881b      	ldrh	r3, [r3, #0]
+  7e:	9300      	str	r3, [sp, #0]
+  80:	f04f 0000 	mov.w	r0, #0
+  84:	4601      	mov	r1, r0
+  86:	f04f 0284 	mov.w	r2, #132	; 0x84
+  8a:	4613      	mov	r3, r2
+  8c:	f7ff fffe 	bl	0 <LCD_FillRect>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:197
+//   POINTER_Init();
+   }
+  90:	b003      	add	sp, #12
+  92:	bd00      	pop	{pc}
+
+Disassembly of section .text.DRAW_DisplayTemp:
+
+00000000 <DRAW_DisplayTemp>:
+DRAW_DisplayTemp():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:437
+*  @warning       The (0x0) point in on the low left corner.
+*
+**/
+/******************************************************************************/
+void DRAW_DisplayTemp( u8 x, u8 y )
+   {
+   0:	b5f0      	push	{r4, r5, r6, r7, lr}
+   2:	b083      	sub	sp, #12
+   4:	4606      	mov	r6, r0
+   6:	460f      	mov	r7, r1
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:439
+   u32 Temp = 0;
+   u8  TextBuffer[5] = { 0,0,0,0,0};
+   8:	f04f 0300 	mov.w	r3, #0
+   c:	f88d 3000 	strb.w	r3, [sp]
+  10:	f88d 3001 	strb.w	r3, [sp, #1]
+  14:	f88d 3002 	strb.w	r3, [sp, #2]
+  18:	f88d 3003 	strb.w	r3, [sp, #3]
+  1c:	f88d 3004 	strb.w	r3, [sp, #4]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:442
+   
+   // Get Time
+   Temp = UTIL_GetTemp() ;
+  20:	f7ff fffe 	bl	0 <UTIL_GetTemp>
+  24:	4604      	mov	r4, r0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:444
+
+   if( Temp != OldTemp ) 
+  26:	f240 0300 	movw	r3, #0
+  2a:	f2c0 0300 	movt	r3, #0
+  2e:	681b      	ldr	r3, [r3, #0]
+  30:	4298      	cmp	r0, r3
+  32:	d044      	beq.n	be <DRAW_DisplayTemp+0xbe>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:447
+      {
+      // Display C (if modified).
+      UTIL_uint2str( TextBuffer, Temp/10, 2, 1 );
+  34:	f64c 45cd 	movw	r5, #52429	; 0xcccd
+  38:	f6cc 45cc 	movt	r5, #52428	; 0xcccc
+  3c:	fba5 3500 	umull	r3, r5, r5, r0
+  40:	ea4f 05d5 	mov.w	r5, r5, lsr #3
+  44:	4668      	mov	r0, sp
+  46:	4629      	mov	r1, r5
+  48:	f04f 0202 	mov.w	r2, #2
+  4c:	f04f 0301 	mov.w	r3, #1
+  50:	f7ff fffe 	bl	0 <UTIL_uint2str>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:448
+      TextBuffer[ 2 ] = '.';
+  54:	f04f 032e 	mov.w	r3, #46	; 0x2e
+  58:	f88d 3002 	strb.w	r3, [sp, #2]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:449
+      DRAW_DisplayString( x + ( 0 * CharMagniCoeff * 7 ), y, TextBuffer, 3 );
+  5c:	4630      	mov	r0, r6
+  5e:	4639      	mov	r1, r7
+  60:	466a      	mov	r2, sp
+  62:	f04f 0303 	mov.w	r3, #3
+  66:	f7ff fffe 	bl	0 <DRAW_DisplayTemp>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:452
+
+      // Display C/10 (if modified).
+      UTIL_uint2str( TextBuffer, Temp%10, 1, 1 );
+  6a:	eb05 0585 	add.w	r5, r5, r5, lsl #2
+  6e:	4668      	mov	r0, sp
+  70:	eba4 0145 	sub.w	r1, r4, r5, lsl #1
+  74:	f04f 0201 	mov.w	r2, #1
+  78:	4613      	mov	r3, r2
+  7a:	f7ff fffe 	bl	0 <UTIL_uint2str>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:453
+      TextBuffer[ 1 ] = fTemperatureInFahrenheit ? 'F' : 'C'; TextBuffer[ 2 ] = 0;
+  7e:	f240 0300 	movw	r3, #0
+  82:	f2c0 0300 	movt	r3, #0
+  86:	781b      	ldrb	r3, [r3, #0]
+  88:	2b00      	cmp	r3, #0
+  8a:	bf0c      	ite	eq
+  8c:	2343      	moveq	r3, #67	; 0x43
+  8e:	2346      	movne	r3, #70	; 0x46
+  90:	f88d 3001 	strb.w	r3, [sp, #1]
+  94:	f04f 0300 	mov.w	r3, #0
+  98:	f88d 3002 	strb.w	r3, [sp, #2]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:454
+      DRAW_DisplayString( x + ( 3 * CharMagniCoeff * 7 ), y, TextBuffer, 2 );
+  9c:	f240 0300 	movw	r3, #0
+  a0:	f2c0 0300 	movt	r3, #0
+  a4:	781b      	ldrb	r3, [r3, #0]
+  a6:	eb03 0343 	add.w	r3, r3, r3, lsl #1
+  aa:	ebc3 03c3 	rsb	r3, r3, r3, lsl #3
+  ae:	18f6      	adds	r6, r6, r3
+  b0:	b2f0      	uxtb	r0, r6
+  b2:	4639      	mov	r1, r7
+  b4:	466a      	mov	r2, sp
+  b6:	f04f 0302 	mov.w	r3, #2
+  ba:	f7ff fffe 	bl	0 <DRAW_DisplayTemp>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:456
+      }
+   OldTemp = Temp;
+  be:	f240 0300 	movw	r3, #0
+  c2:	f2c0 0300 	movt	r3, #0
+  c6:	601c      	str	r4, [r3, #0]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:457
+   }
+  c8:	b003      	add	sp, #12
+  ca:	bdf0      	pop	{r4, r5, r6, r7, pc}
+
+Disassembly of section .text.DRAW_Line:
+
+00000000 <DRAW_Line>:
+DRAW_Line():
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:476
+*  @param[in]  y2          The y-coordinate of the second line endpoint.
+*  @param[in]  color       The line color.
+*
+**/
+void DRAW_Line (s16 x1, s16 y1, s16 x2, s16 y2, u16 color )
+   {
+   0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+   4:	b087      	sub	sp, #28
+   6:	f8bd b040 	ldrh.w	fp, [sp, #64]	; 0x40
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:482
+   int i,dx,dy,sdx,sdy,dxabs,dyabs,x,y,px,py;
+
+   #define abs(X) ( ( (X) < 0 ) ? -(X) : (X) )
+   #define sgn(X) ( ( (X) < 0 ) ? -1 : 1 )
+
+   if ( x1==x2 )  //Vertical Line
+   a:	4290      	cmp	r0, r2
+   c:	d111      	bne.n	32 <DRAW_Line+0x32>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:484
+      {
+      if ( y1 > y2 ) //We assume y2>y1 and invert if not
+   e:	4299      	cmp	r1, r3
+  10:	bfc2      	ittt	gt
+  12:	460a      	movgt	r2, r1
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:488
+         {
+         i = y2;
+         y2 = y1;
+         y1 = i;
+  14:	4619      	movgt	r1, r3
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:487
+   if ( x1==x2 )  //Vertical Line
+      {
+      if ( y1 > y2 ) //We assume y2>y1 and invert if not
+         {
+         i = y2;
+         y2 = y1;
+  16:	4613      	movgt	r3, r2
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:490
+         y1 = i;
+         }
+      LCD_FillRect( x1, y1, 1, y2-y1+1, color );
+  18:	b289      	uxth	r1, r1
+  1a:	f103 0301 	add.w	r3, r3, #1
+  1e:	1a5b      	subs	r3, r3, r1
+  20:	f8cd b000 	str.w	fp, [sp]
+  24:	b280      	uxth	r0, r0
+  26:	f04f 0201 	mov.w	r2, #1
+  2a:	b29b      	uxth	r3, r3
+  2c:	f7ff fffe 	bl	0 <LCD_FillRect>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:491
+      return;
+  30:	e068      	b.n	104 <DRAW_Line+0x104>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:493
+      }
+   else if ( y1==y2 )  //Horizontal Line
+  32:	4299      	cmp	r1, r3
+  34:	d111      	bne.n	5a <DRAW_Line+0x5a>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:495
+      {
+      if ( x1 > x2 ) //We assume x2>x1 and we swap them if not
+  36:	4290      	cmp	r0, r2
+  38:	bfc2      	ittt	gt
+  3a:	4603      	movgt	r3, r0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:499
+         {
+         i = x2;
+         x2 = x1;
+         x1 = i;
+  3c:	4610      	movgt	r0, r2
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:498
+   else if ( y1==y2 )  //Horizontal Line
+      {
+      if ( x1 > x2 ) //We assume x2>x1 and we swap them if not
+         {
+         i = x2;
+         x2 = x1;
+  3e:	461a      	movgt	r2, r3
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:501
+         x1 = i;
+         }
+      LCD_FillRect( x1, y1, x2-x1+1, 1, color );
+  40:	b280      	uxth	r0, r0
+  42:	f102 0201 	add.w	r2, r2, #1
+  46:	1a12      	subs	r2, r2, r0
+  48:	f8cd b000 	str.w	fp, [sp]
+  4c:	b289      	uxth	r1, r1
+  4e:	b292      	uxth	r2, r2
+  50:	f04f 0301 	mov.w	r3, #1
+  54:	f7ff fffe 	bl	0 <LCD_FillRect>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:502
+      return;
+  58:	e054      	b.n	104 <DRAW_Line+0x104>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:505
+      }
+   
+   dx=x2-x1;      /* the horizontal distance of the line */
+  5a:	4681      	mov	r9, r0
+  5c:	1a10      	subs	r0, r2, r0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:506
+   dy=y2-y1;      /* the vertical distance of the line */
+  5e:	468a      	mov	sl, r1
+  60:	1a5b      	subs	r3, r3, r1
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:507
+   dxabs=abs(dx);
+  62:	ea80 76e0 	eor.w	r6, r0, r0, asr #31
+  66:	eba6 76e0 	sub.w	r6, r6, r0, asr #31
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:508
+   dyabs=abs(dy);
+  6a:	ea83 77e3 	eor.w	r7, r3, r3, asr #31
+  6e:	eba7 77e3 	sub.w	r7, r7, r3, asr #31
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:509
+   sdx=sgn(dx);
+  72:	2800      	cmp	r0, #0
+  74:	bfac      	ite	ge
+  76:	2001      	movge	r0, #1
+  78:	f04f 30ff 	movlt.w	r0, #4294967295
+  7c:	9004      	str	r0, [sp, #16]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:510
+   sdy=sgn(dy);
+  7e:	2b00      	cmp	r3, #0
+  80:	bfac      	ite	ge
+  82:	2301      	movge	r3, #1
+  84:	f04f 33ff 	movlt.w	r3, #4294967295
+  88:	9305      	str	r3, [sp, #20]
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:516
+   x=dyabs>>1;
+   y=dxabs>>1;
+   px=x1;
+   py=y1;
+
+   if (dxabs>=dyabs) /* the line is more horizontal than vertical */
+  8a:	42be      	cmp	r6, r7
+  8c:	da02      	bge.n	94 <DRAW_Line+0x94>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:532
+         LCD_DrawPixel(px,py,color);
+         }
+      }
+   else /* the line is more vertical than horizontal */
+      {
+      for(i=0;i<dyabs;i++)
+  8e:	2f00      	cmp	r7, #0
+  90:	dc1e      	bgt.n	d0 <DRAW_Line+0xd0>
+  92:	e037      	b.n	104 <DRAW_Line+0x104>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:518
+   px=x1;
+   py=y1;
+
+   if (dxabs>=dyabs) /* the line is more horizontal than vertical */
+      {
+      for(i=0;i<dxabs;i++)
+  94:	2e00      	cmp	r6, #0
+  96:	dd35      	ble.n	104 <DRAW_Line+0x104>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:512
+   dxabs=abs(dx);
+   dyabs=abs(dy);
+   sdx=sgn(dx);
+   sdy=sgn(dy);
+   x=dyabs>>1;
+   y=dxabs>>1;
+  98:	ea4f 0466 	mov.w	r4, r6, asr #1
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:475
+*  @param[in]  y1          The y-coordinate of the first line endpoint.
+*  @param[in]  y2          The y-coordinate of the second line endpoint.
+*  @param[in]  color       The line color.
+*
+**/
+void DRAW_Line (s16 x1, s16 y1, s16 x2, s16 y2, u16 color )
+  9c:	9b04      	ldr	r3, [sp, #16]
+  9e:	9303      	str	r3, [sp, #12]
+  a0:	eb03 0509 	add.w	r5, r3, r9
+  a4:	f04f 0800 	mov.w	r8, #0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:520
+
+   if (dxabs>=dyabs) /* the line is more horizontal than vertical */
+      {
+      for(i=0;i<dxabs;i++)
+         {
+         y+=dyabs;
+  a8:	19e4      	adds	r4, r4, r7
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:521
+         if (y>=dxabs)
+  aa:	42a6      	cmp	r6, r4
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:523
+            {
+            y-=dxabs;
+  ac:	bfde      	ittt	le
+  ae:	ebc6 0404 	rsble	r4, r6, r4
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:524
+            py+=sdy;
+  b2:	9b05      	ldrle	r3, [sp, #20]
+  b4:	449a      	addle	sl, r3
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:527
+            }
+         px+=sdx;
+         LCD_DrawPixel(px,py,color);
+  b6:	b2e8      	uxtb	r0, r5
+  b8:	fa5f f18a 	uxtb.w	r1, sl
+  bc:	465a      	mov	r2, fp
+  be:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:518
+   px=x1;
+   py=y1;
+
+   if (dxabs>=dyabs) /* the line is more horizontal than vertical */
+      {
+      for(i=0;i<dxabs;i++)
+  c2:	f108 0801 	add.w	r8, r8, #1
+  c6:	9b03      	ldr	r3, [sp, #12]
+  c8:	18ed      	adds	r5, r5, r3
+  ca:	4546      	cmp	r6, r8
+  cc:	dcec      	bgt.n	a8 <DRAW_Line+0xa8>
+  ce:	e019      	b.n	104 <DRAW_Line+0x104>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:511
+   dy=y2-y1;      /* the vertical distance of the line */
+   dxabs=abs(dx);
+   dyabs=abs(dy);
+   sdx=sgn(dx);
+   sdy=sgn(dy);
+   x=dyabs>>1;
+  d0:	ea4f 0467 	mov.w	r4, r7, asr #1
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:475
+*  @param[in]  y1          The y-coordinate of the first line endpoint.
+*  @param[in]  y2          The y-coordinate of the second line endpoint.
+*  @param[in]  color       The line color.
+*
+**/
+void DRAW_Line (s16 x1, s16 y1, s16 x2, s16 y2, u16 color )
+  d4:	9b05      	ldr	r3, [sp, #20]
+  d6:	9303      	str	r3, [sp, #12]
+  d8:	185d      	adds	r5, r3, r1
+  da:	f04f 0800 	mov.w	r8, #0
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:534
+      }
+   else /* the line is more vertical than horizontal */
+      {
+      for(i=0;i<dyabs;i++)
+         {
+         x+=dxabs;
+  de:	19a4      	adds	r4, r4, r6
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:535
+         if (x>=dyabs)
+  e0:	42a7      	cmp	r7, r4
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:537
+            {
+            x-=dyabs;
+  e2:	bfde      	ittt	le
+  e4:	ebc7 0404 	rsble	r4, r7, r4
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:538
+            px+=sdx;
+  e8:	9b04      	ldrle	r3, [sp, #16]
+  ea:	4499      	addle	r9, r3
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:541
+            }
+         py+=sdy;
+         LCD_DrawPixel(px,py,color);
+  ec:	fa5f f089 	uxtb.w	r0, r9
+  f0:	b2e9      	uxtb	r1, r5
+  f2:	465a      	mov	r2, fp
+  f4:	f7ff fffe 	bl	0 <LCD_DrawPixel>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:532
+         LCD_DrawPixel(px,py,color);
+         }
+      }
+   else /* the line is more vertical than horizontal */
+      {
+      for(i=0;i<dyabs;i++)
+  f8:	f108 0801 	add.w	r8, r8, #1
+  fc:	9b03      	ldr	r3, [sp, #12]
+  fe:	18ed      	adds	r5, r5, r3
+ 100:	4547      	cmp	r7, r8
+ 102:	dcec      	bgt.n	de <DRAW_Line+0xde>
+C:\Users\fv\Desktop\STM32_LAMEC_CAN\TAMA\SPI\project/draw.c:544
+            }
+         py+=sdy;
+         LCD_DrawPixel(px,py,color);
+         }
+      }
+   }
+ 104:	b007      	add	sp, #28
+ 106:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 10a:	bf00      	nop
